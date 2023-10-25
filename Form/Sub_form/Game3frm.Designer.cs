@@ -364,6 +364,7 @@
             Resetbtn.StateTracking.Border.Width = 1;
             Resetbtn.TabIndex = 57;
             Resetbtn.Values.Text = "Reset";
+            Resetbtn.Click += Resetbtn_Click;
             // 
             // Game3frm
             // 
@@ -390,6 +391,7 @@
             Name = "Game3frm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Game 3";
+            Load += Game3frm_Load;
             ((System.ComponentModel.ISupportInitialize)Gamepnl).EndInit();
             Gamepnl.ResumeLayout(false);
             Gamepnl.PerformLayout();

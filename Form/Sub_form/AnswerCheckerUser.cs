@@ -14,11 +14,11 @@ using MySql.Data.MySqlClient;
 
 namespace app_lomba_cerdas_cermat.Form.Sub_form
 {
-    public partial class TimerGamefrm : KryptonForm
+    public partial class AnswerCheckerUser : KryptonForm
     {
         private SoundPlayer _soundTest = new SoundPlayer("times_up_sound.wav");
         public int timer = 0;
-        public TimerGamefrm()
+        public AnswerCheckerUser()
         {
             InitializeComponent();
         }
@@ -46,12 +46,14 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
 
         private void Benarbtn_Click(object sender, EventArgs e)
         {
+            timer1.Enabled = false;
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
 
         private void Salahbtn_Click(object sender, EventArgs e)
         {
+            timer1.Enabled = false;
             this.DialogResult = DialogResult.Cancel;
             this.Close();
         }

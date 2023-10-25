@@ -21,52 +21,151 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
             InitializeComponent();
         }
 
+        private void reset()
+        {
+            try
+            {
+                if (db.conn.State == ConnectionState.Closed)
+                {
+                    db.conn.Open();
+
+                }
+                //reset game table
+                MySqlCommand cmd = new MySqlCommand("UPDATE `game` SET `game_status`='none',`peserta`='none',`timer`=0 ", db.conn);
+                cmd.ExecuteNonQuery();
+
+                //reset blacklist
+                cmd = new MySqlCommand("DELETE FROM `game_blacklist`", db.conn);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                Startbtn.Enabled = true;
+            }
+        }
+        private void reLoad()
+        {
+            try
+            {
+                Pesertacmb.Items.Clear();
+                if (db.conn.State == ConnectionState.Closed)
+                {
+                    db.conn.Open();
+
+                }
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM users LEFT JOIN game_blacklist on users.username = game_blacklist.peserta WHERE users.usertype = 1 AND game_blacklist.peserta IS NULL;", db.conn);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Pesertacmb.Items.Add(reader["username"].ToString());
+                }
+                reader.Close();
+                Pesertacmb.SelectedIndex = 0;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                this.Close();
+            }
+        }
         private void Game2frm_Load(object sender, EventArgs e)
         {
-            reset();
+            try
+            {
+                if (db.conn.State == ConnectionState.Closed)
+                {
+                    db.conn.Open();
+
+                }
+
+                //checked asigned peserta to game
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM `game` WHERE peserta != 'none'", db.conn);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    Resetbtn.Enabled = true;
+                }
+                reader.Close();
+
+                //checked blacklist
+                cmd = new MySqlCommand("SELECT * FROM `game_blacklist`", db.conn);
+                reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    Resetbtn.Enabled = true;
+                }
+                reader.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                this.Close();
+            }
+            reLoad();
         }
 
         private void Startbtn_Click(object sender, EventArgs e)
         {
-            Startbtn.Enabled = false;
-            //peserta = Pesertacmb.Text;
+            //validasi
             if (Scorestxt.Text.Replace(" ", "") == "")
             {
                 MessageBox.Show("Atur Scores!!");
-                Startbtn.Enabled = true;
                 return;
             }
             if (!int.TryParse(Scorestxt.Text, out _))
             {
                 MessageBox.Show("Scores harus angka!!");
-                Startbtn.Enabled = true;
                 return;
             }
 
             if ((Secondtxt.Text == "00" && Minutetxt.Text == "00") || Secondtxt.Text.Trim() == "" || Minutetxt.Text.Trim() == "")
             {
                 MessageBox.Show("Atur TImer!!");
-                Startbtn.Enabled = true;
                 return;
             }
 
             if (!int.TryParse(Minutetxt.Text, out _) || !int.TryParse(Secondtxt.Text, out _))
             {
                 MessageBox.Show("Timer Harus Angka!!");
-                Startbtn.Enabled = true;
                 return;
             }
 
+
             peserta = Pesertacmb.Text;
+
+            //disabled form
+            Startbtn.Enabled = false;
             Pesertacmb.Enabled = false;
             Scorestxt.Enabled = false;
             Minutetxt.Enabled = false;
             Secondtxt.Enabled = false;
 
-            TimerGamefrm timerGame2 = new TimerGamefrm();
-            timerGame2.timer = Int32.Parse(Minutetxt.Text) * 60 + Int32.Parse(Secondtxt.Text);
-            timerGame2.ShowDialog();
-            if (timerGame2.DialogResult == DialogResult.OK)
+            //Update game table
+            try
+            {
+                if (db.conn.State == ConnectionState.Closed)
+                {
+                    db.conn.Open();
+
+                }
+                MySqlCommand cmd = new MySqlCommand("UPDATE `game` SET `game_status`='game 3', `timer`= " + (Int32.Parse(Minutetxt.Text) * 60 + Int32.Parse(Secondtxt.Text)), db.conn);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            //checked user answer 
+            AnswerCheckerUser answerCheckerUser = new AnswerCheckerUser();
+            answerCheckerUser.timer = Int32.Parse(Minutetxt.Text) * 60 + Int32.Parse(Secondtxt.Text);
+            answerCheckerUser.ShowDialog();
+
+            //true
+            if (answerCheckerUser.DialogResult == DialogResult.OK)
             {
 
                 try
@@ -80,15 +179,17 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                     cmd.ExecuteNonQuery();
                     reset();
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    MessageBox.Show("terjadi kesalahan");
+                    MessageBox.Show(ex.Message);
                     Startbtn.Enabled = true;
                 }
+                Startbtn.Enabled = true;
 
             }
 
-            if (timerGame2.DialogResult == DialogResult.Cancel)
+            //false
+            if (answerCheckerUser.DialogResult == DialogResult.Cancel)
             {
                 Pesertacmb.Enabled = true;
                 Scorestxt.Enabled = true;
@@ -97,53 +198,49 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                 Startbtn.Enabled = true;
                 Resetbtn.Enabled = true;
 
+                //blacklist peserta
                 Pesertacmb.Items.Remove(peserta);
+                try
+                {
+                    if (db.conn.State == ConnectionState.Closed)
+                    {
+                        db.conn.Open();
 
+                    }
+
+                    //blacklist peserta
+                    MySqlCommand cmd = new MySqlCommand("INSERT INTO `game_blacklist`(`peserta`) VALUES ('" + peserta + "')", db.conn);
+                    cmd.ExecuteNonQuery();
+
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    Startbtn.Enabled = true;
+                }
+
+                //reset if no more peserta
                 if (Pesertacmb.Items.Count == 0)
                 {
                     Scorestxt.Text = "";
                     Minutetxt.Text = "00";
                     Secondtxt.Text = "00";
                     reset();
+                    reLoad();
                     return;
                 }
                 Pesertacmb.SelectedIndex = 0;
             }
         }
 
-        private void reset()
-        {
-            try
-            {
-                Pesertacmb.Items.Clear();
-                if (db.conn.State == ConnectionState.Closed)
-                {
-                    db.conn.Open();
-
-                }
-                MySqlCommand cmd = new MySqlCommand("select * from users where usertype = 1", db.conn);
-                MySqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    Pesertacmb.Items.Add(reader["username"].ToString());
-                }
-                reader.Close();
-                Pesertacmb.SelectedIndex = 0;
-
-            }
-            catch
-            {
-                MessageBox.Show("Server Putus!");
-                this.Close();
-            }
-        }
-
         private void Resetbtn_Click(object sender, EventArgs e)
         {
-            var confirm = MessageBox.Show("Tidakan Ini Akan Mereset Game", "Konfirmasi", MessageBoxButtons.OKCancel, MessageBoxIcon.None, MessageBoxDefaultButton.Button2);
+            var confirm = MessageBox.Show("Tidakan Ini Akan Mereset Game", "Konfirmasi", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
             if (confirm == DialogResult.OK)
             {
                 reset();
+                reLoad();
             }
         }
     }

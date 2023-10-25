@@ -15,6 +15,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
 {
     public partial class Waitingfrm : KryptonForm
     {
+        public string peserta;
         public Waitingfrm()
         {
             InitializeComponent();
@@ -38,14 +39,14 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                 MySqlDataReader reader = cmd.ExecuteReader();
                 if (reader.Read())
                 {
-                    if (reader["peserta"].ToString() != "-")
+                    if (reader["peserta"].ToString() != "none")
                     {
+                        peserta = reader["peserta"].ToString();
                         this.DialogResult = DialogResult.OK;
                         this.Close();
                     }
                 }
                 reader.Close();
-                timer1.Enabled = false;
                 return;
 
             }

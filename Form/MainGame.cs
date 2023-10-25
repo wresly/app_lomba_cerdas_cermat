@@ -49,7 +49,7 @@ namespace app_lomba_cerdas_cermat.Form
 
         private void Reset_Click(object sender, EventArgs e)
         {
-            var confirm = MessageBox.Show("Tidakan Ini Akan Mereset Keseluruhan Scores dan Game", "Konfirmasi", MessageBoxButtons.OKCancel, MessageBoxIcon.None, MessageBoxDefaultButton.Button2);
+            var confirm = MessageBox.Show("Tidakan Ini Akan Mereset Keseluruhan Scores dan Game", "Konfirmasi", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
             if (confirm == DialogResult.OK)
             {
                 try

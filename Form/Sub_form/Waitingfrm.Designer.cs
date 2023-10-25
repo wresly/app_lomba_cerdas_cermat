@@ -56,9 +56,10 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(300, 166);
+            ControlBox = false;
             Controls.Add(pictureBox1);
             Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            FormBorderStyle = FormBorderStyle.None;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Margin = new Padding(5, 4, 5, 4);
             MaximizeBox = false;
             MinimizeBox = false;

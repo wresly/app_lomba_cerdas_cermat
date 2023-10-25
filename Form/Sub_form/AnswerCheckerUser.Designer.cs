@@ -1,6 +1,6 @@
 ﻿namespace app_lomba_cerdas_cermat.Form.Sub_form
 {
-    partial class TimerGamefrm
+    partial class AnswerCheckerUser
     {
         /// <summary>
         /// Required designer variable.
@@ -127,15 +127,16 @@
             timer1.Interval = 1000;
             timer1.Tick += timer1_Tick;
             // 
-            // TimerGamefrm
+            // AnswerCheckerUser
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(411, 273);
+            ControlBox = false;
             Controls.Add(Benarbtn);
             Controls.Add(Salahbtn);
             Controls.Add(Timerlbl);
-            Name = "TimerGamefrm";
+            Name = "AnswerCheckerUser";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "TimerGame2";
             Load += TimerGamefrm_Load;
