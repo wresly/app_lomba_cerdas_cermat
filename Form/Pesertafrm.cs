@@ -23,8 +23,9 @@ namespace app_lomba_cerdas_cermat.Form
             InitializeComponent();
         }
 
-        private static bool NoUser()
+        private bool NoUser()
         {
+            TimerCheckUser.Enabled = false;
             try
             {
                 if (db.conn.State == ConnectionState.Closed)
@@ -36,7 +37,7 @@ namespace app_lomba_cerdas_cermat.Form
                 MySqlDataReader reader = cmd.ExecuteReader();
                 if (reader.Read())
                 {
-                    if (reader["peserta"].ToString() == "none")
+                    if (reader["peserta"].ToString() == "none" && reader["game_status"].ToString() == "game 3")
                     {
                         reader.Close();
                         return true;
@@ -46,9 +47,43 @@ namespace app_lomba_cerdas_cermat.Form
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                TimerCheckUser.Enabled = true;
             }
             return false;
+        }
+
+        private bool notBlacklist()
+        {
+            TimerCheckUser.Enabled = false;
+            try
+            {
+                if (db.conn.State == ConnectionState.Closed)
+                {
+                    db.conn.Open();
+
+                }
+                MySqlCommand cmd = new MySqlCommand("select * from game_blacklist where peserta = '" + username + "'", db.conn);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    reader.Close();
+                    return false;
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                TimerCheckUser.Enabled = true;
+            }
+            return true;
         }
 
         private void Pesertafrm_Load(object sender, EventArgs e)
@@ -58,7 +93,7 @@ namespace app_lomba_cerdas_cermat.Form
         private void Spacebtn_Click(object sender, EventArgs e)
         {
             _sound.Play();
-            if (NoUser())
+            if (NoUser() || notBlacklist())
             {
                 try
                 {
@@ -71,15 +106,16 @@ namespace app_lomba_cerdas_cermat.Form
                     cmd.ExecuteNonQuery();
 
                 }
-                catch
+                catch (Exception ex) 
                 {
+                    MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
 
         private void TimerCheckUser_Tick(object sender, EventArgs e)
         {
-            if (NoUser())
+            if (NoUser() && notBlacklist())
             {
                 Spacebtn.Enabled = true;
             }

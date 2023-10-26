@@ -78,7 +78,7 @@ namespace app_lomba_cerdas_cermat.Form
                 }
                 catch (Exception ex) 
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     this.Close();
                 }
             }
@@ -86,6 +86,7 @@ namespace app_lomba_cerdas_cermat.Form
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            timer1.Enabled = false;
             try
             {
                 if (db.conn.State == ConnectionState.Closed)
@@ -138,8 +139,12 @@ namespace app_lomba_cerdas_cermat.Form
             }
             catch (Exception ex) 
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.Close();
+            }
+            finally
+            {
+                timer1.Enabled = true;
             }
         }
     }

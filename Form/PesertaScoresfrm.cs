@@ -32,6 +32,7 @@ namespace app_lomba_cerdas_cermat.Form
 
         private void TimerScores_Tick(object sender, EventArgs e)
         {
+            TimerScores.Enabled = false;
             try
             {
                 if (db.conn.State == ConnectionState.Closed)
@@ -49,7 +50,11 @@ namespace app_lomba_cerdas_cermat.Form
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+               TimerScores.Enabled = true;
             }
         }
     }

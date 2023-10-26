@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
             Gamepnl = new Krypton.Toolkit.KryptonPanel();
             Minuslbl = new Krypton.Toolkit.KryptonLabel();
             Pluslbl = new Krypton.Toolkit.KryptonLabel();
@@ -54,7 +53,6 @@
             kryptonLabel2 = new Krypton.Toolkit.KryptonLabel();
             kryptonLabel9 = new Krypton.Toolkit.KryptonLabel();
             kryptonLabel10 = new Krypton.Toolkit.KryptonLabel();
-            timer1 = new System.Windows.Forms.Timer(components);
             Resetbtn = new Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)Gamepnl).BeginInit();
             Gamepnl.SuspendLayout();
@@ -322,10 +320,6 @@
             kryptonLabel10.TabIndex = 56;
             kryptonLabel10.Values.Text = ": ";
             // 
-            // timer1
-            // 
-            timer1.Interval = 500;
-            // 
             // Resetbtn
             // 
             Resetbtn.Anchor = AnchorStyles.Top | AnchorStyles.Right;
@@ -426,7 +420,6 @@
         private Krypton.Toolkit.KryptonLabel Pluslbl;
         private Krypton.Toolkit.KryptonLabel kryptonLabel16;
         private Krypton.Toolkit.KryptonLabel kryptonLabel15;
-        private System.Windows.Forms.Timer timer1;
         private Krypton.Toolkit.KryptonButton Resetbtn;
     }
 }

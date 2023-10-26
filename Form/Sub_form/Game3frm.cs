@@ -204,7 +204,5 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                 Startbtn.Enabled = true;
             }
         }
-
-
     }
 }

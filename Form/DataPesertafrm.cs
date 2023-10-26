@@ -114,6 +114,7 @@ namespace app_lomba_cerdas_cermat
 
         private void Userstimer_Tick(object sender, EventArgs e)
         {
+            Userstimer.Enabled = false;
             try
             {
                 if (db.conn.State == ConnectionState.Closed)
@@ -130,6 +131,10 @@ namespace app_lomba_cerdas_cermat
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+               Userstimer.Enabled = true;
             }
         }
         private void Usersdgv_SelectionChanged(Object sender, EventArgs e)

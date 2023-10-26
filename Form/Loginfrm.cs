@@ -56,6 +56,7 @@ namespace app_lomba_cerdas_cermat
                         else
                         {
                             MessageBox.Show("password salah");
+                            return;
                         }
                     }
                 }
