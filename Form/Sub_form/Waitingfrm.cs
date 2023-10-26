@@ -52,7 +52,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
             }
             catch
             {
-                MessageBox.Show("Server Putus!");
+                MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.Close();
             }
         }

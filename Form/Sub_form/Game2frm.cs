@@ -40,8 +40,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
-                Startbtn.Enabled = true;
+                MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void reLoad()
@@ -66,7 +65,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.Close();
             }
         }
@@ -103,7 +102,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.Close();
             }
             reLoad();
@@ -158,7 +157,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             //checked user answer 
@@ -191,10 +190,8 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
-                    Startbtn.Enabled = true;
+                    MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                Startbtn.Enabled = true;
 
             }
 
@@ -220,8 +217,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
-                    Startbtn.Enabled = true;
+                    MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
                 //reset if no more peserta
@@ -235,6 +231,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                     return;
                 }
                 Pesertacmb.SelectedIndex = 0;
+                Startbtn.Enabled = true;
             }
         }
 
