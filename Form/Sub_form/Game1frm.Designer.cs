@@ -48,6 +48,7 @@
             kryptonLabel6 = new Krypton.Toolkit.KryptonLabel();
             kryptonLabel5 = new Krypton.Toolkit.KryptonLabel();
             timer1 = new System.Windows.Forms.Timer(components);
+            Resetbtn = new Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)Pesertacmb).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Gamepnl).BeginInit();
             Gamepnl.SuspendLayout();
@@ -82,7 +83,7 @@
             // Startbtn
             // 
             Startbtn.CornerRoundingRadius = 5F;
-            Startbtn.Location = new Point(131, 356);
+            Startbtn.Location = new Point(190, 356);
             Startbtn.Margin = new Padding(5, 4, 5, 4);
             Startbtn.Name = "Startbtn";
             Startbtn.OverrideDefault.Back.Color1 = Color.FromArgb(166, 209, 230);
@@ -293,11 +294,52 @@
             timer1.Interval = 1000;
             timer1.Tick += timer1_Tick;
             // 
+            // Resetbtn
+            // 
+            Resetbtn.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            Resetbtn.CornerRoundingRadius = 5F;
+            Resetbtn.Enabled = false;
+            Resetbtn.Location = new Point(73, 356);
+            Resetbtn.Margin = new Padding(5, 4, 5, 4);
+            Resetbtn.Name = "Resetbtn";
+            Resetbtn.OverrideDefault.Back.Color1 = Color.FromArgb(255, 89, 89);
+            Resetbtn.OverrideDefault.Back.Color2 = Color.FromArgb(255, 89, 89);
+            Resetbtn.OverrideDefault.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
+            Resetbtn.OverrideDefault.Border.Width = 0;
+            Resetbtn.OverrideFocus.Back.Color1 = Color.FromArgb(255, 89, 89);
+            Resetbtn.OverrideFocus.Back.Color2 = Color.FromArgb(255, 89, 89);
+            Resetbtn.OverrideFocus.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
+            Resetbtn.OverrideFocus.Border.Rounding = 5F;
+            Resetbtn.Size = new Size(101, 32);
+            Resetbtn.StateCommon.Back.Color1 = Color.FromArgb(255, 89, 89);
+            Resetbtn.StateCommon.Back.Color2 = Color.FromArgb(255, 89, 89);
+            Resetbtn.StateCommon.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
+            Resetbtn.StateCommon.Border.Rounding = 5F;
+            Resetbtn.StateCommon.Border.Width = 1;
+            Resetbtn.StateCommon.Content.Padding = new Padding(0);
+            Resetbtn.StateCommon.Content.ShortText.Color1 = Color.White;
+            Resetbtn.StateCommon.Content.ShortText.Color2 = Color.White;
+            Resetbtn.StateCommon.Content.ShortText.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            Resetbtn.StateDisabled.Back.Color1 = Color.Silver;
+            Resetbtn.StateDisabled.Back.Color2 = Color.Silver;
+            Resetbtn.StateTracking.Back.Color1 = Color.FromArgb(255, 89, 89);
+            Resetbtn.StateTracking.Back.Color2 = Color.FromArgb(255, 89, 89);
+            Resetbtn.StateTracking.Border.Color1 = Color.FromArgb(255, 89, 89);
+            Resetbtn.StateTracking.Border.Color2 = Color.FromArgb(255, 89, 89);
+            Resetbtn.StateTracking.Border.ColorAngle = 45F;
+            Resetbtn.StateTracking.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
+            Resetbtn.StateTracking.Border.Rounding = 5F;
+            Resetbtn.StateTracking.Border.Width = 1;
+            Resetbtn.TabIndex = 40;
+            Resetbtn.Values.Text = "Reset";
+            Resetbtn.Click += Resetbtn_Click;
+            // 
             // Game1frm
             // 
             AutoScaleDimensions = new SizeF(11F, 22F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(847, 454);
+            Controls.Add(Resetbtn);
             Controls.Add(Gamepnl);
             Controls.Add(kryptonLabel4);
             Controls.Add(kryptonLabel3);
@@ -344,5 +386,6 @@
         private Krypton.Toolkit.KryptonLabel Pesertalbl;
         private Krypton.Toolkit.KryptonLabel Statuslbl;
         private System.Windows.Forms.Timer timer1;
+        private Krypton.Toolkit.KryptonButton Resetbtn;
     }
 }

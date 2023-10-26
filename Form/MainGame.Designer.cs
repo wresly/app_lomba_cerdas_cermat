@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             Game1btn = new Krypton.Toolkit.KryptonButton();
-            kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
+            GameStatuslbl = new Krypton.Toolkit.KryptonLabel();
             Game2btn = new Krypton.Toolkit.KryptonButton();
             Game3btn = new Krypton.Toolkit.KryptonButton();
             Resetbtn = new Krypton.Toolkit.KryptonButton();
             AddScoresbtn = new Krypton.Toolkit.KryptonButton();
+            timer1 = new System.Windows.Forms.Timer(components);
             SuspendLayout();
             // 
             // Game1btn
@@ -48,15 +50,15 @@
             Game1btn.Values.Text = "Game 1";
             Game1btn.Click += Game1_Click;
             // 
-            // kryptonLabel1
+            // GameStatuslbl
             // 
-            kryptonLabel1.Anchor = AnchorStyles.None;
-            kryptonLabel1.Location = new Point(263, 78);
-            kryptonLabel1.Name = "kryptonLabel1";
-            kryptonLabel1.Size = new Size(260, 36);
-            kryptonLabel1.StateCommon.ShortText.Font = new Font("Arial", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
-            kryptonLabel1.TabIndex = 1;
-            kryptonLabel1.Values.Text = "Game Status: None";
+            GameStatuslbl.Anchor = AnchorStyles.None;
+            GameStatuslbl.Location = new Point(263, 78);
+            GameStatuslbl.Name = "GameStatuslbl";
+            GameStatuslbl.Size = new Size(260, 36);
+            GameStatuslbl.StateCommon.ShortText.Font = new Font("Arial", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            GameStatuslbl.TabIndex = 1;
+            GameStatuslbl.Values.Text = "Game Status: None";
             // 
             // Game2btn
             // 
@@ -106,6 +108,11 @@
             AddScoresbtn.Values.Text = "Add Scores Manual";
             AddScoresbtn.Click += AddScoresbtn_Click;
             // 
+            // timer1
+            // 
+            timer1.Interval = 250;
+            timer1.Tick += timer1_Tick;
+            // 
             // MainGame
             // 
             AutoScaleDimensions = new SizeF(11F, 22F);
@@ -116,7 +123,7 @@
             Controls.Add(Resetbtn);
             Controls.Add(Game3btn);
             Controls.Add(Game2btn);
-            Controls.Add(kryptonLabel1);
+            Controls.Add(GameStatuslbl);
             Controls.Add(Game1btn);
             Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             FormBorderStyle = FormBorderStyle.None;
@@ -132,10 +139,11 @@
         #endregion
 
         private Krypton.Toolkit.KryptonButton Game1btn;
-        private Krypton.Toolkit.KryptonLabel kryptonLabel1;
+        private Krypton.Toolkit.KryptonLabel GameStatuslbl;
         private Krypton.Toolkit.KryptonButton Game2btn;
         private Krypton.Toolkit.KryptonButton Game3btn;
         private Krypton.Toolkit.KryptonButton Resetbtn;
         private Krypton.Toolkit.KryptonButton AddScoresbtn;
+        private System.Windows.Forms.Timer timer1;
     }
 }

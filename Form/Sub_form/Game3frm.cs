@@ -21,6 +21,29 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
             InitializeComponent();
         }
 
+        private void reset()
+        {
+            try
+            {
+                if (db.conn.State == ConnectionState.Closed)
+                {
+                    db.conn.Open();
+
+                }
+                //reset game table
+                MySqlCommand cmd = new MySqlCommand("UPDATE `game` SET `game_status`='none',`peserta`='none',`timer`=0 ", db.conn);
+                cmd.ExecuteNonQuery();
+
+                //reset blacklist
+                cmd = new MySqlCommand("DELETE FROM `game_blacklist`", db.conn);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void Game3frm_Load(object sender, EventArgs e)
         {
             try
@@ -52,7 +75,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.Close();
             }
         }
@@ -110,7 +133,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             //waiting user
@@ -127,6 +150,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                 //true answer
                 if (answerCheckerUser.DialogResult == DialogResult.OK)
                 {
+                    reset();
                     try
                     {
                         if (db.conn.State == ConnectionState.Closed)
@@ -139,8 +163,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(ex.Message);
-                        Startbtn.Enabled = true;
+                        MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     Startbtn.Enabled = true;
                 }
@@ -166,8 +189,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(ex.Message);
-                        Startbtn.Enabled = true;
+                        MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     Startbtn.Enabled = true;
                 }
@@ -179,26 +201,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
             var confirm = MessageBox.Show("Tidakan Ini Akan Mereset Game", "Konfirmasi", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
             if (confirm == DialogResult.OK)
             {
-                try
-                {
-                    if (db.conn.State == ConnectionState.Closed)
-                    {
-                        db.conn.Open();
-
-                    }
-                    //reset game table
-                    MySqlCommand cmd = new MySqlCommand("UPDATE `game` SET `game_status`='none',`peserta`='none',`timer`=0 ", db.conn);
-                    cmd.ExecuteNonQuery();
-
-                    //reset blacklist
-                    cmd = new MySqlCommand("DELETE FROM `game_blacklist`", db.conn);
-                    cmd.ExecuteNonQuery();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                    Startbtn.Enabled = true;
-                }
+                Startbtn.Enabled = true;
             }
         }
 

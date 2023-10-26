@@ -37,11 +37,11 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                 Addbtn.Enabled = true;
                 this.Close();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("terjadi kesalahan");
-                Addbtn.Enabled = true;
+                MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            Addbtn.Enabled = true;
 
         }
 
@@ -66,13 +66,12 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                 {
                     Pesertacmb.Enabled = false;
                     Pesertacmb.SelectedIndex = Pesertacmb.Items.IndexOf(peserta);
-                    MessageBox.Show(Pesertacmb.Text);
                 }
 
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("Server Putus!");
+                MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.Close();
             }
         }

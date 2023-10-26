@@ -80,11 +80,12 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
 
                 }
 
-                //checked asigned peserta to game
-                MySqlCommand cmd = new MySqlCommand("SELECT * FROM `game` WHERE peserta != 'none'", db.conn);
+                //checked game data
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM `game` WHERE game_status != 'none'", db.conn);
                 MySqlDataReader reader = cmd.ExecuteReader();
                 if (reader.HasRows)
                 {
+                    MessageBox.Show("game sedang berjalan, mohon reset game kembali atau lanjutkan", "warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     Resetbtn.Enabled = true;
                 }
                 reader.Close();
@@ -94,6 +95,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                 reader = cmd.ExecuteReader();
                 if (reader.HasRows)
                 {
+                    MessageBox.Show("game sedang berjalan, mohon reset game kembali atau lanjutkan", "warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     Resetbtn.Enabled = true;
                 }
                 reader.Close();
@@ -151,7 +153,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                     db.conn.Open();
 
                 }
-                MySqlCommand cmd = new MySqlCommand("UPDATE `game` SET `game_status`='game 3', `timer`= " + (Int32.Parse(Minutetxt.Text) * 60 + Int32.Parse(Secondtxt.Text)), db.conn);
+                MySqlCommand cmd = new MySqlCommand("UPDATE `game` SET `game_status`='game 2', `peserta` = '" + peserta + "', `timer`= " + (Int32.Parse(Minutetxt.Text) * 60 + Int32.Parse(Secondtxt.Text)), db.conn);
                 cmd.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -164,10 +166,19 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
             answerCheckerUser.timer = Int32.Parse(Minutetxt.Text) * 60 + Int32.Parse(Secondtxt.Text);
             answerCheckerUser.ShowDialog();
 
+            //reset controls
+            Pesertacmb.Enabled = true;
+            Scorestxt.Enabled = true;
+            Minutetxt.Enabled = true;
+            Secondtxt.Enabled = true;
+            Startbtn.Enabled = true;
+
             //true
             if (answerCheckerUser.DialogResult == DialogResult.OK)
             {
-
+                Resetbtn.Enabled = true;
+                reset();
+                reLoad();
                 try
                 {
                     if (db.conn.State == ConnectionState.Closed)
@@ -177,7 +188,6 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                     }
                     MySqlCommand cmd = new MySqlCommand("UPDATE users SET scores = scores + " + Int32.Parse(Scorestxt.Text) + " WHERE username = '" + peserta + "'", db.conn);
                     cmd.ExecuteNonQuery();
-                    reset();
                 }
                 catch (Exception ex)
                 {
@@ -191,13 +201,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
             //false
             if (answerCheckerUser.DialogResult == DialogResult.Cancel)
             {
-                Pesertacmb.Enabled = true;
-                Scorestxt.Enabled = true;
-                Minutetxt.Enabled = true;
-                Secondtxt.Enabled = true;
-                Startbtn.Enabled = true;
                 Resetbtn.Enabled = true;
-
                 //blacklist peserta
                 Pesertacmb.Items.Remove(peserta);
                 try

@@ -57,5 +57,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
             this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
+
+
     }
 }
