@@ -42,10 +42,12 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
             {
                 MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            Resetbtn.Enabled = false;
         }
 
         private void Game3frm_Load(object sender, EventArgs e)
         {
+            //cek for reset
             try
             {
                 if (db.conn.State == ConnectionState.Closed)
@@ -55,11 +57,20 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                 }
 
                 //checked asigned peserta to game
-                MySqlCommand cmd = new MySqlCommand("SELECT * FROM `game` WHERE peserta != 'none'", db.conn);
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM `game` WHERE game_status != 'none'", db.conn);
                 MySqlDataReader reader = cmd.ExecuteReader();
                 if (reader.HasRows)
                 {
+                    reader.Read();
+                    Statuslbl.Text = ": " + (reader["peserta"].ToString() == "none" ? "waiting" : reader["game_status"].ToString());
+                    Pesertalbl.Text = ": " + (reader["peserta"].ToString() == "none" ? "-" : reader["peserta"].ToString());
+                    Pluslbl.Text = ": error";
+                    Minuslbl.Text = ": error";
+                    Timerlbl.Text = ": " + (Int32.Parse(reader["timer"].ToString()) / 60 < 9 ? "0" : "") + Int32.Parse(reader["timer"].ToString()) / 60 + ":" + (Int32.Parse(reader["timer"].ToString()) % 60 < 9 ? "0" : "") + Int32.Parse(reader["timer"].ToString()) % 60;
+
                     Resetbtn.Enabled = true;
+                    reader.Close();
+                    MessageBox.Show("game sedang berjalan, mohon reset game kembali atau lanjutkan", "warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 reader.Close();
 
@@ -69,6 +80,8 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                 if (reader.HasRows)
                 {
                     Resetbtn.Enabled = true;
+                    reader.Close();
+                    MessageBox.Show("game sedang berjalan, mohon reset game kembali atau lanjutkan", "warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 reader.Close();
 
@@ -115,7 +128,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
             Startbtn.Enabled = false;
 
             //game status
-            Statuslbl.Text = "waiting";
+            Statuslbl.Text = ": waiting";
             Pluslbl.Text = ": " + Plustxt.Text;
             Minuslbl.Text = ": " + Minustxt.Text;
             Timerlbl.Text = ": " + (Minutetxt.Text.Length == 1 ? "0" : "") + Minutetxt.Text + ":" + (Secondtxt.Text.Length == 1 ? "0" : "") + Secondtxt.Text;
@@ -142,6 +155,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
             if (waitingfrm.DialogResult == DialogResult.OK)
             {
                 peserta = waitingfrm.peserta;
+                Pesertalbl.Text = waitingfrm.peserta;
 
                 AnswerCheckerUser answerCheckerUser = new AnswerCheckerUser();
                 answerCheckerUser.timer = Int32.Parse(Minutetxt.Text) * 60 + Int32.Parse(Secondtxt.Text);
@@ -193,7 +207,23 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                     }
                     Startbtn.Enabled = true;
                 }
+
+
             }
+
+            //cancel
+            if (waitingfrm.DialogResult == DialogResult.Abort)
+            {
+                Startbtn.Enabled = true;
+                reset();
+            }
+            //game status
+            Statuslbl.Text = ": Not Started";
+            Pesertalbl.Text = ": -";
+            Pluslbl.Text = ": -";
+            Minuslbl.Text = ": -";
+            Timerlbl.Text = ": 00:00";
+
         }
 
         private void Resetbtn_Click(object sender, EventArgs e)
@@ -202,6 +232,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
             if (confirm == DialogResult.OK)
             {
                 Startbtn.Enabled = true;
+                reset();
             }
         }
     }

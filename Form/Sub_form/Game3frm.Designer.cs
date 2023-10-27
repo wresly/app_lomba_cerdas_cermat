@@ -135,10 +135,10 @@
             // 
             Statuslbl.Location = new Point(140, 62);
             Statuslbl.Name = "Statuslbl";
-            Statuslbl.Size = new Size(111, 32);
+            Statuslbl.Size = new Size(153, 32);
             Statuslbl.StateCommon.ShortText.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point);
             Statuslbl.TabIndex = 4;
-            Statuslbl.Values.Text = ": Waiting";
+            Statuslbl.Values.Text = ": Not Started";
             // 
             // kryptonLabel8
             // 

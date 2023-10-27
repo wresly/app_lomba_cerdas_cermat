@@ -51,7 +51,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                 return;
 
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.Close();
@@ -60,6 +60,32 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
             {
                 timer1.Enabled = true;
             }
+        }
+
+        private void Cancelbtn_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Abort;
+            try
+            {
+                if (db.conn.State == ConnectionState.Closed)
+                {
+                    db.conn.Open();
+
+                }
+                //reset game table
+                MySqlCommand cmd = new MySqlCommand("UPDATE `game` SET `game_status`='none',`peserta`='none',`timer`=0 ", db.conn);
+                cmd.ExecuteNonQuery();
+
+                //reset blacklist
+                cmd = new MySqlCommand("DELETE FROM `game_blacklist`", db.conn);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            this.Close();
         }
     }
 }

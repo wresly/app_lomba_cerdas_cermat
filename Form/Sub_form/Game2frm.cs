@@ -71,6 +71,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
         }
         private void Game2frm_Load(object sender, EventArgs e)
         {
+            //cek for reset
             try
             {
                 if (db.conn.State == ConnectionState.Closed)
@@ -134,6 +135,12 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                 return;
             }
 
+            //game status
+            Statuslbl.Text = ": started";
+            Pesertalbl.Text = ": " + Pesertacmb.Text;
+            Scoreslbl.Text = ": " + Scorestxt.Text;
+            Timerlbl.Text = ": " + (Minutetxt.Text.Length == 1 ? "0" : "") + Minutetxt.Text + ":" + (Secondtxt.Text.Length == 1 ? "0" : "") + Secondtxt.Text;
+
 
             peserta = Pesertacmb.Text;
 
@@ -164,13 +171,6 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
             AnswerCheckerUser answerCheckerUser = new AnswerCheckerUser();
             answerCheckerUser.timer = Int32.Parse(Minutetxt.Text) * 60 + Int32.Parse(Secondtxt.Text);
             answerCheckerUser.ShowDialog();
-
-            //reset controls
-            Pesertacmb.Enabled = true;
-            Scorestxt.Enabled = true;
-            Minutetxt.Enabled = true;
-            Secondtxt.Enabled = true;
-            Startbtn.Enabled = true;
 
             //true
             if (answerCheckerUser.DialogResult == DialogResult.OK)
@@ -230,8 +230,20 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                     reLoad();
                     return;
                 }
+
+                //reset controls
                 Pesertacmb.SelectedIndex = 0;
+                Pesertacmb.Enabled = true;
+                Scorestxt.Enabled = true;
+                Minutetxt.Enabled = true;
+                Secondtxt.Enabled = true;
                 Startbtn.Enabled = true;
+
+                //reset status
+                Statuslbl.Text = ": not started";
+                Pesertalbl.Text = ": -";
+                Scoreslbl.Text = ": -";
+                Timerlbl.Text = ": 00:00";
             }
         }
 

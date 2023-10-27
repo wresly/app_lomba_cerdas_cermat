@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Waitingfrm));
             pictureBox1 = new PictureBox();
             timer1 = new System.Windows.Forms.Timer(components);
+            Cancelbtn = new Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -50,13 +51,24 @@
             timer1.Interval = 500;
             timer1.Tick += timer1_Tick;
             // 
+            // Cancelbtn
+            // 
+            Cancelbtn.CornerRoundingRadius = -1F;
+            Cancelbtn.Location = new Point(104, 172);
+            Cancelbtn.Name = "Cancelbtn";
+            Cancelbtn.Size = new Size(90, 25);
+            Cancelbtn.TabIndex = 1;
+            Cancelbtn.Values.Text = "Cancel";
+            Cancelbtn.Click += Cancelbtn_Click;
+            // 
             // Waitingfrm
             // 
             AutoScaleDimensions = new SizeF(11F, 22F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(300, 166);
+            ClientSize = new Size(300, 223);
             ControlBox = false;
+            Controls.Add(Cancelbtn);
             Controls.Add(pictureBox1);
             Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -75,5 +87,6 @@
 
         private PictureBox pictureBox1;
         private System.Windows.Forms.Timer timer1;
+        private Krypton.Toolkit.KryptonButton Cancelbtn;
     }
 }
