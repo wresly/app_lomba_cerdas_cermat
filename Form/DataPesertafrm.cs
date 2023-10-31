@@ -134,7 +134,7 @@ namespace app_lomba_cerdas_cermat
             }
             finally
             {
-               Userstimer.Enabled = true;
+                Userstimer.Enabled = true;
             }
         }
         private void Usersdgv_SelectionChanged(Object sender, EventArgs e)

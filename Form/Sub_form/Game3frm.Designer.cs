@@ -72,14 +72,16 @@
             Gamepnl.Controls.Add(kryptonLabel7);
             Gamepnl.Controls.Add(kryptonLabel6);
             Gamepnl.Controls.Add(kryptonLabel5);
-            Gamepnl.Location = new Point(502, 162);
+            Gamepnl.Location = new Point(639, 199);
+            Gamepnl.Margin = new Padding(4, 3, 4, 3);
             Gamepnl.Name = "Gamepnl";
-            Gamepnl.Size = new Size(340, 254);
+            Gamepnl.Size = new Size(433, 312);
             Gamepnl.TabIndex = 33;
             // 
             // Minuslbl
             // 
-            Minuslbl.Location = new Point(140, 170);
+            Minuslbl.Location = new Point(178, 208);
+            Minuslbl.Margin = new Padding(4, 3, 4, 3);
             Minuslbl.Name = "Minuslbl";
             Minuslbl.Size = new Size(42, 32);
             Minuslbl.StateCommon.ShortText.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point);
@@ -88,7 +90,8 @@
             // 
             // Pluslbl
             // 
-            Pluslbl.Location = new Point(140, 134);
+            Pluslbl.Location = new Point(178, 164);
+            Pluslbl.Margin = new Padding(4, 3, 4, 3);
             Pluslbl.Name = "Pluslbl";
             Pluslbl.Size = new Size(42, 32);
             Pluslbl.StateCommon.ShortText.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point);
@@ -97,7 +100,8 @@
             // 
             // kryptonLabel16
             // 
-            kryptonLabel16.Location = new Point(10, 170);
+            kryptonLabel16.Location = new Point(13, 208);
+            kryptonLabel16.Margin = new Padding(4, 3, 4, 3);
             kryptonLabel16.Name = "kryptonLabel16";
             kryptonLabel16.Size = new Size(123, 32);
             kryptonLabel16.StateCommon.ShortText.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point);
@@ -106,7 +110,8 @@
             // 
             // kryptonLabel15
             // 
-            kryptonLabel15.Location = new Point(10, 134);
+            kryptonLabel15.Location = new Point(13, 164);
+            kryptonLabel15.Margin = new Padding(4, 3, 4, 3);
             kryptonLabel15.Name = "kryptonLabel15";
             kryptonLabel15.Size = new Size(129, 32);
             kryptonLabel15.StateCommon.ShortText.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point);
@@ -115,7 +120,8 @@
             // 
             // Timerlbl
             // 
-            Timerlbl.Location = new Point(140, 206);
+            Timerlbl.Location = new Point(178, 253);
+            Timerlbl.Margin = new Padding(4, 3, 4, 3);
             Timerlbl.Name = "Timerlbl";
             Timerlbl.Size = new Size(90, 32);
             Timerlbl.StateCommon.ShortText.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point);
@@ -124,7 +130,8 @@
             // 
             // Pesertalbl
             // 
-            Pesertalbl.Location = new Point(140, 98);
+            Pesertalbl.Location = new Point(178, 120);
+            Pesertalbl.Margin = new Padding(4, 3, 4, 3);
             Pesertalbl.Name = "Pesertalbl";
             Pesertalbl.Size = new Size(36, 32);
             Pesertalbl.StateCommon.ShortText.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point);
@@ -133,7 +140,8 @@
             // 
             // Statuslbl
             // 
-            Statuslbl.Location = new Point(140, 62);
+            Statuslbl.Location = new Point(178, 76);
+            Statuslbl.Margin = new Padding(4, 3, 4, 3);
             Statuslbl.Name = "Statuslbl";
             Statuslbl.Size = new Size(153, 32);
             Statuslbl.StateCommon.ShortText.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point);
@@ -142,7 +150,8 @@
             // 
             // kryptonLabel8
             // 
-            kryptonLabel8.Location = new Point(10, 62);
+            kryptonLabel8.Location = new Point(13, 76);
+            kryptonLabel8.Margin = new Padding(4, 3, 4, 3);
             kryptonLabel8.Name = "kryptonLabel8";
             kryptonLabel8.Size = new Size(85, 32);
             kryptonLabel8.StateCommon.ShortText.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point);
@@ -151,7 +160,8 @@
             // 
             // kryptonLabel7
             // 
-            kryptonLabel7.Location = new Point(10, 206);
+            kryptonLabel7.Location = new Point(13, 253);
+            kryptonLabel7.Margin = new Padding(4, 3, 4, 3);
             kryptonLabel7.Name = "kryptonLabel7";
             kryptonLabel7.Size = new Size(78, 32);
             kryptonLabel7.StateCommon.ShortText.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point);
@@ -160,7 +170,8 @@
             // 
             // kryptonLabel6
             // 
-            kryptonLabel6.Location = new Point(10, 98);
+            kryptonLabel6.Location = new Point(13, 120);
+            kryptonLabel6.Margin = new Padding(4, 3, 4, 3);
             kryptonLabel6.Name = "kryptonLabel6";
             kryptonLabel6.Size = new Size(100, 32);
             kryptonLabel6.StateCommon.ShortText.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point);
@@ -169,7 +180,8 @@
             // 
             // kryptonLabel5
             // 
-            kryptonLabel5.Location = new Point(4, 8);
+            kryptonLabel5.Location = new Point(5, 10);
+            kryptonLabel5.Margin = new Padding(4, 3, 4, 3);
             kryptonLabel5.Name = "kryptonLabel5";
             kryptonLabel5.Size = new Size(186, 36);
             kryptonLabel5.StateCommon.ShortText.Font = new Font("Arial", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
@@ -178,7 +190,8 @@
             // 
             // kryptonLabel1
             // 
-            kryptonLabel1.Location = new Point(338, 18);
+            kryptonLabel1.Location = new Point(430, 22);
+            kryptonLabel1.Margin = new Padding(4, 3, 4, 3);
             kryptonLabel1.Name = "kryptonLabel1";
             kryptonLabel1.Size = new Size(201, 62);
             kryptonLabel1.StateCommon.ShortText.Font = new Font("Arial", 36F, FontStyle.Bold, GraphicsUnit.Point);
@@ -187,15 +200,17 @@
             // 
             // Minustxt
             // 
-            Minustxt.Location = new Point(170, 256);
+            Minustxt.Location = new Point(216, 314);
+            Minustxt.Margin = new Padding(4, 3, 4, 3);
             Minustxt.Name = "Minustxt";
-            Minustxt.Size = new Size(190, 29);
+            Minustxt.Size = new Size(241, 29);
             Minustxt.StateCommon.Content.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             Minustxt.TabIndex = 2;
             // 
             // kryptonLabel14
             // 
-            kryptonLabel14.Location = new Point(20, 254);
+            kryptonLabel14.Location = new Point(26, 312);
+            kryptonLabel14.Margin = new Padding(4, 3, 4, 3);
             kryptonLabel14.Name = "kryptonLabel14";
             kryptonLabel14.Size = new Size(123, 32);
             kryptonLabel14.StateCommon.ShortText.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point);
@@ -204,7 +219,8 @@
             // 
             // kryptonLabel13
             // 
-            kryptonLabel13.Location = new Point(154, 259);
+            kryptonLabel13.Location = new Point(196, 318);
+            kryptonLabel13.Margin = new Padding(4, 3, 4, 3);
             kryptonLabel13.Name = "kryptonLabel13";
             kryptonLabel13.Size = new Size(16, 22);
             kryptonLabel13.StateCommon.ShortText.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
@@ -213,7 +229,8 @@
             // 
             // kryptonLabel4
             // 
-            kryptonLabel4.Location = new Point(203, 308);
+            kryptonLabel4.Location = new Point(258, 378);
+            kryptonLabel4.Margin = new Padding(4, 3, 4, 3);
             kryptonLabel4.Name = "kryptonLabel4";
             kryptonLabel4.Size = new Size(16, 22);
             kryptonLabel4.StateCommon.ShortText.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
@@ -222,7 +239,8 @@
             // 
             // kryptonLabel3
             // 
-            kryptonLabel3.Location = new Point(20, 303);
+            kryptonLabel3.Location = new Point(26, 372);
+            kryptonLabel3.Margin = new Padding(4, 3, 4, 3);
             kryptonLabel3.Name = "kryptonLabel3";
             kryptonLabel3.Size = new Size(78, 32);
             kryptonLabel3.StateCommon.ShortText.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point);
@@ -231,20 +249,22 @@
             // 
             // Secondtxt
             // 
-            Secondtxt.Location = new Point(224, 305);
+            Secondtxt.Location = new Point(285, 375);
+            Secondtxt.Margin = new Padding(4, 3, 4, 3);
             Secondtxt.MaxLength = 2;
             Secondtxt.Name = "Secondtxt";
-            Secondtxt.Size = new Size(28, 29);
+            Secondtxt.Size = new Size(36, 29);
             Secondtxt.StateCommon.Content.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             Secondtxt.TabIndex = 4;
             Secondtxt.Text = "00";
             // 
             // Minutetxt
             // 
-            Minutetxt.Location = new Point(170, 305);
+            Minutetxt.Location = new Point(216, 375);
+            Minutetxt.Margin = new Padding(4, 3, 4, 3);
             Minutetxt.MaxLength = 2;
             Minutetxt.Name = "Minutetxt";
-            Minutetxt.Size = new Size(28, 29);
+            Minutetxt.Size = new Size(36, 29);
             Minutetxt.StateCommon.Content.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             Minutetxt.TabIndex = 3;
             Minutetxt.Text = "00";
@@ -252,8 +272,8 @@
             // Startbtn
             // 
             Startbtn.CornerRoundingRadius = 5F;
-            Startbtn.Location = new Point(170, 375);
-            Startbtn.Margin = new Padding(5, 4, 5, 4);
+            Startbtn.Location = new Point(216, 460);
+            Startbtn.Margin = new Padding(6, 4, 6, 4);
             Startbtn.Name = "Startbtn";
             Startbtn.OverrideDefault.Back.Color1 = Color.FromArgb(58, 176, 255);
             Startbtn.OverrideDefault.Back.Color2 = Color.FromArgb(58, 176, 255);
@@ -261,7 +281,7 @@
             Startbtn.OverrideDefault.Border.Width = 0;
             Startbtn.OverrideFocus.Back.Color1 = Color.FromArgb(58, 176, 255);
             Startbtn.OverrideFocus.Back.Color2 = Color.FromArgb(58, 176, 255);
-            Startbtn.Size = new Size(101, 32);
+            Startbtn.Size = new Size(128, 39);
             Startbtn.StateCommon.Back.Color1 = Color.FromArgb(58, 176, 255);
             Startbtn.StateCommon.Back.Color2 = Color.FromArgb(58, 176, 255);
             Startbtn.StateCommon.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
@@ -287,15 +307,17 @@
             // 
             // Plustxt
             // 
-            Plustxt.Location = new Point(170, 207);
+            Plustxt.Location = new Point(216, 254);
+            Plustxt.Margin = new Padding(4, 3, 4, 3);
             Plustxt.Name = "Plustxt";
-            Plustxt.Size = new Size(190, 29);
+            Plustxt.Size = new Size(241, 29);
             Plustxt.StateCommon.Content.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             Plustxt.TabIndex = 1;
             // 
             // kryptonLabel2
             // 
-            kryptonLabel2.Location = new Point(20, 205);
+            kryptonLabel2.Location = new Point(26, 252);
+            kryptonLabel2.Margin = new Padding(4, 3, 4, 3);
             kryptonLabel2.Name = "kryptonLabel2";
             kryptonLabel2.Size = new Size(129, 32);
             kryptonLabel2.StateCommon.ShortText.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point);
@@ -304,7 +326,8 @@
             // 
             // kryptonLabel9
             // 
-            kryptonLabel9.Location = new Point(154, 210);
+            kryptonLabel9.Location = new Point(196, 258);
+            kryptonLabel9.Margin = new Padding(4, 3, 4, 3);
             kryptonLabel9.Name = "kryptonLabel9";
             kryptonLabel9.Size = new Size(16, 22);
             kryptonLabel9.StateCommon.ShortText.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
@@ -313,7 +336,8 @@
             // 
             // kryptonLabel10
             // 
-            kryptonLabel10.Location = new Point(154, 308);
+            kryptonLabel10.Location = new Point(196, 378);
+            kryptonLabel10.Margin = new Padding(4, 3, 4, 3);
             kryptonLabel10.Name = "kryptonLabel10";
             kryptonLabel10.Size = new Size(16, 22);
             kryptonLabel10.StateCommon.ShortText.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
@@ -325,8 +349,8 @@
             Resetbtn.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             Resetbtn.CornerRoundingRadius = 5F;
             Resetbtn.Enabled = false;
-            Resetbtn.Location = new Point(20, 375);
-            Resetbtn.Margin = new Padding(5, 4, 5, 4);
+            Resetbtn.Location = new Point(26, 460);
+            Resetbtn.Margin = new Padding(6, 4, 6, 4);
             Resetbtn.Name = "Resetbtn";
             Resetbtn.OverrideDefault.Back.Color1 = Color.FromArgb(255, 89, 89);
             Resetbtn.OverrideDefault.Back.Color2 = Color.FromArgb(255, 89, 89);
@@ -336,7 +360,7 @@
             Resetbtn.OverrideFocus.Back.Color2 = Color.FromArgb(255, 89, 89);
             Resetbtn.OverrideFocus.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
             Resetbtn.OverrideFocus.Border.Rounding = 5F;
-            Resetbtn.Size = new Size(101, 32);
+            Resetbtn.Size = new Size(128, 39);
             Resetbtn.StateCommon.Back.Color1 = Color.FromArgb(255, 89, 89);
             Resetbtn.StateCommon.Back.Color2 = Color.FromArgb(255, 89, 89);
             Resetbtn.StateCommon.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
@@ -362,9 +386,9 @@
             // 
             // Game3frm
             // 
-            AutoScaleDimensions = new SizeF(11F, 22F);
+            AutoScaleDimensions = new SizeF(14F, 27F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(870, 458);
+            ClientSize = new Size(1107, 562);
             Controls.Add(Resetbtn);
             Controls.Add(kryptonLabel10);
             Controls.Add(Plustxt);
@@ -380,8 +404,8 @@
             Controls.Add(Startbtn);
             Controls.Add(Gamepnl);
             Controls.Add(kryptonLabel1);
-            Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            Margin = new Padding(5, 4, 5, 4);
+            Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            Margin = new Padding(6, 4, 6, 4);
             Name = "Game3frm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Game 3";

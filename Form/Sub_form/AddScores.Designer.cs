@@ -46,10 +46,10 @@
             // 
             // kryptonLabel1
             // 
-            kryptonLabel1.Location = new Point(70, 126);
+            kryptonLabel1.Location = new Point(70, 120);
             kryptonLabel1.Name = "kryptonLabel1";
-            kryptonLabel1.Size = new Size(109, 22);
-            kryptonLabel1.StateCommon.ShortText.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            kryptonLabel1.Size = new Size(128, 26);
+            kryptonLabel1.StateCommon.ShortText.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             kryptonLabel1.TabIndex = 1;
             kryptonLabel1.Values.Text = "Input Scores:";
             // 
@@ -89,10 +89,10 @@
             // 
             // kryptonLabel2
             // 
-            kryptonLabel2.Location = new Point(70, 48);
+            kryptonLabel2.Location = new Point(70, 44);
             kryptonLabel2.Name = "kryptonLabel2";
-            kryptonLabel2.Size = new Size(73, 22);
-            kryptonLabel2.StateCommon.ShortText.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            kryptonLabel2.Size = new Size(86, 26);
+            kryptonLabel2.StateCommon.ShortText.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             kryptonLabel2.TabIndex = 4;
             kryptonLabel2.Values.Text = "Peserta:";
             // 

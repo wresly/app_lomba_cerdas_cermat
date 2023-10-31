@@ -59,6 +59,7 @@
             Spacebtn.TabIndex = 0;
             Spacebtn.Values.Text = "Press Space";
             Spacebtn.Click += Spacebtn_Click;
+            Spacebtn.KeyDown += Spacebtn_KeyDown;
             // 
             // Extendbtn
             // 
@@ -85,6 +86,7 @@
             Extendbtn.TabIndex = 1;
             Extendbtn.Values.Text = "Extend Scores";
             Extendbtn.Click += Extendbtn_Click;
+            Extendbtn.KeyDown += Extendbtn_KeyDown;
             // 
             // TimerCheckUser
             // 
@@ -105,6 +107,7 @@
             Text = "Peserta";
             WindowState = FormWindowState.Maximized;
             Load += Pesertafrm_Load;
+            KeyDown += Pesertafrm_KeyDown;
             ResumeLayout(false);
         }
 

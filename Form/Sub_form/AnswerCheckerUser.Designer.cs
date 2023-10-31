@@ -39,8 +39,8 @@
             // 
             Salahbtn.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             Salahbtn.CornerRoundingRadius = 5F;
-            Salahbtn.Location = new Point(222, 180);
-            Salahbtn.Margin = new Padding(5, 4, 5, 4);
+            Salahbtn.Location = new Point(349, 264);
+            Salahbtn.Margin = new Padding(8, 6, 8, 6);
             Salahbtn.Name = "Salahbtn";
             Salahbtn.OverrideDefault.Back.Color1 = Color.FromArgb(255, 89, 89);
             Salahbtn.OverrideDefault.Back.Color2 = Color.FromArgb(255, 89, 89);
@@ -50,7 +50,7 @@
             Salahbtn.OverrideFocus.Back.Color2 = Color.FromArgb(255, 89, 89);
             Salahbtn.OverrideFocus.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
             Salahbtn.OverrideFocus.Border.Rounding = 5F;
-            Salahbtn.Size = new Size(101, 32);
+            Salahbtn.Size = new Size(159, 47);
             Salahbtn.StateCommon.Back.Color1 = Color.FromArgb(255, 89, 89);
             Salahbtn.StateCommon.Back.Color2 = Color.FromArgb(255, 89, 89);
             Salahbtn.StateCommon.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
@@ -79,8 +79,8 @@
             Timerlbl.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             Timerlbl.AutoSize = true;
             Timerlbl.Font = new Font("Arial", 70F, FontStyle.Bold, GraphicsUnit.Point);
-            Timerlbl.Location = new Point(72, 52);
-            Timerlbl.Margin = new Padding(5, 0, 5, 0);
+            Timerlbl.Location = new Point(190, 98);
+            Timerlbl.Margin = new Padding(8, 0, 8, 0);
             Timerlbl.Name = "Timerlbl";
             Timerlbl.Size = new Size(284, 108);
             Timerlbl.TabIndex = 28;
@@ -89,8 +89,8 @@
             // Benarbtn
             // 
             Benarbtn.CornerRoundingRadius = 5F;
-            Benarbtn.Location = new Point(94, 182);
-            Benarbtn.Margin = new Padding(5, 4, 5, 4);
+            Benarbtn.Location = new Point(148, 267);
+            Benarbtn.Margin = new Padding(8, 6, 8, 6);
             Benarbtn.Name = "Benarbtn";
             Benarbtn.OverrideDefault.Back.Color1 = Color.FromArgb(166, 209, 230);
             Benarbtn.OverrideDefault.Back.Color2 = Color.FromArgb(166, 209, 230);
@@ -98,7 +98,7 @@
             Benarbtn.OverrideDefault.Border.Width = 0;
             Benarbtn.OverrideFocus.Back.Color1 = Color.FromArgb(58, 176, 255);
             Benarbtn.OverrideFocus.Back.Color2 = Color.FromArgb(58, 176, 255);
-            Benarbtn.Size = new Size(101, 32);
+            Benarbtn.Size = new Size(159, 47);
             Benarbtn.StateCommon.Back.Color1 = Color.FromArgb(58, 176, 255);
             Benarbtn.StateCommon.Back.Color2 = Color.FromArgb(58, 176, 255);
             Benarbtn.StateCommon.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
@@ -129,13 +129,15 @@
             // 
             // AnswerCheckerUser
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(11F, 22F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(411, 273);
+            ClientSize = new Size(646, 400);
             ControlBox = false;
             Controls.Add(Benarbtn);
             Controls.Add(Salahbtn);
             Controls.Add(Timerlbl);
+            Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            Margin = new Padding(5, 4, 5, 4);
             Name = "AnswerCheckerUser";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "TimerGame2";

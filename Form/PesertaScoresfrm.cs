@@ -54,7 +54,7 @@ namespace app_lomba_cerdas_cermat.Form
             }
             finally
             {
-               TimerScores.Enabled = true;
+                TimerScores.Enabled = true;
             }
         }
     }

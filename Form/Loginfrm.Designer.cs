@@ -42,30 +42,31 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(124, 36);
-            pictureBox1.Margin = new Padding(5, 4, 5, 4);
+            pictureBox1.Location = new Point(168, 44);
+            pictureBox1.Margin = new Padding(6, 5, 6, 5);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(191, 138);
+            pictureBox1.Size = new Size(194, 138);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 5;
             pictureBox1.TabStop = false;
             // 
             // Usertxt
             // 
-            Usertxt.Location = new Point(79, 270);
-            Usertxt.Margin = new Padding(5, 4, 5, 4);
+            Usertxt.Location = new Point(116, 305);
+            Usertxt.Margin = new Padding(6, 5, 6, 5);
             Usertxt.Name = "Usertxt";
-            Usertxt.Size = new Size(280, 29);
+            Usertxt.Size = new Size(298, 33);
             Usertxt.StateCommon.Border.Color1 = Color.FromArgb(170, 170, 170);
             Usertxt.StateCommon.Border.Color2 = Color.FromArgb(170, 170, 170);
             Usertxt.StateCommon.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
+            Usertxt.StateCommon.Border.Rounding = 5F;
             Usertxt.StateCommon.Content.Font = new Font("Arial", 14F, FontStyle.Regular, GraphicsUnit.Point);
             Usertxt.TabIndex = 8;
             // 
             // kryptonLabel1
             // 
-            kryptonLabel1.Location = new Point(79, 247);
-            kryptonLabel1.Margin = new Padding(5, 4, 5, 4);
+            kryptonLabel1.Location = new Point(116, 277);
+            kryptonLabel1.Margin = new Padding(6, 5, 6, 5);
             kryptonLabel1.Name = "kryptonLabel1";
             kryptonLabel1.Size = new Size(97, 22);
             kryptonLabel1.StateCommon.ShortText.Color1 = Color.Black;
@@ -76,27 +77,28 @@
             // 
             // Passtxt
             // 
-            Passtxt.Location = new Point(79, 332);
-            Passtxt.Margin = new Padding(5, 4, 5, 4);
+            Passtxt.Location = new Point(116, 373);
+            Passtxt.Margin = new Padding(6, 5, 6, 5);
             Passtxt.Name = "Passtxt";
-            Passtxt.Size = new Size(280, 29);
+            Passtxt.Size = new Size(298, 33);
             Passtxt.StateCommon.Border.Color1 = Color.FromArgb(170, 170, 170);
             Passtxt.StateCommon.Border.Color2 = Color.FromArgb(170, 170, 170);
             Passtxt.StateCommon.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
+            Passtxt.StateCommon.Border.Rounding = 5F;
             Passtxt.StateCommon.Content.Font = new Font("Arial", 14F, FontStyle.Regular, GraphicsUnit.Point);
             Passtxt.TabIndex = 10;
             // 
             // Loginbtn
             // 
             Loginbtn.CornerRoundingRadius = 10F;
-            Loginbtn.Location = new Point(76, 396);
-            Loginbtn.Margin = new Padding(5, 4, 5, 4);
+            Loginbtn.Location = new Point(114, 471);
+            Loginbtn.Margin = new Padding(6, 5, 6, 5);
             Loginbtn.Name = "Loginbtn";
             Loginbtn.OverrideDefault.Back.Color1 = Color.FromArgb(166, 209, 230);
             Loginbtn.OverrideDefault.Back.Color2 = Color.FromArgb(166, 209, 230);
             Loginbtn.OverrideDefault.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
             Loginbtn.OverrideDefault.Border.Width = 0;
-            Loginbtn.Size = new Size(286, 44);
+            Loginbtn.Size = new Size(302, 45);
             Loginbtn.StateCommon.Back.Color1 = Color.FromArgb(58, 176, 255);
             Loginbtn.StateCommon.Back.Color2 = Color.FromArgb(58, 176, 255);
             Loginbtn.StateCommon.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
@@ -120,8 +122,8 @@
             // 
             // kryptonLabel3
             // 
-            kryptonLabel3.Location = new Point(79, 310);
-            kryptonLabel3.Margin = new Padding(5, 4, 5, 4);
+            kryptonLabel3.Location = new Point(116, 346);
+            kryptonLabel3.Margin = new Padding(6, 5, 6, 5);
             kryptonLabel3.Name = "kryptonLabel3";
             kryptonLabel3.Size = new Size(93, 22);
             kryptonLabel3.StateCommon.ShortText.Color1 = Color.Black;
@@ -133,12 +135,12 @@
             // keluarbtn
             // 
             keluarbtn.CornerRoundingRadius = 10F;
-            keluarbtn.Location = new Point(76, 454);
-            keluarbtn.Margin = new Padding(5, 4, 5, 4);
+            keluarbtn.Location = new Point(114, 536);
+            keluarbtn.Margin = new Padding(6, 5, 6, 5);
             keluarbtn.Name = "keluarbtn";
             keluarbtn.OverrideDefault.Back.Color1 = Color.FromArgb(166, 209, 230);
             keluarbtn.OverrideDefault.Back.Color2 = Color.FromArgb(166, 209, 230);
-            keluarbtn.Size = new Size(286, 44);
+            keluarbtn.Size = new Size(302, 46);
             keluarbtn.StateCommon.Back.Color1 = Color.Transparent;
             keluarbtn.StateCommon.Back.Color2 = Color.Transparent;
             keluarbtn.StateCommon.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
@@ -167,10 +169,10 @@
             // 
             // Loginfrm
             // 
-            AutoScaleDimensions = new SizeF(9F, 18F);
+            AutoScaleDimensions = new SizeF(11F, 22F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(254, 251, 246);
-            ClientSize = new Size(447, 568);
+            ClientSize = new Size(530, 637);
             Controls.Add(keluarbtn);
             Controls.Add(kryptonLabel3);
             Controls.Add(Loginbtn);
@@ -179,10 +181,10 @@
             Controls.Add(Usertxt);
             Controls.Add(pictureBox1);
             CornerRoundingRadius = 10F;
-            Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             ForeColor = Color.FromArgb(61, 60, 66);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(5, 4, 5, 4);
+            Margin = new Padding(6, 5, 6, 5);
             Name = "Loginfrm";
             StartPosition = FormStartPosition.CenterParent;
             StateCommon.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;

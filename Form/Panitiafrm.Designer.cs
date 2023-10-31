@@ -47,7 +47,7 @@
             Mainpnl.Location = new Point(0, 0);
             Mainpnl.Margin = new Padding(0);
             Mainpnl.Name = "Mainpnl";
-            Mainpnl.Size = new Size(1029, 540);
+            Mainpnl.Size = new Size(1258, 660);
             Mainpnl.TabIndex = 1;
             Mainpnl.Paint += Mainpnl_Paint;
             // 
@@ -59,35 +59,38 @@
             kryptonPanel2.Controls.Add(Gamebtn);
             kryptonPanel2.Dock = DockStyle.Left;
             kryptonPanel2.Location = new Point(0, 0);
+            kryptonPanel2.Margin = new Padding(4);
             kryptonPanel2.Name = "kryptonPanel2";
-            kryptonPanel2.Size = new Size(204, 540);
+            kryptonPanel2.Size = new Size(249, 660);
             kryptonPanel2.StateCommon.Color1 = Color.FromArgb(35, 40, 45);
             kryptonPanel2.TabIndex = 0;
             // 
             // Closedbtn
             // 
             Closedbtn.CornerRoundingRadius = -1F;
-            Closedbtn.Location = new Point(16, 20);
+            Closedbtn.Location = new Point(20, 24);
+            Closedbtn.Margin = new Padding(4);
             Closedbtn.Name = "Closedbtn";
-            Closedbtn.Size = new Size(28, 25);
+            Closedbtn.Size = new Size(34, 31);
             Closedbtn.StateCommon.Back.Color1 = Color.Transparent;
             Closedbtn.StateCommon.Back.Color2 = Color.Transparent;
             Closedbtn.TabIndex = 7;
             Closedbtn.Values.Image = (Image)resources.GetObject("Closedbtn.Values.Image");
-            Closedbtn.Values.Text = "kryptonButton1";
+            Closedbtn.Values.Text = "";
             Closedbtn.Click += Closebtn_Click;
             // 
             // Settingbtn
             // 
             Settingbtn.CornerRoundingRadius = -1F;
-            Settingbtn.Location = new Point(10, 283);
+            Settingbtn.Location = new Point(12, 346);
+            Settingbtn.Margin = new Padding(4);
             Settingbtn.Name = "Settingbtn";
             Settingbtn.OverrideDefault.Back.Color1 = Color.Transparent;
             Settingbtn.OverrideDefault.Back.Color2 = Color.Transparent;
             Settingbtn.OverrideDefault.Border.Color1 = Color.Transparent;
             Settingbtn.OverrideDefault.Border.Color2 = Color.Transparent;
             Settingbtn.OverrideDefault.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
-            Settingbtn.Size = new Size(194, 25);
+            Settingbtn.Size = new Size(237, 31);
             Settingbtn.StateCommon.Back.Color1 = Color.Transparent;
             Settingbtn.StateCommon.Back.Color2 = Color.Transparent;
             Settingbtn.StateCommon.Border.Color1 = Color.Transparent;
@@ -114,14 +117,15 @@
             // DataPesertabtn
             // 
             DataPesertabtn.CornerRoundingRadius = -1F;
-            DataPesertabtn.Location = new Point(10, 226);
+            DataPesertabtn.Location = new Point(12, 276);
+            DataPesertabtn.Margin = new Padding(4);
             DataPesertabtn.Name = "DataPesertabtn";
             DataPesertabtn.OverrideDefault.Back.Color1 = Color.Transparent;
             DataPesertabtn.OverrideDefault.Back.Color2 = Color.Transparent;
             DataPesertabtn.OverrideDefault.Border.Color1 = Color.Transparent;
             DataPesertabtn.OverrideDefault.Border.Color2 = Color.Transparent;
             DataPesertabtn.OverrideDefault.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
-            DataPesertabtn.Size = new Size(194, 25);
+            DataPesertabtn.Size = new Size(237, 31);
             DataPesertabtn.StateCommon.Back.Color1 = Color.Transparent;
             DataPesertabtn.StateCommon.Back.Color2 = Color.Transparent;
             DataPesertabtn.StateCommon.Border.Color1 = Color.Transparent;
@@ -148,14 +152,15 @@
             // Gamebtn
             // 
             Gamebtn.CornerRoundingRadius = -1F;
-            Gamebtn.Location = new Point(10, 169);
+            Gamebtn.Location = new Point(12, 207);
+            Gamebtn.Margin = new Padding(4);
             Gamebtn.Name = "Gamebtn";
             Gamebtn.OverrideDefault.Back.Color1 = Color.Transparent;
             Gamebtn.OverrideDefault.Back.Color2 = Color.Transparent;
             Gamebtn.OverrideDefault.Border.Color1 = Color.Transparent;
             Gamebtn.OverrideDefault.Border.Color2 = Color.Transparent;
             Gamebtn.OverrideDefault.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
-            Gamebtn.Size = new Size(194, 25);
+            Gamebtn.Size = new Size(237, 31);
             Gamebtn.StateCommon.Back.Color1 = Color.Transparent;
             Gamebtn.StateCommon.Back.Color2 = Color.Transparent;
             Gamebtn.StateCommon.Border.Color1 = Color.Transparent;
@@ -182,28 +187,29 @@
             // Openbtn
             // 
             Openbtn.CornerRoundingRadius = -1F;
-            Openbtn.Location = new Point(16, 20);
+            Openbtn.Location = new Point(20, 24);
+            Openbtn.Margin = new Padding(4);
             Openbtn.Name = "Openbtn";
-            Openbtn.Size = new Size(28, 25);
+            Openbtn.Size = new Size(34, 31);
             Openbtn.StateCommon.Back.Color1 = Color.Transparent;
             Openbtn.StateCommon.Back.Color2 = Color.Transparent;
             Openbtn.TabIndex = 8;
             Openbtn.Values.Image = (Image)resources.GetObject("Openbtn.Values.Image");
-            Openbtn.Values.Text = "kryptonButton2";
+            Openbtn.Values.Text = "";
             Openbtn.Click += Openbtn_Click;
             // 
             // Panitiafrm
             // 
-            AutoScaleDimensions = new SizeF(9F, 18F);
+            AutoScaleDimensions = new SizeF(11F, 22F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1029, 540);
+            ClientSize = new Size(1258, 660);
             Controls.Add(Openbtn);
             Controls.Add(kryptonPanel2);
             Controls.Add(Mainpnl);
-            Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(4);
+            Margin = new Padding(5);
             Name = "Panitiafrm";
             Text = "Panitia";
             WindowState = FormWindowState.Maximized;

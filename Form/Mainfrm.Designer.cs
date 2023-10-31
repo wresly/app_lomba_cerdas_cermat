@@ -32,11 +32,12 @@
             // 
             // Mainfrm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(11F, 22F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            ClientSize = new Size(1257, 660);
+            Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             IsMdiContainer = true;
+            Margin = new Padding(5, 4, 5, 4);
             Name = "Mainfrm";
             Text = "Cerdas Cermat";
             WindowState = FormWindowState.Maximized;

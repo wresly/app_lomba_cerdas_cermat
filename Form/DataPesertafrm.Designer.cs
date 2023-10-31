@@ -48,14 +48,15 @@
             Usersdgv.BackgroundColor = SystemColors.Control;
             Usersdgv.BorderStyle = BorderStyle.Fixed3D;
             Usersdgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            Usersdgv.Location = new Point(46, 308);
+            Usersdgv.Location = new Point(56, 376);
+            Usersdgv.Margin = new Padding(4, 4, 4, 4);
             Usersdgv.Name = "Usersdgv";
             Usersdgv.ReadOnly = true;
             Usersdgv.RowHeadersVisible = false;
             Usersdgv.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             Usersdgv.RowTemplate.Height = 25;
             Usersdgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            Usersdgv.Size = new Size(1112, 374);
+            Usersdgv.Size = new Size(1359, 457);
             Usersdgv.TabIndex = 10;
             Usersdgv.SelectionChanged += Usersdgv_SelectionChanged;
             Usersdgv.KeyDown += Usersdgv_KeyDown;
@@ -63,14 +64,14 @@
             // Tambahbtn
             // 
             Tambahbtn.CornerRoundingRadius = 5F;
-            Tambahbtn.Location = new Point(206, 260);
-            Tambahbtn.Margin = new Padding(5, 4, 5, 4);
+            Tambahbtn.Location = new Point(252, 318);
+            Tambahbtn.Margin = new Padding(6, 5, 6, 5);
             Tambahbtn.Name = "Tambahbtn";
             Tambahbtn.OverrideDefault.Back.Color1 = Color.FromArgb(166, 209, 230);
             Tambahbtn.OverrideDefault.Back.Color2 = Color.FromArgb(166, 209, 230);
             Tambahbtn.OverrideDefault.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
             Tambahbtn.OverrideDefault.Border.Width = 0;
-            Tambahbtn.Size = new Size(144, 44);
+            Tambahbtn.Size = new Size(176, 54);
             Tambahbtn.StateCommon.Back.Color1 = Color.FromArgb(58, 176, 255);
             Tambahbtn.StateCommon.Back.Color2 = Color.FromArgb(58, 176, 255);
             Tambahbtn.StateCommon.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
@@ -95,14 +96,14 @@
             // Hapusbtn
             // 
             Hapusbtn.CornerRoundingRadius = 5F;
-            Hapusbtn.Location = new Point(46, 260);
-            Hapusbtn.Margin = new Padding(5, 4, 5, 4);
+            Hapusbtn.Location = new Point(56, 318);
+            Hapusbtn.Margin = new Padding(6, 5, 6, 5);
             Hapusbtn.Name = "Hapusbtn";
             Hapusbtn.OverrideDefault.Back.Color1 = Color.FromArgb(166, 209, 230);
             Hapusbtn.OverrideDefault.Back.Color2 = Color.FromArgb(166, 209, 230);
             Hapusbtn.OverrideDefault.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
             Hapusbtn.OverrideDefault.Border.Width = 0;
-            Hapusbtn.Size = new Size(144, 44);
+            Hapusbtn.Size = new Size(176, 54);
             Hapusbtn.StateCommon.Back.Color1 = Color.FromArgb(255, 89, 89);
             Hapusbtn.StateCommon.Back.Color2 = Color.FromArgb(255, 89, 89);
             Hapusbtn.StateCommon.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
@@ -127,7 +128,8 @@
             // kryptonLabel1
             // 
             kryptonLabel1.Anchor = AnchorStyles.Top;
-            kryptonLabel1.Location = new Point(477, 36);
+            kryptonLabel1.Location = new Point(583, 44);
+            kryptonLabel1.Margin = new Padding(4, 4, 4, 4);
             kryptonLabel1.Name = "kryptonLabel1";
             kryptonLabel1.Size = new Size(250, 48);
             kryptonLabel1.StateCommon.ShortText.Color1 = Color.Black;
@@ -138,8 +140,8 @@
             // 
             // kryptonLabel3
             // 
-            kryptonLabel3.Location = new Point(46, 200);
-            kryptonLabel3.Margin = new Padding(5, 4, 5, 4);
+            kryptonLabel3.Location = new Point(56, 244);
+            kryptonLabel3.Margin = new Padding(6, 5, 6, 5);
             kryptonLabel3.Name = "kryptonLabel3";
             kryptonLabel3.Size = new Size(93, 22);
             kryptonLabel3.StateCommon.ShortText.Color1 = Color.Black;
@@ -150,10 +152,10 @@
             // 
             // Passtxt
             // 
-            Passtxt.Location = new Point(46, 222);
-            Passtxt.Margin = new Padding(5, 4, 5, 4);
+            Passtxt.Location = new Point(56, 271);
+            Passtxt.Margin = new Padding(6, 5, 6, 5);
             Passtxt.Name = "Passtxt";
-            Passtxt.Size = new Size(304, 29);
+            Passtxt.Size = new Size(372, 29);
             Passtxt.StateCommon.Border.Color1 = Color.FromArgb(170, 170, 170);
             Passtxt.StateCommon.Border.Color2 = Color.FromArgb(170, 170, 170);
             Passtxt.StateCommon.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
@@ -162,8 +164,8 @@
             // 
             // kryptonLabel2
             // 
-            kryptonLabel2.Location = new Point(46, 137);
-            kryptonLabel2.Margin = new Padding(5, 4, 5, 4);
+            kryptonLabel2.Location = new Point(56, 167);
+            kryptonLabel2.Margin = new Padding(6, 5, 6, 5);
             kryptonLabel2.Name = "kryptonLabel2";
             kryptonLabel2.Size = new Size(97, 22);
             kryptonLabel2.StateCommon.ShortText.Color1 = Color.Black;
@@ -174,10 +176,10 @@
             // 
             // Usertxt
             // 
-            Usertxt.Location = new Point(46, 160);
-            Usertxt.Margin = new Padding(5, 4, 5, 4);
+            Usertxt.Location = new Point(56, 196);
+            Usertxt.Margin = new Padding(6, 5, 6, 5);
             Usertxt.Name = "Usertxt";
-            Usertxt.Size = new Size(304, 29);
+            Usertxt.Size = new Size(372, 29);
             Usertxt.StateCommon.Border.Color1 = Color.FromArgb(170, 170, 170);
             Usertxt.StateCommon.Border.Color2 = Color.FromArgb(170, 170, 170);
             Usertxt.StateCommon.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
@@ -191,11 +193,11 @@
             // 
             // DataPesertafrm
             // 
-            AutoScaleDimensions = new SizeF(9F, 18F);
+            AutoScaleDimensions = new SizeF(11F, 22F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             BackColor = Color.White;
-            ClientSize = new Size(1203, 742);
+            ClientSize = new Size(1470, 907);
             Controls.Add(kryptonLabel3);
             Controls.Add(Passtxt);
             Controls.Add(kryptonLabel2);
@@ -204,9 +206,9 @@
             Controls.Add(Hapusbtn);
             Controls.Add(Tambahbtn);
             Controls.Add(Usersdgv);
-            Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(4, 3, 4, 3);
+            Margin = new Padding(5, 4, 5, 4);
             Name = "DataPesertafrm";
             Text = "Panitia Form";
             WindowState = FormWindowState.Maximized;

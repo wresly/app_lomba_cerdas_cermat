@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using app_lomba_cerdas_cermat.Form;
 using Krypton.Toolkit;
+using System.IO;
+using app_lomba_cerdas_cermat.Classes;
+using MySql.Data.MySqlClient;
 
 namespace app_lomba_cerdas_cermat
 {
@@ -21,6 +24,12 @@ namespace app_lomba_cerdas_cermat
 
         private void Mainfrm_Load(object sender, EventArgs e)
         {
+            StreamReader stream = new StreamReader("server.txt");
+            string filedata = stream.ReadToEnd();
+            db.conn = new MySqlConnection(filedata.ToString());
+            //MessageBox.Show(db.connectionString);
+            stream.Close();
+
             Loginfrm loginfrm = new Loginfrm();
             loginfrm.ShowDialog();
             if (loginfrm.DialogResult == DialogResult.OK)

@@ -113,6 +113,27 @@ namespace app_lomba_cerdas_cermat.Form
             }
         }
 
+        private void Spacebtn_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Space)
+            {
+                Spacebtn.PerformClick();
+            }
+        }
+        private void Extendbtn_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Space)
+            {
+                Spacebtn.PerformClick();
+            }
+        }
+        private void Pesertafrm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Space)
+            {
+                Spacebtn.PerformClick();
+            }
+        }
         private void TimerCheckUser_Tick(object sender, EventArgs e)
         {
             if (NoUser() && notBlacklist())
@@ -124,6 +145,7 @@ namespace app_lomba_cerdas_cermat.Form
                 Spacebtn.Enabled = false;
             }
         }
+
 
 
 

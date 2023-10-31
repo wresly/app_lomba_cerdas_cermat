@@ -217,6 +217,14 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                 Startbtn.Enabled = true;
                 reset();
             }
+
+            //disabled form
+            Plustxt.Enabled = true;
+            Minustxt.Enabled = true;
+            Minutetxt.Enabled = true;
+            Secondtxt.Enabled = true;
+            Startbtn.Enabled = true;
+
             //game status
             Statuslbl.Text = ": Not Started";
             Pesertalbl.Text = ": -";
