@@ -29,24 +29,32 @@ namespace app_lomba_cerdas_cermat.Form
         private void Game1_Click(object sender, EventArgs e)
         {
             Game1frm game1Frm = new Game1frm();
+            timer1.Enabled = false;
             game1Frm.ShowDialog();
+            timer1.Enabled = true;
         }
         private void Game2btn_Click(object sender, EventArgs e)
         {
             Game2frm game2Frm = new Game2frm();
+            timer1.Enabled = false;
             game2Frm.ShowDialog();
+            timer1.Enabled = true;
         }
 
 
         private void Game3btn_Click(object sender, EventArgs e)
         {
             Game3frm game3Frm = new Game3frm();
+            timer1.Enabled = false;
             game3Frm.ShowDialog();
+            timer1.Enabled = true;
         }
         private void AddScoresbtn_Click(object sender, EventArgs e)
         {
             AddScores addScores = new AddScores();
+            timer1.Enabled = false;
             addScores.ShowDialog();
+            timer1.Enabled = true;
         }
 
         private void Reset_Click(object sender, EventArgs e)
@@ -76,7 +84,7 @@ namespace app_lomba_cerdas_cermat.Form
 
 
                 }
-                catch (Exception ex) 
+                catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     this.Close();
@@ -137,10 +145,9 @@ namespace app_lomba_cerdas_cermat.Form
                 reader.Close();
 
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.Close();
             }
             finally
             {

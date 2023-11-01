@@ -31,7 +31,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
 
                 }
                 //reset game table
-                MySqlCommand cmd = new MySqlCommand("UPDATE `game` SET `game_status`='none',`peserta`='none',`timer`=0 ", db.conn);
+                MySqlCommand cmd = new MySqlCommand("UPDATE `game` SET `game_status`='none',`peserta`='none',`time`='00:00:00',`timer`=0 ", db.conn);
                 cmd.ExecuteNonQuery();
 
                 //reset blacklist
@@ -159,7 +159,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                     db.conn.Open();
 
                 }
-                MySqlCommand cmd = new MySqlCommand("UPDATE `game` SET `game_status`='game 2', `peserta` = '" + peserta + "', `timer`= " + (Int32.Parse(Minutetxt.Text) * 60 + Int32.Parse(Secondtxt.Text)), db.conn);
+                MySqlCommand cmd = new MySqlCommand("UPDATE `game` SET `game_status`='game 2', `peserta` = '" + peserta + "',`time`='" + DateTime.Now.ToLongTimeString() + "', `timer`= " + (Int32.Parse(Minutetxt.Text) * 60 + Int32.Parse(Secondtxt.Text)), db.conn);
                 cmd.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -231,19 +231,36 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                     return;
                 }
 
-                //reset controls
-                Pesertacmb.SelectedIndex = 0;
-                Pesertacmb.Enabled = true;
-                Scorestxt.Enabled = true;
-                Minutetxt.Enabled = true;
-                Secondtxt.Enabled = true;
-                Startbtn.Enabled = true;
 
-                //reset status
-                Statuslbl.Text = ": not started";
-                Pesertalbl.Text = ": -";
-                Scoreslbl.Text = ": -";
-                Timerlbl.Text = ": 00:00";
+            }
+            //reset controls
+            Pesertacmb.SelectedIndex = 0;
+            Pesertacmb.Enabled = true;
+            Scorestxt.Enabled = true;
+            Minutetxt.Enabled = true;
+            Secondtxt.Enabled = true;
+            Startbtn.Enabled = true;
+
+            //reset status
+            Statuslbl.Text = ": not started";
+            Pesertalbl.Text = ": -";
+            Scoreslbl.Text = ": -";
+            Timerlbl.Text = ": 00:00";
+
+            //Update game table
+            try
+            {
+                if (db.conn.State == ConnectionState.Closed)
+                {
+                    db.conn.Open();
+
+                }
+                MySqlCommand cmd = new MySqlCommand("UPDATE `game` SET `game_status`='Game 2', `peserta` = 'none',`time`='00:00:00', `timer`= 0", db.conn);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

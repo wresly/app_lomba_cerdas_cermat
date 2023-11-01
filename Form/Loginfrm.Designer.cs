@@ -184,6 +184,7 @@
             Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             ForeColor = Color.FromArgb(61, 60, 66);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(6, 5, 6, 5);
             Name = "Loginfrm";
             StartPosition = FormStartPosition.CenterParent;

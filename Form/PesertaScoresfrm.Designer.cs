@@ -41,10 +41,10 @@
             // 
             Pointlbl.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             Pointlbl.AutoSize = false;
-            Pointlbl.Location = new Point(0, 804);
+            Pointlbl.Location = new Point(0, 466);
             Pointlbl.Margin = new Padding(5, 4, 5, 4);
             Pointlbl.Name = "Pointlbl";
-            Pointlbl.Size = new Size(1333, 179);
+            Pointlbl.Size = new Size(878, 179);
             Pointlbl.StateCommon.ShortText.Color1 = Color.Red;
             Pointlbl.StateCommon.ShortText.Color2 = Color.Red;
             Pointlbl.StateCommon.ShortText.Font = new Font("Arial", 100F, FontStyle.Bold, GraphicsUnit.Point);
@@ -56,10 +56,10 @@
             // 
             Usernamelbl.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             Usernamelbl.AutoSize = false;
-            Usernamelbl.Location = new Point(0, 563);
+            Usernamelbl.Location = new Point(0, 312);
             Usernamelbl.Margin = new Padding(5, 4, 5, 4);
             Usernamelbl.Name = "Usernamelbl";
-            Usernamelbl.Size = new Size(1333, 179);
+            Usernamelbl.Size = new Size(878, 179);
             Usernamelbl.StateCommon.ShortText.Font = new Font("Arial", 100F, FontStyle.Bold, GraphicsUnit.Point);
             Usernamelbl.StateCommon.ShortText.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
             Usernamelbl.TabIndex = 1;
@@ -69,10 +69,10 @@
             // 
             pictureBox1.Anchor = AnchorStyles.None;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(387, 67);
+            pictureBox1.Location = new Point(280, 48);
             pictureBox1.Margin = new Padding(5, 4, 5, 4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(559, 461);
+            pictureBox1.Size = new Size(318, 264);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 2;
             pictureBox1.TabStop = false;
@@ -87,11 +87,12 @@
             AutoScaleDimensions = new SizeF(11F, 22F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1334, 941);
+            ClientSize = new Size(879, 640);
             Controls.Add(pictureBox1);
             Controls.Add(Usernamelbl);
             Controls.Add(Pointlbl);
             Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(5, 4, 5, 4);
             Name = "PesertaScoresfrm";
             Text = "PesertaScoresfrm";

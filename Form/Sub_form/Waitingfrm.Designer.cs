@@ -72,6 +72,7 @@
             Controls.Add(pictureBox1);
             Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(5, 4, 5, 4);
             MaximizeBox = false;
             MinimizeBox = false;

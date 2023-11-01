@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AnswerCheckerUser));
             Salahbtn = new Krypton.Toolkit.KryptonButton();
             Timerlbl = new Label();
             Benarbtn = new Krypton.Toolkit.KryptonButton();
@@ -137,6 +138,7 @@
             Controls.Add(Salahbtn);
             Controls.Add(Timerlbl);
             Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(5, 4, 5, 4);
             Name = "AnswerCheckerUser";
             StartPosition = FormStartPosition.CenterScreen;

@@ -107,15 +107,11 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                     db.conn.Open();
                 }
                 timer = Int32.Parse(Minutetxt.Text) * 60 + Int32.Parse(Secondtxt.Text);
-                MySqlCommand cmd = new MySqlCommand("UPDATE game SET game_status='game 1',`peserta`='" + Pesertacmb.Text + "',`timer`='" + timer + "' WHERE 1", db.conn);
+                MySqlCommand cmd = new MySqlCommand("UPDATE game SET game_status='game 1',`peserta`='" + Pesertacmb.Text + "',`time`='" + DateTime.Now.ToLongTimeString() + "',`timer`='" + timer + "' WHERE 1", db.conn);
                 cmd.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
-                Timerlbl.Text = "00:00";
-                timer1.Enabled = false;
-                Startbtn.Enabled = true;
-                Finishbtn.Enabled = false;
                 MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -175,7 +171,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
 
                     }
                     //reset game table
-                    MySqlCommand cmd = new MySqlCommand("UPDATE `game` SET `game_status`='none',`peserta`='none',`timer`=0 ", db.conn);
+                    MySqlCommand cmd = new MySqlCommand("UPDATE `game` SET `game_status`='none',`peserta`='none',`time`='00:00:00',`timer`=0 ", db.conn);
                     cmd.ExecuteNonQuery();
 
                 }
@@ -192,8 +188,9 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
             //controls enabled/disabled
             Resetbtn.Enabled = false;
             Startbtn.Enabled = true;
-            Finishbtn.PerformClick();
+            timer1.Enabled = false;
 
+            Timer2lbl.Text = ": 00:00";
             try
             {
                 if (db.conn.State == ConnectionState.Closed)
@@ -202,7 +199,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
 
                 }
                 //reset game table
-                MySqlCommand cmd = new MySqlCommand("UPDATE `game` SET `game_status`='none',`peserta`='none',`timer`=0 ", db.conn);
+                MySqlCommand cmd = new MySqlCommand("UPDATE `game` SET `game_status`='none',`peserta`='none',`time`='00:00:00',`timer`=0 ", db.conn);
                 cmd.ExecuteNonQuery();
             }
             catch (Exception ex)

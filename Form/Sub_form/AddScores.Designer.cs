@@ -38,15 +38,15 @@
             // 
             // Scorestxt
             // 
-            Scorestxt.Location = new Point(70, 148);
+            Scorestxt.Location = new Point(76, 161);
             Scorestxt.Name = "Scorestxt";
-            Scorestxt.Size = new Size(192, 29);
+            Scorestxt.Size = new Size(209, 29);
             Scorestxt.StateCommon.Content.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             Scorestxt.TabIndex = 0;
             // 
             // kryptonLabel1
             // 
-            kryptonLabel1.Location = new Point(70, 120);
+            kryptonLabel1.Location = new Point(76, 127);
             kryptonLabel1.Name = "kryptonLabel1";
             kryptonLabel1.Size = new Size(128, 26);
             kryptonLabel1.StateCommon.ShortText.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
@@ -56,11 +56,11 @@
             // Addbtn
             // 
             Addbtn.CornerRoundingRadius = 5F;
-            Addbtn.Location = new Point(113, 198);
+            Addbtn.Location = new Point(123, 216);
             Addbtn.Name = "Addbtn";
             Addbtn.OverrideFocus.Back.Color1 = Color.FromArgb(80, 216, 144);
             Addbtn.OverrideFocus.Back.Color2 = Color.FromArgb(80, 216, 144);
-            Addbtn.Size = new Size(106, 34);
+            Addbtn.Size = new Size(116, 37);
             Addbtn.StateCommon.Back.Color1 = Color.FromArgb(80, 216, 144);
             Addbtn.StateCommon.Back.Color2 = Color.FromArgb(80, 216, 144);
             Addbtn.StateCommon.Border.Color1 = Color.FromArgb(80, 216, 144);
@@ -80,16 +80,16 @@
             Pesertacmb.DropDownStyle = ComboBoxStyle.DropDownList;
             Pesertacmb.DropDownWidth = 121;
             Pesertacmb.IntegralHeight = false;
-            Pesertacmb.Location = new Point(70, 72);
+            Pesertacmb.Location = new Point(76, 75);
             Pesertacmb.Name = "Pesertacmb";
-            Pesertacmb.Size = new Size(192, 27);
+            Pesertacmb.Size = new Size(209, 27);
             Pesertacmb.StateCommon.ComboBox.Content.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             Pesertacmb.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
             Pesertacmb.TabIndex = 3;
             // 
             // kryptonLabel2
             // 
-            kryptonLabel2.Location = new Point(70, 44);
+            kryptonLabel2.Location = new Point(76, 42);
             kryptonLabel2.Name = "kryptonLabel2";
             kryptonLabel2.Size = new Size(86, 26);
             kryptonLabel2.StateCommon.ShortText.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
@@ -98,15 +98,15 @@
             // 
             // AddScores
             // 
-            AutoScaleDimensions = new SizeF(11F, 22F);
+            AutoScaleDimensions = new SizeF(12F, 24F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(338, 272);
+            ClientSize = new Size(369, 297);
             Controls.Add(kryptonLabel2);
             Controls.Add(Pesertacmb);
             Controls.Add(Addbtn);
             Controls.Add(kryptonLabel1);
             Controls.Add(Scorestxt);
-            Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            Font = new Font("Arial", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
             Margin = new Padding(5, 4, 5, 4);
             MaximizeBox = false;
             Name = "AddScores";

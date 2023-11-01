@@ -53,7 +53,7 @@
             // GameStatuslbl
             // 
             GameStatuslbl.Anchor = AnchorStyles.None;
-            GameStatuslbl.Location = new Point(263, 78);
+            GameStatuslbl.Location = new Point(262, 80);
             GameStatuslbl.Name = "GameStatuslbl";
             GameStatuslbl.Size = new Size(260, 36);
             GameStatuslbl.StateCommon.ShortText.Font = new Font("Arial", 20.25F, FontStyle.Regular, GraphicsUnit.Point);

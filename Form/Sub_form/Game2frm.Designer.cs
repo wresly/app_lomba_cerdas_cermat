@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Game2frm));
             Gamepnl = new Krypton.Toolkit.KryptonPanel();
             Scoreslbl = new Krypton.Toolkit.KryptonLabel();
             kryptonLabel9 = new Krypton.Toolkit.KryptonLabel();
@@ -167,7 +168,7 @@
             // 
             // kryptonLabel4
             // 
-            kryptonLabel4.Location = new Point(204, 346);
+            kryptonLabel4.Location = new Point(207, 346);
             kryptonLabel4.Margin = new Padding(4, 3, 4, 3);
             kryptonLabel4.Name = "kryptonLabel4";
             kryptonLabel4.Size = new Size(16, 22);
@@ -197,14 +198,15 @@
             // 
             // Secondtxt
             // 
-            Secondtxt.Location = new Point(229, 341);
+            Secondtxt.Location = new Point(228, 341);
             Secondtxt.Margin = new Padding(4, 3, 4, 3);
             Secondtxt.MaxLength = 2;
             Secondtxt.Name = "Secondtxt";
-            Secondtxt.Size = new Size(36, 29);
+            Secondtxt.Size = new Size(39, 29);
             Secondtxt.StateCommon.Content.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             Secondtxt.TabIndex = 29;
             Secondtxt.Text = "00";
+            Secondtxt.TextAlign = HorizontalAlignment.Center;
             // 
             // Minutetxt
             // 
@@ -212,10 +214,11 @@
             Minutetxt.Margin = new Padding(4, 3, 4, 3);
             Minutetxt.MaxLength = 2;
             Minutetxt.Name = "Minutetxt";
-            Minutetxt.Size = new Size(36, 29);
+            Minutetxt.Size = new Size(39, 29);
             Minutetxt.StateCommon.Content.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             Minutetxt.TabIndex = 28;
             Minutetxt.Text = "00";
+            Minutetxt.TextAlign = HorizontalAlignment.Center;
             // 
             // kryptonLabel1
             // 
@@ -387,6 +390,7 @@
             Controls.Add(Startbtn);
             Controls.Add(Pesertacmb);
             Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(6, 4, 6, 4);
             MaximizeBox = false;
             Name = "Game2frm";

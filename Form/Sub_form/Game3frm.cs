@@ -70,7 +70,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
 
                     Resetbtn.Enabled = true;
                     reader.Close();
-                    MessageBox.Show("game sedang berjalan, mohon reset game kembali atau lanjutkan", "warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("game sedang berjalan, mohon reset game kembali", "warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 reader.Close();
 
@@ -81,7 +81,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                 {
                     Resetbtn.Enabled = true;
                     reader.Close();
-                    MessageBox.Show("game sedang berjalan, mohon reset game kembali atau lanjutkan", "warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("game sedang berjalan, mohon reset game kembali", "warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 reader.Close();
 

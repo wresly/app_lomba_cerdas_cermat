@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Game1frm));
             Pesertacmb = new Krypton.Toolkit.KryptonComboBox();
             Timerlbl = new Label();
             Startbtn = new Krypton.Toolkit.KryptonButton();
@@ -83,7 +84,7 @@
             // Startbtn
             // 
             Startbtn.CornerRoundingRadius = 5F;
-            Startbtn.Location = new Point(241, 436);
+            Startbtn.Location = new Point(247, 436);
             Startbtn.Margin = new Padding(6, 4, 6, 4);
             Startbtn.Name = "Startbtn";
             Startbtn.OverrideDefault.Back.Color1 = Color.FromArgb(166, 209, 230);
@@ -167,29 +168,31 @@
             // 
             // Minutetxt
             // 
-            Minutetxt.Location = new Point(186, 356);
+            Minutetxt.Location = new Point(190, 356);
             Minutetxt.Margin = new Padding(4, 3, 4, 3);
             Minutetxt.MaxLength = 2;
             Minutetxt.Name = "Minutetxt";
-            Minutetxt.Size = new Size(36, 29);
+            Minutetxt.Size = new Size(38, 29);
             Minutetxt.StateCommon.Content.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             Minutetxt.TabIndex = 17;
             Minutetxt.Text = "00";
+            Minutetxt.TextAlign = HorizontalAlignment.Center;
             // 
             // Secondtxt
             // 
-            Secondtxt.Location = new Point(241, 356);
+            Secondtxt.Location = new Point(248, 356);
             Secondtxt.Margin = new Padding(4, 3, 4, 3);
             Secondtxt.MaxLength = 2;
             Secondtxt.Name = "Secondtxt";
-            Secondtxt.Size = new Size(36, 29);
+            Secondtxt.Size = new Size(39, 29);
             Secondtxt.StateCommon.Content.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             Secondtxt.TabIndex = 18;
             Secondtxt.Text = "00";
+            Secondtxt.TextAlign = HorizontalAlignment.Center;
             // 
             // kryptonLabel2
             // 
-            kryptonLabel2.Location = new Point(167, 218);
+            kryptonLabel2.Location = new Point(187, 218);
             kryptonLabel2.Margin = new Padding(4, 3, 4, 3);
             kryptonLabel2.Name = "kryptonLabel2";
             kryptonLabel2.Size = new Size(100, 32);
@@ -199,7 +202,7 @@
             // 
             // kryptonLabel3
             // 
-            kryptonLabel3.Location = new Point(181, 316);
+            kryptonLabel3.Location = new Point(198, 316);
             kryptonLabel3.Margin = new Padding(4, 3, 4, 3);
             kryptonLabel3.Name = "kryptonLabel3";
             kryptonLabel3.Size = new Size(78, 32);
@@ -209,7 +212,7 @@
             // 
             // kryptonLabel4
             // 
-            kryptonLabel4.Location = new Point(222, 360);
+            kryptonLabel4.Location = new Point(230, 360);
             kryptonLabel4.Margin = new Padding(4, 3, 4, 3);
             kryptonLabel4.Name = "kryptonLabel4";
             kryptonLabel4.Size = new Size(16, 22);
@@ -366,6 +369,7 @@
             Controls.Add(Timerlbl);
             Controls.Add(Pesertacmb);
             Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(6, 4, 6, 4);
             MaximizeBox = false;
             Name = "Game1frm";

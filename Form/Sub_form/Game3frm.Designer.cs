@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Game3frm));
             Gamepnl = new Krypton.Toolkit.KryptonPanel();
             Minuslbl = new Krypton.Toolkit.KryptonLabel();
             Pluslbl = new Krypton.Toolkit.KryptonLabel();
@@ -229,7 +230,7 @@
             // 
             // kryptonLabel4
             // 
-            kryptonLabel4.Location = new Point(258, 378);
+            kryptonLabel4.Location = new Point(261, 378);
             kryptonLabel4.Margin = new Padding(4, 3, 4, 3);
             kryptonLabel4.Name = "kryptonLabel4";
             kryptonLabel4.Size = new Size(16, 22);
@@ -249,14 +250,15 @@
             // 
             // Secondtxt
             // 
-            Secondtxt.Location = new Point(285, 375);
+            Secondtxt.Location = new Point(283, 375);
             Secondtxt.Margin = new Padding(4, 3, 4, 3);
             Secondtxt.MaxLength = 2;
             Secondtxt.Name = "Secondtxt";
-            Secondtxt.Size = new Size(36, 29);
+            Secondtxt.Size = new Size(39, 29);
             Secondtxt.StateCommon.Content.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             Secondtxt.TabIndex = 4;
             Secondtxt.Text = "00";
+            Secondtxt.TextAlign = HorizontalAlignment.Center;
             // 
             // Minutetxt
             // 
@@ -264,10 +266,11 @@
             Minutetxt.Margin = new Padding(4, 3, 4, 3);
             Minutetxt.MaxLength = 2;
             Minutetxt.Name = "Minutetxt";
-            Minutetxt.Size = new Size(36, 29);
+            Minutetxt.Size = new Size(39, 29);
             Minutetxt.StateCommon.Content.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             Minutetxt.TabIndex = 3;
             Minutetxt.Text = "00";
+            Minutetxt.TextAlign = HorizontalAlignment.Center;
             // 
             // Startbtn
             // 
@@ -405,6 +408,7 @@
             Controls.Add(Gamepnl);
             Controls.Add(kryptonLabel1);
             Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(6, 4, 6, 4);
             Name = "Game3frm";
             StartPosition = FormStartPosition.CenterScreen;

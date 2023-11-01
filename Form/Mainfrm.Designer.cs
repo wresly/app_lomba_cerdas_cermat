@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Mainfrm));
             SuspendLayout();
             // 
             // Mainfrm
@@ -36,6 +37,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1257, 660);
             Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             IsMdiContainer = true;
             Margin = new Padding(5, 4, 5, 4);
             Name = "Mainfrm";
