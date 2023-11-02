@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using app_lomba_cerdas_cermat.Classes;
 using Krypton.Toolkit;
 using MySql.Data.MySqlClient;
+using Org.BouncyCastle.Crmf;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace app_lomba_cerdas_cermat.Form.Sub_form
@@ -28,6 +29,8 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
         private void PesertaTimer_Load(object sender, EventArgs e)
         {
             timer1.Enabled = true;
+            Timerlbl.Left = (this.ClientSize.Width - Timerlbl.Width) / 2;
+            //myControl.Top = (this.ClientSize.Height - myControl.Height) / 2;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -40,7 +43,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                     db.conn.Open();
 
                 }
-                MySqlCommand cmd = new MySqlCommand("select * from game_blacklist where peserta = '" + username + "'", db.conn);
+                MySqlCommand cmd = new MySqlCommand("select * from game where peserta != '" + username + "'", db.conn);
                 MySqlDataReader reader = cmd.ExecuteReader();
                 if (reader.HasRows)
                 {

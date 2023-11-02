@@ -67,7 +67,7 @@
             Pesertacmb.Size = new Size(241, 27);
             Pesertacmb.StateCommon.ComboBox.Content.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             Pesertacmb.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
-            Pesertacmb.TabIndex = 1;
+            Pesertacmb.TabIndex = 0;
             // 
             // Timerlbl
             // 
@@ -113,7 +113,7 @@
             Startbtn.StateTracking.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
             Startbtn.StateTracking.Border.Rounding = 5F;
             Startbtn.StateTracking.Border.Width = 1;
-            Startbtn.TabIndex = 14;
+            Startbtn.TabIndex = 4;
             Startbtn.Values.Text = "Start";
             Startbtn.Click += Startbtn_Click;
             // 
@@ -162,31 +162,31 @@
             Finishbtn.StateTracking.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
             Finishbtn.StateTracking.Border.Rounding = 5F;
             Finishbtn.StateTracking.Border.Width = 1;
-            Finishbtn.TabIndex = 16;
+            Finishbtn.TabIndex = 5;
             Finishbtn.Values.Text = "Finish";
             Finishbtn.Click += Finishbtn_Click;
             // 
             // Minutetxt
             // 
-            Minutetxt.Location = new Point(190, 356);
+            Minutetxt.Location = new Point(186, 356);
             Minutetxt.Margin = new Padding(4, 3, 4, 3);
             Minutetxt.MaxLength = 2;
             Minutetxt.Name = "Minutetxt";
             Minutetxt.Size = new Size(38, 29);
             Minutetxt.StateCommon.Content.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            Minutetxt.TabIndex = 17;
+            Minutetxt.TabIndex = 1;
             Minutetxt.Text = "00";
             Minutetxt.TextAlign = HorizontalAlignment.Center;
             // 
             // Secondtxt
             // 
-            Secondtxt.Location = new Point(248, 356);
+            Secondtxt.Location = new Point(250, 356);
             Secondtxt.Margin = new Padding(4, 3, 4, 3);
             Secondtxt.MaxLength = 2;
             Secondtxt.Name = "Secondtxt";
             Secondtxt.Size = new Size(39, 29);
             Secondtxt.StateCommon.Content.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            Secondtxt.TabIndex = 18;
+            Secondtxt.TabIndex = 2;
             Secondtxt.Text = "00";
             Secondtxt.TextAlign = HorizontalAlignment.Center;
             // 
@@ -212,7 +212,7 @@
             // 
             // kryptonLabel4
             // 
-            kryptonLabel4.Location = new Point(230, 360);
+            kryptonLabel4.Location = new Point(229, 360);
             kryptonLabel4.Margin = new Padding(4, 3, 4, 3);
             kryptonLabel4.Name = "kryptonLabel4";
             kryptonLabel4.Size = new Size(16, 22);
@@ -347,7 +347,7 @@
             Resetbtn.StateTracking.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
             Resetbtn.StateTracking.Border.Rounding = 5F;
             Resetbtn.StateTracking.Border.Width = 1;
-            Resetbtn.TabIndex = 40;
+            Resetbtn.TabIndex = 3;
             Resetbtn.Values.Text = "Reset";
             Resetbtn.Click += Resetbtn_Click;
             // 

@@ -36,7 +36,7 @@
             // 
             // Timerlbl
             // 
-            Timerlbl.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            Timerlbl.Anchor = AnchorStyles.None;
             Timerlbl.AutoSize = true;
             Timerlbl.Font = new Font("Arial", 70F, FontStyle.Bold, GraphicsUnit.Point);
             Timerlbl.Location = new Point(116, 86);
@@ -62,6 +62,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(5, 4, 5, 4);
             Name = "PesertaTimer";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "PesertaTimer";
             Load += PesertaTimer_Load;
             ResumeLayout(false);

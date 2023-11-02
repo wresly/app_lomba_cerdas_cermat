@@ -16,6 +16,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
     public partial class Game2frm : KryptonForm
     {
         string peserta;
+        int scores;
         public Game2frm()
         {
             InitializeComponent();
@@ -31,7 +32,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
 
                 }
                 //reset game table
-                MySqlCommand cmd = new MySqlCommand("UPDATE `game` SET `game_status`='none',`peserta`='none',`time`='00:00:00',`timer`=0 ", db.conn);
+                MySqlCommand cmd = new MySqlCommand("UPDATE `game` SET `game_status`='none',`peserta`='none',`time`='00:00:00',`timer`=0,`plus_scores`=0,`minus_scores`=0", db.conn);
                 cmd.ExecuteNonQuery();
 
                 //reset blacklist
@@ -81,12 +82,17 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                 }
 
                 //checked game data
-                MySqlCommand cmd = new MySqlCommand("SELECT * FROM `game` WHERE game_status != 'none'", db.conn);
+                MySqlCommand cmd = new MySqlCommand("select * from game where game_status = 'game 2'", db.conn);
                 MySqlDataReader reader = cmd.ExecuteReader();
                 if (reader.HasRows)
                 {
-                    MessageBox.Show("game sedang berjalan, mohon reset game kembali atau lanjutkan", "warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("terjadi kesalahan, mohon restart game", "warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     Resetbtn.Enabled = true;
+                    Startbtn.Enabled = false;
+                    Statuslbl.Text = "Error need reset";
+                    reader.Close();
+                    reLoad();
+                    return;
                 }
                 reader.Close();
 
@@ -95,7 +101,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                 reader = cmd.ExecuteReader();
                 if (reader.HasRows)
                 {
-                    MessageBox.Show("game sedang berjalan, mohon reset game kembali atau lanjutkan", "warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("daftar blacklist tidak kosong, mohon direset untuk menghapus daftar blacklist", "warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     Resetbtn.Enabled = true;
                 }
                 reader.Close();
@@ -159,7 +165,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                     db.conn.Open();
 
                 }
-                MySqlCommand cmd = new MySqlCommand("UPDATE `game` SET `game_status`='game 2', `peserta` = '" + peserta + "',`time`='" + DateTime.Now.ToLongTimeString() + "', `timer`= " + (Int32.Parse(Minutetxt.Text) * 60 + Int32.Parse(Secondtxt.Text)), db.conn);
+                MySqlCommand cmd = new MySqlCommand("UPDATE `game` SET `game_status`='game 2', `peserta` = '" + peserta + "',`time`='" + DateTime.Now.ToLongTimeString() + "', `timer`= " + (Int32.Parse(Minutetxt.Text) * 60 + Int32.Parse(Secondtxt.Text)) + ", `plus_scores`=" + Scorestxt.Text, db.conn);
                 cmd.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -175,9 +181,6 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
             //true
             if (answerCheckerUser.DialogResult == DialogResult.OK)
             {
-                Resetbtn.Enabled = true;
-                reset();
-                reLoad();
                 try
                 {
                     if (db.conn.State == ConnectionState.Closed)
@@ -192,6 +195,9 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                 {
                     MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+                Resetbtn.Enabled = false;
+                reset();
+                reLoad();
 
             }
 
@@ -255,7 +261,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                     db.conn.Open();
 
                 }
-                MySqlCommand cmd = new MySqlCommand("UPDATE `game` SET `game_status`='Game 2', `peserta` = 'none',`time`='00:00:00', `timer`= 0", db.conn);
+                MySqlCommand cmd = new MySqlCommand("UPDATE `game` SET `game_status`='none', `peserta` = 'none',`time`='00:00:00', `timer`= 0,`plus_scores`=0,`minus_scores`=0", db.conn);
                 cmd.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -269,6 +275,8 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
             var confirm = MessageBox.Show("Tidakan Ini Akan Mereset Game", "Konfirmasi", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
             if (confirm == DialogResult.OK)
             {
+                Resetbtn.Enabled = false;
+                Startbtn.Enabled = true;
                 reset();
                 reLoad();
             }

@@ -206,7 +206,7 @@
             Minustxt.Name = "Minustxt";
             Minustxt.Size = new Size(241, 29);
             Minustxt.StateCommon.Content.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            Minustxt.TabIndex = 2;
+            Minustxt.TabIndex = 1;
             // 
             // kryptonLabel14
             // 
@@ -256,7 +256,7 @@
             Secondtxt.Name = "Secondtxt";
             Secondtxt.Size = new Size(39, 29);
             Secondtxt.StateCommon.Content.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            Secondtxt.TabIndex = 4;
+            Secondtxt.TabIndex = 3;
             Secondtxt.Text = "00";
             Secondtxt.TextAlign = HorizontalAlignment.Center;
             // 
@@ -268,7 +268,7 @@
             Minutetxt.Name = "Minutetxt";
             Minutetxt.Size = new Size(39, 29);
             Minutetxt.StateCommon.Content.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            Minutetxt.TabIndex = 3;
+            Minutetxt.TabIndex = 2;
             Minutetxt.Text = "00";
             Minutetxt.TextAlign = HorizontalAlignment.Center;
             // 
@@ -315,7 +315,7 @@
             Plustxt.Name = "Plustxt";
             Plustxt.Size = new Size(241, 29);
             Plustxt.StateCommon.Content.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            Plustxt.TabIndex = 1;
+            Plustxt.TabIndex = 0;
             // 
             // kryptonLabel2
             // 
@@ -383,7 +383,7 @@
             Resetbtn.StateTracking.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
             Resetbtn.StateTracking.Border.Rounding = 5F;
             Resetbtn.StateTracking.Border.Width = 1;
-            Resetbtn.TabIndex = 57;
+            Resetbtn.TabIndex = 4;
             Resetbtn.Values.Text = "Reset";
             Resetbtn.Click += Resetbtn_Click;
             // 

@@ -40,7 +40,7 @@
             // 
             Salahbtn.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             Salahbtn.CornerRoundingRadius = 5F;
-            Salahbtn.Location = new Point(349, 264);
+            Salahbtn.Location = new Point(339, 264);
             Salahbtn.Margin = new Padding(8, 6, 8, 6);
             Salahbtn.Name = "Salahbtn";
             Salahbtn.OverrideDefault.Back.Color1 = Color.FromArgb(255, 89, 89);
@@ -77,10 +77,10 @@
             // 
             // Timerlbl
             // 
-            Timerlbl.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            Timerlbl.Anchor = AnchorStyles.Left;
             Timerlbl.AutoSize = true;
             Timerlbl.Font = new Font("Arial", 70F, FontStyle.Bold, GraphicsUnit.Point);
-            Timerlbl.Location = new Point(190, 98);
+            Timerlbl.Location = new Point(180, 98);
             Timerlbl.Margin = new Padding(8, 0, 8, 0);
             Timerlbl.Name = "Timerlbl";
             Timerlbl.Size = new Size(284, 108);
@@ -90,7 +90,7 @@
             // Benarbtn
             // 
             Benarbtn.CornerRoundingRadius = 5F;
-            Benarbtn.Location = new Point(148, 267);
+            Benarbtn.Location = new Point(138, 267);
             Benarbtn.Margin = new Padding(8, 6, 8, 6);
             Benarbtn.Name = "Benarbtn";
             Benarbtn.OverrideDefault.Back.Color1 = Color.FromArgb(166, 209, 230);

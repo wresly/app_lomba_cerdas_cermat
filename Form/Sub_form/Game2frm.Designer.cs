@@ -204,7 +204,7 @@
             Secondtxt.Name = "Secondtxt";
             Secondtxt.Size = new Size(39, 29);
             Secondtxt.StateCommon.Content.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            Secondtxt.TabIndex = 29;
+            Secondtxt.TabIndex = 3;
             Secondtxt.Text = "00";
             Secondtxt.TextAlign = HorizontalAlignment.Center;
             // 
@@ -216,7 +216,7 @@
             Minutetxt.Name = "Minutetxt";
             Minutetxt.Size = new Size(39, 29);
             Minutetxt.StateCommon.Content.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            Minutetxt.TabIndex = 28;
+            Minutetxt.TabIndex = 2;
             Minutetxt.Text = "00";
             Minutetxt.TextAlign = HorizontalAlignment.Center;
             // 
@@ -262,7 +262,7 @@
             Startbtn.StateTracking.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
             Startbtn.StateTracking.Border.Rounding = 5F;
             Startbtn.StateTracking.Border.Width = 1;
-            Startbtn.TabIndex = 25;
+            Startbtn.TabIndex = 6;
             Startbtn.Values.Text = "Start";
             Startbtn.Click += Startbtn_Click;
             // 
@@ -278,7 +278,7 @@
             Pesertacmb.Size = new Size(241, 27);
             Pesertacmb.StateCommon.ComboBox.Content.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             Pesertacmb.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
-            Pesertacmb.TabIndex = 23;
+            Pesertacmb.TabIndex = 0;
             // 
             // kryptonLabel11
             // 
@@ -327,7 +327,7 @@
             Scorestxt.Name = "Scorestxt";
             Scorestxt.Size = new Size(241, 29);
             Scorestxt.StateCommon.Content.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            Scorestxt.TabIndex = 38;
+            Scorestxt.TabIndex = 1;
             // 
             // Resetbtn
             // 
@@ -365,7 +365,7 @@
             Resetbtn.StateTracking.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
             Resetbtn.StateTracking.Border.Rounding = 5F;
             Resetbtn.StateTracking.Border.Width = 1;
-            Resetbtn.TabIndex = 39;
+            Resetbtn.TabIndex = 5;
             Resetbtn.Values.Text = "Reset";
             Resetbtn.Click += Resetbtn_Click;
             // 

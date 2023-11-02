@@ -31,7 +31,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
 
                 }
                 //reset game table
-                MySqlCommand cmd = new MySqlCommand("UPDATE `game` SET `game_status`='none',`peserta`='none',`timer`=0 ", db.conn);
+                MySqlCommand cmd = new MySqlCommand("UPDATE `game` SET `game_status`='none', `peserta`='none', `time`='00:00:00', `timer`=0, `plus_scores`=0, `minus_scores`=0", db.conn);
                 cmd.ExecuteNonQuery();
 
                 //reset blacklist
@@ -57,12 +57,12 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                 }
 
                 //checked asigned peserta to game
-                MySqlCommand cmd = new MySqlCommand("SELECT * FROM `game` WHERE game_status != 'none'", db.conn);
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM `game` WHERE game_status = 'game 3'", db.conn);
                 MySqlDataReader reader = cmd.ExecuteReader();
                 if (reader.HasRows)
                 {
                     reader.Read();
-                    Statuslbl.Text = ": " + (reader["peserta"].ToString() == "none" ? "waiting" : reader["game_status"].ToString());
+                    Statuslbl.Text = ": Error need reset";
                     Pesertalbl.Text = ": " + (reader["peserta"].ToString() == "none" ? "-" : reader["peserta"].ToString());
                     Pluslbl.Text = ": error";
                     Minuslbl.Text = ": error";
@@ -70,7 +70,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
 
                     Resetbtn.Enabled = true;
                     reader.Close();
-                    MessageBox.Show("game sedang berjalan, mohon reset game kembali", "warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("terjadi kesalahan, mohon restart game", "warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 reader.Close();
 
@@ -81,7 +81,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                 {
                     Resetbtn.Enabled = true;
                     reader.Close();
-                    MessageBox.Show("game sedang berjalan, mohon reset game kembali", "warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("daftar blacklist tidak kosong, mohon direset untuk menghapus daftar blacklist", "warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 reader.Close();
 
@@ -141,7 +141,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                     db.conn.Open();
 
                 }
-                MySqlCommand cmd = new MySqlCommand("UPDATE `game` SET `game_status`='game 3', `timer`= " + (Int32.Parse(Minutetxt.Text) * 60 + Int32.Parse(Secondtxt.Text)), db.conn);
+                MySqlCommand cmd = new MySqlCommand("UPDATE `game` SET `game_status`='game 3', `timer`= " + (Int32.Parse(Minutetxt.Text) * 60 + Int32.Parse(Secondtxt.Text)) + ", `plus_scores`= " + Plustxt.Text + ", `minus_scores`= " + Minustxt.Text, db.conn);
                 cmd.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -207,18 +207,34 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                     }
                     Startbtn.Enabled = true;
                 }
-
-
             }
 
             //cancel
             if (waitingfrm.DialogResult == DialogResult.Abort)
             {
                 Startbtn.Enabled = true;
-                reset();
+                //reset();
             }
 
-            //disabled form
+            //reset game table
+            try
+            {
+                if (db.conn.State == ConnectionState.Closed)
+                {
+                    db.conn.Open();
+
+                }
+                //reset game table
+                MySqlCommand cmd = new MySqlCommand("UPDATE `game` SET `game_status`='none', `peserta`='none', `time`='00:00:00', `timer`=0, `plus_scores`=0, `minus_scores`=0", db.conn);
+                cmd.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            //enabled form
             Plustxt.Enabled = true;
             Minustxt.Enabled = true;
             Minutetxt.Enabled = true;

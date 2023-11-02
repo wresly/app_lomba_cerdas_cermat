@@ -41,7 +41,7 @@
             // 
             Pointlbl.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             Pointlbl.AutoSize = false;
-            Pointlbl.Location = new Point(0, 466);
+            Pointlbl.Location = new Point(0, 480);
             Pointlbl.Margin = new Padding(5, 4, 5, 4);
             Pointlbl.Name = "Pointlbl";
             Pointlbl.Size = new Size(878, 179);
@@ -56,7 +56,7 @@
             // 
             Usernamelbl.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             Usernamelbl.AutoSize = false;
-            Usernamelbl.Location = new Point(0, 312);
+            Usernamelbl.Location = new Point(0, 318);
             Usernamelbl.Margin = new Padding(5, 4, 5, 4);
             Usernamelbl.Name = "Usernamelbl";
             Usernamelbl.Size = new Size(878, 179);
@@ -69,7 +69,7 @@
             // 
             pictureBox1.Anchor = AnchorStyles.None;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(280, 48);
+            pictureBox1.Location = new Point(280, 40);
             pictureBox1.Margin = new Padding(5, 4, 5, 4);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(318, 264);
@@ -87,7 +87,7 @@
             AutoScaleDimensions = new SizeF(11F, 22F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(879, 640);
+            ClientSize = new Size(879, 664);
             Controls.Add(pictureBox1);
             Controls.Add(Usernamelbl);
             Controls.Add(Pointlbl);
