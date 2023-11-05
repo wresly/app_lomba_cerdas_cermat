@@ -25,7 +25,7 @@ namespace app_lomba_cerdas_cermat.Form
         private void PesertaScoresfrm_Load(object sender, EventArgs e)
         {
 
-            Usernamelbl.Text = username;
+            Usernamelbl.Text = "Grup " + username;
             TimerScores.Enabled = true;
 
         }
@@ -45,6 +45,7 @@ namespace app_lomba_cerdas_cermat.Form
                 if (reader.Read())
                 {
                     Pointlbl.Text = reader["scores"].ToString();
+                    Pesertalbl.Text = reader["peserta"].ToString();
                 }
                 reader.Close();
             }

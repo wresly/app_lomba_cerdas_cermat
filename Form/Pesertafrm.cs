@@ -151,9 +151,30 @@ namespace app_lomba_cerdas_cermat.Form
                             db.conn.Open();
 
                         }
-                        MySqlCommand cmd = new MySqlCommand("update game set peserta = '" + username + "', `time`='" + DateTime.Now.ToLongTimeString() + "'", db.conn);
-                        cmd.ExecuteNonQuery();
 
+                        MySqlCommand cmd = new MySqlCommand("select * from game", db.conn);
+                        MySqlDataReader reader = cmd.ExecuteReader();
+                        if (reader.HasRows)
+                        {
+                            reader.Read();
+                            DateTime time = DateTime.ParseExact(reader["time"].ToString(), "HH:mm:ss", null);
+                            DateTime currentTime = DateTime.Now;
+                            time = time.AddSeconds(double.Parse(reader["timer"].ToString()));
+                            if (time > currentTime)
+                            {
+                                reader.Close();
+                                TimeSpan timeDifference = time - currentTime;
+                                if ((int)timeDifference.TotalSeconds < 10)
+                                {
+                                    int secondTemp = 10 - (int)timeDifference.TotalSeconds;
+                                    cmd = new MySqlCommand("UPDATE `game` SET `game_status`='game 2', `peserta` = 'none', `timer`=10, `answer_status`=2", db.conn);
+                                    cmd.ExecuteNonQuery();
+                                }
+                            }
+                        }
+
+                        cmd = new MySqlCommand("update game set peserta = '" + username + "', `time`='" + DateTime.Now.ToLongTimeString() + "'", db.conn);
+                        cmd.ExecuteNonQuery();
                     }
                     catch (Exception ex)
                     {
@@ -173,13 +194,13 @@ namespace app_lomba_cerdas_cermat.Form
             {
                 spaceBtn = true;
                 BackColorTimer.Enabled = false;
-                scorefrm.BackColor = Color.Green;
+                scorefrm.BackColor = Color.FromArgb(137, 253, 137);
             }
             else if (!notBlacklist())
             {
                 spaceBtn = false;
                 BackColorTimer.Enabled = false;
-                scorefrm.BackColor = Color.Red;
+                scorefrm.BackColor = Color.FromArgb(253, 74, 27);
             }
             else if (ActiveUser())
             {
@@ -190,7 +211,7 @@ namespace app_lomba_cerdas_cermat.Form
             {
                 spaceBtn = false;
                 BackColorTimer.Enabled = false;
-                scorefrm.BackColor = Color.Gray;
+                scorefrm.BackColor = Color.FromArgb(232, 232, 231);
             }
 
             TimerCheckUser.Enabled = false;
@@ -233,13 +254,13 @@ namespace app_lomba_cerdas_cermat.Form
 
         private void BackColorTimer_Tick(object sender, EventArgs e)
         {
-            if (scorefrm.BackColor == Color.Yellow)
+            if (scorefrm.BackColor != Color.White)
             {
                 scorefrm.BackColor = Color.White;
             }
             else
             {
-                scorefrm.BackColor = Color.Yellow;
+                scorefrm.BackColor = Color.FromArgb(228, 236, 39);
             }
         }
     }

@@ -30,7 +30,7 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ScoresBoard));
-            pictureBox1 = new PictureBox();
+            Logopb = new PictureBox();
             PesertaTimer = new System.Windows.Forms.Timer(components);
             PanelA = new Panel();
             AScoreslbl = new Krypton.Toolkit.KryptonLabel();
@@ -48,22 +48,22 @@
             DScoreslbl = new Krypton.Toolkit.KryptonLabel();
             DPesertalbl = new Krypton.Toolkit.KryptonLabel();
             GrupDlbl = new Krypton.Toolkit.KryptonLabel();
-            kryptonLabel14 = new Krypton.Toolkit.KryptonLabel();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            Headinglbl = new Krypton.Toolkit.KryptonLabel();
+            ((System.ComponentModel.ISupportInitialize)Logopb).BeginInit();
             PanelA.SuspendLayout();
             PanelB.SuspendLayout();
             PanelC.SuspendLayout();
             PanelD.SuspendLayout();
             SuspendLayout();
             // 
-            // pictureBox1
+            // Logopb
             // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(648, 46);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(254, 318);
-            pictureBox1.TabIndex = 1;
-            pictureBox1.TabStop = false;
+            Logopb.Image = (Image)resources.GetObject("Logopb.Image");
+            Logopb.Location = new Point(648, 46);
+            Logopb.Name = "Logopb";
+            Logopb.Size = new Size(254, 318);
+            Logopb.TabIndex = 1;
+            Logopb.TabStop = false;
             // 
             // PesertaTimer
             // 
@@ -245,34 +245,35 @@
             GrupDlbl.TabIndex = 0;
             GrupDlbl.Values.Text = "Grup D";
             // 
-            // kryptonLabel14
+            // Headinglbl
             // 
-            kryptonLabel14.Location = new Point(460, 382);
-            kryptonLabel14.Name = "kryptonLabel14";
-            kryptonLabel14.Size = new Size(613, 62);
-            kryptonLabel14.StateCommon.ShortText.Color1 = Color.Black;
-            kryptonLabel14.StateCommon.ShortText.Color2 = Color.Black;
-            kryptonLabel14.StateCommon.ShortText.Font = new Font("Arial", 36F, FontStyle.Bold, GraphicsUnit.Point);
-            kryptonLabel14.TabIndex = 6;
-            kryptonLabel14.Values.Text = "Lomba Cerdas Teknologi";
+            Headinglbl.Location = new Point(460, 382);
+            Headinglbl.Name = "Headinglbl";
+            Headinglbl.Size = new Size(613, 62);
+            Headinglbl.StateCommon.ShortText.Color1 = Color.Black;
+            Headinglbl.StateCommon.ShortText.Color2 = Color.Black;
+            Headinglbl.StateCommon.ShortText.Font = new Font("Arial", 36F, FontStyle.Bold, GraphicsUnit.Point);
+            Headinglbl.TabIndex = 6;
+            Headinglbl.Values.Text = "Lomba Cerdas Teknologi";
             // 
             // ScoresBoard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1540, 941);
-            Controls.Add(kryptonLabel14);
+            Controls.Add(Headinglbl);
             Controls.Add(PanelD);
             Controls.Add(PanelC);
             Controls.Add(PanelB);
             Controls.Add(PanelA);
-            Controls.Add(pictureBox1);
+            Controls.Add(Logopb);
             Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point);
             FormBorderStyle = FormBorderStyle.None;
             Name = "ScoresBoard";
             Text = "AllPesertaScores";
+            WindowState = FormWindowState.Maximized;
             Load += AllPesertaScores_Load;
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Logopb).EndInit();
             PanelA.ResumeLayout(false);
             PanelA.PerformLayout();
             PanelB.ResumeLayout(false);
@@ -286,7 +287,7 @@
         }
 
         #endregion
-        private PictureBox pictureBox1;
+        private PictureBox Logopb;
         private System.Windows.Forms.Timer PesertaTimer;
         private Panel PanelA;
         private Krypton.Toolkit.KryptonLabel GrupAlbl;
@@ -303,7 +304,7 @@
         private Krypton.Toolkit.KryptonLabel BScoreslbl;
         private Krypton.Toolkit.KryptonLabel CScoreslbl;
         private Krypton.Toolkit.KryptonLabel DScoreslbl;
-        private Krypton.Toolkit.KryptonLabel kryptonLabel14;
+        private Krypton.Toolkit.KryptonLabel Headinglbl;
         private Krypton.Toolkit.KryptonLabel BPesertalbl;
     }
 }

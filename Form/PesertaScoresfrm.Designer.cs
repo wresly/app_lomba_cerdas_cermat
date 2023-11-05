@@ -34,6 +34,7 @@
             Usernamelbl = new Krypton.Toolkit.KryptonLabel();
             pictureBox1 = new PictureBox();
             TimerScores = new System.Windows.Forms.Timer(components);
+            Pesertalbl = new Krypton.Toolkit.KryptonLabel();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -41,12 +42,12 @@
             // 
             Pointlbl.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             Pointlbl.AutoSize = false;
-            Pointlbl.Location = new Point(0, 480);
+            Pointlbl.Location = new Point(2, 724);
             Pointlbl.Margin = new Padding(5, 4, 5, 4);
             Pointlbl.Name = "Pointlbl";
-            Pointlbl.Size = new Size(878, 179);
-            Pointlbl.StateCommon.ShortText.Color1 = Color.Red;
-            Pointlbl.StateCommon.ShortText.Color2 = Color.Red;
+            Pointlbl.Size = new Size(1555, 179);
+            Pointlbl.StateCommon.ShortText.Color1 = Color.SteelBlue;
+            Pointlbl.StateCommon.ShortText.Color2 = Color.SteelBlue;
             Pointlbl.StateCommon.ShortText.Font = new Font("Arial", 100F, FontStyle.Bold, GraphicsUnit.Point);
             Pointlbl.StateCommon.ShortText.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
             Pointlbl.TabIndex = 0;
@@ -56,20 +57,20 @@
             // 
             Usernamelbl.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             Usernamelbl.AutoSize = false;
-            Usernamelbl.Location = new Point(0, 318);
+            Usernamelbl.Location = new Point(2, 400);
             Usernamelbl.Margin = new Padding(5, 4, 5, 4);
             Usernamelbl.Name = "Usernamelbl";
-            Usernamelbl.Size = new Size(878, 179);
+            Usernamelbl.Size = new Size(1555, 179);
             Usernamelbl.StateCommon.ShortText.Font = new Font("Arial", 100F, FontStyle.Bold, GraphicsUnit.Point);
             Usernamelbl.StateCommon.ShortText.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
             Usernamelbl.TabIndex = 1;
-            Usernamelbl.Values.Text = "XII RPL";
+            Usernamelbl.Values.Text = "Grup A";
             // 
             // pictureBox1
             // 
             pictureBox1.Anchor = AnchorStyles.None;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(280, 40);
+            pictureBox1.Location = new Point(632, 84);
             pictureBox1.Margin = new Padding(5, 4, 5, 4);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(318, 264);
@@ -82,12 +83,28 @@
             TimerScores.Interval = 500;
             TimerScores.Tick += TimerScores_Tick;
             // 
+            // Pesertalbl
+            // 
+            Pesertalbl.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            Pesertalbl.AutoSize = false;
+            Pesertalbl.Location = new Point(0, 566);
+            Pesertalbl.Margin = new Padding(5, 4, 5, 4);
+            Pesertalbl.Name = "Pesertalbl";
+            Pesertalbl.Size = new Size(1555, 179);
+            Pesertalbl.StateCommon.ShortText.Color1 = Color.Black;
+            Pesertalbl.StateCommon.ShortText.Color2 = Color.Black;
+            Pesertalbl.StateCommon.ShortText.Font = new Font("Arial", 72F, FontStyle.Regular, GraphicsUnit.Point);
+            Pesertalbl.StateCommon.ShortText.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
+            Pesertalbl.TabIndex = 3;
+            Pesertalbl.Values.Text = "Peserta";
+            // 
             // PesertaScoresfrm
             // 
             AutoScaleDimensions = new SizeF(11F, 22F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(879, 664);
+            ClientSize = new Size(1540, 941);
+            Controls.Add(Pesertalbl);
             Controls.Add(pictureBox1);
             Controls.Add(Usernamelbl);
             Controls.Add(Pointlbl);
@@ -110,5 +127,6 @@
         private Krypton.Toolkit.KryptonLabel Usernamelbl;
         private PictureBox pictureBox1;
         private System.Windows.Forms.Timer TimerScores;
+        private Krypton.Toolkit.KryptonLabel Pesertalbl;
     }
 }

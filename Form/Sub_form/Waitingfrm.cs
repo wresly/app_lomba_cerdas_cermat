@@ -73,7 +73,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
 
                 }
                 //reset game table
-                MySqlCommand cmd = new MySqlCommand("UPDATE `game` SET `game_status`='none',`peserta`='none',`timer`=0 ", db.conn);
+                MySqlCommand cmd = new MySqlCommand("UPDATE `game` SET `game_status`='none',`peserta`='none',`timer`=0,`plus_scores`=0,`minus_scores`=0,`answer_status`=0", db.conn);
                 cmd.ExecuteNonQuery();
 
                 //reset blacklist

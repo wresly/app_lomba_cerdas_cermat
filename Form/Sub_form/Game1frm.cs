@@ -46,13 +46,18 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                     reader.Read();
                     DateTime time = DateTime.ParseExact(reader["time"].ToString(), "HH:mm:ss", null);
                     DateTime currentTime = DateTime.Now;
-                    time = time.AddSeconds(double.Parse(reader["timer"].ToString()));
+                    time = time.AddSeconds(Int32.Parse(reader["timer"].ToString()));
                     if (time > currentTime)
                     {
+                        //timer
+                        TimeSpan timeDifference = time - currentTime;
+                        timer = (int)timeDifference.TotalSeconds;
+                        timer1.Enabled = true;
+
                         //game status
                         Statuslbl.Text = ": Started";
                         Pesertalbl.Text = ": " + reader["peserta"].ToString();
-                        Timer2lbl.Text = ": " + (Int32.Parse(reader["timer"].ToString()) / 60 < 9 ? "0" : "") + Int32.Parse(reader["timer"].ToString()) / 60 + ":" + (Int32.Parse(reader["timer"].ToString()) % 60 < 9 ? "0" : "") + Int32.Parse(reader["timer"].ToString()) % 60;
+                        Timer2lbl.Text = ": " + ((int)timeDifference.TotalSeconds / 60 < 9 ? "0" : "") + (int)timeDifference.TotalSeconds / 60 + ":" + ((int)timeDifference.TotalSeconds % 60 < 9 ? "0" : "") + (int)timeDifference.TotalSeconds % 60;
 
                         //controls enabled/disabled
                         Startbtn.Enabled = false;
@@ -60,10 +65,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                         timer1.Enabled = true;
                         Finishbtn.Enabled = true;
 
-                        //timer
-                        TimeSpan timeDifference = time - currentTime;
-                        timer = (int)timeDifference.TotalSeconds;
-                        timer1.Enabled = true;
+
 
                         reader.Close();
                         MessageBox.Show("game masih berjalan", "warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -135,7 +137,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                     db.conn.Open();
                 }
                 timer = Int32.Parse(Minutetxt.Text) * 60 + Int32.Parse(Secondtxt.Text);
-                MySqlCommand cmd = new MySqlCommand("UPDATE game SET game_status='game 1',`peserta`='" + Pesertacmb.Text + "',`time`='" + DateTime.Now.ToLongTimeString() + "',`timer`='" + timer + "' WHERE 1", db.conn);
+                MySqlCommand cmd = new MySqlCommand("UPDATE game SET game_status='game 1',`peserta`='" + Pesertacmb.Text + "',`time`='" + DateTime.Now.ToLongTimeString() + "',`timer`=" + timer + " WHERE 1", db.conn);
                 cmd.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -149,8 +151,8 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
             var minute = timer / 60;
             var second = timer % 60;
 
-            //waktu habis
             Timerlbl.Text = (minute < 10 ? "0" : "") + minute + ":" + (second < 10 ? "0" : "") + second;
+            //waktu habis
             if (timer <= 0)
             {
                 //reset game status
@@ -234,18 +236,21 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
             }
         }
 
-        //private void Timercmb_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    Minutetxt.Text = Timercmb.Text;
-        //}
-
         private void MinuteMinusbtn_Click(object sender, EventArgs e)
         {
+            if (!int.TryParse(Minutetxt.Text, out _))
+            {
+                Minutetxt.Text = "0";
+            }
             Minutetxt.Text = (Int32.Parse(Minutetxt.Text) - 1).ToString();
         }
 
         private void MinutePlusbtn_Click(object sender, EventArgs e)
         {
+            if (!int.TryParse(Minutetxt.Text, out _))
+            {
+                Minutetxt.Text = "0";
+            }
             Minutetxt.Text = (Int32.Parse(Minutetxt.Text) + 1).ToString();
         }
     }

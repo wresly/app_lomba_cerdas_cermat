@@ -17,7 +17,7 @@ namespace app_lomba_cerdas_cermat.Form
         MainGame mainGame;
         DataPesertafrm dataPesertafrm;
         Settingfrm settingfrm;
-        ScoresBoard allPesertaScores;
+        MainBoard mainBoard;
         public Panitiafrm()
         {
             InitializeComponent();
@@ -26,16 +26,37 @@ namespace app_lomba_cerdas_cermat.Form
 
         private void Gamebtn_Click(object sender, EventArgs e)
         {
+            mainGame = new MainGame();
+            mainGame.TopLevel = false;
+            Mainpnl.Controls.Add(mainGame);
+
             mainGame.Show();
-            dataPesertafrm.Hide();
-            settingfrm.Hide();
+            if (dataPesertafrm != null && !dataPesertafrm.IsDisposed)
+            {
+                dataPesertafrm.Close(); 
+            }
+            if (mainBoard != null && !mainBoard.IsDisposed)
+            {
+                mainBoard.Close();
+            }
         }
 
         private void DataPesertabtn_Click(object sender, EventArgs e)
         {
-            mainGame.Hide();
+            dataPesertafrm = new DataPesertafrm();
+            dataPesertafrm.TopLevel = false;
+            Mainpnl.Controls.Add(dataPesertafrm);
+
+
             dataPesertafrm.Show();
-            settingfrm.Hide();
+            if (mainGame != null && !mainGame.IsDisposed)
+            {
+                mainGame.Close();
+            }
+            if (mainBoard != null && !mainBoard.IsDisposed)
+            {
+                mainBoard.Close();
+            }
 
             dataPesertafrm.Height = Mainpnl.Height;
             dataPesertafrm.Width = Mainpnl.Width;
@@ -43,34 +64,31 @@ namespace app_lomba_cerdas_cermat.Form
 
         private void Settingbtn_Click(object sender, EventArgs e)
         {
-            mainGame.Hide();
-            dataPesertafrm.Hide();
-            allPesertaScores.Show();
+            mainBoard = new MainBoard();
+            mainBoard.TopLevel = false;
+            Mainpnl.Controls.Add(mainBoard);
 
-            allPesertaScores.Height = Mainpnl.Height;
-            allPesertaScores.Width = Mainpnl.Width;
+            mainBoard.Show();
+            if (mainGame != null && !mainGame.IsDisposed)
+            {
+                mainGame.Close();
+            }
+            if (dataPesertafrm != null && !dataPesertafrm.IsDisposed)
+            {
+                dataPesertafrm.Close();
+            }
+
+            mainBoard.Height = Mainpnl.Height;
+            mainBoard.Width = Mainpnl.Width;
         }
 
         private void Panitiafrm_Load(object sender, EventArgs e)
         {
             mainGame = new MainGame();
-            dataPesertafrm = new DataPesertafrm();
-            settingfrm = new Settingfrm();
-            allPesertaScores = new ScoresBoard();
-
             mainGame.TopLevel = false;
-            dataPesertafrm.TopLevel = false;
-            allPesertaScores.TopLevel = false;
-
             Mainpnl.Controls.Add(mainGame);
-            Mainpnl.Controls.Add(dataPesertafrm);
-            Mainpnl.Controls.Add(allPesertaScores);
-
-
 
             mainGame.Show();
-            dataPesertafrm.Hide();
-            allPesertaScores.Hide();
 
             kryptonPanel2.Hide();
         }

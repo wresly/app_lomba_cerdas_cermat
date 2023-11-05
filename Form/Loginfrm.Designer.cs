@@ -78,7 +78,7 @@
             Loginbtn.StateTracking.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
             Loginbtn.StateTracking.Border.Rounding = 10F;
             Loginbtn.StateTracking.Border.Width = 1;
-            Loginbtn.TabIndex = 13;
+            Loginbtn.TabIndex = 1;
             Loginbtn.Values.Text = "Login";
             Loginbtn.Click += Loginbtn_Click;
             // 
@@ -113,7 +113,7 @@
             keluarbtn.StateTracking.Border.Width = 0;
             keluarbtn.StateTracking.Content.ShortText.Color1 = Color.White;
             keluarbtn.StateTracking.Content.ShortText.Color2 = Color.White;
-            keluarbtn.TabIndex = 16;
+            keluarbtn.TabIndex = 2;
             keluarbtn.Values.Text = "Keluar";
             keluarbtn.Click += Keluarbtn_Click;
             // 
@@ -129,7 +129,7 @@
             Userscmb.StateCommon.ComboBox.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
             Userscmb.StateCommon.ComboBox.Content.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             Userscmb.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
-            Userscmb.TabIndex = 17;
+            Userscmb.TabIndex = 0;
             // 
             // kryptonLabel1
             // 

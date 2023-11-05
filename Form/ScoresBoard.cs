@@ -22,6 +22,10 @@ namespace app_lomba_cerdas_cermat.Form
 
         private void centering()
         {
+            //Heading
+            Logopb.Left = (this.ClientSize.Width - Logopb.Width) / 2;
+            Headinglbl.Left = (this.ClientSize.Width - Headinglbl.Width) / 2;
+
             //A 
             GrupAlbl.Left = (PanelA.Width - GrupAlbl.Width) / 2;
             APesertalbl.Left = (PanelA.Width - APesertalbl.Width) / 2;
@@ -54,7 +58,7 @@ namespace app_lomba_cerdas_cermat.Form
                 }
                 MySqlCommand cmd = new MySqlCommand("select * from users where usertype = 1", db.conn);
                 MySqlDataReader reader = cmd.ExecuteReader();
-                
+
                 while (reader.Read())
                 {
                     if (reader["username"].ToString() == "A")

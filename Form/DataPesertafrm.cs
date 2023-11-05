@@ -83,38 +83,6 @@ namespace app_lomba_cerdas_cermat
             }
         }
 
-        //private void Hapusbtn_Click(object sender, EventArgs e)
-        //{
-        //    if (Usertxt.Text.Replace(" ", "") == "")
-        //    {
-        //        Usertxt.Focus();
-        //        MessageBox.Show("isi kolom username!");
-        //        return;
-        //    }
-
-        //    try
-        //    {
-        //        if (db.conn.State == ConnectionState.Closed)
-        //        {
-        //            db.conn.Open();
-        //        }
-        //        MySqlCommand cmd = new MySqlCommand("delete from users where username = '" + Usertxt.Text.Replace(" ", "") + "'", db.conn);
-        //        int rowAffected = cmd.ExecuteNonQuery();
-
-        //        if (rowAffected > 0)
-        //        {
-        //            MessageBox.Show("Sukses Menghapus Peserta : " + Usertxt.Text.Replace(" ", ""));
-        //        }
-        //        else
-        //        {
-        //            MessageBox.Show("Peserta Tidak Ditemukan!");
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //    }
-        //}
 
         private void Userstimer_Tick(object sender, EventArgs e)
         {

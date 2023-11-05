@@ -277,11 +277,19 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
 
         private void MinuteMinusbtn_Click(object sender, EventArgs e)
         {
+            if (!int.TryParse(Minutetxt.Text, out _))
+            {
+                Minutetxt.Text = "0";
+            }
             Minutetxt.Text = (Int32.Parse(Minutetxt.Text) - 1).ToString();
         }
 
         private void MinutePlusbtn_Click(object sender, EventArgs e)
         {
+            if (!int.TryParse(Minutetxt.Text, out _))
+            {
+                Minutetxt.Text = "0";
+            }
             Minutetxt.Text = (Int32.Parse(Minutetxt.Text) + 1).ToString();
         }
     }

@@ -15,11 +15,132 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
 {
     public partial class Game2frm : KryptonForm
     {
+        Waitingfrm waitingfrm;
+        private bool isWaitingFormVisible = false;
         string peserta;
         int scores;
         public Game2frm()
         {
             InitializeComponent();
+        }
+
+        private void continueGame()
+        {
+            timer1.Enabled = false;
+            try
+            {
+                if (db.conn.State == ConnectionState.Closed)
+                {
+                    db.conn.Open();
+
+                }
+                //reset game table
+                MySqlCommand cmd = new MySqlCommand("select * from game", db.conn);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                reader.Read();
+                if (reader["answer_status"].ToString() == "2")
+                {
+                    if (reader["peserta"].ToString() != "none")
+                    {
+                        peserta = reader["peserta"].ToString();
+                        reader.Close();
+                        //checked user answer 
+                        if (waitingfrm != null && !waitingfrm.IsDisposed)
+                        {
+                            waitingfrm.Close();
+                        }
+                        AnswerCheckerUser answerCheckerUser = new AnswerCheckerUser();
+                        answerCheckerUser.timer = Int32.Parse(reader["timer"].ToString());
+                        answerCheckerUser.ShowDialog();
+
+                        //true
+                        if (answerCheckerUser.DialogResult == DialogResult.OK)
+                        {
+                            try
+                            {
+                                if (db.conn.State == ConnectionState.Closed)
+                                {
+                                    db.conn.Open();
+
+                                }
+                                cmd = new MySqlCommand("UPDATE users SET scores = scores + " + Int32.Parse(Scorestxt.Text) + " WHERE username = '" + peserta + "'", db.conn);
+                                cmd.ExecuteNonQuery();
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                            Resetbtn.Enabled = false;
+                            reset();
+                            reLoad();
+                            Startbtn.Enabled = true;
+
+                        }
+
+                        //false
+                        if (answerCheckerUser.DialogResult == DialogResult.Cancel)
+                        {
+                            Resetbtn.Enabled = true;
+                            //blacklist peserta
+                            Pesertacmb.Items.Remove(peserta);
+                            try
+                            {
+                                if (db.conn.State == ConnectionState.Closed)
+                                {
+                                    db.conn.Open();
+
+                                }
+
+                                //blacklist peserta
+                                cmd = new MySqlCommand("INSERT INTO `game_blacklist`(`peserta`) VALUES ('" + peserta + "')", db.conn);
+                                cmd.ExecuteNonQuery();
+
+                                // continue game
+                                cmd = new MySqlCommand("UPDATE `game` SET `game_status`='game 2', `peserta` = 'none',`time`='" + DateTime.Now.ToLongTimeString() + "', `timer`= 30, `answer_status`=2", db.conn);
+                                cmd.ExecuteNonQuery();
+
+                                //reset if no more peserta
+                                if (Pesertacmb.Items.Count == 0)
+                                {
+                                    Scorestxt.Text = "";
+                                    Minutetxt.Text = "00";
+                                    Secondtxt.Text = "00";
+                                    reset();
+                                    reLoad();
+                                }
+
+                                return;
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+
+                    }
+                    else
+                    {
+
+                        if (!isWaitingFormVisible)
+                        {
+                            waitingfrm = new Waitingfrm();
+                            waitingfrm.FormClosed += (sender, e) => isWaitingFormVisible = false; // Update the flag when the form is closed
+                            waitingfrm.Show();
+                            isWaitingFormVisible = true; // Set the flag to indicate the form is now visible
+                        }
+                    }
+                }
+                reader.Close();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                timer1.Enabled = true;
+            }
         }
 
         private void reset()
@@ -84,9 +205,10 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                 //checked game data
                 MySqlCommand cmd = new MySqlCommand("select * from game where game_status = 'game 2'", db.conn);
                 MySqlDataReader reader = cmd.ExecuteReader();
-                if (reader.HasRows)
+                if (reader.HasRows && reader.Read())
                 {
                     MessageBox.Show("terjadi kesalahan, mohon restart game", "warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    Scorestxt.Text = reader["plus_scores"].ToString();
                     Resetbtn.Enabled = true;
                     Startbtn.Enabled = false;
                     Statuslbl.Text = "Error need reset";
@@ -219,26 +341,28 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                     MySqlCommand cmd = new MySqlCommand("INSERT INTO `game_blacklist`(`peserta`) VALUES ('" + peserta + "')", db.conn);
                     cmd.ExecuteNonQuery();
 
+                    // continue game
+                    cmd = new MySqlCommand("UPDATE `game` SET `game_status`='game 2', `peserta` = 'none',`time`='" + DateTime.Now.ToLongTimeString() + "', `timer`= 30, `answer_status`=2", db.conn);
+                    cmd.ExecuteNonQuery();
 
+                    //reset if no more peserta
+                    if (Pesertacmb.Items.Count == 0)
+                    {
+                        Scorestxt.Text = "";
+                        Minutetxt.Text = "00";
+                        Secondtxt.Text = "00";
+                        reset();
+                        reLoad();
+                    }
+
+                    return;
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-
-                //reset if no more peserta
-                if (Pesertacmb.Items.Count == 0)
-                {
-                    Scorestxt.Text = "";
-                    Minutetxt.Text = "00";
-                    Secondtxt.Text = "00";
-                    reset();
-                    reLoad();
-                    return;
-                }
-
-
             }
+
             //reset controls
             Pesertacmb.SelectedIndex = 0;
             Pesertacmb.Enabled = true;
@@ -294,12 +418,25 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
 
         private void MinuteMinusbtn_Click(object sender, EventArgs e)
         {
+            if (!int.TryParse(Minutetxt.Text, out _))
+            {
+                Minutetxt.Text = "0";
+            }
             Minutetxt.Text = (Int32.Parse(Minutetxt.Text) - 1).ToString();
         }
 
         private void MinutePlusbtn_Click(object sender, EventArgs e)
         {
+            if (!int.TryParse(Minutetxt.Text, out _))
+            {
+                Minutetxt.Text = "0";
+            }
             Minutetxt.Text = (Int32.Parse(Minutetxt.Text) + 1).ToString();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            continueGame();
         }
     }
 }
