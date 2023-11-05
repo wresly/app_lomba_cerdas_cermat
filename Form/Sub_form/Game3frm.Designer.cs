@@ -55,8 +55,14 @@
             kryptonLabel9 = new Krypton.Toolkit.KryptonLabel();
             kryptonLabel10 = new Krypton.Toolkit.KryptonLabel();
             Resetbtn = new Krypton.Toolkit.KryptonButton();
+            PlusScorescmb = new Krypton.Toolkit.KryptonComboBox();
+            MinusScorescmb = new Krypton.Toolkit.KryptonComboBox();
+            MinuteMinusbtn = new Krypton.Toolkit.KryptonButton();
+            MinutePlusbtn = new Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)Gamepnl).BeginInit();
             Gamepnl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)PlusScorescmb).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)MinusScorescmb).BeginInit();
             SuspendLayout();
             // 
             // Gamepnl
@@ -230,7 +236,7 @@
             // 
             // kryptonLabel4
             // 
-            kryptonLabel4.Location = new Point(261, 378);
+            kryptonLabel4.Location = new Point(334, 377);
             kryptonLabel4.Margin = new Padding(4, 3, 4, 3);
             kryptonLabel4.Name = "kryptonLabel4";
             kryptonLabel4.Size = new Size(16, 22);
@@ -250,7 +256,7 @@
             // 
             // Secondtxt
             // 
-            Secondtxt.Location = new Point(283, 375);
+            Secondtxt.Location = new Point(356, 374);
             Secondtxt.Margin = new Padding(4, 3, 4, 3);
             Secondtxt.MaxLength = 2;
             Secondtxt.Name = "Secondtxt";
@@ -262,7 +268,7 @@
             // 
             // Minutetxt
             // 
-            Minutetxt.Location = new Point(216, 375);
+            Minutetxt.Location = new Point(289, 374);
             Minutetxt.Margin = new Padding(4, 3, 4, 3);
             Minutetxt.MaxLength = 2;
             Minutetxt.Name = "Minutetxt";
@@ -339,7 +345,7 @@
             // 
             // kryptonLabel10
             // 
-            kryptonLabel10.Location = new Point(196, 378);
+            kryptonLabel10.Location = new Point(196, 377);
             kryptonLabel10.Margin = new Padding(4, 3, 4, 3);
             kryptonLabel10.Name = "kryptonLabel10";
             kryptonLabel10.Size = new Size(16, 22);
@@ -387,11 +393,67 @@
             Resetbtn.Values.Text = "Reset";
             Resetbtn.Click += Resetbtn_Click;
             // 
+            // PlusScorescmb
+            // 
+            PlusScorescmb.CornerRoundingRadius = -1F;
+            PlusScorescmb.DropDownStyle = ComboBoxStyle.DropDownList;
+            PlusScorescmb.DropDownWidth = 60;
+            PlusScorescmb.IntegralHeight = false;
+            PlusScorescmb.Items.AddRange(new object[] { "10", "20", "30", "40", "50" });
+            PlusScorescmb.Location = new Point(464, 256);
+            PlusScorescmb.Name = "PlusScorescmb";
+            PlusScorescmb.Size = new Size(60, 27);
+            PlusScorescmb.StateCommon.ComboBox.Content.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            PlusScorescmb.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
+            PlusScorescmb.TabIndex = 57;
+            PlusScorescmb.SelectedIndexChanged += PlusScorescmb_SelectedIndexChanged;
+            // 
+            // MinusScorescmb
+            // 
+            MinusScorescmb.CornerRoundingRadius = -1F;
+            MinusScorescmb.DropDownStyle = ComboBoxStyle.DropDownList;
+            MinusScorescmb.DropDownWidth = 60;
+            MinusScorescmb.IntegralHeight = false;
+            MinusScorescmb.Items.AddRange(new object[] { "10", "20", "30", "40", "50" });
+            MinusScorescmb.Location = new Point(464, 316);
+            MinusScorescmb.Name = "MinusScorescmb";
+            MinusScorescmb.Size = new Size(60, 27);
+            MinusScorescmb.StateCommon.ComboBox.Content.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            MinusScorescmb.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
+            MinusScorescmb.TabIndex = 58;
+            MinusScorescmb.SelectedIndexChanged += MinusScorescmb_SelectedIndexChanged;
+            // 
+            // MinuteMinusbtn
+            // 
+            MinuteMinusbtn.CornerRoundingRadius = -1F;
+            MinuteMinusbtn.Location = new Point(218, 374);
+            MinuteMinusbtn.Name = "MinuteMinusbtn";
+            MinuteMinusbtn.Size = new Size(26, 29);
+            MinuteMinusbtn.StateCommon.Content.ShortText.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            MinuteMinusbtn.TabIndex = 60;
+            MinuteMinusbtn.Values.Text = "<";
+            MinuteMinusbtn.Click += MinuteMinusbtn_Click;
+            // 
+            // MinutePlusbtn
+            // 
+            MinutePlusbtn.CornerRoundingRadius = -1F;
+            MinutePlusbtn.Location = new Point(248, 374);
+            MinutePlusbtn.Name = "MinutePlusbtn";
+            MinutePlusbtn.Size = new Size(26, 29);
+            MinutePlusbtn.StateCommon.Content.ShortText.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            MinutePlusbtn.TabIndex = 59;
+            MinutePlusbtn.Values.Text = ">";
+            MinutePlusbtn.Click += MinutePlusbtn_Click;
+            // 
             // Game3frm
             // 
             AutoScaleDimensions = new SizeF(14F, 27F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1107, 562);
+            Controls.Add(MinuteMinusbtn);
+            Controls.Add(MinutePlusbtn);
+            Controls.Add(MinusScorescmb);
+            Controls.Add(PlusScorescmb);
             Controls.Add(Resetbtn);
             Controls.Add(kryptonLabel10);
             Controls.Add(Plustxt);
@@ -417,6 +479,8 @@
             ((System.ComponentModel.ISupportInitialize)Gamepnl).EndInit();
             Gamepnl.ResumeLayout(false);
             Gamepnl.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)PlusScorescmb).EndInit();
+            ((System.ComponentModel.ISupportInitialize)MinusScorescmb).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -449,5 +513,9 @@
         private Krypton.Toolkit.KryptonLabel kryptonLabel16;
         private Krypton.Toolkit.KryptonLabel kryptonLabel15;
         private Krypton.Toolkit.KryptonButton Resetbtn;
+        private Krypton.Toolkit.KryptonComboBox PlusScorescmb;
+        private Krypton.Toolkit.KryptonComboBox MinusScorescmb;
+        private Krypton.Toolkit.KryptonButton MinuteMinusbtn;
+        private Krypton.Toolkit.KryptonButton MinutePlusbtn;
     }
 }

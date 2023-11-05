@@ -50,6 +50,10 @@
             kryptonLabel5 = new Krypton.Toolkit.KryptonLabel();
             timer1 = new System.Windows.Forms.Timer(components);
             Resetbtn = new Krypton.Toolkit.KryptonButton();
+            kryptonLabel11 = new Krypton.Toolkit.KryptonLabel();
+            kryptonLabel9 = new Krypton.Toolkit.KryptonLabel();
+            MinutePlusbtn = new Krypton.Toolkit.KryptonButton();
+            MinuteMinusbtn = new Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)Pesertacmb).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Gamepnl).BeginInit();
             Gamepnl.SuspendLayout();
@@ -61,7 +65,7 @@
             Pesertacmb.DropDownStyle = ComboBoxStyle.DropDownList;
             Pesertacmb.DropDownWidth = 190;
             Pesertacmb.IntegralHeight = false;
-            Pesertacmb.Location = new Point(117, 262);
+            Pesertacmb.Location = new Point(192, 330);
             Pesertacmb.Margin = new Padding(6, 4, 6, 4);
             Pesertacmb.Name = "Pesertacmb";
             Pesertacmb.Size = new Size(241, 27);
@@ -84,7 +88,7 @@
             // Startbtn
             // 
             Startbtn.CornerRoundingRadius = 5F;
-            Startbtn.Location = new Point(247, 436);
+            Startbtn.Location = new Point(192, 469);
             Startbtn.Margin = new Padding(6, 4, 6, 4);
             Startbtn.Name = "Startbtn";
             Startbtn.OverrideDefault.Back.Color1 = Color.FromArgb(166, 209, 230);
@@ -168,7 +172,7 @@
             // 
             // Minutetxt
             // 
-            Minutetxt.Location = new Point(186, 356);
+            Minutetxt.Location = new Point(264, 387);
             Minutetxt.Margin = new Padding(4, 3, 4, 3);
             Minutetxt.MaxLength = 2;
             Minutetxt.Name = "Minutetxt";
@@ -180,7 +184,7 @@
             // 
             // Secondtxt
             // 
-            Secondtxt.Location = new Point(250, 356);
+            Secondtxt.Location = new Point(330, 387);
             Secondtxt.Margin = new Padding(4, 3, 4, 3);
             Secondtxt.MaxLength = 2;
             Secondtxt.Name = "Secondtxt";
@@ -192,7 +196,7 @@
             // 
             // kryptonLabel2
             // 
-            kryptonLabel2.Location = new Point(187, 218);
+            kryptonLabel2.Location = new Point(44, 327);
             kryptonLabel2.Margin = new Padding(4, 3, 4, 3);
             kryptonLabel2.Name = "kryptonLabel2";
             kryptonLabel2.Size = new Size(100, 32);
@@ -202,17 +206,17 @@
             // 
             // kryptonLabel3
             // 
-            kryptonLabel3.Location = new Point(198, 316);
+            kryptonLabel3.Location = new Point(44, 385);
             kryptonLabel3.Margin = new Padding(4, 3, 4, 3);
             kryptonLabel3.Name = "kryptonLabel3";
             kryptonLabel3.Size = new Size(78, 32);
             kryptonLabel3.StateCommon.ShortText.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point);
             kryptonLabel3.TabIndex = 20;
-            kryptonLabel3.Values.Text = "Timer ";
+            kryptonLabel3.Values.Text = "Timer";
             // 
             // kryptonLabel4
             // 
-            kryptonLabel4.Location = new Point(229, 360);
+            kryptonLabel4.Location = new Point(308, 390);
             kryptonLabel4.Margin = new Padding(4, 3, 4, 3);
             kryptonLabel4.Name = "kryptonLabel4";
             kryptonLabel4.Size = new Size(16, 22);
@@ -316,7 +320,7 @@
             Resetbtn.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             Resetbtn.CornerRoundingRadius = 5F;
             Resetbtn.Enabled = false;
-            Resetbtn.Location = new Point(93, 436);
+            Resetbtn.Location = new Point(44, 469);
             Resetbtn.Margin = new Padding(6, 4, 6, 4);
             Resetbtn.Name = "Resetbtn";
             Resetbtn.OverrideDefault.Back.Color1 = Color.FromArgb(255, 89, 89);
@@ -351,11 +355,57 @@
             Resetbtn.Values.Text = "Reset";
             Resetbtn.Click += Resetbtn_Click;
             // 
+            // kryptonLabel11
+            // 
+            kryptonLabel11.Location = new Point(156, 332);
+            kryptonLabel11.Margin = new Padding(4, 3, 4, 3);
+            kryptonLabel11.Name = "kryptonLabel11";
+            kryptonLabel11.Size = new Size(16, 22);
+            kryptonLabel11.StateCommon.ShortText.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            kryptonLabel11.TabIndex = 41;
+            kryptonLabel11.Values.Text = ": ";
+            // 
+            // kryptonLabel9
+            // 
+            kryptonLabel9.Location = new Point(156, 390);
+            kryptonLabel9.Margin = new Padding(4, 3, 4, 3);
+            kryptonLabel9.Name = "kryptonLabel9";
+            kryptonLabel9.Size = new Size(16, 22);
+            kryptonLabel9.StateCommon.ShortText.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            kryptonLabel9.TabIndex = 42;
+            kryptonLabel9.Values.Text = ": ";
+            // 
+            // MinutePlusbtn
+            // 
+            MinutePlusbtn.CornerRoundingRadius = -1F;
+            MinutePlusbtn.Location = new Point(222, 387);
+            MinutePlusbtn.Name = "MinutePlusbtn";
+            MinutePlusbtn.Size = new Size(26, 29);
+            MinutePlusbtn.StateCommon.Content.ShortText.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            MinutePlusbtn.TabIndex = 43;
+            MinutePlusbtn.Values.Text = ">";
+            MinutePlusbtn.Click += MinutePlusbtn_Click;
+            // 
+            // MinuteMinusbtn
+            // 
+            MinuteMinusbtn.CornerRoundingRadius = -1F;
+            MinuteMinusbtn.Location = new Point(192, 387);
+            MinuteMinusbtn.Name = "MinuteMinusbtn";
+            MinuteMinusbtn.Size = new Size(26, 29);
+            MinuteMinusbtn.StateCommon.Content.ShortText.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            MinuteMinusbtn.TabIndex = 44;
+            MinuteMinusbtn.Values.Text = "<";
+            MinuteMinusbtn.Click += MinuteMinusbtn_Click;
+            // 
             // Game1frm
             // 
             AutoScaleDimensions = new SizeF(14F, 27F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1078, 557);
+            Controls.Add(MinuteMinusbtn);
+            Controls.Add(MinutePlusbtn);
+            Controls.Add(kryptonLabel9);
+            Controls.Add(kryptonLabel11);
             Controls.Add(Resetbtn);
             Controls.Add(Gamepnl);
             Controls.Add(kryptonLabel4);
@@ -405,5 +455,9 @@
         private Krypton.Toolkit.KryptonLabel Statuslbl;
         private System.Windows.Forms.Timer timer1;
         private Krypton.Toolkit.KryptonButton Resetbtn;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel11;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel9;
+        private Krypton.Toolkit.KryptonButton MinutePlusbtn;
+        private Krypton.Toolkit.KryptonButton MinuteMinusbtn;
     }
 }

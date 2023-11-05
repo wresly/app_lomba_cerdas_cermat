@@ -86,6 +86,7 @@
             Pesertacmb.StateCommon.ComboBox.Content.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             Pesertacmb.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
             Pesertacmb.TabIndex = 3;
+            Pesertacmb.SelectedIndexChanged += Pesertacmb_SelectedIndexChanged;
             // 
             // kryptonLabel2
             // 

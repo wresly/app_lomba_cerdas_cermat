@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Panitiafrm));
             Mainpnl = new Krypton.Toolkit.KryptonPanel();
             kryptonPanel2 = new Krypton.Toolkit.KryptonPanel();
+            keluarbtn = new Krypton.Toolkit.KryptonButton();
+            kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
             Closedbtn = new Krypton.Toolkit.KryptonButton();
             Settingbtn = new Krypton.Toolkit.KryptonButton();
             DataPesertabtn = new Krypton.Toolkit.KryptonButton();
@@ -53,6 +55,8 @@
             // 
             // kryptonPanel2
             // 
+            kryptonPanel2.Controls.Add(keluarbtn);
+            kryptonPanel2.Controls.Add(kryptonLabel1);
             kryptonPanel2.Controls.Add(Closedbtn);
             kryptonPanel2.Controls.Add(Settingbtn);
             kryptonPanel2.Controls.Add(DataPesertabtn);
@@ -64,6 +68,59 @@
             kryptonPanel2.Size = new Size(249, 660);
             kryptonPanel2.StateCommon.Color1 = Color.FromArgb(35, 40, 45);
             kryptonPanel2.TabIndex = 0;
+            // 
+            // keluarbtn
+            // 
+            keluarbtn.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            keluarbtn.CornerRoundingRadius = -1F;
+            keluarbtn.Location = new Point(26, 536);
+            keluarbtn.Margin = new Padding(4);
+            keluarbtn.Name = "keluarbtn";
+            keluarbtn.OverrideDefault.Back.Color1 = Color.Transparent;
+            keluarbtn.OverrideDefault.Back.Color2 = Color.Transparent;
+            keluarbtn.OverrideDefault.Border.Color1 = Color.Transparent;
+            keluarbtn.OverrideDefault.Border.Color2 = Color.Transparent;
+            keluarbtn.OverrideDefault.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
+            keluarbtn.OverrideDefault.Content.Padding = new Padding(-65, -1, -1, -1);
+            keluarbtn.OverrideDefault.Content.ShortText.Image = (Image)resources.GetObject("kryptonButton1.OverrideDefault.Content.ShortText.Image");
+            keluarbtn.Size = new Size(186, 31);
+            keluarbtn.StateCommon.Back.Color1 = Color.Transparent;
+            keluarbtn.StateCommon.Back.Color2 = Color.Transparent;
+            keluarbtn.StateCommon.Border.Color1 = Color.Transparent;
+            keluarbtn.StateCommon.Border.Color2 = Color.Transparent;
+            keluarbtn.StateCommon.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
+            keluarbtn.StateCommon.Content.Padding = new Padding(-65, -1, -1, -1);
+            keluarbtn.StateCommon.Content.ShortText.Font = new Font("Arial", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            keluarbtn.StateCommon.Content.ShortText.ImageStyle = Krypton.Toolkit.PaletteImageStyle.CenterLeft;
+            keluarbtn.StateNormal.Content.ShortText.Color1 = Color.White;
+            keluarbtn.StateNormal.Content.ShortText.Color2 = Color.White;
+            keluarbtn.StateNormal.Content.ShortText.Font = new Font("Arial", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            keluarbtn.StateNormal.Content.ShortText.Image = (Image)resources.GetObject("kryptonButton1.StateNormal.Content.ShortText.Image");
+            keluarbtn.StatePressed.Back.Color1 = Color.Transparent;
+            keluarbtn.StatePressed.Back.Color2 = Color.Transparent;
+            keluarbtn.StatePressed.Border.Color1 = Color.Transparent;
+            keluarbtn.StatePressed.Border.Color2 = Color.Transparent;
+            keluarbtn.StatePressed.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
+            keluarbtn.StateTracking.Back.Color1 = Color.Transparent;
+            keluarbtn.StateTracking.Back.Color2 = Color.Transparent;
+            keluarbtn.StateTracking.Border.Color1 = Color.Transparent;
+            keluarbtn.StateTracking.Border.Color2 = Color.Transparent;
+            keluarbtn.StateTracking.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
+            keluarbtn.TabIndex = 10;
+            keluarbtn.Values.Image = (Image)resources.GetObject("kryptonButton1.Values.Image");
+            keluarbtn.Values.Text = "   keluar";
+            keluarbtn.Click += Keluarbtn_click;
+            // 
+            // kryptonLabel1
+            // 
+            kryptonLabel1.Location = new Point(72, 29);
+            kryptonLabel1.Name = "kryptonLabel1";
+            kryptonLabel1.Size = new Size(62, 26);
+            kryptonLabel1.StateCommon.ShortText.Color1 = Color.White;
+            kryptonLabel1.StateCommon.ShortText.Color2 = Color.White;
+            kryptonLabel1.StateCommon.ShortText.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            kryptonLabel1.TabIndex = 9;
+            kryptonLabel1.Values.Text = "Menu";
             // 
             // Closedbtn
             // 
@@ -82,7 +139,7 @@
             // Settingbtn
             // 
             Settingbtn.CornerRoundingRadius = -1F;
-            Settingbtn.Location = new Point(12, 346);
+            Settingbtn.Location = new Point(26, 346);
             Settingbtn.Margin = new Padding(4);
             Settingbtn.Name = "Settingbtn";
             Settingbtn.OverrideDefault.Back.Color1 = Color.Transparent;
@@ -90,7 +147,7 @@
             Settingbtn.OverrideDefault.Border.Color1 = Color.Transparent;
             Settingbtn.OverrideDefault.Border.Color2 = Color.Transparent;
             Settingbtn.OverrideDefault.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
-            Settingbtn.Size = new Size(237, 31);
+            Settingbtn.Size = new Size(186, 31);
             Settingbtn.StateCommon.Back.Color1 = Color.Transparent;
             Settingbtn.StateCommon.Back.Color2 = Color.Transparent;
             Settingbtn.StateCommon.Border.Color1 = Color.Transparent;
@@ -111,13 +168,14 @@
             Settingbtn.StateTracking.Border.Color2 = Color.Transparent;
             Settingbtn.StateTracking.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
             Settingbtn.TabIndex = 6;
-            Settingbtn.Values.Text = "Setting";
+            Settingbtn.Values.Image = (Image)resources.GetObject("Settingbtn.Values.Image");
+            Settingbtn.Values.Text = "   ScoresBoard";
             Settingbtn.Click += Settingbtn_Click;
             // 
             // DataPesertabtn
             // 
             DataPesertabtn.CornerRoundingRadius = -1F;
-            DataPesertabtn.Location = new Point(12, 276);
+            DataPesertabtn.Location = new Point(26, 276);
             DataPesertabtn.Margin = new Padding(4);
             DataPesertabtn.Name = "DataPesertabtn";
             DataPesertabtn.OverrideDefault.Back.Color1 = Color.Transparent;
@@ -125,12 +183,14 @@
             DataPesertabtn.OverrideDefault.Border.Color1 = Color.Transparent;
             DataPesertabtn.OverrideDefault.Border.Color2 = Color.Transparent;
             DataPesertabtn.OverrideDefault.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
-            DataPesertabtn.Size = new Size(237, 31);
+            DataPesertabtn.OverrideDefault.Content.Padding = new Padding(-50, -1, -1, -1);
+            DataPesertabtn.Size = new Size(186, 31);
             DataPesertabtn.StateCommon.Back.Color1 = Color.Transparent;
             DataPesertabtn.StateCommon.Back.Color2 = Color.Transparent;
             DataPesertabtn.StateCommon.Border.Color1 = Color.Transparent;
             DataPesertabtn.StateCommon.Border.Color2 = Color.Transparent;
             DataPesertabtn.StateCommon.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
+            DataPesertabtn.StateCommon.Content.Padding = new Padding(-50, -1, -1, -1);
             DataPesertabtn.StateCommon.Content.ShortText.Font = new Font("Arial", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
             DataPesertabtn.StateNormal.Content.ShortText.Color1 = Color.White;
             DataPesertabtn.StateNormal.Content.ShortText.Color2 = Color.White;
@@ -146,13 +206,14 @@
             DataPesertabtn.StateTracking.Border.Color2 = Color.Transparent;
             DataPesertabtn.StateTracking.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
             DataPesertabtn.TabIndex = 5;
-            DataPesertabtn.Values.Text = "Peserta";
+            DataPesertabtn.Values.Image = (Image)resources.GetObject("DataPesertabtn.Values.Image");
+            DataPesertabtn.Values.Text = "   Peserta";
             DataPesertabtn.Click += DataPesertabtn_Click;
             // 
             // Gamebtn
             // 
             Gamebtn.CornerRoundingRadius = -1F;
-            Gamebtn.Location = new Point(12, 207);
+            Gamebtn.Location = new Point(26, 207);
             Gamebtn.Margin = new Padding(4);
             Gamebtn.Name = "Gamebtn";
             Gamebtn.OverrideDefault.Back.Color1 = Color.Transparent;
@@ -160,16 +221,21 @@
             Gamebtn.OverrideDefault.Border.Color1 = Color.Transparent;
             Gamebtn.OverrideDefault.Border.Color2 = Color.Transparent;
             Gamebtn.OverrideDefault.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
-            Gamebtn.Size = new Size(237, 31);
+            Gamebtn.OverrideDefault.Content.Padding = new Padding(-65, -1, -1, -1);
+            Gamebtn.OverrideDefault.Content.ShortText.Image = (Image)resources.GetObject("Gamebtn.OverrideDefault.Content.ShortText.Image");
+            Gamebtn.Size = new Size(186, 31);
             Gamebtn.StateCommon.Back.Color1 = Color.Transparent;
             Gamebtn.StateCommon.Back.Color2 = Color.Transparent;
             Gamebtn.StateCommon.Border.Color1 = Color.Transparent;
             Gamebtn.StateCommon.Border.Color2 = Color.Transparent;
             Gamebtn.StateCommon.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
+            Gamebtn.StateCommon.Content.Padding = new Padding(-65, -1, -1, -1);
             Gamebtn.StateCommon.Content.ShortText.Font = new Font("Arial", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            Gamebtn.StateCommon.Content.ShortText.ImageStyle = Krypton.Toolkit.PaletteImageStyle.CenterLeft;
             Gamebtn.StateNormal.Content.ShortText.Color1 = Color.White;
             Gamebtn.StateNormal.Content.ShortText.Color2 = Color.White;
             Gamebtn.StateNormal.Content.ShortText.Font = new Font("Arial", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            Gamebtn.StateNormal.Content.ShortText.Image = (Image)resources.GetObject("Gamebtn.StateNormal.Content.ShortText.Image");
             Gamebtn.StatePressed.Back.Color1 = Color.Transparent;
             Gamebtn.StatePressed.Back.Color2 = Color.Transparent;
             Gamebtn.StatePressed.Border.Color1 = Color.Transparent;
@@ -181,7 +247,8 @@
             Gamebtn.StateTracking.Border.Color2 = Color.Transparent;
             Gamebtn.StateTracking.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
             Gamebtn.TabIndex = 4;
-            Gamebtn.Values.Text = "Game";
+            Gamebtn.Values.Image = (Image)resources.GetObject("Gamebtn.Values.Image");
+            Gamebtn.Values.Text = "   Game";
             Gamebtn.Click += Gamebtn_Click;
             // 
             // Openbtn
@@ -217,6 +284,7 @@
             ((System.ComponentModel.ISupportInitialize)Mainpnl).EndInit();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel2).EndInit();
             kryptonPanel2.ResumeLayout(false);
+            kryptonPanel2.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -229,5 +297,7 @@
         private Krypton.Toolkit.KryptonButton Gamebtn;
         private Krypton.Toolkit.KryptonButton Closedbtn;
         private Krypton.Toolkit.KryptonButton Openbtn;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel1;
+        private Krypton.Toolkit.KryptonButton keluarbtn;
     }
 }

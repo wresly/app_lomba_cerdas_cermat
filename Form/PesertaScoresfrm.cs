@@ -57,5 +57,7 @@ namespace app_lomba_cerdas_cermat.Form
                 TimerScores.Enabled = true;
             }
         }
+
+
     }
 }

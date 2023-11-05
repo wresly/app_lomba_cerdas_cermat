@@ -75,5 +75,10 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                 this.Close();
             }
         }
+
+        private void Pesertacmb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            peserta = Pesertacmb.Text;
+        }
     }
 }

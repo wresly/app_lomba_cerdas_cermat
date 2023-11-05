@@ -93,7 +93,7 @@
             Resetbtn.Name = "Resetbtn";
             Resetbtn.Size = new Size(162, 37);
             Resetbtn.TabIndex = 4;
-            Resetbtn.Values.Text = "Reset Game";
+            Resetbtn.Values.Text = "Reset All";
             Resetbtn.Click += Reset_Click;
             // 
             // AddScoresbtn

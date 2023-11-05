@@ -92,10 +92,13 @@
             Controls.Add(Usernamelbl);
             Controls.Add(Pointlbl);
             Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            KeyPreview = true;
             Margin = new Padding(5, 4, 5, 4);
             Name = "PesertaScoresfrm";
             Text = "PesertaScoresfrm";
+            WindowState = FormWindowState.Maximized;
             Load += PesertaScoresfrm_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);

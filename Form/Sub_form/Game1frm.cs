@@ -234,6 +234,20 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
             }
         }
 
+        //private void Timercmb_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    Minutetxt.Text = Timercmb.Text;
+        //}
+
+        private void MinuteMinusbtn_Click(object sender, EventArgs e)
+        {
+            Minutetxt.Text = (Int32.Parse(Minutetxt.Text) - 1).ToString();
+        }
+
+        private void MinutePlusbtn_Click(object sender, EventArgs e)
+        {
+            Minutetxt.Text = (Int32.Parse(Minutetxt.Text) + 1).ToString();
+        }
     }
 
 

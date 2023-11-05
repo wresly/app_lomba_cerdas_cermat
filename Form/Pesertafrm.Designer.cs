@@ -29,68 +29,28 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            Spacebtn = new Krypton.Toolkit.KryptonButton();
-            Extendbtn = new Krypton.Toolkit.KryptonButton();
             TimerCheckUser = new System.Windows.Forms.Timer(components);
+            Pesertapnl = new Krypton.Toolkit.KryptonPanel();
+            BackColorTimer = new System.Windows.Forms.Timer(components);
+            ((System.ComponentModel.ISupportInitialize)Pesertapnl).BeginInit();
             SuspendLayout();
-            // 
-            // Spacebtn
-            // 
-            Spacebtn.Anchor = AnchorStyles.None;
-            Spacebtn.CornerRoundingRadius = 5F;
-            Spacebtn.Location = new Point(296, 186);
-            Spacebtn.Name = "Spacebtn";
-            Spacebtn.OverrideDefault.Back.Color1 = Color.FromArgb(80, 216, 144);
-            Spacebtn.OverrideDefault.Back.Color2 = Color.FromArgb(80, 216, 144);
-            Spacebtn.OverrideFocus.Back.Color1 = Color.FromArgb(80, 216, 144);
-            Spacebtn.OverrideFocus.Back.Color2 = Color.FromArgb(80, 216, 144);
-            Spacebtn.Size = new Size(294, 138);
-            Spacebtn.StateCommon.Back.Color1 = Color.FromArgb(80, 216, 144);
-            Spacebtn.StateCommon.Back.Color2 = Color.FromArgb(80, 216, 144);
-            Spacebtn.StateCommon.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
-            Spacebtn.StateCommon.Border.Rounding = 5F;
-            Spacebtn.StateCommon.Content.ShortText.Color1 = Color.White;
-            Spacebtn.StateCommon.Content.ShortText.Color2 = Color.White;
-            Spacebtn.StateCommon.Content.ShortText.Font = new Font("Arial", 24F, FontStyle.Bold, GraphicsUnit.Point);
-            Spacebtn.StateDisabled.Back.Color1 = Color.Silver;
-            Spacebtn.StateDisabled.Back.Color2 = Color.Silver;
-            Spacebtn.StateTracking.Back.Color1 = Color.FromArgb(80, 216, 144);
-            Spacebtn.StateTracking.Back.Color2 = Color.FromArgb(80, 216, 144);
-            Spacebtn.TabIndex = 0;
-            Spacebtn.Values.Text = "Press Space";
-            Spacebtn.Click += Spacebtn_Click;
-            Spacebtn.KeyDown += Spacebtn_KeyDown;
-            // 
-            // Extendbtn
-            // 
-            Extendbtn.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            Extendbtn.CornerRoundingRadius = 5F;
-            Extendbtn.Location = new Point(680, 34);
-            Extendbtn.Name = "Extendbtn";
-            Extendbtn.OverrideDefault.Back.Color1 = Color.FromArgb(79, 152, 202);
-            Extendbtn.OverrideDefault.Back.Color2 = Color.FromArgb(79, 152, 202);
-            Extendbtn.OverrideFocus.Back.Color1 = Color.FromArgb(79, 152, 202);
-            Extendbtn.OverrideFocus.Back.Color2 = Color.FromArgb(79, 152, 202);
-            Extendbtn.Size = new Size(186, 48);
-            Extendbtn.StateCommon.Back.Color1 = Color.FromArgb(79, 152, 202);
-            Extendbtn.StateCommon.Back.Color2 = Color.FromArgb(79, 152, 202);
-            Extendbtn.StateCommon.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
-            Extendbtn.StateCommon.Border.Rounding = 5F;
-            Extendbtn.StateCommon.Content.ShortText.Color1 = Color.White;
-            Extendbtn.StateCommon.Content.ShortText.Color2 = Color.White;
-            Extendbtn.StateCommon.Content.ShortText.Font = new Font("Arial", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            Extendbtn.StateDisabled.Back.Color1 = Color.Silver;
-            Extendbtn.StateDisabled.Back.Color2 = Color.Silver;
-            Extendbtn.StateTracking.Back.Color1 = Color.FromArgb(79, 152, 202);
-            Extendbtn.StateTracking.Back.Color2 = Color.FromArgb(79, 152, 202);
-            Extendbtn.TabIndex = 1;
-            Extendbtn.Values.Text = "Extend Scores";
-            Extendbtn.Click += Extendbtn_Click;
-            Extendbtn.KeyDown += Extendbtn_KeyDown;
             // 
             // TimerCheckUser
             // 
             TimerCheckUser.Tick += TimerCheckUser_Tick;
+            // 
+            // Pesertapnl
+            // 
+            Pesertapnl.Dock = DockStyle.Fill;
+            Pesertapnl.Location = new Point(0, 0);
+            Pesertapnl.Name = "Pesertapnl";
+            Pesertapnl.Size = new Size(901, 505);
+            Pesertapnl.TabIndex = 0;
+            // 
+            // BackColorTimer
+            // 
+            BackColorTimer.Interval = 1000;
+            BackColorTimer.Tick += BackColorTimer_Tick;
             // 
             // Pesertafrm
             // 
@@ -98,8 +58,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(901, 505);
-            Controls.Add(Extendbtn);
-            Controls.Add(Spacebtn);
+            Controls.Add(Pesertapnl);
             Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(5, 4, 5, 4);
@@ -107,14 +66,13 @@
             Text = "Peserta";
             WindowState = FormWindowState.Maximized;
             Load += Pesertafrm_Load;
-            KeyDown += Pesertafrm_KeyDown;
+            ((System.ComponentModel.ISupportInitialize)Pesertapnl).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
-
-        private Krypton.Toolkit.KryptonButton Spacebtn;
-        private Krypton.Toolkit.KryptonButton Extendbtn;
         private System.Windows.Forms.Timer TimerCheckUser;
+        private Krypton.Toolkit.KryptonPanel Pesertapnl;
+        private System.Windows.Forms.Timer BackColorTimer;
     }
 }

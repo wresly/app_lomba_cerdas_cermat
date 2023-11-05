@@ -17,6 +17,7 @@ namespace app_lomba_cerdas_cermat.Form
         MainGame mainGame;
         DataPesertafrm dataPesertafrm;
         Settingfrm settingfrm;
+        ScoresBoard allPesertaScores;
         public Panitiafrm()
         {
             InitializeComponent();
@@ -44,7 +45,10 @@ namespace app_lomba_cerdas_cermat.Form
         {
             mainGame.Hide();
             dataPesertafrm.Hide();
-            settingfrm.Show();
+            allPesertaScores.Show();
+
+            allPesertaScores.Height = Mainpnl.Height;
+            allPesertaScores.Width = Mainpnl.Width;
         }
 
         private void Panitiafrm_Load(object sender, EventArgs e)
@@ -52,20 +56,21 @@ namespace app_lomba_cerdas_cermat.Form
             mainGame = new MainGame();
             dataPesertafrm = new DataPesertafrm();
             settingfrm = new Settingfrm();
+            allPesertaScores = new ScoresBoard();
 
             mainGame.TopLevel = false;
             dataPesertafrm.TopLevel = false;
-            settingfrm.TopLevel = false;
+            allPesertaScores.TopLevel = false;
 
             Mainpnl.Controls.Add(mainGame);
             Mainpnl.Controls.Add(dataPesertafrm);
-            Mainpnl.Controls.Add(settingfrm);
+            Mainpnl.Controls.Add(allPesertaScores);
 
 
 
             mainGame.Show();
             dataPesertafrm.Hide();
-            settingfrm.Hide();
+            allPesertaScores.Hide();
 
             kryptonPanel2.Hide();
         }
@@ -85,6 +90,10 @@ namespace app_lomba_cerdas_cermat.Form
         private void Mainpnl_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void Keluarbtn_click(object sender, EventArgs e)
+        {
         }
     }
 }

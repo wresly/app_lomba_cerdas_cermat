@@ -59,7 +59,7 @@ namespace app_lomba_cerdas_cermat.Form
 
         private void Reset_Click(object sender, EventArgs e)
         {
-            var confirm = MessageBox.Show("Tidakan Ini Akan Mereset Keseluruhan Scores dan Game", "Konfirmasi", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+            var confirm = MessageBox.Show("Tidakan Ini Akan Mereset Keseluruhan Peserta dan Game", "Konfirmasi", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
             if (confirm == DialogResult.OK)
             {
                 try
@@ -71,11 +71,11 @@ namespace app_lomba_cerdas_cermat.Form
                     }
 
                     //reset scores
-                    MySqlCommand cmd = new MySqlCommand("UPDATE `users` SET `scores`= 0", db.conn);
+                    MySqlCommand cmd = new MySqlCommand("UPDATE `users` SET `peserta`='', `scores`= 0", db.conn);
                     cmd.ExecuteNonQuery();
 
                     //reset game
-                    cmd = new MySqlCommand("UPDATE `game` SET `game_status`='none',`peserta`='none',`timer`=0 ", db.conn);
+                    cmd = new MySqlCommand("UPDATE `game` SET `game_status`='none',`peserta`='none',`time`='00:00:00',`timer`=0,`plus_scores`=0,`minus_scores`=0 ", db.conn);
                     cmd.ExecuteNonQuery();
 
                     //reset blacklist

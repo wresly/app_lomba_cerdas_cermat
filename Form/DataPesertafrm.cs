@@ -23,63 +23,35 @@ namespace app_lomba_cerdas_cermat
 
         private void DataPesertafrm_Load(object sender, EventArgs e)
         {
-            if (db.conn.State == ConnectionState.Closed)
+            try
             {
-                db.conn.Open();
+                if (db.conn.State == ConnectionState.Closed)
+                {
+                    db.conn.Open();
+
+                }
+
+                //input combo box peserta
+                MySqlCommand cmd = new MySqlCommand("select * from users where usertype = 1", db.conn);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Userscmb.Items.Add(reader["username"].ToString());
+                }
+                reader.Close();
+                Userscmb.SelectedIndex = 0;
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
             Userstimer.Enabled = true;
         }
 
 
 
-        private void Tambahbtn_Click(object sender, EventArgs e)
-        {
-            if (Usertxt.Text.Replace(" ", "") == "")
-            {
-                Usertxt.Focus();
-                MessageBox.Show("isi kolom username!");
-                return;
-            }
-
-            if (Passtxt.Text.Replace(" ", "") == "")
-            {
-                Passtxt.Focus();
-                MessageBox.Show("isi kolom password!");
-                return;
-            }
-            try
-            {
-                if (db.conn.State == ConnectionState.Closed)
-                {
-                    db.conn.Open();
-                }
-                MySqlCommand cmd1 = new MySqlCommand("select * from users where username = '" + Usertxt.Text.Replace(" ", "") + "'", db.conn);
-                MySqlDataReader reader = cmd1.ExecuteReader();
-                if (reader.HasRows)
-                {
-                    reader.Close();
-                    MessageBox.Show("username Sudah Dipakai");
-                    return;
-                }
-                else
-                {
-                    reader.Close();
-                }
-                MySqlCommand cmd = new MySqlCommand("insert into users(username, password) values('" + Usertxt.Text.Replace(" ", "") + "', '" + Passtxt.Text.Replace(" ", "") + "')", db.conn);
-                int rowAffected = cmd.ExecuteNonQuery();
-                if (rowAffected > 0)
-                {
-                    MessageBox.Show("Sukses Mengnambah Peserta : " + Usertxt.Text.Replace(" ", ""));
-                }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void Hapusbtn_Click(object sender, EventArgs e)
+        private void Setbtn_click(object sender, EventArgs e)
         {
             if (Usertxt.Text.Replace(" ", "") == "")
             {
@@ -94,23 +66,55 @@ namespace app_lomba_cerdas_cermat
                 {
                     db.conn.Open();
                 }
-                MySqlCommand cmd = new MySqlCommand("delete from users where username = '" + Usertxt.Text.Replace(" ", "") + "'", db.conn);
+                MySqlCommand cmd = new MySqlCommand("UPDATE `users` SET `peserta`='" + Usertxt.Text.Trim() + "' WHERE `username`='" + Userscmb.Text + "'", db.conn);
                 int rowAffected = cmd.ExecuteNonQuery();
 
                 if (rowAffected > 0)
                 {
-                    MessageBox.Show("Sukses Menghapus Peserta : " + Usertxt.Text.Replace(" ", ""));
+                    MessageBox.Show("Sukses Mengatur Peserta : " + Usertxt.Text.Trim());
                 }
                 else
                 {
-                    MessageBox.Show("Peserta Tidak Ditemukan!");
+                    MessageBox.Show("Gagal Mengatur");
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show(ex.Message);
             }
         }
+
+        //private void Hapusbtn_Click(object sender, EventArgs e)
+        //{
+        //    if (Usertxt.Text.Replace(" ", "") == "")
+        //    {
+        //        Usertxt.Focus();
+        //        MessageBox.Show("isi kolom username!");
+        //        return;
+        //    }
+
+        //    try
+        //    {
+        //        if (db.conn.State == ConnectionState.Closed)
+        //        {
+        //            db.conn.Open();
+        //        }
+        //        MySqlCommand cmd = new MySqlCommand("delete from users where username = '" + Usertxt.Text.Replace(" ", "") + "'", db.conn);
+        //        int rowAffected = cmd.ExecuteNonQuery();
+
+        //        if (rowAffected > 0)
+        //        {
+        //            MessageBox.Show("Sukses Menghapus Peserta : " + Usertxt.Text.Replace(" ", ""));
+        //        }
+        //        else
+        //        {
+        //            MessageBox.Show("Peserta Tidak Ditemukan!");
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //    }
+        //}
 
         private void Userstimer_Tick(object sender, EventArgs e)
         {

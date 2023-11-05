@@ -18,12 +18,46 @@ namespace app_lomba_cerdas_cermat.Form
     public partial class Pesertafrm : KryptonForm
     {
         public string username;
+        bool spaceBtn = false;
+        PesertaScoresfrm scorefrm;
         private SoundPlayer _sound = new SoundPlayer("sound.wav");
         public Pesertafrm()
         {
             InitializeComponent();
         }
 
+        private bool ActiveUser()
+        {
+            TimerCheckUser.Enabled = false;
+            try
+            {
+                if (db.conn.State == ConnectionState.Closed)
+                {
+                    db.conn.Open();
+
+                }
+                MySqlCommand cmd = new MySqlCommand("select * from game", db.conn);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    if (reader["peserta"].ToString() == username)
+                    {
+                        reader.Close();
+                        return true;
+                    }
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                TimerCheckUser.Enabled = true;
+            }
+            return false;
+        }
         private bool NoUser()
         {
             TimerCheckUser.Enabled = false;
@@ -38,7 +72,7 @@ namespace app_lomba_cerdas_cermat.Form
                 MySqlDataReader reader = cmd.ExecuteReader();
                 if (reader.Read())
                 {
-                    if (reader["peserta"].ToString() == "none" && reader["game_status"].ToString() == "game 3")
+                    if (reader["peserta"].ToString() == "none" && (reader["game_status"].ToString() == "game 3" || reader["game_status"].ToString() == "game 2"))
                     {
                         reader.Close();
                         return true;
@@ -89,61 +123,74 @@ namespace app_lomba_cerdas_cermat.Form
 
         private void Pesertafrm_Load(object sender, EventArgs e)
         {
+            scorefrm = new PesertaScoresfrm();
+            scorefrm.TopLevel = false;
+            Pesertapnl.Controls.Add(scorefrm);
+
+
+            scorefrm.username = username;
+            scorefrm.Show();
+
+            scorefrm.Width = Pesertapnl.Width;
+            scorefrm.Height = Pesertapnl.Height;
             TimerCheckUser.Enabled = true;
         }
-        private void Spacebtn_Click(object sender, EventArgs e)
+
+        //handle space button clicked
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
-            _sound.Play();
-            if (NoUser() || notBlacklist())
+            if (keyData == Keys.Space && spaceBtn)
             {
-                try
+                _sound.Play();
+                if (NoUser() || notBlacklist())
                 {
-                    if (db.conn.State == ConnectionState.Closed)
+                    try
                     {
-                        db.conn.Open();
+                        if (db.conn.State == ConnectionState.Closed)
+                        {
+                            db.conn.Open();
+
+                        }
+                        MySqlCommand cmd = new MySqlCommand("update game set peserta = '" + username + "', `time`='" + DateTime.Now.ToLongTimeString() + "'", db.conn);
+                        cmd.ExecuteNonQuery();
 
                     }
-                    MySqlCommand cmd = new MySqlCommand("update game set peserta = '" + username + "', `time`='" + DateTime.Now.ToLongTimeString() + "'", db.conn);
-                    cmd.ExecuteNonQuery();
-
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
-                catch (Exception ex) 
-                {
-                    MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+
+                return true;
             }
+            return base.ProcessCmdKey(ref msg, keyData);
         }
 
-        private void Spacebtn_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Space)
-            {
-                Spacebtn.PerformClick();
-            }
-        }
-        private void Extendbtn_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Space)
-            {
-                Spacebtn.PerformClick();
-            }
-        }
-        private void Pesertafrm_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Space)
-            {
-                Spacebtn.PerformClick();
-            }
-        }
+
         private void TimerCheckUser_Tick(object sender, EventArgs e)
         {
             if (NoUser() && notBlacklist())
             {
-                Spacebtn.Enabled = true;
+                spaceBtn = true;
+                BackColorTimer.Enabled = false;
+                scorefrm.BackColor = Color.Green;
+            }
+            else if (!notBlacklist())
+            {
+                spaceBtn = false;
+                BackColorTimer.Enabled = false;
+                scorefrm.BackColor = Color.Red;
+            }
+            else if (ActiveUser())
+            {
+                spaceBtn = false;
+                BackColorTimer.Enabled = true;
             }
             else
             {
-                Spacebtn.Enabled = false;
+                spaceBtn = false;
+                BackColorTimer.Enabled = false;
+                scorefrm.BackColor = Color.Gray;
             }
 
             TimerCheckUser.Enabled = false;
@@ -162,7 +209,8 @@ namespace app_lomba_cerdas_cermat.Form
                     DateTime time = DateTime.ParseExact(reader["time"].ToString(), "HH:mm:ss", null);
                     DateTime currentTime = DateTime.Now;
                     time = time.AddSeconds(double.Parse(reader["timer"].ToString()));
-                    if (time > currentTime) { 
+                    if (time > currentTime)
+                    {
                         reader.Close();
                         PesertaTimer pesertaTimer = new PesertaTimer();
                         TimeSpan timeDifference = time - currentTime;
@@ -183,21 +231,16 @@ namespace app_lomba_cerdas_cermat.Form
             }
         }
 
-
-
-
-        private void Extendbtn_Click(object sender, EventArgs e)
+        private void BackColorTimer_Tick(object sender, EventArgs e)
         {
-            Extendbtn.Enabled = false;
-
-            PesertaScoresfrm pesertaScoresfrm = new PesertaScoresfrm();
-            pesertaScoresfrm.username = username;
-            pesertaScoresfrm.Show();
-            pesertaScoresfrm.FormClosed += new FormClosedEventHandler(pesertaScoresClosed);
-        }
-        private void pesertaScoresClosed(object sender, FormClosedEventArgs e)
-        {
-            Extendbtn.Enabled = true;
+            if (scorefrm.BackColor == Color.Yellow)
+            {
+                scorefrm.BackColor = Color.White;
+            }
+            else
+            {
+                scorefrm.BackColor = Color.Yellow;
+            }
         }
     }
 }

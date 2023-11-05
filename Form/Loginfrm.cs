@@ -24,7 +24,29 @@ namespace app_lomba_cerdas_cermat
 
         private void Loginfrm_Load(object sender, EventArgs e)
         {
+            try
+            {
+                if (db.conn.State == ConnectionState.Closed)
+                {
+                    db.conn.Open();
 
+                }
+
+                //input combo box peserta
+                MySqlCommand cmd = new MySqlCommand("select * from users", db.conn);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Userscmb.Items.Add(reader["username"].ToString());
+                }
+                reader.Close();
+                Userscmb.SelectedIndex = 0;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         private void Keluarbtn_Click(object sender, EventArgs e)
@@ -36,31 +58,22 @@ namespace app_lomba_cerdas_cermat
         {
             try
             {
-                db.conn.Open();
-                MySqlCommand cmd = new MySqlCommand("select * from users", db.conn);
+                if (db.conn.State == ConnectionState.Closed)
+                {
+                    db.conn.Open();
+
+                }
+                MySqlCommand cmd = new MySqlCommand("select * from users where username = '" + Userscmb.Text + "'", db.conn);
                 MySqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    if (reader["username"].ToString() == Usertxt.Text)
-                    {
-
-                        if (reader["password"].ToString() == Passtxt.Text)
-                        {
-                            userType = Int32.Parse(reader["usertype"].ToString());
-                            username = reader["username"].ToString();
-                            this.DialogResult = DialogResult.OK;
-                            this.Close();
-                            reader.Close();
-                            return;
-                        }
-                        else
-                        {
-                            MessageBox.Show("password salah");
-                            return;
-                        }
-                    }
+                    userType = Int32.Parse(reader["usertype"].ToString());
+                    username = reader["username"].ToString();
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                    reader.Close();
+                    return;
                 }
-                MessageBox.Show("username tidak di temukan");
                 reader.Close();
             }
             catch (Exception ex)
