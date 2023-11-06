@@ -39,14 +39,14 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                 }
 
                 //checked game data
-                MySqlCommand cmd = new MySqlCommand("select * from game where game_status = 'game 1'", db.conn);
-                MySqlDataReader reader = cmd.ExecuteReader();
-                if (reader.HasRows)
+                db.cmd = new MySqlCommand("select * from game where game_status = 'game 1'", db.conn);
+                db.reader = db.cmd.ExecuteReader();
+                if (db.reader.HasRows)
                 {
-                    reader.Read();
-                    DateTime time = DateTime.ParseExact(reader["time"].ToString(), "HH:mm:ss", null);
+                    db.reader.Read();
+                    DateTime time = DateTime.ParseExact(db.reader["time"].ToString(), "HH:mm:ss", null);
                     DateTime currentTime = DateTime.Now;
-                    time = time.AddSeconds(Int32.Parse(reader["timer"].ToString()));
+                    time = time.AddSeconds(Int32.Parse(db.reader["timer"].ToString()));
                     if (time > currentTime)
                     {
                         //timer
@@ -56,7 +56,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
 
                         //game status
                         Statuslbl.Text = ": Started";
-                        Pesertalbl.Text = ": " + reader["peserta"].ToString();
+                        Pesertalbl.Text = ": " + db.reader["peserta"].ToString();
                         Timer2lbl.Text = ": " + ((int)timeDifference.TotalSeconds / 60 < 9 ? "0" : "") + (int)timeDifference.TotalSeconds / 60 + ":" + ((int)timeDifference.TotalSeconds % 60 < 9 ? "0" : "") + (int)timeDifference.TotalSeconds % 60;
 
                         //controls enabled/disabled
@@ -67,7 +67,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
 
 
 
-                        reader.Close();
+                        db.reader.Close();
                         MessageBox.Show("game masih berjalan", "warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                     else
@@ -77,16 +77,16 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                         Resetbtn.Enabled = true;
                     }
                 }
-                reader.Close();
+                db.reader.Close();
 
                 //input combo box peserta
-                cmd = new MySqlCommand("select * from users where usertype = 1", db.conn);
-                reader = cmd.ExecuteReader();
-                while (reader.Read())
+                db.cmd = new MySqlCommand("select * from users where usertype = 1", db.conn);
+                db.reader = db.cmd.ExecuteReader();
+                while (db.reader.Read())
                 {
-                    Pesertacmb.Items.Add(reader["username"].ToString());
+                    Pesertacmb.Items.Add(db.reader["username"].ToString());
                 }
-                reader.Close();
+                db.reader.Close();
                 Pesertacmb.SelectedIndex = 0;
 
 
@@ -137,8 +137,8 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                     db.conn.Open();
                 }
                 timer = Int32.Parse(Minutetxt.Text) * 60 + Int32.Parse(Secondtxt.Text);
-                MySqlCommand cmd = new MySqlCommand("UPDATE game SET game_status='game 1',`peserta`='" + Pesertacmb.Text + "',`time`='" + DateTime.Now.ToLongTimeString() + "',`timer`=" + timer + " WHERE 1", db.conn);
-                cmd.ExecuteNonQuery();
+                db.cmd = new MySqlCommand("UPDATE game SET game_status='game 1',`peserta`='" + Pesertacmb.Text + "',`time`='" + DateTime.Now.ToLongTimeString() + "',`timer`=" + timer + " WHERE 1", db.conn);
+                db.cmd.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
@@ -173,18 +173,18 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                 {
                     //get peserta
                     AddScores addScores = new AddScores();
-                    MySqlCommand cmd = new MySqlCommand("select * from game", db.conn);
-                    MySqlDataReader reader = cmd.ExecuteReader();
+                    db.cmd = new MySqlCommand("select * from game", db.conn);
+                    db.reader = db.cmd.ExecuteReader();
 
-                    if (reader.Read())
+                    if (db.reader.Read())
                     {
-                        addScores.peserta = reader["peserta"].ToString();
+                        addScores.peserta = db.reader["peserta"].ToString();
                     }
-                    reader.Close();
+                    db.reader.Close();
 
                     //reset game
-                    cmd = new MySqlCommand("UPDATE `game` SET `game_status`='none',`peserta`='none',`time`='00:00:00',`timer`=0,`plus_scores`=0,`minus_scores`=0", db.conn);
-                    cmd.ExecuteNonQuery();
+                    db.cmd = new MySqlCommand("UPDATE `game` SET `game_status`='none',`peserta`='none',`time`='00:00:00',`timer`=0,`plus_scores`=0,`minus_scores`=0", db.conn);
+                    db.cmd.ExecuteNonQuery();
 
                     addScores.ControlBox = false;
                     addScores.ShowDialog();
@@ -227,8 +227,8 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
 
                 }
                 //reset game table
-                MySqlCommand cmd = new MySqlCommand("UPDATE `game` SET `game_status`='none',`peserta`='none',`time`='00:00:00',`timer`=0,`plus_scores`=0,`minus_scores`=0", db.conn);
-                cmd.ExecuteNonQuery();
+                db.cmd = new MySqlCommand("UPDATE `game` SET `game_status`='none',`peserta`='none',`time`='00:00:00',`timer`=0,`plus_scores`=0,`minus_scores`=0", db.conn);
+                db.cmd.ExecuteNonQuery();
             }
             catch (Exception ex)
             {

@@ -40,14 +40,14 @@ namespace app_lomba_cerdas_cermat.Form
                     db.conn.Open();
 
                 }
-                MySqlCommand cmd = new MySqlCommand("select * from users where username = '" + username + "'", db.conn);
-                MySqlDataReader reader = cmd.ExecuteReader();
-                if (reader.Read())
+                db.cmd = new MySqlCommand("select * from users where username = '" + username + "'", db.conn);
+                db.reader = db.cmd.ExecuteReader();
+                if (db.reader.Read())
                 {
-                    Pointlbl.Text = reader["scores"].ToString();
-                    Pesertalbl.Text = reader["peserta"].ToString();
+                    Pointlbl.Text = db.reader["scores"].ToString();
+                    Pesertalbl.Text = db.reader["peserta"].ToString();
                 }
-                reader.Close();
+                db.reader.Close();
             }
             catch (Exception ex)
             {

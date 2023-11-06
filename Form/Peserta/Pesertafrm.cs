@@ -36,17 +36,17 @@ namespace app_lomba_cerdas_cermat.Form
                     db.conn.Open();
 
                 }
-                MySqlCommand cmd = new MySqlCommand("select * from game", db.conn);
-                MySqlDataReader reader = cmd.ExecuteReader();
-                if (reader.Read())
+                db.cmd = new MySqlCommand("select * from game", db.conn);
+                db.reader = db.cmd.ExecuteReader();
+                if (db.reader.Read())
                 {
-                    if (reader["peserta"].ToString() == username)
+                    if (db.reader["peserta"].ToString() == username)
                     {
-                        reader.Close();
+                        db.reader.Close();
                         return true;
                     }
                 }
-                reader.Close();
+                db.reader.Close();
             }
             catch (Exception ex)
             {
@@ -68,17 +68,17 @@ namespace app_lomba_cerdas_cermat.Form
                     db.conn.Open();
 
                 }
-                MySqlCommand cmd = new MySqlCommand("select * from game", db.conn);
-                MySqlDataReader reader = cmd.ExecuteReader();
-                if (reader.Read())
+                db.cmd = new MySqlCommand("select * from game", db.conn);
+                db.reader = db.cmd.ExecuteReader();
+                if (db.reader.Read())
                 {
-                    if (reader["peserta"].ToString() == "none" && (reader["game_status"].ToString() == "game 3" || reader["game_status"].ToString() == "game 2"))
+                    if (db.reader["peserta"].ToString() == "none" && (db.reader["game_status"].ToString() == "game 3" || db.reader["game_status"].ToString() == "game 2"))
                     {
-                        reader.Close();
+                        db.reader.Close();
                         return true;
                     }
                 }
-                reader.Close();
+                db.reader.Close();
             }
             catch (Exception ex)
             {
@@ -101,14 +101,14 @@ namespace app_lomba_cerdas_cermat.Form
                     db.conn.Open();
 
                 }
-                MySqlCommand cmd = new MySqlCommand("select * from game_blacklist where peserta = '" + username + "'", db.conn);
-                MySqlDataReader reader = cmd.ExecuteReader();
-                if (reader.HasRows)
+                db.cmd = new MySqlCommand("select * from game_blacklist where peserta = '" + username + "'", db.conn);
+                db.reader = db.cmd.ExecuteReader();
+                if (db.reader.HasRows)
                 {
-                    reader.Close();
+                    db.reader.Close();
                     return false;
                 }
-                reader.Close();
+                db.reader.Close();
             }
             catch (Exception ex)
             {
@@ -152,29 +152,29 @@ namespace app_lomba_cerdas_cermat.Form
 
                         }
 
-                        MySqlCommand cmd = new MySqlCommand("select * from game", db.conn);
-                        MySqlDataReader reader = cmd.ExecuteReader();
-                        if (reader.HasRows)
+                        db.cmd = new MySqlCommand("select * from game", db.conn);
+                        db.reader = db.cmd.ExecuteReader();
+                        if (db.reader.HasRows)
                         {
-                            reader.Read();
-                            DateTime time = DateTime.ParseExact(reader["time"].ToString(), "HH:mm:ss", null);
+                            db.reader.Read();
+                            DateTime time = DateTime.ParseExact(db.reader["time"].ToString(), "HH:mm:ss", null);
                             DateTime currentTime = DateTime.Now;
-                            time = time.AddSeconds(double.Parse(reader["timer"].ToString()));
+                            time = time.AddSeconds(double.Parse(db.reader["timer"].ToString()));
                             if (time > currentTime)
                             {
-                                reader.Close();
+                                db.reader.Close();
                                 TimeSpan timeDifference = time - currentTime;
                                 if ((int)timeDifference.TotalSeconds < 10)
                                 {
                                     int secondTemp = 10 - (int)timeDifference.TotalSeconds;
-                                    cmd = new MySqlCommand("UPDATE `game` SET `game_status`='game 2', `peserta` = 'none', `timer`=10, `answer_status`=2", db.conn);
-                                    cmd.ExecuteNonQuery();
+                                    db.cmd = new MySqlCommand("UPDATE `game` SET `game_status`='game 2', `peserta` = 'none', `timer`=10, `answer_status`=2", db.conn);
+                                    db.cmd.ExecuteNonQuery();
                                 }
                             }
                         }
 
-                        cmd = new MySqlCommand("update game set peserta = '" + username + "', `time`='" + DateTime.Now.ToLongTimeString() + "'", db.conn);
-                        cmd.ExecuteNonQuery();
+                        db.cmd = new MySqlCommand("update game set peserta = '" + username + "', `time`='" + DateTime.Now.ToLongTimeString() + "'", db.conn);
+                        db.cmd.ExecuteNonQuery();
                     }
                     catch (Exception ex)
                     {
@@ -221,17 +221,17 @@ namespace app_lomba_cerdas_cermat.Form
                     db.conn.Open();
 
                 }
-                MySqlCommand cmd = new MySqlCommand("select * from game where peserta = '" + username + "'", db.conn);
-                MySqlDataReader reader = cmd.ExecuteReader();
-                if (reader.HasRows)
+                db.cmd = new MySqlCommand("select * from game where peserta = '" + username + "'", db.conn);
+                db.reader = db.cmd.ExecuteReader();
+                if (db.reader.HasRows)
                 {
-                    reader.Read();
-                    DateTime time = DateTime.ParseExact(reader["time"].ToString(), "HH:mm:ss", null);
+                    db.reader.Read();
+                    DateTime time = DateTime.ParseExact(db.reader["time"].ToString(), "HH:mm:ss", null);
                     DateTime currentTime = DateTime.Now;
-                    time = time.AddSeconds(double.Parse(reader["timer"].ToString()));
+                    time = time.AddSeconds(double.Parse(db.reader["timer"].ToString()));
                     if (time > currentTime)
                     {
-                        reader.Close();
+                        db.reader.Close();
                         PesertaTimer pesertaTimer = new PesertaTimer();
                         TimeSpan timeDifference = time - currentTime;
                         pesertaTimer.timer = (int)timeDifference.TotalSeconds;
@@ -239,7 +239,7 @@ namespace app_lomba_cerdas_cermat.Form
                         pesertaTimer.ShowDialog();
                     }
                 }
-                reader.Close();
+                db.reader.Close();
             }
             catch (Exception ex)
             {

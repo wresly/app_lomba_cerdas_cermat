@@ -43,14 +43,14 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                     db.conn.Open();
 
                 }
-                MySqlCommand cmd = new MySqlCommand("select * from game where peserta != '" + username + "'", db.conn);
-                MySqlDataReader reader = cmd.ExecuteReader();
-                if (reader.HasRows)
+                db.cmd = new MySqlCommand("select * from game where peserta != '" + username + "'", db.conn);
+                db.reader = db.cmd.ExecuteReader();
+                if (db.reader.HasRows)
                 {
-                    reader.Read();
+                    db.reader.Read();
                     timer = 1;
                 }
-                reader.Close();
+                db.reader.Close();
             }
             catch (Exception ex)
             {

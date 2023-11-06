@@ -71,16 +71,16 @@ namespace app_lomba_cerdas_cermat.Form
                     }
 
                     //reset scores
-                    MySqlCommand cmd = new MySqlCommand("UPDATE `users` SET `peserta`='', `scores`= 0", db.conn);
-                    cmd.ExecuteNonQuery();
+                    db.cmd = new MySqlCommand("UPDATE `users` SET `peserta`='', `scores`= 0", db.conn);
+                    db.cmd.ExecuteNonQuery();
 
                     //reset game
-                    cmd = new MySqlCommand("UPDATE `game` SET `game_status`='none',`peserta`='none',`time`='00:00:00',`timer`=0,`plus_scores`=0,`minus_scores`=0 ", db.conn);
-                    cmd.ExecuteNonQuery();
+                    db.cmd = new MySqlCommand("UPDATE `game` SET `game_status`='none',`peserta`='none',`time`='00:00:00',`timer`=0,`plus_scores`=0,`minus_scores`=0 ", db.conn);
+                    db.cmd.ExecuteNonQuery();
 
                     //reset blacklist
-                    cmd = new MySqlCommand("DELETE FROM `game_blacklist`", db.conn);
-                    cmd.ExecuteNonQuery();
+                    db.cmd = new MySqlCommand("DELETE FROM `game_blacklist`", db.conn);
+                    db.cmd.ExecuteNonQuery();
 
 
                 }
@@ -102,11 +102,11 @@ namespace app_lomba_cerdas_cermat.Form
                     db.conn.Open();
 
                 }
-                MySqlCommand cmd = new MySqlCommand("select * from game", db.conn);
-                MySqlDataReader reader = cmd.ExecuteReader();
-                if (reader.Read())
+                db.cmd = new MySqlCommand("select * from game", db.conn);
+                db.reader = db.cmd.ExecuteReader();
+                if (db.reader.Read())
                 {
-                    if (reader["game_status"].ToString() == "game 1")
+                    if (db.reader["game_status"].ToString() == "game 1")
                     {
                         GameStatuslbl.Text = "Game Status : Game 1";
                         Game1btn.Enabled = true;
@@ -115,7 +115,7 @@ namespace app_lomba_cerdas_cermat.Form
                         AddScoresbtn.Enabled = false;
                     }
 
-                    if (reader["game_status"].ToString() == "game 2")
+                    if (db.reader["game_status"].ToString() == "game 2")
                     {
                         GameStatuslbl.Text = "Game Status : Game 2";
                         Game1btn.Enabled = false;
@@ -124,7 +124,7 @@ namespace app_lomba_cerdas_cermat.Form
                         AddScoresbtn.Enabled = false;
                     }
 
-                    if (reader["game_status"].ToString() == "game 3")
+                    if (db.reader["game_status"].ToString() == "game 3")
                     {
                         GameStatuslbl.Text = "Game Status : Game 3";
                         Game1btn.Enabled = false;
@@ -133,7 +133,7 @@ namespace app_lomba_cerdas_cermat.Form
                         AddScoresbtn.Enabled = false;
                     }
 
-                    if (reader["game_status"].ToString() == "none")
+                    if (db.reader["game_status"].ToString() == "none")
                     {
                         GameStatuslbl.Text = "Game Status : none";
                         Game1btn.Enabled = true;
@@ -142,7 +142,7 @@ namespace app_lomba_cerdas_cermat.Form
                         AddScoresbtn.Enabled = true;
                     }
                 }
-                reader.Close();
+                db.reader.Close();
 
             }
             catch (Exception ex)

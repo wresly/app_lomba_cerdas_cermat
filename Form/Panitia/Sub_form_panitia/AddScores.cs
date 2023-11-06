@@ -32,8 +32,8 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                     db.conn.Open();
 
                 }
-                MySqlCommand cmd = new MySqlCommand("UPDATE users SET scores = scores + " + Int32.Parse(Scorestxt.Text) + " WHERE username = '" + peserta + "'", db.conn);
-                cmd.ExecuteNonQuery();
+                db.cmd = new MySqlCommand("UPDATE users SET scores = scores + " + Int32.Parse(Scorestxt.Text) + " WHERE username = '" + peserta + "'", db.conn);
+                db.cmd.ExecuteNonQuery();
                 Addbtn.Enabled = true;
                 this.Close();
             }
@@ -54,13 +54,13 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                     db.conn.Open();
 
                 }
-                MySqlCommand cmd = new MySqlCommand("select * from users where usertype = 1", db.conn);
-                MySqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
+                db.cmd = new MySqlCommand("select * from users where usertype = 1", db.conn);
+                db.reader = db.cmd.ExecuteReader();
+                while (db.reader.Read())
                 {
-                    Pesertacmb.Items.Add(reader["username"].ToString());
+                    Pesertacmb.Items.Add(db.reader["username"].ToString());
                 }
-                reader.Close();
+                db.reader.Close();
                 Pesertacmb.SelectedIndex = 0;
                 if (peserta != "")
                 {

@@ -60,18 +60,18 @@ namespace app_lomba_cerdas_cermat.Form
                     db.conn.Open();
 
                 }
-                MySqlCommand cmd = new MySqlCommand("select * from game", db.conn);
-                MySqlDataReader reader = cmd.ExecuteReader();
-                if (reader.HasRows)
+                db.cmd = new MySqlCommand("select * from game", db.conn);
+                db.reader = db.cmd.ExecuteReader();
+                if (db.reader.HasRows)
                 {
 
-                    reader.Read();
-                    DateTime time = DateTime.ParseExact(reader["time"].ToString(), "HH:mm:ss", null);
+                    db.reader.Read();
+                    DateTime time = DateTime.ParseExact(db.reader["time"].ToString(), "HH:mm:ss", null);
                     DateTime currentTime = DateTime.Now;
-                    time = time.AddSeconds(Int32.Parse(reader["timer"].ToString()));
+                    time = time.AddSeconds(Int32.Parse(db.reader["timer"].ToString()));
                     if (time > currentTime)
                     {
-                        reader.Close();
+                        db.reader.Close();
                         TimeSpan timeDifference = time - currentTime;
                         timerBoard.timer = (int)timeDifference.TotalSeconds;
                         scoresBoard.Hide();
@@ -80,12 +80,12 @@ namespace app_lomba_cerdas_cermat.Form
                     }
                     else
                     {
-                        reader.Close();
+                        db.reader.Close();
                         timerBoard.Hide();
                         scoresBoard.Show();
                     }
                 }
-                reader.Close();
+                db.reader.Close();
             }
             catch (Exception ex)
             {

@@ -32,13 +32,13 @@ namespace app_lomba_cerdas_cermat
                 }
 
                 //input combo box peserta
-                MySqlCommand cmd = new MySqlCommand("select * from users where usertype = 1", db.conn);
-                MySqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
+                db.cmd = new MySqlCommand("select * from users where usertype = 1", db.conn);
+                db.reader = db.cmd.ExecuteReader();
+                while (db.reader.Read())
                 {
-                    Userscmb.Items.Add(reader["username"].ToString());
+                    Userscmb.Items.Add(db.reader["username"].ToString());
                 }
-                reader.Close();
+                db.reader.Close();
                 Userscmb.SelectedIndex = 0;
             }
             catch (Exception)
@@ -66,8 +66,8 @@ namespace app_lomba_cerdas_cermat
                 {
                     db.conn.Open();
                 }
-                MySqlCommand cmd = new MySqlCommand("UPDATE `users` SET `peserta`='" + Usertxt.Text.Trim() + "' WHERE `username`='" + Userscmb.Text + "'", db.conn);
-                int rowAffected = cmd.ExecuteNonQuery();
+                db.cmd = new MySqlCommand("UPDATE `users` SET `peserta`='" + Usertxt.Text.Trim() + "' WHERE `username`='" + Userscmb.Text + "'", db.conn);
+                int rowAffected = db.cmd.ExecuteNonQuery();
 
                 if (rowAffected > 0)
                 {
@@ -93,8 +93,8 @@ namespace app_lomba_cerdas_cermat
                 {
                     db.conn.Open();
                 }
-                MySqlCommand cmd = new MySqlCommand("select * from users where usertype = 1", db.conn);
-                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                db.cmd = new MySqlCommand("select * from users where usertype = 1", db.conn);
+                MySqlDataAdapter da = new MySqlDataAdapter(db.cmd);
                 DataSet data = new DataSet();
                 da.Fill(data, "users");
                 Usersdgv.DataSource = data.Tables["users"];

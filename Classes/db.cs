@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data;
@@ -14,8 +15,11 @@ namespace app_lomba_cerdas_cermat.Classes
         private static string user = "root";
         private static string pass = "godt123";
         private static string database = "cerdas_cermat";
+
+        public static MySqlCommand cmd;
+        public static MySqlDataReader reader;
+
         public static string connectionString = "";
-        //"server=" + server + ";uid=" + user + ";pwd=" + pass + ";database=" + database
         public static MySqlConnection conn = new MySqlConnection(connectionString);
     }
 }

@@ -56,36 +56,36 @@ namespace app_lomba_cerdas_cermat.Form
                 {
                     db.conn.Open();
                 }
-                MySqlCommand cmd = new MySqlCommand("select * from users where usertype = 1", db.conn);
-                MySqlDataReader reader = cmd.ExecuteReader();
+                db.cmd = new MySqlCommand("select * from users where usertype = 1", db.conn);
+                db.reader = db.cmd.ExecuteReader();
 
-                while (reader.Read())
+                while (db.reader.Read())
                 {
-                    if (reader["username"].ToString() == "A")
+                    if (db.reader["username"].ToString() == "A")
                     {
-                        APesertalbl.Text = reader["peserta"].ToString();
-                        AScoreslbl.Text = reader["scores"].ToString();
+                        APesertalbl.Text = db.reader["peserta"].ToString();
+                        AScoreslbl.Text = db.reader["scores"].ToString();
                     }
 
-                    if (reader["username"].ToString() == "B")
+                    if (db.reader["username"].ToString() == "B")
                     {
-                        BPesertalbl.Text = reader["peserta"].ToString();
-                        BScoreslbl.Text = reader["scores"].ToString();
+                        BPesertalbl.Text = db.reader["peserta"].ToString();
+                        BScoreslbl.Text = db.reader["scores"].ToString();
                     }
 
-                    if (reader["username"].ToString() == "C")
+                    if (db.reader["username"].ToString() == "C")
                     {
-                        CPesertalbl.Text = reader["peserta"].ToString();
-                        CScoreslbl.Text = reader["scores"].ToString();
+                        CPesertalbl.Text = db.reader["peserta"].ToString();
+                        CScoreslbl.Text = db.reader["scores"].ToString();
                     }
 
-                    if (reader["username"].ToString() == "D")
+                    if (db.reader["username"].ToString() == "D")
                     {
-                        DPesertalbl.Text = reader["peserta"].ToString();
-                        DScoreslbl.Text = reader["scores"].ToString();
+                        DPesertalbl.Text = db.reader["peserta"].ToString();
+                        DScoreslbl.Text = db.reader["scores"].ToString();
                     }
                 }
-                reader.Close();
+                db.reader.Close();
 
             }
             catch (Exception ex)

@@ -33,13 +33,13 @@ namespace app_lomba_cerdas_cermat
                 }
 
                 //input combo box peserta
-                MySqlCommand cmd = new MySqlCommand("select * from users", db.conn);
-                MySqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
+                db.cmd = new MySqlCommand("select * from users", db.conn);
+                db.reader = db.cmd.ExecuteReader();
+                while (db.reader.Read())
                 {
-                    Userscmb.Items.Add(reader["username"].ToString());
+                    Userscmb.Items.Add(db.reader["username"].ToString());
                 }
-                reader.Close();
+                db.reader.Close();
                 Userscmb.SelectedIndex = 0;
             }
             catch (Exception)
@@ -63,18 +63,18 @@ namespace app_lomba_cerdas_cermat
                     db.conn.Open();
 
                 }
-                MySqlCommand cmd = new MySqlCommand("select * from users where username = '" + Userscmb.Text + "'", db.conn);
-                MySqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
+                db.cmd = new MySqlCommand("select * from users where username = '" + Userscmb.Text + "'", db.conn);
+                db.reader = db.cmd.ExecuteReader();
+                while (db.reader.Read())
                 {
-                    userType = Int32.Parse(reader["usertype"].ToString());
-                    username = reader["username"].ToString();
+                    userType = Int32.Parse(db.reader["usertype"].ToString());
+                    username = db.reader["username"].ToString();
                     this.DialogResult = DialogResult.OK;
                     this.Close();
-                    reader.Close();
+                    db.reader.Close();
                     return;
                 }
-                reader.Close();
+                db.reader.Close();
             }
             catch (Exception ex)
             {
