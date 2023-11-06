@@ -24,6 +24,7 @@ namespace app_lomba_cerdas_cermat
 
         private void Loginfrm_Load(object sender, EventArgs e)
         {
+
             try
             {
                 if (db.conn.State == ConnectionState.Closed)

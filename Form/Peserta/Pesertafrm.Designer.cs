@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Pesertafrm));
             TimerCheckUser = new System.Windows.Forms.Timer(components);
             Pesertapnl = new Krypton.Toolkit.KryptonPanel();
             BackColorTimer = new System.Windows.Forms.Timer(components);
@@ -61,6 +62,7 @@
             Controls.Add(Pesertapnl);
             Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(5, 4, 5, 4);
             Name = "Pesertafrm";
             Text = "Peserta";

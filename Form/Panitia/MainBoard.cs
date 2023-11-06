@@ -76,7 +76,7 @@ namespace app_lomba_cerdas_cermat.Form
                         timerBoard.timer = (int)timeDifference.TotalSeconds;
                         scoresBoard.Hide();
                         timerBoard.Show();
-                        
+
                     }
                     else
                     {

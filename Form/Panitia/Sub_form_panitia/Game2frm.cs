@@ -26,6 +26,10 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
             InitializeComponent();
         }
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            continueGame();
+        }
         private void continueGame()
         {
             timer1.Enabled = false;
@@ -36,104 +40,136 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                     db.conn.Open();
 
                 }
-                //reset game table
+                //cek for running game
                 db.cmd = new MySqlCommand("select * from game", db.conn);
                 db.reader = db.cmd.ExecuteReader();
                 db.reader.Read();
                 if (db.reader["answer_status"].ToString() == "2")
                 {
-                    if (db.reader["peserta"].ToString() != "none")
+                    DateTime time = DateTime.ParseExact(db.reader["time"].ToString(), "HH:mm:ss", null);
+                    DateTime currentTime = DateTime.Now;
+                    time = time.AddSeconds(Int32.Parse(db.reader["timer"].ToString()));
+                    TimeSpan timeDifference = time - currentTime;
+                    if (time > currentTime)
                     {
-                        peserta = db.reader["peserta"].ToString();
-
-                        //checked user answer 
-                        if (isWaitingFormVisible)
+                        if (db.reader["peserta"].ToString() != "none")
                         {
-                            waitingfrm.Close();
-                        }
-                        AnswerCheckerUser answerCheckerUser = new AnswerCheckerUser();
-                        answerCheckerUser.timer = Int32.Parse(db.reader["timer"].ToString());
-                        db.reader.Close();
-                        answerCheckerUser.ShowDialog();
+                            peserta = db.reader["peserta"].ToString();
 
-                        //true
-                        if (answerCheckerUser.DialogResult == DialogResult.OK)
-                        {
-                            try
+                            //checked user answer 
+                            if (isWaitingFormVisible)
                             {
-                                if (db.conn.State == ConnectionState.Closed)
-                                {
-                                    db.conn.Open();
-
-                                }
-                                db.cmd = new MySqlCommand("UPDATE users SET scores = scores + " + Int32.Parse(Scorestxt.Text) + " WHERE username = '" + peserta + "'", db.conn);
-                                db.cmd.ExecuteNonQuery();
+                                waitingfrm.Close();
                             }
-                            catch (Exception ex)
-                            {
-                                MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                            Resetbtn.Enabled = false;
-                            reset();
-                            reLoad();
-                            Startbtn.Enabled = true;
 
-                        }
+                            db.reader.Close();
+                            AnswerCheckerUser answerCheckerUser = new AnswerCheckerUser();
 
-                        //false
-                        if (answerCheckerUser.DialogResult == DialogResult.Cancel)
-                        {
-                            Resetbtn.Enabled = true;
-                            //blacklist peserta
-                            Pesertacmb.Items.Remove(peserta);
-                            try
+
+                            int timer = (int)timeDifference.TotalSeconds;
+                            answerCheckerUser.timer = timer;
+                            answerCheckerUser.ShowDialog();
+
+                            //true
+                            if (answerCheckerUser.DialogResult == DialogResult.OK)
                             {
-                                if (db.conn.State == ConnectionState.Closed)
+                                try
                                 {
-                                    db.conn.Open();
+                                    if (db.conn.State == ConnectionState.Closed)
+                                    {
+                                        db.conn.Open();
 
+                                    }
+                                    db.cmd = new MySqlCommand("UPDATE users SET scores = scores + " + Int32.Parse(Scorestxt.Text) + " WHERE username = '" + peserta + "'", db.conn);
+                                    db.cmd.ExecuteNonQuery();
                                 }
+                                catch (Exception ex)
+                                {
+                                    MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+                                db.reader.Close();
+                                Resetbtn.Enabled = false;
+                                reset(true);
+                                reLoad();
+                                Startbtn.Enabled = true;
+                            }
 
+                            //false
+                            if (answerCheckerUser.DialogResult == DialogResult.Cancel)
+                            {
+                                Resetbtn.Enabled = true;
                                 //blacklist peserta
-                                db.cmd = new MySqlCommand("INSERT INTO `game_blacklist`(`peserta`) VALUES ('" + peserta + "')", db.conn);
-                                db.cmd.ExecuteNonQuery();
-
-                                // continue game
-                                db.cmd = new MySqlCommand("UPDATE `game` SET `game_status`='game 2', `peserta` = 'none',`time`='" + DateTime.Now.ToLongTimeString() + "', `timer`= 30, `answer_status`=2", db.conn);
-                                db.cmd.ExecuteNonQuery();
-
-                                //reset if no more peserta
-                                if (Pesertacmb.Items.Count == 0)
+                                Pesertacmb.Items.Remove(peserta);
+                                try
                                 {
-                                    Scorestxt.Text = "";
-                                    Minutetxt.Text = "00";
-                                    Secondtxt.Text = "00";
-                                    reset();
-                                    reLoad();
-                                }
+                                    if (db.conn.State == ConnectionState.Closed)
+                                    {
+                                        db.conn.Open();
 
-                                return;
-                            }
-                            catch (Exception ex)
-                            {
-                                MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    }
+
+                                    //blacklist peserta
+                                    db.cmd = new MySqlCommand("INSERT INTO `game_blacklist`(`peserta`) VALUES ('" + peserta + "')", db.conn);
+                                    db.cmd.ExecuteNonQuery();
+
+                                    // continue game
+                                    db.cmd = new MySqlCommand("UPDATE `game` SET `game_status`='game 2', `peserta` = 'none',`time`='" + DateTime.Now.ToLongTimeString() + "', `timer`= 30, `answer_status`=2", db.conn);
+                                    db.cmd.ExecuteNonQuery();
+
+                                    //reset if no more peserta
+                                    if (Pesertacmb.Items.Count == 0)
+                                    {
+                                        db.reader.Close();
+                                        Scorestxt.Text = "";
+                                        Minutetxt.Text = "00";
+                                        Secondtxt.Text = "00";
+                                        reset(true);
+                                        reLoad();
+                                        //reset controls
+                                        Pesertacmb.SelectedIndex = 0;
+                                        Pesertacmb.Enabled = true;
+                                        Scorestxt.Enabled = true;
+                                        Minutetxt.Enabled = true;
+                                        Secondtxt.Enabled = true;
+                                        Startbtn.Enabled = true;
+                                    }
+                                    db.reader.Close();
+                                    return;
+                                }
+                                catch (Exception ex)
+                                {
+                                    MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
                             }
                         }
-
+                        else
+                        {
+                            db.reader.Close();
+                            if (!isWaitingFormVisible)
+                            {
+                                waitingfrm = new Waitingfrm();
+                                waitingfrm.FormClosed += (sender, e) => cancelFrm();
+                                waitingfrm.Show();
+                                isWaitingFormVisible = true;
+                            }
+                        }
                     }
                     else
                     {
                         db.reader.Close();
-                        if (!isWaitingFormVisible)
-                        {
-                            waitingfrm = new Waitingfrm();
-                            waitingfrm.FormClosed += (sender, e) => cancelFrm(); // Update the flag when the form is closed
-                            waitingfrm.ShowDialog();
-                            isWaitingFormVisible = true; // Set the flag to indicate the form is now visible
-                        }
+                        //MessageBox.Show("error1");
+                        //reset(true);
+                        //reLoad();
+                        //reset controls
+                        Pesertacmb.SelectedIndex = 0;
+                        Pesertacmb.Enabled = true;
+                        Scorestxt.Enabled = true;
+                        Minutetxt.Enabled = true;
+                        Secondtxt.Enabled = true;
+                        Startbtn.Enabled = true;
                     }
                 }
-                db.reader.Close();
+
                 db.reader.Close();
             }
             catch (Exception)
@@ -148,7 +184,9 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
 
         private void cancelFrm()
         {
+            isWaitingFormVisible = false;
             timer1.Enabled = false;
+            db.reader.Close();
             try
             {
                 if (db.conn.State == ConnectionState.Closed)
@@ -156,35 +194,31 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                     db.conn.Open();
 
                 }
-                isWaitingFormVisible = false;
                 db.cmd = new MySqlCommand("select * from game", db.conn);
                 db.reader = db.cmd.ExecuteReader();
                 if (db.reader.HasRows)
                 {
-
-                    db.reader.Read();
-                    DateTime time = DateTime.ParseExact(db.reader["time"].ToString(), "HH:mm:ss", null);
-                    DateTime currentTime = DateTime.Now;
-                    time = time.AddSeconds(Int32.Parse(db.reader["timer"].ToString()));
                     db.reader.Close();
-                    if (time > currentTime)
+                    if (waitingfrm.DialogResult == DialogResult.Abort)
                     {
-                        reset();
-                        reLoad();
-                        //reset controls
-                        Pesertacmb.SelectedIndex = 0;
-                        Pesertacmb.Enabled = true;
-                        Scorestxt.Enabled = true;
-                        Minutetxt.Enabled = true;
-                        Secondtxt.Enabled = true;
-                        Startbtn.Enabled = true;
+                        reset(true);
                     }
+
+                    reLoad();
+                    //reset controls
+                    Pesertacmb.SelectedIndex = 0;
+                    Pesertacmb.Enabled = true;
+                    Scorestxt.Enabled = true;
+                    Minutetxt.Enabled = true;
+                    Secondtxt.Enabled = true;
+                    Startbtn.Enabled = true;
                 }
+                db.reader.Close();
             }
             catch (Exception ex)
             {
 
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("asda");
             }
             finally
             {
@@ -193,8 +227,9 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
 
         }
 
-        private void reset()
+        private void reset(bool resetAnswer)
         {
+            isWaitingFormVisible = false;
             try
             {
                 if (db.conn.State == ConnectionState.Closed)
@@ -203,12 +238,21 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
 
                 }
                 //reset game table
-                db.cmd = new MySqlCommand("UPDATE `game` SET `game_status`='none',`peserta`='none',`time`='00:00:00',`timer`=0,`plus_scores`=0,`minus_scores`=0", db.conn);
+                if (resetAnswer)
+                {
+                    //reset blacklist
+                    db.cmd = new MySqlCommand("DELETE FROM `game_blacklist`", db.conn);
+                    db.cmd.ExecuteNonQuery();
+
+                    db.cmd = new MySqlCommand("UPDATE `game` SET `game_status`='none',`peserta`='none',`time`='00:00:00',`timer`=0,`plus_scores`=0,`minus_scores`=0,`answer_status`=0", db.conn);
+                }
+                else
+                {
+                    db.cmd = new MySqlCommand("UPDATE `game` SET `game_status`='none',`peserta`='none',`time`='00:00:00',`timer`=0,`plus_scores`=0,`minus_scores`=0", db.conn);
+                }
                 db.cmd.ExecuteNonQuery();
 
-                //reset blacklist
-                db.cmd = new MySqlCommand("DELETE FROM `game_blacklist`", db.conn);
-                db.cmd.ExecuteNonQuery();
+
             }
             catch (Exception ex)
             {
@@ -217,6 +261,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
         }
         private void reLoad()
         {
+            isWaitingFormVisible = false;
             try
             {
                 Pesertacmb.Items.Clear();
@@ -370,7 +415,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                     MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 Resetbtn.Enabled = false;
-                reset();
+                reset(true);
                 reLoad();
 
             }
@@ -403,8 +448,15 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                         Scorestxt.Text = "";
                         Minutetxt.Text = "00";
                         Secondtxt.Text = "00";
-                        reset();
+                        reset(true);
                         reLoad();
+                        //reset controls
+                        Pesertacmb.SelectedIndex = 0;
+                        Pesertacmb.Enabled = true;
+                        Scorestxt.Enabled = true;
+                        Minutetxt.Enabled = true;
+                        Secondtxt.Enabled = true;
+                        Startbtn.Enabled = true;
                     }
 
                     return;
@@ -437,7 +489,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                     db.conn.Open();
 
                 }
-                db.cmd = new MySqlCommand("UPDATE `game` SET `game_status`='none', `peserta` = 'none',`time`='00:00:00', `timer`= 0,`plus_scores`=0,`minus_scores`=0", db.conn);
+                db.cmd = new MySqlCommand("UPDATE `game` SET `game_status`='none', `peserta` = 'none',`time`='00:00:00', `timer`= 0,`plus_scores`=0,`minus_scores`=0,`answer_status`=0", db.conn);
                 db.cmd.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -453,7 +505,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
             {
                 Resetbtn.Enabled = false;
                 Startbtn.Enabled = true;
-                reset();
+                reset(true);
                 reLoad();
             }
         }
@@ -481,9 +533,6 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
             Minutetxt.Text = (Int32.Parse(Minutetxt.Text) + 1).ToString();
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            continueGame();
-        }
+
     }
 }

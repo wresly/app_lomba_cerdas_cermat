@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddScores));
             Scorestxt = new Krypton.Toolkit.KryptonTextBox();
             kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
             Addbtn = new Krypton.Toolkit.KryptonButton();
@@ -108,6 +109,7 @@
             Controls.Add(kryptonLabel1);
             Controls.Add(Scorestxt);
             Font = new Font("Arial", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(5, 4, 5, 4);
             MaximizeBox = false;
             Name = "AddScores";

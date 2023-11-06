@@ -82,7 +82,7 @@
             keluarbtn.OverrideDefault.Border.Color2 = Color.Transparent;
             keluarbtn.OverrideDefault.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
             keluarbtn.OverrideDefault.Content.Padding = new Padding(-65, -1, -1, -1);
-            keluarbtn.OverrideDefault.Content.ShortText.Image = (Image)resources.GetObject("kryptonButton1.OverrideDefault.Content.ShortText.Image");
+            keluarbtn.OverrideDefault.Content.ShortText.Image = (Image)resources.GetObject("keluarbtn.OverrideDefault.Content.ShortText.Image");
             keluarbtn.Size = new Size(186, 31);
             keluarbtn.StateCommon.Back.Color1 = Color.Transparent;
             keluarbtn.StateCommon.Back.Color2 = Color.Transparent;
@@ -95,7 +95,7 @@
             keluarbtn.StateNormal.Content.ShortText.Color1 = Color.White;
             keluarbtn.StateNormal.Content.ShortText.Color2 = Color.White;
             keluarbtn.StateNormal.Content.ShortText.Font = new Font("Arial", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            keluarbtn.StateNormal.Content.ShortText.Image = (Image)resources.GetObject("kryptonButton1.StateNormal.Content.ShortText.Image");
+            keluarbtn.StateNormal.Content.ShortText.Image = (Image)resources.GetObject("keluarbtn.StateNormal.Content.ShortText.Image");
             keluarbtn.StatePressed.Back.Color1 = Color.Transparent;
             keluarbtn.StatePressed.Back.Color2 = Color.Transparent;
             keluarbtn.StatePressed.Border.Color1 = Color.Transparent;
@@ -107,7 +107,7 @@
             keluarbtn.StateTracking.Border.Color2 = Color.Transparent;
             keluarbtn.StateTracking.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
             keluarbtn.TabIndex = 10;
-            keluarbtn.Values.Image = (Image)resources.GetObject("kryptonButton1.Values.Image");
+            keluarbtn.Values.Image = (Image)resources.GetObject("keluarbtn.Values.Image");
             keluarbtn.Values.Text = "   keluar";
             keluarbtn.Click += Keluarbtn_click;
             // 
@@ -276,6 +276,7 @@
             Controls.Add(Mainpnl);
             Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(5);
             Name = "Panitiafrm";
             Text = "Panitia";

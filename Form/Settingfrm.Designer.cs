@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Settingfrm));
             kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
             SuspendLayout();
             // 
@@ -49,6 +50,7 @@
             Controls.Add(kryptonLabel1);
             Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(5, 4, 5, 4);
             Name = "Settingfrm";
             Text = "Settingfrm";

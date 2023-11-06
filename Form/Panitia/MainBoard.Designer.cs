@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainBoard));
             MainBoardpnl = new Krypton.Toolkit.KryptonPanel();
             timer1 = new System.Windows.Forms.Timer(components);
             ((System.ComponentModel.ISupportInitialize)MainBoardpnl).BeginInit();
@@ -53,6 +54,7 @@
             ClientSize = new Size(800, 450);
             Controls.Add(MainBoardpnl);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "MainBoard";
             Text = "MainBoard";
             WindowState = FormWindowState.Maximized;

@@ -59,9 +59,10 @@
             // Logopb
             // 
             Logopb.Image = (Image)resources.GetObject("Logopb.Image");
-            Logopb.Location = new Point(648, 46);
+            Logopb.Location = new Point(652, 28);
+            Logopb.Margin = new Padding(5, 4, 5, 4);
             Logopb.Name = "Logopb";
-            Logopb.Size = new Size(254, 318);
+            Logopb.Size = new Size(254, 325);
             Logopb.TabIndex = 1;
             Logopb.TabStop = false;
             // 
@@ -71,18 +72,25 @@
             // 
             // PanelA
             // 
+            PanelA.Anchor = AnchorStyles.None;
+            PanelA.AutoSize = true;
             PanelA.BorderStyle = BorderStyle.FixedSingle;
             PanelA.Controls.Add(AScoreslbl);
             PanelA.Controls.Add(APesertalbl);
             PanelA.Controls.Add(GrupAlbl);
-            PanelA.Location = new Point(28, 522);
+            PanelA.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            PanelA.Location = new Point(22, 502);
+            PanelA.Margin = new Padding(5, 4, 5, 4);
+            PanelA.MaximumSize = new Size(346, 350);
+            PanelA.MinimumSize = new Size(346, 350);
             PanelA.Name = "PanelA";
-            PanelA.Size = new Size(344, 302);
+            PanelA.Size = new Size(346, 350);
             PanelA.TabIndex = 2;
             // 
             // AScoreslbl
             // 
-            AScoreslbl.Location = new Point(140, 202);
+            AScoreslbl.Location = new Point(136, 228);
+            AScoreslbl.Margin = new Padding(5, 4, 5, 4);
             AScoreslbl.Name = "AScoreslbl";
             AScoreslbl.Size = new Size(64, 82);
             AScoreslbl.StateCommon.ShortText.Color1 = Color.SteelBlue;
@@ -93,7 +101,8 @@
             // 
             // APesertalbl
             // 
-            APesertalbl.Location = new Point(79, 140);
+            APesertalbl.Location = new Point(76, 134);
+            APesertalbl.Margin = new Padding(5, 4, 5, 4);
             APesertalbl.Name = "APesertalbl";
             APesertalbl.Size = new Size(186, 48);
             APesertalbl.StateCommon.ShortText.Color1 = Color.Black;
@@ -104,7 +113,8 @@
             // 
             // GrupAlbl
             // 
-            GrupAlbl.Location = new Point(16, 18);
+            GrupAlbl.Location = new Point(14, 6);
+            GrupAlbl.Margin = new Padding(5, 4, 5, 4);
             GrupAlbl.Name = "GrupAlbl";
             GrupAlbl.Size = new Size(312, 102);
             GrupAlbl.StateCommon.ShortText.Color1 = Color.Red;
@@ -115,18 +125,25 @@
             // 
             // PanelB
             // 
+            PanelB.Anchor = AnchorStyles.None;
+            PanelB.AutoSize = true;
             PanelB.BorderStyle = BorderStyle.FixedSingle;
             PanelB.Controls.Add(BScoreslbl);
             PanelB.Controls.Add(BPesertalbl);
             PanelB.Controls.Add(GrupBlbl);
-            PanelB.Location = new Point(406, 522);
+            PanelB.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            PanelB.Location = new Point(404, 502);
+            PanelB.Margin = new Padding(5, 4, 5, 4);
+            PanelB.MaximumSize = new Size(346, 350);
+            PanelB.MinimumSize = new Size(346, 350);
             PanelB.Name = "PanelB";
-            PanelB.Size = new Size(344, 302);
+            PanelB.Size = new Size(346, 350);
             PanelB.TabIndex = 3;
             // 
             // BScoreslbl
             // 
-            BScoreslbl.Location = new Point(140, 202);
+            BScoreslbl.Location = new Point(136, 228);
+            BScoreslbl.Margin = new Padding(5, 4, 5, 4);
             BScoreslbl.Name = "BScoreslbl";
             BScoreslbl.Size = new Size(64, 82);
             BScoreslbl.StateCommon.ShortText.Color1 = Color.SteelBlue;
@@ -137,7 +154,8 @@
             // 
             // BPesertalbl
             // 
-            BPesertalbl.Location = new Point(79, 140);
+            BPesertalbl.Location = new Point(76, 134);
+            BPesertalbl.Margin = new Padding(5, 4, 5, 4);
             BPesertalbl.Name = "BPesertalbl";
             BPesertalbl.Size = new Size(186, 48);
             BPesertalbl.StateCommon.ShortText.Color1 = Color.Black;
@@ -148,7 +166,8 @@
             // 
             // GrupBlbl
             // 
-            GrupBlbl.Location = new Point(16, 18);
+            GrupBlbl.Location = new Point(14, 6);
+            GrupBlbl.Margin = new Padding(5, 4, 5, 4);
             GrupBlbl.Name = "GrupBlbl";
             GrupBlbl.Size = new Size(312, 102);
             GrupBlbl.StateCommon.ShortText.Color1 = Color.Red;
@@ -159,18 +178,26 @@
             // 
             // PanelC
             // 
+            PanelC.Anchor = AnchorStyles.None;
+            PanelC.AutoSize = true;
             PanelC.BorderStyle = BorderStyle.FixedSingle;
             PanelC.Controls.Add(CScoreslbl);
             PanelC.Controls.Add(CPesertalbl);
             PanelC.Controls.Add(GrupClbl);
-            PanelC.Location = new Point(784, 522);
+            PanelC.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            PanelC.Location = new Point(786, 502);
+            PanelC.Margin = new Padding(5, 4, 5, 4);
+            PanelC.MaximumSize = new Size(346, 350);
+            PanelC.MinimumSize = new Size(346, 350);
             PanelC.Name = "PanelC";
-            PanelC.Size = new Size(344, 302);
+            PanelC.Size = new Size(346, 350);
             PanelC.TabIndex = 4;
+            PanelC.Paint += PanelC_Paint;
             // 
             // CScoreslbl
             // 
-            CScoreslbl.Location = new Point(140, 202);
+            CScoreslbl.Location = new Point(136, 228);
+            CScoreslbl.Margin = new Padding(5, 4, 5, 4);
             CScoreslbl.Name = "CScoreslbl";
             CScoreslbl.Size = new Size(64, 82);
             CScoreslbl.StateCommon.ShortText.Color1 = Color.SteelBlue;
@@ -181,7 +208,8 @@
             // 
             // CPesertalbl
             // 
-            CPesertalbl.Location = new Point(78, 140);
+            CPesertalbl.Location = new Point(76, 134);
+            CPesertalbl.Margin = new Padding(5, 4, 5, 4);
             CPesertalbl.Name = "CPesertalbl";
             CPesertalbl.Size = new Size(188, 48);
             CPesertalbl.StateCommon.ShortText.Color1 = Color.Black;
@@ -192,7 +220,8 @@
             // 
             // GrupClbl
             // 
-            GrupClbl.Location = new Point(16, 18);
+            GrupClbl.Location = new Point(14, 6);
+            GrupClbl.Margin = new Padding(5, 4, 5, 4);
             GrupClbl.Name = "GrupClbl";
             GrupClbl.Size = new Size(312, 102);
             GrupClbl.StateCommon.ShortText.Color1 = Color.Red;
@@ -203,18 +232,25 @@
             // 
             // PanelD
             // 
+            PanelD.Anchor = AnchorStyles.None;
+            PanelD.AutoSize = true;
             PanelD.BorderStyle = BorderStyle.FixedSingle;
             PanelD.Controls.Add(DScoreslbl);
             PanelD.Controls.Add(DPesertalbl);
             PanelD.Controls.Add(GrupDlbl);
-            PanelD.Location = new Point(1162, 522);
+            PanelD.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            PanelD.Location = new Point(1168, 502);
+            PanelD.Margin = new Padding(5, 4, 5, 4);
+            PanelD.MaximumSize = new Size(346, 350);
+            PanelD.MinimumSize = new Size(346, 350);
             PanelD.Name = "PanelD";
-            PanelD.Size = new Size(344, 302);
+            PanelD.Size = new Size(346, 350);
             PanelD.TabIndex = 5;
             // 
             // DScoreslbl
             // 
-            DScoreslbl.Location = new Point(140, 202);
+            DScoreslbl.Location = new Point(136, 228);
+            DScoreslbl.Margin = new Padding(5, 4, 5, 4);
             DScoreslbl.Name = "DScoreslbl";
             DScoreslbl.Size = new Size(64, 82);
             DScoreslbl.StateCommon.ShortText.Color1 = Color.SteelBlue;
@@ -225,7 +261,8 @@
             // 
             // DPesertalbl
             // 
-            DPesertalbl.Location = new Point(78, 140);
+            DPesertalbl.Location = new Point(76, 134);
+            DPesertalbl.Margin = new Padding(5, 4, 5, 4);
             DPesertalbl.Name = "DPesertalbl";
             DPesertalbl.Size = new Size(188, 48);
             DPesertalbl.StateCommon.ShortText.Color1 = Color.Black;
@@ -236,7 +273,8 @@
             // 
             // GrupDlbl
             // 
-            GrupDlbl.Location = new Point(16, 18);
+            GrupDlbl.Location = new Point(14, 6);
+            GrupDlbl.Margin = new Padding(5, 4, 5, 4);
             GrupDlbl.Name = "GrupDlbl";
             GrupDlbl.Size = new Size(312, 102);
             GrupDlbl.StateCommon.ShortText.Color1 = Color.Red;
@@ -247,7 +285,8 @@
             // 
             // Headinglbl
             // 
-            Headinglbl.Location = new Point(460, 382);
+            Headinglbl.Location = new Point(473, 380);
+            Headinglbl.Margin = new Padding(5, 4, 5, 4);
             Headinglbl.Name = "Headinglbl";
             Headinglbl.Size = new Size(613, 62);
             Headinglbl.StateCommon.ShortText.Color1 = Color.Black;
@@ -258,7 +297,7 @@
             // 
             // ScoresBoard
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(11F, 22F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1540, 941);
             Controls.Add(Headinglbl);
@@ -267,8 +306,10 @@
             Controls.Add(PanelB);
             Controls.Add(PanelA);
             Controls.Add(Logopb);
-            Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(5, 4, 5, 4);
             Name = "ScoresBoard";
             Text = "AllPesertaScores";
             WindowState = FormWindowState.Maximized;

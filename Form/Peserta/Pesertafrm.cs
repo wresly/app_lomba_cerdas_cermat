@@ -154,27 +154,41 @@ namespace app_lomba_cerdas_cermat.Form
 
                         db.cmd = new MySqlCommand("select * from game", db.conn);
                         db.reader = db.cmd.ExecuteReader();
-                        if (db.reader.HasRows)
+                        if (db.reader.Read())
                         {
-                            db.reader.Read();
-                            DateTime time = DateTime.ParseExact(db.reader["time"].ToString(), "HH:mm:ss", null);
-                            DateTime currentTime = DateTime.Now;
-                            time = time.AddSeconds(double.Parse(db.reader["timer"].ToString()));
-                            if (time > currentTime)
+                            if (db.reader["game_status"].ToString() == "game 2")
+                            {
+                                DateTime time = DateTime.ParseExact(db.reader["time"].ToString(), "HH:mm:ss", null);
+                                DateTime currentTime = DateTime.Now;
+                                time = time.AddSeconds(double.Parse(db.reader["timer"].ToString()));
+                                if (time > currentTime)
+                                {
+                                    db.reader.Close();
+                                    TimeSpan timeDifference = time - currentTime;
+                                    if ((int)timeDifference.TotalSeconds < 10)
+                                    {
+                                        int secondTemp = 10 - (int)timeDifference.TotalSeconds;
+                                        db.cmd = new MySqlCommand("UPDATE `game` SET `peserta` = '" + username + "', `timer`=10", db.conn);
+                                        db.cmd.ExecuteNonQuery();
+                                    }
+                                    else
+                                    {
+                                        db.cmd = new MySqlCommand("update game set peserta = '" + username + "'", db.conn);
+                                        db.cmd.ExecuteNonQuery();
+                                    }
+
+                                }
+                                db.reader.Close();
+                            }
+                            else if (db.reader["game_status"].ToString() == "game 3")
                             {
                                 db.reader.Close();
-                                TimeSpan timeDifference = time - currentTime;
-                                if ((int)timeDifference.TotalSeconds < 10)
-                                {
-                                    int secondTemp = 10 - (int)timeDifference.TotalSeconds;
-                                    db.cmd = new MySqlCommand("UPDATE `game` SET `game_status`='game 2', `peserta` = 'none', `timer`=10, `answer_status`=2", db.conn);
-                                    db.cmd.ExecuteNonQuery();
-                                }
+                                db.cmd = new MySqlCommand("update game set peserta = '" + username + "', `time`='" + DateTime.Now.ToLongTimeString() + "'", db.conn);
+                                db.cmd.ExecuteNonQuery();
                             }
+                            db.reader.Close();
                         }
-
-                        db.cmd = new MySqlCommand("update game set peserta = '" + username + "', `time`='" + DateTime.Now.ToLongTimeString() + "'", db.conn);
-                        db.cmd.ExecuteNonQuery();
+                        db.reader.Close();
                     }
                     catch (Exception ex)
                     {
@@ -190,7 +204,6 @@ namespace app_lomba_cerdas_cermat.Form
 
         private void TimerCheckUser_Tick(object sender, EventArgs e)
         {
-            TimerCheckUser.Enabled = false;
             if (NoUser() && notBlacklist())
             {
                 spaceBtn = true;
@@ -214,6 +227,7 @@ namespace app_lomba_cerdas_cermat.Form
                 BackColorTimer.Enabled = false;
                 scorefrm.BackColor = Color.FromArgb(232, 232, 231);
             }
+            TimerCheckUser.Enabled = false;
             try
             {
                 if (db.conn.State == ConnectionState.Closed)

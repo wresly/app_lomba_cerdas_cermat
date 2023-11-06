@@ -133,18 +133,20 @@
             // 
             // kryptonLabel1
             // 
-            kryptonLabel1.Location = new Point(80, 224);
+            kryptonLabel1.AutoSize = false;
+            kryptonLabel1.Location = new Point(0, 224);
             kryptonLabel1.Name = "kryptonLabel1";
-            kryptonLabel1.Size = new Size(247, 26);
+            kryptonLabel1.Size = new Size(420, 26);
             kryptonLabel1.StateCommon.ShortText.Color1 = Color.Black;
             kryptonLabel1.StateCommon.ShortText.Color2 = Color.Black;
             kryptonLabel1.StateCommon.ShortText.Font = new Font("Arial", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            kryptonLabel1.StateCommon.ShortText.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
             kryptonLabel1.TabIndex = 18;
             kryptonLabel1.Values.Text = "Lomba Cerdas Teknologi";
             // 
             // kryptonLabel2
             // 
-            kryptonLabel2.Location = new Point(88, 302);
+            kryptonLabel2.Location = new Point(88, 298);
             kryptonLabel2.Name = "kryptonLabel2";
             kryptonLabel2.Size = new Size(53, 21);
             kryptonLabel2.StateCommon.ShortText.Color1 = Color.Black;

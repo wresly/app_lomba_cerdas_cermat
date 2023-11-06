@@ -81,6 +81,7 @@
             Controls.Add(Logopb);
             Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "TimerBoard";
             Text = "TimerBoard";
             WindowState = FormWindowState.Maximized;

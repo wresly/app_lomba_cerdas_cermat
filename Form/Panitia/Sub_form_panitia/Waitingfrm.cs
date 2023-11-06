@@ -38,6 +38,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                 }
                 db.cmd = new MySqlCommand("select * from game", db.conn);
                 db.reader = db.cmd.ExecuteReader();
+
                 if (db.reader.Read())
                 {
                     if (db.reader["peserta"].ToString() != "none")
@@ -54,16 +55,22 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
 
                 db.cmd = new MySqlCommand("select * from game", db.conn);
                 db.reader = db.cmd.ExecuteReader();
+
+                db.reader.Read();
+                if (db.reader["game_status"].ToString() == "game 3")
+                {
+                    db.reader.Close();
+                    return;
+                }
                 if (db.reader.HasRows)
                 {
 
-                    db.reader.Read();
                     DateTime time = DateTime.ParseExact(db.reader["time"].ToString(), "HH:mm:ss", null);
                     DateTime currentTime = DateTime.Now;
                     time = time.AddSeconds(Int32.Parse(db.reader["timer"].ToString()));
                     if (!(time > currentTime))
                     {
-                        this.DialogResult = DialogResult.OK;
+                        this.DialogResult = DialogResult.Abort;
                         db.reader.Close();
                         Cancelbtn.PerformClick();
                     }
@@ -85,25 +92,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
         private void Cancelbtn_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Abort;
-            try
-            {
-                if (db.conn.State == ConnectionState.Closed)
-                {
-                    db.conn.Open();
-
-                }
-                //reset game table
-                db.cmd = new MySqlCommand("UPDATE `game` SET `game_status`='none',`peserta`='none',`timer`=0,`plus_scores`=0,`minus_scores`=0,`answer_status`=0", db.conn);
-                db.cmd.ExecuteNonQuery();
-
-                //reset blacklist
-                db.cmd = new MySqlCommand("DELETE FROM `game_blacklist`", db.conn);
-                db.cmd.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            db.reader.Close();
             timer1.Enabled = false;
             this.Close();
         }

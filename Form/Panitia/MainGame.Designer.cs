@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainGame));
             Game1btn = new Krypton.Toolkit.KryptonButton();
             GameStatuslbl = new Krypton.Toolkit.KryptonLabel();
             Game2btn = new Krypton.Toolkit.KryptonButton();
@@ -127,6 +128,7 @@
             Controls.Add(Game1btn);
             Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(5, 4, 5, 4);
             Name = "MainGame";
             Text = "MainGame";

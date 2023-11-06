@@ -33,7 +33,7 @@ namespace app_lomba_cerdas_cermat.Form
             mainGame.Show();
             if (dataPesertafrm != null && !dataPesertafrm.IsDisposed)
             {
-                dataPesertafrm.Close(); 
+                dataPesertafrm.Close();
             }
             if (mainBoard != null && !mainBoard.IsDisposed)
             {

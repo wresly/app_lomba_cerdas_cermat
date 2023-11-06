@@ -18,10 +18,12 @@ namespace app_lomba_cerdas_cermat.Form
         public ScoresBoard()
         {
             InitializeComponent();
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
         }
 
         private void centering()
         {
+
             //Heading
             Logopb.Left = (this.ClientSize.Width - Logopb.Width) / 2;
             Headinglbl.Left = (this.ClientSize.Width - Headinglbl.Width) / 2;
@@ -46,6 +48,7 @@ namespace app_lomba_cerdas_cermat.Form
             GrupDlbl.Left = (PanelD.Width - GrupDlbl.Width) / 2;
             DPesertalbl.Left = (PanelD.Width - DPesertalbl.Width) / 2;
             DScoreslbl.Left = (PanelD.Width - DScoreslbl.Width) / 2;
+
         }
         private void PesertaTimer_Tick(object sender, EventArgs e)
         {
@@ -105,6 +108,9 @@ namespace app_lomba_cerdas_cermat.Form
             centering();
         }
 
+        private void PanelC_Paint(object sender, PaintEventArgs e)
+        {
 
+        }
     }
 }

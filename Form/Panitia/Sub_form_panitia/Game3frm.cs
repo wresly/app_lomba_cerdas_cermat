@@ -31,7 +31,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
 
                 }
                 //reset game table
-                db.cmd = new MySqlCommand("UPDATE `game` SET `game_status`='none', `peserta`='none', `time`='00:00:00', `timer`=0, `plus_scores`=0, `minus_scores`=0", db.conn);
+                db.cmd = new MySqlCommand("UPDATE `game` SET `game_status`='none', `peserta`='none', `time`='00:00:00', `timer`=0, `plus_scores`=0, `minus_scores`=0, `answer_status`=0", db.conn);
                 db.cmd.ExecuteNonQuery();
 
                 //reset blacklist
@@ -225,7 +225,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
 
                 }
                 //reset game table
-                db.cmd = new MySqlCommand("UPDATE `game` SET `game_status`='none', `peserta`='none', `time`='00:00:00', `timer`=0, `plus_scores`=0, `minus_scores`=0", db.conn);
+                db.cmd = new MySqlCommand("UPDATE `game` SET `game_status`='none', `peserta`='none', `time`='00:00:00', `timer`=0, `plus_scores`=0, `minus_scores`=0,`answer_status`=0", db.conn);
                 db.cmd.ExecuteNonQuery();
 
             }
