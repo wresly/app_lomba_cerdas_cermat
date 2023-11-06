@@ -29,6 +29,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
             timer1.Enabled = false;
             try
             {
+                db.conn.Close();
                 if (db.conn.State == ConnectionState.Closed)
                 {
                     db.conn.Open();
@@ -43,14 +44,15 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                     if (reader["peserta"].ToString() != "none")
                     {
                         peserta = reader["peserta"].ToString();
-                        reader.Close();
+
                         //checked user answer 
-                        if (waitingfrm != null && !waitingfrm.IsDisposed)
+                        if (isWaitingFormVisible)
                         {
                             waitingfrm.Close();
                         }
                         AnswerCheckerUser answerCheckerUser = new AnswerCheckerUser();
                         answerCheckerUser.timer = Int32.Parse(reader["timer"].ToString());
+                        reader.Close();
                         answerCheckerUser.ShowDialog();
 
                         //true
@@ -124,8 +126,8 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                         if (!isWaitingFormVisible)
                         {
                             waitingfrm = new Waitingfrm();
-                            waitingfrm.FormClosed += (sender, e) => isWaitingFormVisible = false; // Update the flag when the form is closed
-                            waitingfrm.Show();
+                            waitingfrm.FormClosed += (sender, e) => cancelFrm(); // Update the flag when the form is closed
+                            waitingfrm.ShowDialog();
                             isWaitingFormVisible = true; // Set the flag to indicate the form is now visible
                         }
                     }
@@ -141,6 +143,53 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
             {
                 timer1.Enabled = true;
             }
+        }
+
+        private void cancelFrm()
+        {
+            timer1.Enabled = false;
+            try
+            {
+                if (db.conn.State == ConnectionState.Closed)
+                {
+                    db.conn.Open();
+
+                }
+                isWaitingFormVisible = false;
+                MySqlCommand cmd = new MySqlCommand("select * from game", db.conn);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+
+                    reader.Read();
+                    DateTime time = DateTime.ParseExact(reader["time"].ToString(), "HH:mm:ss", null);
+                    DateTime currentTime = DateTime.Now;
+                    time = time.AddSeconds(Int32.Parse(reader["timer"].ToString()));
+                    if (time > currentTime)
+                    {
+                        reset();
+                        reLoad();
+                        //reset controls
+                        Pesertacmb.SelectedIndex = 0;
+                        Pesertacmb.Enabled = true;
+                        Scorestxt.Enabled = true;
+                        Minutetxt.Enabled = true;
+                        Secondtxt.Enabled = true;
+                        Startbtn.Enabled = true;
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                timer1.Enabled = true;
+            }
+
         }
 
         private void reset()
@@ -235,10 +284,12 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                 this.Close();
             }
             reLoad();
+            timer1.Enabled = true;
         }
 
         private void Startbtn_Click(object sender, EventArgs e)
         {
+            timer1.Enabled = false;
             //validasi
             if (Scorestxt.Text.Replace(" ", "") == "")
             {
@@ -299,7 +350,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
             AnswerCheckerUser answerCheckerUser = new AnswerCheckerUser();
             answerCheckerUser.timer = Int32.Parse(Minutetxt.Text) * 60 + Int32.Parse(Secondtxt.Text);
             answerCheckerUser.ShowDialog();
-
+            timer1.Enabled = true;
             //true
             if (answerCheckerUser.DialogResult == DialogResult.OK)
             {

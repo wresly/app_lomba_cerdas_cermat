@@ -85,6 +85,7 @@
             Text = "TimerBoard";
             WindowState = FormWindowState.Maximized;
             Load += TimerBoard_Load;
+            Shown += TimerBoard_Shown;
             ((System.ComponentModel.ISupportInitialize)Logopb).EndInit();
             ResumeLayout(false);
             PerformLayout();

@@ -42,14 +42,29 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                 {
                     if (reader["peserta"].ToString() != "none")
                     {
+                        timer1.Enabled = false;
                         peserta = reader["peserta"].ToString();
                         this.DialogResult = DialogResult.OK;
                         this.Close();
                     }
                 }
-                reader.Close();
-                return;
 
+                cmd = new MySqlCommand("select * from game", db.conn);
+                reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+
+                    reader.Read();
+                    DateTime time = DateTime.ParseExact(reader["time"].ToString(), "HH:mm:ss", null);
+                    DateTime currentTime = DateTime.Now;
+                    time = time.AddSeconds(Int32.Parse(reader["timer"].ToString()));
+                    if (!(time > currentTime))
+                    {
+                        this.DialogResult = DialogResult.OK;
+                        Cancelbtn.PerformClick();
+                    }
+                }
+                reader.Close();
             }
             catch (Exception ex)
             {
@@ -84,7 +99,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
             {
                 MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
+            timer1.Enabled = false;
             this.Close();
         }
     }

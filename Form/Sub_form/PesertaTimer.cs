@@ -48,10 +48,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                 if (reader.HasRows)
                 {
                     reader.Read();
-                    if (reader["timer"].ToString() == "0")
-                    {
-                        timer = 1;
-                    }
+                    timer = 1;
                 }
                 reader.Close();
             }

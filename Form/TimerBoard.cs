@@ -35,6 +35,10 @@ namespace app_lomba_cerdas_cermat.Form
             Timerlbl.Left = (this.ClientSize.Width - Timerlbl.Width) / 2;
         }
 
+        private void TimerBoard_Shown(object sender, EventArgs e)
+        {
+            timer1.Enabled = true;
+        }
 
         private void timer1_Tick(object sender, EventArgs e)
         {

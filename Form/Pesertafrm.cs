@@ -190,6 +190,7 @@ namespace app_lomba_cerdas_cermat.Form
 
         private void TimerCheckUser_Tick(object sender, EventArgs e)
         {
+            TimerCheckUser.Enabled = false;
             if (NoUser() && notBlacklist())
             {
                 spaceBtn = true;
@@ -213,8 +214,6 @@ namespace app_lomba_cerdas_cermat.Form
                 BackColorTimer.Enabled = false;
                 scorefrm.BackColor = Color.FromArgb(232, 232, 231);
             }
-
-            TimerCheckUser.Enabled = false;
             try
             {
                 if (db.conn.State == ConnectionState.Closed)
