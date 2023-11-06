@@ -54,9 +54,11 @@
             kryptonLabel9 = new Krypton.Toolkit.KryptonLabel();
             MinutePlusbtn = new Krypton.Toolkit.KryptonButton();
             MinuteMinusbtn = new Krypton.Toolkit.KryptonButton();
+            Secondcmb = new Krypton.Toolkit.KryptonComboBox();
             ((System.ComponentModel.ISupportInitialize)Pesertacmb).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Gamepnl).BeginInit();
             Gamepnl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)Secondcmb).BeginInit();
             SuspendLayout();
             // 
             // Pesertacmb
@@ -397,11 +399,27 @@
             MinuteMinusbtn.Values.Text = "<";
             MinuteMinusbtn.Click += MinuteMinusbtn_Click;
             // 
+            // Secondcmb
+            // 
+            Secondcmb.CornerRoundingRadius = -1F;
+            Secondcmb.DropDownStyle = ComboBoxStyle.DropDownList;
+            Secondcmb.DropDownWidth = 52;
+            Secondcmb.IntegralHeight = false;
+            Secondcmb.Items.AddRange(new object[] { "5", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55", "60" });
+            Secondcmb.Location = new Point(381, 388);
+            Secondcmb.Name = "Secondcmb";
+            Secondcmb.Size = new Size(52, 27);
+            Secondcmb.StateCommon.ComboBox.Content.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            Secondcmb.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
+            Secondcmb.TabIndex = 45;
+            Secondcmb.SelectedIndexChanged += Secondcmb_SelectedIndexChanged;
+            // 
             // Game1frm
             // 
             AutoScaleDimensions = new SizeF(14F, 27F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1078, 557);
+            Controls.Add(Secondcmb);
             Controls.Add(MinuteMinusbtn);
             Controls.Add(MinutePlusbtn);
             Controls.Add(kryptonLabel9);
@@ -430,6 +448,7 @@
             ((System.ComponentModel.ISupportInitialize)Gamepnl).EndInit();
             Gamepnl.ResumeLayout(false);
             Gamepnl.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)Secondcmb).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -459,5 +478,6 @@
         private Krypton.Toolkit.KryptonLabel kryptonLabel9;
         private Krypton.Toolkit.KryptonButton MinutePlusbtn;
         private Krypton.Toolkit.KryptonButton MinuteMinusbtn;
+        private Krypton.Toolkit.KryptonComboBox Secondcmb;
     }
 }

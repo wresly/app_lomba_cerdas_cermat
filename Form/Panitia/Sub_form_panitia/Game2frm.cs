@@ -52,6 +52,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                     TimeSpan timeDifference = time - currentTime;
                     if (time > currentTime)
                     {
+                        Startbtn.Enabled = false;
                         if (db.reader["peserta"].ToString() != "none")
                         {
                             peserta = db.reader["peserta"].ToString();
@@ -64,11 +65,10 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
 
                             db.reader.Close();
                             AnswerCheckerUser answerCheckerUser = new AnswerCheckerUser();
-
-
                             int timer = (int)timeDifference.TotalSeconds;
                             answerCheckerUser.timer = timer;
                             answerCheckerUser.ShowDialog();
+
 
                             //true
                             if (answerCheckerUser.DialogResult == DialogResult.OK)
@@ -157,10 +157,6 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                     else
                     {
                         db.reader.Close();
-                        //MessageBox.Show("error1");
-                        //reset(true);
-                        //reLoad();
-                        //reset controls
                         Pesertacmb.SelectedIndex = 0;
                         Pesertacmb.Enabled = true;
                         Scorestxt.Enabled = true;
@@ -396,7 +392,6 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
             AnswerCheckerUser answerCheckerUser = new AnswerCheckerUser();
             answerCheckerUser.timer = Int32.Parse(Minutetxt.Text) * 60 + Int32.Parse(Secondtxt.Text);
             answerCheckerUser.ShowDialog();
-            timer1.Enabled = true;
             //true
             if (answerCheckerUser.DialogResult == DialogResult.OK)
             {
@@ -458,7 +453,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                         Secondtxt.Enabled = true;
                         Startbtn.Enabled = true;
                     }
-
+                    timer1.Enabled = true;
                     return;
                 }
                 catch (Exception ex)
@@ -496,6 +491,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
             {
                 MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            timer1.Enabled = true;
         }
 
         private void Resetbtn_Click(object sender, EventArgs e)
@@ -507,6 +503,14 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                 Startbtn.Enabled = true;
                 reset(true);
                 reLoad();
+
+                //reset controls
+                Pesertacmb.SelectedIndex = 0;
+                Pesertacmb.Enabled = true;
+                Scorestxt.Enabled = true;
+                Minutetxt.Enabled = true;
+                Secondtxt.Enabled = true;
+                Startbtn.Enabled = true;
             }
         }
 
@@ -533,6 +537,9 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
             Minutetxt.Text = (Int32.Parse(Minutetxt.Text) + 1).ToString();
         }
 
-
+        private void Secondcmb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Secondtxt.Text = Secondcmb.Text;
+        }
     }
 }

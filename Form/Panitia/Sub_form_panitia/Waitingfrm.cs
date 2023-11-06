@@ -57,11 +57,11 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                 db.reader = db.cmd.ExecuteReader();
 
                 db.reader.Read();
-                if (db.reader["game_status"].ToString() == "game 3")
-                {
-                    db.reader.Close();
-                    return;
-                }
+                //if (db.reader["game_status"].ToString() == "game 3")
+                //{
+                //    db.reader.Close();
+                //    return;
+                //}
                 if (db.reader.HasRows)
                 {
 

@@ -74,6 +74,7 @@ namespace app_lomba_cerdas_cermat.Form
                         db.reader.Close();
                         TimeSpan timeDifference = time - currentTime;
                         timerBoard.timer = (int)timeDifference.TotalSeconds;
+                        timerBoard.timer1.Enabled = true;
                         scoresBoard.Hide();
                         timerBoard.Show();
 

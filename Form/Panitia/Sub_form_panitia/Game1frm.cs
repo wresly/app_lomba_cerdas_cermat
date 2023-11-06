@@ -253,6 +253,11 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
             }
             Minutetxt.Text = (Int32.Parse(Minutetxt.Text) + 1).ToString();
         }
+
+        private void Secondcmb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Secondtxt.Text = Secondcmb.Text;
+        }
     }
 
 

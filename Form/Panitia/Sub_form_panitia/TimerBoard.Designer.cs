@@ -97,6 +97,6 @@
         private Krypton.Toolkit.KryptonLabel Headinglbl;
         private PictureBox Logopb;
         private Krypton.Toolkit.KryptonLabel Timerlbl;
-        private System.Windows.Forms.Timer timer1;
+        public System.Windows.Forms.Timer timer1;
     }
 }

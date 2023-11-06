@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Game3frm));
             Gamepnl = new Krypton.Toolkit.KryptonPanel();
             Minuslbl = new Krypton.Toolkit.KryptonLabel();
@@ -59,10 +60,13 @@
             MinusScorescmb = new Krypton.Toolkit.KryptonComboBox();
             MinuteMinusbtn = new Krypton.Toolkit.KryptonButton();
             MinutePlusbtn = new Krypton.Toolkit.KryptonButton();
+            timer1 = new System.Windows.Forms.Timer(components);
+            Secondcmb = new Krypton.Toolkit.KryptonComboBox();
             ((System.ComponentModel.ISupportInitialize)Gamepnl).BeginInit();
             Gamepnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PlusScorescmb).BeginInit();
             ((System.ComponentModel.ISupportInitialize)MinusScorescmb).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Secondcmb).BeginInit();
             SuspendLayout();
             // 
             // Gamepnl
@@ -399,8 +403,8 @@
             PlusScorescmb.DropDownStyle = ComboBoxStyle.DropDownList;
             PlusScorescmb.DropDownWidth = 60;
             PlusScorescmb.IntegralHeight = false;
-            PlusScorescmb.Items.AddRange(new object[] { "10", "20", "30", "40", "50" });
-            PlusScorescmb.Location = new Point(464, 256);
+            PlusScorescmb.Items.AddRange(new object[] { "5", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55", "60", "65", "70", "75", "80", "85", "90", "95", "100" });
+            PlusScorescmb.Location = new Point(464, 255);
             PlusScorescmb.Name = "PlusScorescmb";
             PlusScorescmb.Size = new Size(60, 27);
             PlusScorescmb.StateCommon.ComboBox.Content.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
@@ -414,8 +418,8 @@
             MinusScorescmb.DropDownStyle = ComboBoxStyle.DropDownList;
             MinusScorescmb.DropDownWidth = 60;
             MinusScorescmb.IntegralHeight = false;
-            MinusScorescmb.Items.AddRange(new object[] { "10", "20", "30", "40", "50" });
-            MinusScorescmb.Location = new Point(464, 316);
+            MinusScorescmb.Items.AddRange(new object[] { "5", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55", "60", "65", "70", "75", "80", "85", "90", "95", "100" });
+            MinusScorescmb.Location = new Point(464, 315);
             MinusScorescmb.Name = "MinusScorescmb";
             MinusScorescmb.Size = new Size(60, 27);
             MinusScorescmb.StateCommon.ComboBox.Content.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
@@ -445,11 +449,32 @@
             MinutePlusbtn.Values.Text = ">";
             MinutePlusbtn.Click += MinutePlusbtn_Click;
             // 
+            // timer1
+            // 
+            timer1.Interval = 1000;
+            timer1.Tick += timer1_Tick;
+            // 
+            // Secondcmb
+            // 
+            Secondcmb.CornerRoundingRadius = -1F;
+            Secondcmb.DropDownStyle = ComboBoxStyle.DropDownList;
+            Secondcmb.DropDownWidth = 52;
+            Secondcmb.IntegralHeight = false;
+            Secondcmb.Items.AddRange(new object[] { "5", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55", "60" });
+            Secondcmb.Location = new Point(405, 375);
+            Secondcmb.Name = "Secondcmb";
+            Secondcmb.Size = new Size(52, 27);
+            Secondcmb.StateCommon.ComboBox.Content.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            Secondcmb.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
+            Secondcmb.TabIndex = 61;
+            Secondcmb.SelectedIndexChanged += Secondcmb_SelectedIndexChanged;
+            // 
             // Game3frm
             // 
             AutoScaleDimensions = new SizeF(14F, 27F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1107, 562);
+            Controls.Add(Secondcmb);
             Controls.Add(MinuteMinusbtn);
             Controls.Add(MinutePlusbtn);
             Controls.Add(MinusScorescmb);
@@ -481,6 +506,7 @@
             Gamepnl.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)PlusScorescmb).EndInit();
             ((System.ComponentModel.ISupportInitialize)MinusScorescmb).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Secondcmb).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -517,5 +543,7 @@
         private Krypton.Toolkit.KryptonComboBox MinusScorescmb;
         private Krypton.Toolkit.KryptonButton MinuteMinusbtn;
         private Krypton.Toolkit.KryptonButton MinutePlusbtn;
+        private System.Windows.Forms.Timer timer1;
+        private Krypton.Toolkit.KryptonComboBox Secondcmb;
     }
 }
