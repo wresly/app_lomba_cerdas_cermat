@@ -81,13 +81,13 @@
             Pesertacmb.DropDownStyle = ComboBoxStyle.DropDownList;
             Pesertacmb.DropDownWidth = 121;
             Pesertacmb.IntegralHeight = false;
+            Pesertacmb.Items.AddRange(new object[] { "A", "B", "C", "D" });
             Pesertacmb.Location = new Point(76, 75);
             Pesertacmb.Name = "Pesertacmb";
             Pesertacmb.Size = new Size(209, 27);
             Pesertacmb.StateCommon.ComboBox.Content.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             Pesertacmb.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
             Pesertacmb.TabIndex = 3;
-            Pesertacmb.SelectedIndexChanged += Pesertacmb_SelectedIndexChanged;
             // 
             // kryptonLabel2
             // 

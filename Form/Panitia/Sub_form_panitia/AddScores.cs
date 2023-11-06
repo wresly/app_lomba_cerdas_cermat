@@ -62,6 +62,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                 }
                 db.reader.Close();
                 Pesertacmb.SelectedIndex = 0;
+                Pesertacmb.SelectedIndexChanged += (sender, e) => Pesertacmb_SelectedIndexChanged(sender, e);
                 if (peserta != "")
                 {
                     Pesertacmb.Enabled = false;

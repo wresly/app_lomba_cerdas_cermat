@@ -23,6 +23,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
 
         private void Waiting_Load(object sender, EventArgs e)
         {
+            this.FormClosed += (sender, e) => timer1.Enabled = false;
             timer1.Enabled = true;
         }
 
