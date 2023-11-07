@@ -64,7 +64,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                     DateTime time = DateTime.ParseExact(db.reader["time"].ToString(), "HH:mm:ss", null);
                     DateTime currentTime = DateTime.Now;
                     time = time.AddSeconds(Int32.Parse(db.reader["timer"].ToString()));
-                    if (!(time > currentTime))
+                    if (!(time > currentTime) && db.reader["answer_status"].ToString() == "2")
                     {
                         db.reader.Close();
                         this.DialogResult = DialogResult.Abort;

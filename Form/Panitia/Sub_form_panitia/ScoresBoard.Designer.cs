@@ -102,13 +102,13 @@
             // 
             // APesertalbl
             // 
-            APesertalbl.Location = new Point(76, 134);
+            APesertalbl.Location = new Point(49, 134);
             APesertalbl.Margin = new Padding(5, 4, 5, 4);
             APesertalbl.Name = "APesertalbl";
-            APesertalbl.Size = new Size(186, 48);
+            APesertalbl.Size = new Size(240, 62);
             APesertalbl.StateCommon.ShortText.Color1 = Color.Black;
             APesertalbl.StateCommon.ShortText.Color2 = Color.Black;
-            APesertalbl.StateCommon.ShortText.Font = new Font("Arial", 27.75F, FontStyle.Regular, GraphicsUnit.Point);
+            APesertalbl.StateCommon.ShortText.Font = new Font("Arial", 36F, FontStyle.Regular, GraphicsUnit.Point);
             APesertalbl.TabIndex = 2;
             APesertalbl.Values.Text = "Peserta A";
             // 
@@ -155,13 +155,13 @@
             // 
             // BPesertalbl
             // 
-            BPesertalbl.Location = new Point(76, 134);
+            BPesertalbl.Location = new Point(49, 134);
             BPesertalbl.Margin = new Padding(5, 4, 5, 4);
             BPesertalbl.Name = "BPesertalbl";
-            BPesertalbl.Size = new Size(186, 48);
+            BPesertalbl.Size = new Size(240, 62);
             BPesertalbl.StateCommon.ShortText.Color1 = Color.Black;
             BPesertalbl.StateCommon.ShortText.Color2 = Color.Black;
-            BPesertalbl.StateCommon.ShortText.Font = new Font("Arial", 27.75F, FontStyle.Regular, GraphicsUnit.Point);
+            BPesertalbl.StateCommon.ShortText.Font = new Font("Arial", 36F, FontStyle.Regular, GraphicsUnit.Point);
             BPesertalbl.TabIndex = 3;
             BPesertalbl.Values.Text = "Peserta B";
             // 
@@ -208,13 +208,13 @@
             // 
             // CPesertalbl
             // 
-            CPesertalbl.Location = new Point(76, 134);
+            CPesertalbl.Location = new Point(49, 134);
             CPesertalbl.Margin = new Padding(5, 4, 5, 4);
             CPesertalbl.Name = "CPesertalbl";
-            CPesertalbl.Size = new Size(188, 48);
+            CPesertalbl.Size = new Size(242, 62);
             CPesertalbl.StateCommon.ShortText.Color1 = Color.Black;
             CPesertalbl.StateCommon.ShortText.Color2 = Color.Black;
-            CPesertalbl.StateCommon.ShortText.Font = new Font("Arial", 27.75F, FontStyle.Regular, GraphicsUnit.Point);
+            CPesertalbl.StateCommon.ShortText.Font = new Font("Arial", 36F, FontStyle.Regular, GraphicsUnit.Point);
             CPesertalbl.TabIndex = 5;
             CPesertalbl.Values.Text = "Peserta C";
             // 
@@ -249,7 +249,7 @@
             // 
             // DScoreslbl
             // 
-            DScoreslbl.Location = new Point(123, 212);
+            DScoreslbl.Location = new Point(124, 212);
             DScoreslbl.Margin = new Padding(5, 4, 5, 4);
             DScoreslbl.Name = "DScoreslbl";
             DScoreslbl.Size = new Size(93, 122);
@@ -261,13 +261,13 @@
             // 
             // DPesertalbl
             // 
-            DPesertalbl.Location = new Point(76, 134);
+            DPesertalbl.Location = new Point(49, 134);
             DPesertalbl.Margin = new Padding(5, 4, 5, 4);
             DPesertalbl.Name = "DPesertalbl";
-            DPesertalbl.Size = new Size(188, 48);
+            DPesertalbl.Size = new Size(242, 62);
             DPesertalbl.StateCommon.ShortText.Color1 = Color.Black;
             DPesertalbl.StateCommon.ShortText.Color2 = Color.Black;
-            DPesertalbl.StateCommon.ShortText.Font = new Font("Arial", 27.75F, FontStyle.Regular, GraphicsUnit.Point);
+            DPesertalbl.StateCommon.ShortText.Font = new Font("Arial", 36F, FontStyle.Regular, GraphicsUnit.Point);
             DPesertalbl.TabIndex = 5;
             DPesertalbl.Values.Text = "Peserta D";
             // 

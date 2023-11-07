@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,7 @@ namespace app_lomba_cerdas_cermat.Classes
         private static string pass = "godt123";
         private static string database = "cerdas_cermat";
 
+        public static int delayDateTime = -3;
         public static MySqlCommand cmd;
         public static MySqlDataReader reader;
 

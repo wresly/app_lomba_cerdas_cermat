@@ -45,6 +45,7 @@
             // 
             // GameCheckerTimer
             // 
+            GameCheckerTimer.Interval = 1000;
             GameCheckerTimer.Tick += GameCheckerTimer_Tick;
             // 
             // MainBoard

@@ -159,13 +159,15 @@ namespace app_lomba_cerdas_cermat.Form
                         db.reader = db.cmd.ExecuteReader();
                         if (db.reader.Read())
                         {
-                            if (db.reader["game_status"].ToString() == "game 2")
+                            DateTime time = DateTime.ParseExact(db.reader["time"].ToString(), "HH:mm:ss", null);
+                            DateTime currentTime = DateTime.Now;
+                            time = time.AddSeconds(double.Parse(db.reader["timer"].ToString()));
+                            if (time > currentTime || (db.reader["game_status"].ToString() == "game 3" && db.reader["answer_status"].ToString() != "2" && db.reader["peserta"].ToString() == "none"))
                             {
-                                DateTime time = DateTime.ParseExact(db.reader["time"].ToString(), "HH:mm:ss", null);
-                                DateTime currentTime = DateTime.Now;
-                                time = time.AddSeconds(double.Parse(db.reader["timer"].ToString()));
-                                if (time > currentTime)
+
+                                if (db.reader["game_status"].ToString() == "game 2")
                                 {
+
                                     db.reader.Close();
                                     TimeSpan timeDifference = time - currentTime;
                                     if ((int)timeDifference.TotalSeconds < 10)
@@ -179,15 +181,33 @@ namespace app_lomba_cerdas_cermat.Form
                                         db.cmd = new MySqlCommand("update game set peserta = '" + username + "'", db.conn);
                                         db.cmd.ExecuteNonQuery();
                                     }
-
+                                }
+                                else if (db.reader["game_status"].ToString() == "game 3")
+                                {
+                                    if (db.reader["answer_status"].ToString() == "2")
+                                    {
+                                        db.reader.Close();
+                                        TimeSpan timeDifference = time - currentTime;
+                                        if ((int)timeDifference.TotalSeconds < 10)
+                                        {
+                                            int secondTemp = (10 - (int)timeDifference.TotalSeconds) + 2;
+                                            db.cmd = new MySqlCommand("UPDATE `game` SET `peserta` = '" + username + "', `timer`=timer + " + secondTemp, db.conn);
+                                            db.cmd.ExecuteNonQuery();
+                                        }
+                                        else
+                                        {
+                                            db.cmd = new MySqlCommand("update game set peserta = '" + username + "'", db.conn);
+                                            db.cmd.ExecuteNonQuery();
+                                        } 
+                                    }
+                                    else
+                                    {
+                                        db.reader.Close();
+                                        db.cmd = new MySqlCommand("update game set peserta = '" + username + "', `time`='" + DateTime.Now.ToLongTimeString() + "'", db.conn);
+                                        db.cmd.ExecuteNonQuery(); 
+                                    }
                                 }
                                 db.reader.Close();
-                            }
-                            else if (db.reader["game_status"].ToString() == "game 3")
-                            {
-                                db.reader.Close();
-                                db.cmd = new MySqlCommand("update game set peserta = '" + username + "', `time`='" + DateTime.Now.ToLongTimeString() + "'", db.conn);
-                                db.cmd.ExecuteNonQuery();
                             }
                             db.reader.Close();
                         }

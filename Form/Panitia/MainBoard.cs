@@ -67,14 +67,30 @@ namespace app_lomba_cerdas_cermat.Form
                     DateTime time = DateTime.ParseExact(db.reader["time"].ToString(), "HH:mm:ss", null);
                     DateTime currentTime = DateTime.Now;
                     time = time.AddSeconds(Int32.Parse(db.reader["timer"].ToString()));
-                    if (time > currentTime)
+                    if (time > currentTime || (db.reader["game_status"].ToString() == "game 3" && db.reader["answer_status"].ToString() != "2" && db.reader["peserta"].ToString() == "none"))
                     {
-                        db.reader.Close();
-                        TimeSpan timeDifference = time - currentTime;
-                        timerBoard.timer = (int)timeDifference.TotalSeconds;
-                        timerBoard.GameTimer.Enabled = true;
-                        scoresBoard.Hide();
-                        timerBoard.Show();
+                        if (db.reader["peserta"].ToString() != "none" || db.reader["answer_status"].ToString() == "2")
+                        {
+                            db.reader.Close();
+                            TimeSpan timeDifference = time - currentTime;
+                            timerBoard.timer = (int)timeDifference.TotalSeconds;
+                            timerBoard.GameTimer.Enabled = true;
+                            scoresBoard.Hide();
+                            timerBoard.Show();
+                        }
+                        else
+                        {
+                            int tempTimer = Int32.Parse(db.reader["timer"].ToString());
+                            db.reader.Close();
+                            var tempMinute = tempTimer / 60;
+                            var tempSecond = tempTimer % 60;
+                            timerBoard.GameTimer.Enabled = false;
+
+                            timerBoard.timer = tempTimer;
+                            timerBoard.Timerlbl.Text = (tempMinute < 10 ? "0" : "") + tempMinute + ":" + (tempSecond < 10 ? "0" : "") + tempSecond;
+                            scoresBoard.Hide();
+                            timerBoard.Show();
+                        }
                     }
                     else
                     {
