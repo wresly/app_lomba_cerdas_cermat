@@ -17320,13 +17320,13 @@
         /cd//BdCeHtBhkPDcgAAAABJRU5ErkJggg==
 </value>
   </data>
-  <metadata name="TimerScores.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="ScoresTimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
   <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAASMAAAD1CAYAAAAbMJOrAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vgAADr4B6kKxwAAAS5JJREFUeF7tfQ2QVUeZdl9Ay9pKuWZmiFkrlbUsy7JSViqVsvIlkfyIMYtACAx3
+        vQAADr0BR/uQrQAAS5JJREFUeF7tfQ2QVUeZdl9Ay9pKuWZmiFkrlbUsy7JSViqVsvIlkfyIMYtACAx3
         xhizMRuzMZuNMYsxIrJMCGJ+CCEz5w4sm42IMSIiSwgQRGRHjBhZjJGNyGYxH7KIyCKyLItkpOa73/u8
         3X1un759zj33zg8M8z5VT3WfPt197l8/9+23/5RA0F/8UbXcWVZqjLkUCASC04M3VPNW4gPmUiAQCE4P
         SIgOEU+cVGPfbZIEAoFgaHFcvf28N9TYci+RBGmjSRYIBIKhxUnVPB5C1KtarCBNMbcEAoFg6PCGapmh

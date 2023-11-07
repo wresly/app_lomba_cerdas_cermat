@@ -48,7 +48,7 @@
             kryptonLabel7 = new Krypton.Toolkit.KryptonLabel();
             kryptonLabel6 = new Krypton.Toolkit.KryptonLabel();
             kryptonLabel5 = new Krypton.Toolkit.KryptonLabel();
-            timer1 = new System.Windows.Forms.Timer(components);
+            CountDownTimer = new System.Windows.Forms.Timer(components);
             Resetbtn = new Krypton.Toolkit.KryptonButton();
             kryptonLabel11 = new Krypton.Toolkit.KryptonLabel();
             kryptonLabel9 = new Krypton.Toolkit.KryptonLabel();
@@ -312,10 +312,10 @@
             kryptonLabel5.TabIndex = 0;
             kryptonLabel5.Values.Text = "Game Status";
             // 
-            // timer1
+            // CountDownTimer
             // 
-            timer1.Interval = 1000;
-            timer1.Tick += timer1_Tick;
+            CountDownTimer.Interval = 1000;
+            CountDownTimer.Tick += CountDownTimer_Tick;
             // 
             // Resetbtn
             // 
@@ -472,7 +472,7 @@
         private Krypton.Toolkit.KryptonLabel Timer2lbl;
         private Krypton.Toolkit.KryptonLabel Pesertalbl;
         private Krypton.Toolkit.KryptonLabel Statuslbl;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer CountDownTimer;
         private Krypton.Toolkit.KryptonButton Resetbtn;
         private Krypton.Toolkit.KryptonLabel kryptonLabel11;
         private Krypton.Toolkit.KryptonLabel kryptonLabel9;

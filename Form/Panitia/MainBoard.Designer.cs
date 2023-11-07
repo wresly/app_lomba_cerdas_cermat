@@ -31,7 +31,7 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainBoard));
             MainBoardpnl = new Krypton.Toolkit.KryptonPanel();
-            timer1 = new System.Windows.Forms.Timer(components);
+            GameCheckerTimer = new System.Windows.Forms.Timer(components);
             ((System.ComponentModel.ISupportInitialize)MainBoardpnl).BeginInit();
             SuspendLayout();
             // 
@@ -43,9 +43,9 @@
             MainBoardpnl.Size = new Size(800, 450);
             MainBoardpnl.TabIndex = 0;
             // 
-            // timer1
+            // GameCheckerTimer
             // 
-            timer1.Tick += timer1_Tick;
+            GameCheckerTimer.Tick += GameCheckerTimer_Tick;
             // 
             // MainBoard
             // 
@@ -66,6 +66,6 @@
         #endregion
 
         private Krypton.Toolkit.KryptonPanel MainBoardpnl;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer GameCheckerTimer;
     }
 }

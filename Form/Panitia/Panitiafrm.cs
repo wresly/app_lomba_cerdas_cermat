@@ -23,6 +23,16 @@ namespace app_lomba_cerdas_cermat.Form
             InitializeComponent();
         }
 
+        private void Panitiafrm_Load(object sender, EventArgs e)
+        {
+            mainGame = new MainGame();
+            mainGame.TopLevel = false;
+            Mainpnl.Controls.Add(mainGame);
+
+            mainGame.Show();
+
+            kryptonPanel2.Hide();
+        }
 
         private void Gamebtn_Click(object sender, EventArgs e)
         {
@@ -82,16 +92,6 @@ namespace app_lomba_cerdas_cermat.Form
             mainBoard.Width = Mainpnl.Width;
         }
 
-        private void Panitiafrm_Load(object sender, EventArgs e)
-        {
-            mainGame = new MainGame();
-            mainGame.TopLevel = false;
-            Mainpnl.Controls.Add(mainGame);
-
-            mainGame.Show();
-
-            kryptonPanel2.Hide();
-        }
 
         private void Closebtn_Click(object sender, EventArgs e)
         {
@@ -105,13 +105,13 @@ namespace app_lomba_cerdas_cermat.Form
             kryptonPanel2.Show();
         }
 
-        private void Mainpnl_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void Keluarbtn_click(object sender, EventArgs e)
         {
+            DialogResult msg = MessageBox.Show("Yakin Ingin Keluar?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            if (msg == DialogResult.Yes)
+            {
+                this.MdiParent.Close();
+            }
         }
     }
 }

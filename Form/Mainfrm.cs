@@ -24,6 +24,10 @@ namespace app_lomba_cerdas_cermat
 
         private void Mainfrm_Load(object sender, EventArgs e)
         {
+            //Testfrm123 testfrm123 = new Testfrm123();
+            //testfrm123.MdiParent = this;
+            //testfrm123.Show();
+
             StreamReader stream = new StreamReader("server.txt");
             string filedata = stream.ReadToEnd();
             db.conn = new MySqlConnection(filedata.ToString());

@@ -31,7 +31,7 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Waitingfrm));
             pictureBox1 = new PictureBox();
-            timer1 = new System.Windows.Forms.Timer(components);
+            WaitingTimer = new System.Windows.Forms.Timer(components);
             Cancelbtn = new Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -46,10 +46,10 @@
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
-            // timer1
+            // WaitingTimer
             // 
-            timer1.Interval = 500;
-            timer1.Tick += timer1_Tick;
+            WaitingTimer.Interval = 500;
+            WaitingTimer.Tick += WaitingTimer_Tick;
             // 
             // Cancelbtn
             // 
@@ -87,7 +87,7 @@
         #endregion
 
         private PictureBox pictureBox1;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer WaitingTimer;
         private Krypton.Toolkit.KryptonButton Cancelbtn;
     }
 }

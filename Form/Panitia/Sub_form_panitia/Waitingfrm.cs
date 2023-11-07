@@ -23,13 +23,13 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
 
         private void Waiting_Load(object sender, EventArgs e)
         {
-            this.FormClosed += (sender, e) => timer1.Enabled = false;
-            timer1.Enabled = true;
+            this.FormClosed += (sender, e) => WaitingTimer.Enabled = false;
+            WaitingTimer.Enabled = true;
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void WaitingTimer_Tick(object sender, EventArgs e)
         {
-            timer1.Enabled = false;
+            WaitingTimer.Enabled = false;
             try
             {
                 if (db.conn.State == ConnectionState.Closed)
@@ -44,7 +44,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                 {
                     if (db.reader["peserta"].ToString() != "none")
                     {
-                        timer1.Enabled = false;
+                        WaitingTimer.Enabled = false;
                         peserta = db.reader["peserta"].ToString();
                         this.DialogResult = DialogResult.OK;
                         db.reader.Close();
@@ -58,11 +58,6 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                 db.reader = db.cmd.ExecuteReader();
 
                 db.reader.Read();
-                //if (db.reader["game_status"].ToString() == "game 3")
-                //{
-                //    db.reader.Close();
-                //    return;
-                //}
                 if (db.reader.HasRows)
                 {
 
@@ -71,9 +66,10 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                     time = time.AddSeconds(Int32.Parse(db.reader["timer"].ToString()));
                     if (!(time > currentTime))
                     {
-                        this.DialogResult = DialogResult.Abort;
                         db.reader.Close();
-                        Cancelbtn.PerformClick();
+                        this.DialogResult = DialogResult.Abort;
+                        WaitingTimer.Enabled = false;
+                        this.Close();
                     }
                     db.reader.Close();
                 }
@@ -81,20 +77,21 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
             }
             catch (Exception ex)
             {
+                db.reader.Close();
                 MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.Close();
             }
             finally
             {
-                timer1.Enabled = true;
+                WaitingTimer.Enabled = true;
             }
         }
 
         private void Cancelbtn_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.Abort;
             db.reader.Close();
-            timer1.Enabled = false;
+            this.DialogResult = DialogResult.Abort;
+            WaitingTimer.Enabled = false;
             this.Close();
         }
     }

@@ -31,7 +31,7 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PesertaTimer));
             Timerlbl = new Label();
-            timer1 = new System.Windows.Forms.Timer(components);
+            GameTimer = new System.Windows.Forms.Timer(components);
             SuspendLayout();
             // 
             // Timerlbl
@@ -46,10 +46,10 @@
             Timerlbl.TabIndex = 29;
             Timerlbl.Text = "00:00";
             // 
-            // timer1
+            // GameTimer
             // 
-            timer1.Interval = 1000;
-            timer1.Tick += timer1_Tick;
+            GameTimer.Interval = 1000;
+            GameTimer.Tick += GameTimer_Tick;
             // 
             // PesertaTimer
             // 
@@ -72,6 +72,6 @@
         #endregion
 
         private Label Timerlbl;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer GameTimer;
     }
 }

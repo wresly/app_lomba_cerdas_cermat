@@ -57,7 +57,7 @@
             Scorescmb = new Krypton.Toolkit.KryptonComboBox();
             MinuteMinusbtn = new Krypton.Toolkit.KryptonButton();
             MinutePlusbtn = new Krypton.Toolkit.KryptonButton();
-            timer1 = new System.Windows.Forms.Timer(components);
+            GameCheckerTimer = new System.Windows.Forms.Timer(components);
             Secondcmb = new Krypton.Toolkit.KryptonComboBox();
             ((System.ComponentModel.ISupportInitialize)Gamepnl).BeginInit();
             Gamepnl.SuspendLayout();
@@ -414,10 +414,10 @@
             MinutePlusbtn.Values.Text = ">";
             MinutePlusbtn.Click += MinutePlusbtn_Click;
             // 
-            // timer1
+            // GameCheckerTimer
             // 
-            timer1.Interval = 1000;
-            timer1.Tick += timer1_Tick;
+            GameCheckerTimer.Interval = 500;
+            GameCheckerTimer.Tick += GameCheckerTimer_Tick;
             // 
             // Secondcmb
             // 
@@ -505,7 +505,7 @@
         private Krypton.Toolkit.KryptonComboBox Scorescmb;
         private Krypton.Toolkit.KryptonButton MinuteMinusbtn;
         private Krypton.Toolkit.KryptonButton MinutePlusbtn;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer GameCheckerTimer;
         private Krypton.Toolkit.KryptonComboBox Secondcmb;
     }
 }

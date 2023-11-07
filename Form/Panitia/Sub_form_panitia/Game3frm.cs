@@ -22,13 +22,13 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
         {
             InitializeComponent();
         }
-        private void timer1_Tick(object sender, EventArgs e)
+        private void GameCheckerTimer_Tick(object sender, EventArgs e)
         {
             continueGame();
         }
         private void continueGame()
         {
-            timer1.Enabled = false;
+            GameCheckerTimer.Enabled = false;
             try
             {
                 if (db.conn.State == ConnectionState.Closed)
@@ -106,9 +106,35 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                                     // continue game
                                     db.cmd = new MySqlCommand("UPDATE `game` SET `game_status`='game 3', `peserta` = 'none',`time`='" + DateTime.Now.ToLongTimeString() + "', `timer`= 30, `answer_status`=2", db.conn);
                                     db.cmd.ExecuteNonQuery();
+
+
+                                    //cek for available user
+                                    db.cmd = new MySqlCommand("SELECT * FROM users WHERE usertype = 1 && username not in (SELECT peserta from game_blacklist)", db.conn);
+                                    db.reader = db.cmd.ExecuteReader();
+                                    if (!db.reader.HasRows)
+                                    {
+                                        db.reader.Close();
+                                        Startbtn.Enabled = true;
+                                        reset();
+
+                                        //game status
+                                        Statuslbl.Text = ": Not Started";
+                                        Pesertalbl.Text = ": -";
+                                        Pluslbl.Text = ": -";
+                                        Minuslbl.Text = ": -";
+                                        Timerlbl.Text = ": 00:00";
+
+                                        //enabled form
+                                        Plustxt.Enabled = true;
+                                        Minustxt.Enabled = true;
+                                        Minutetxt.Enabled = true;
+                                        Secondtxt.Enabled = true;
+                                    }
+                                    db.reader.Close();
                                 }
                                 catch (Exception ex)
                                 {
+                                    db.reader.Close();
                                     MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
                                 Startbtn.Enabled = true;
@@ -141,57 +167,36 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
 
                 db.reader.Close();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                db.reader.Close();
+                MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
-                timer1.Enabled = true;
+                GameCheckerTimer.Enabled = true;
             }
         }
 
         private void cancelFrm()
         {
             isWaitingFormVisible = false;
-            timer1.Enabled = false;
+            GameCheckerTimer.Enabled = false;
+
             db.reader.Close();
-            try
+            if (waitingfrm.DialogResult == DialogResult.Abort)
             {
-                if (db.conn.State == ConnectionState.Closed)
-                {
-                    db.conn.Open();
-
-                }
-                db.cmd = new MySqlCommand("select * from game", db.conn);
-                db.reader = db.cmd.ExecuteReader();
-                if (db.reader.HasRows)
-                {
-                    db.reader.Close();
-                    if (waitingfrm.DialogResult == DialogResult.Abort)
-                    {
-                        reset();
-                    }
-
-                    //reset controls
-                    Plustxt.Enabled = true;
-                    Minustxt.Enabled = true;
-                    Minutetxt.Enabled = true;
-                    Secondtxt.Enabled = true;
-                    Startbtn.Enabled = true;
-                }
-                db.reader.Close();
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show("asda");
-            }
-            finally
-            {
-                timer1.Enabled = true;
+                reset();
             }
 
+            //reset controls
+            Plustxt.Enabled = true;
+            Minustxt.Enabled = true;
+            Minutetxt.Enabled = true;
+            Secondtxt.Enabled = true;
+            Startbtn.Enabled = true;
+
+            GameCheckerTimer.Enabled = true;
         }
 
         private void reset()
@@ -219,9 +224,43 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
             Resetbtn.Enabled = false;
         }
 
+        //helper
+        private void PlusScorescmb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Plustxt.Text = PlusScorescmb.Text;
+        }
+
+        private void MinusScorescmb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Minustxt.Text = MinusScorescmb.Text;
+        }
+
+        private void MinuteMinusbtn_Click(object sender, EventArgs e)
+        {
+            if (!int.TryParse(Minutetxt.Text, out _))
+            {
+                Minutetxt.Text = "0";
+            }
+            Minutetxt.Text = (Int32.Parse(Minutetxt.Text) - 1).ToString();
+        }
+
+        private void MinutePlusbtn_Click(object sender, EventArgs e)
+        {
+            if (!int.TryParse(Minutetxt.Text, out _))
+            {
+                Minutetxt.Text = "0";
+            }
+            Minutetxt.Text = (Int32.Parse(Minutetxt.Text) + 1).ToString();
+        }
+
+        private void Secondcmb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Secondtxt.Text = Secondcmb.Text;
+        }
+        //
         private void Game3frm_Load(object sender, EventArgs e)
         {
-            this.FormClosed += (sender, e) => timer1.Enabled = false;
+            this.FormClosed += (sender, e) => GameCheckerTimer.Enabled = false;
             //cek for reset
             try
             {
@@ -234,9 +273,8 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                 //checked asigned peserta to game
                 db.cmd = new MySqlCommand("SELECT * FROM `game` WHERE game_status = 'game 3'", db.conn);
                 db.reader = db.cmd.ExecuteReader();
-                if (db.reader.HasRows)
+                if (db.reader.Read())
                 {
-                    db.reader.Read();
                     Statuslbl.Text = ": Error need reset";
                     Pesertalbl.Text = ": " + (db.reader["peserta"].ToString() == "none" ? "-" : db.reader["peserta"].ToString());
                     Pluslbl.Text = ": error";
@@ -263,52 +301,55 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
             }
             catch (Exception ex)
             {
+                db.reader.Close();
                 MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.Close();
             }
-            timer1.Enabled = true;
+            GameCheckerTimer.Enabled = true;
         }
 
         private void Startbtn_Click(object sender, EventArgs e)
         {
-            timer1.Enabled = false;
             //validasi
             if (Plustxt.Text.Replace(" ", "") == "" || Minustxt.Text.Replace(" ", "") == "")
             {
-                MessageBox.Show("Atur Scores!!");
+                MessageBox.Show("Atur Scores!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             if (!int.TryParse(Plustxt.Text, out _) || !int.TryParse(Minustxt.Text, out _))
             {
-                MessageBox.Show("Scores harus angka!!");
+                MessageBox.Show("Scores harus angka!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if ((Secondtxt.Text == "00" && Minutetxt.Text == "00") || Secondtxt.Text.Trim() == "" || Minutetxt.Text.Trim() == "")
             {
-                MessageBox.Show("Atur TImer!!");
+                MessageBox.Show("Atur TImer!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (!int.TryParse(Minutetxt.Text, out _) || !int.TryParse(Secondtxt.Text, out _))
             {
-                MessageBox.Show("Timer Harus Angka!!");
+                MessageBox.Show("Timer Harus Angka!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            Resetbtn.Enabled = true;
 
-            //disabled form
-            Plustxt.Enabled = false;
-            Minustxt.Enabled = false;
-            Minutetxt.Enabled = false;
-            Secondtxt.Enabled = false;
             Startbtn.Enabled = false;
+            Resetbtn.Enabled = true;
+            GameCheckerTimer.Enabled = false;
 
             //game status
             Statuslbl.Text = ": waiting";
             Pluslbl.Text = ": " + Plustxt.Text;
             Minuslbl.Text = ": " + Minustxt.Text;
             Timerlbl.Text = ": " + (Minutetxt.Text.Length == 1 ? "0" : "") + Minutetxt.Text + ":" + (Secondtxt.Text.Length == 1 ? "0" : "") + Secondtxt.Text;
+
+            //disabled form
+            Plustxt.Enabled = false;
+            Minustxt.Enabled = false;
+            Minutetxt.Enabled = false;
+            Secondtxt.Enabled = false;
+
 
             //Update game table
             try
@@ -380,7 +421,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                         db.cmd = new MySqlCommand("UPDATE `game` SET `game_status`='game 3', `peserta` = 'none',`time`='" + DateTime.Now.ToLongTimeString() + "', `timer`= 30, `answer_status`=2", db.conn);
                         db.cmd.ExecuteNonQuery();
 
-                        timer1.Enabled = true;
+                        GameCheckerTimer.Enabled = true;
                         return;
                     }
                     catch (Exception ex)
@@ -406,22 +447,13 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                     db.conn.Open();
 
                 }
-                //reset game table
                 db.cmd = new MySqlCommand("UPDATE `game` SET `game_status`='none', `peserta`='none', `time`='00:00:00', `timer`=0, `plus_scores`=0, `minus_scores`=0,`answer_status`=0", db.conn);
                 db.cmd.ExecuteNonQuery();
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            //enabled form
-            Plustxt.Enabled = true;
-            Minustxt.Enabled = true;
-            Minutetxt.Enabled = true;
-            Secondtxt.Enabled = true;
-            Startbtn.Enabled = true;
 
             //game status
             Statuslbl.Text = ": Not Started";
@@ -429,6 +461,14 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
             Pluslbl.Text = ": -";
             Minuslbl.Text = ": -";
             Timerlbl.Text = ": 00:00";
+
+            //enabled form
+            Plustxt.Enabled = true;
+            Minustxt.Enabled = true;
+            Minutetxt.Enabled = true;
+            Secondtxt.Enabled = true;
+
+            Startbtn.Enabled = true;
 
         }
 
@@ -439,40 +479,21 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
             {
                 Startbtn.Enabled = true;
                 reset();
+
+                //game status
+                Statuslbl.Text = ": Not Started";
+                Pesertalbl.Text = ": -";
+                Pluslbl.Text = ": -";
+                Minuslbl.Text = ": -";
+                Timerlbl.Text = ": 00:00";
+
+                //enabled form
+                Plustxt.Enabled = true;
+                Minustxt.Enabled = true;
+                Minutetxt.Enabled = true;
+                Secondtxt.Enabled = true;
             }
         }
 
-        private void PlusScorescmb_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Plustxt.Text = PlusScorescmb.Text;
-        }
-
-        private void MinusScorescmb_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Minustxt.Text = MinusScorescmb.Text;
-        }
-
-        private void MinuteMinusbtn_Click(object sender, EventArgs e)
-        {
-            if (!int.TryParse(Minutetxt.Text, out _))
-            {
-                Minutetxt.Text = "0";
-            }
-            Minutetxt.Text = (Int32.Parse(Minutetxt.Text) - 1).ToString();
-        }
-
-        private void MinutePlusbtn_Click(object sender, EventArgs e)
-        {
-            if (!int.TryParse(Minutetxt.Text, out _))
-            {
-                Minutetxt.Text = "0";
-            }
-            Minutetxt.Text = (Int32.Parse(Minutetxt.Text) + 1).ToString();
-        }
-
-        private void Secondcmb_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Secondtxt.Text = Secondcmb.Text;
-        }
     }
 }

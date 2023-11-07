@@ -50,6 +50,7 @@ namespace app_lomba_cerdas_cermat.Form
             }
             catch (Exception ex)
             {
+                db.reader.Close();
                 MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
@@ -82,6 +83,7 @@ namespace app_lomba_cerdas_cermat.Form
             }
             catch (Exception ex)
             {
+                db.reader.Close();
                 MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
@@ -112,6 +114,7 @@ namespace app_lomba_cerdas_cermat.Form
             }
             catch (Exception ex)
             {
+                db.reader.Close();
                 MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
@@ -167,8 +170,8 @@ namespace app_lomba_cerdas_cermat.Form
                                     TimeSpan timeDifference = time - currentTime;
                                     if ((int)timeDifference.TotalSeconds < 10)
                                     {
-                                        int secondTemp = 10 - (int)timeDifference.TotalSeconds;
-                                        db.cmd = new MySqlCommand("UPDATE `game` SET `peserta` = '" + username + "', `timer`=10", db.conn);
+                                        int secondTemp = (10 - (int)timeDifference.TotalSeconds) + 2;
+                                        db.cmd = new MySqlCommand("UPDATE `game` SET `peserta` = '" + username + "', `timer`=timer + " + secondTemp, db.conn);
                                         db.cmd.ExecuteNonQuery();
                                     }
                                     else
@@ -192,6 +195,7 @@ namespace app_lomba_cerdas_cermat.Form
                     }
                     catch (Exception ex)
                     {
+                        db.reader.Close();
                         MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
@@ -257,6 +261,7 @@ namespace app_lomba_cerdas_cermat.Form
             }
             catch (Exception ex)
             {
+                db.reader.Close();
                 MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally

@@ -41,10 +41,10 @@ namespace app_lomba_cerdas_cermat
                 db.reader.Close();
                 Userscmb.SelectedIndex = 0;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                db.reader.Close();
+                MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             Userstimer.Enabled = true;
         }
@@ -78,11 +78,11 @@ namespace app_lomba_cerdas_cermat
                     MessageBox.Show("Gagal Mengatur");
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
 
         private void Userstimer_Tick(object sender, EventArgs e)
         {
@@ -102,13 +102,15 @@ namespace app_lomba_cerdas_cermat
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
                 Userstimer.Enabled = true;
             }
         }
+
+        //disabled selection Usersdgv
         private void Usersdgv_SelectionChanged(Object sender, EventArgs e)
         {
             Usersdgv.ClearSelection();
@@ -118,7 +120,6 @@ namespace app_lomba_cerdas_cermat
             if (e.KeyCode == Keys.Tab)
             {
                 SelectNextControl(Usersdgv, true, true, true, true);
-                // or Parent.SelectNextControl() if the grid is an only child, etc.
                 e.Handled = true;
             }
         }

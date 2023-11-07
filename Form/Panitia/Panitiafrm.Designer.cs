@@ -51,7 +51,6 @@
             Mainpnl.Name = "Mainpnl";
             Mainpnl.Size = new Size(1258, 660);
             Mainpnl.TabIndex = 1;
-            Mainpnl.Paint += Mainpnl_Paint;
             // 
             // kryptonPanel2
             // 

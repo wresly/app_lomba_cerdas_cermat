@@ -15,34 +15,10 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
 {
     public partial class AddScores : KryptonForm
     {
-        public int scores;
         public string peserta = "";
         public AddScores()
         {
             InitializeComponent();
-        }
-
-        private void Addbtn_Click(object sender, EventArgs e)
-        {
-            Addbtn.Enabled = false;
-            try
-            {
-                if (db.conn.State == ConnectionState.Closed)
-                {
-                    db.conn.Open();
-
-                }
-                db.cmd = new MySqlCommand("UPDATE users SET scores = scores + " + Int32.Parse(Scorestxt.Text) + " WHERE username = '" + peserta + "'", db.conn);
-                db.cmd.ExecuteNonQuery();
-                Addbtn.Enabled = true;
-                this.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            Addbtn.Enabled = true;
-
         }
 
         private void AddScores_Load(object sender, EventArgs e)
@@ -72,6 +48,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
             }
             catch (Exception ex)
             {
+                db.reader.Close();
                 MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.Close();
             }
@@ -81,5 +58,29 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
         {
             peserta = Pesertacmb.Text;
         }
+
+        private void Addbtn_Click(object sender, EventArgs e)
+        {
+            Addbtn.Enabled = false;
+            try
+            {
+                if (db.conn.State == ConnectionState.Closed)
+                {
+                    db.conn.Open();
+
+                }
+                db.cmd = new MySqlCommand("UPDATE users SET scores = scores + " + Int32.Parse(Scorestxt.Text) + " WHERE username = '" + peserta + "'", db.conn);
+                db.cmd.ExecuteNonQuery();
+                Addbtn.Enabled = true;
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            Addbtn.Enabled = true;
+
+        }
+
     }
 }

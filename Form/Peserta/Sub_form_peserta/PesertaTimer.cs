@@ -18,7 +18,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
 {
     public partial class PesertaTimer : KryptonForm
     {
-        private SoundPlayer _soundTest = new SoundPlayer("times_up_sound.wav");
+        private SoundPlayer _timesUpSound = new SoundPlayer("times_up_sound.wav");
         public int timer = 1;
         public string username;
         public PesertaTimer()
@@ -28,14 +28,13 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
 
         private void PesertaTimer_Load(object sender, EventArgs e)
         {
-            timer1.Enabled = true;
+            GameTimer.Enabled = true;
             Timerlbl.Left = (this.ClientSize.Width - Timerlbl.Width) / 2;
-            //myControl.Top = (this.ClientSize.Height - myControl.Height) / 2;
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void GameTimer_Tick(object sender, EventArgs e)
         {
-            timer1.Enabled = false;
+            GameTimer.Enabled = false;
             try
             {
                 if (db.conn.State == ConnectionState.Closed)
@@ -45,20 +44,20 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                 }
                 db.cmd = new MySqlCommand("select * from game where peserta != '" + username + "'", db.conn);
                 db.reader = db.cmd.ExecuteReader();
-                if (db.reader.HasRows)
+                if (db.reader.Read())
                 {
-                    db.reader.Read();
                     timer = 1;
                 }
                 db.reader.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                db.reader.Close();
+                //MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
-                timer1.Enabled = true;
+                GameTimer.Enabled = true;
             }
 
             timer -= 1;
@@ -70,8 +69,8 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
             if (timer <= 0)
             {
                 //reset
-                timer1.Enabled = false;
-                _soundTest.Play();
+                GameTimer.Enabled = false;
+                _timesUpSound.Play();
                 this.Close();
             }
         }

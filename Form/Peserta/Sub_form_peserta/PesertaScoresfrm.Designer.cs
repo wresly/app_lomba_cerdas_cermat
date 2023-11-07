@@ -33,7 +33,7 @@
             Pointlbl = new Krypton.Toolkit.KryptonLabel();
             Usernamelbl = new Krypton.Toolkit.KryptonLabel();
             pictureBox1 = new PictureBox();
-            TimerScores = new System.Windows.Forms.Timer(components);
+            ScoresTimer = new System.Windows.Forms.Timer(components);
             Pesertalbl = new Krypton.Toolkit.KryptonLabel();
             pictureBox2 = new PictureBox();
             pictureBox3 = new PictureBox();
@@ -82,10 +82,10 @@
             pictureBox1.TabIndex = 2;
             pictureBox1.TabStop = false;
             // 
-            // TimerScores
+            // ScoresTimer
             // 
-            TimerScores.Interval = 500;
-            TimerScores.Tick += TimerScores_Tick;
+            ScoresTimer.Interval = 500;
+            ScoresTimer.Tick += ScoresTimer_Tick;
             // 
             // Pesertalbl
             // 
@@ -157,7 +157,7 @@
         private Krypton.Toolkit.KryptonLabel Pointlbl;
         private Krypton.Toolkit.KryptonLabel Usernamelbl;
         private PictureBox pictureBox1;
-        private System.Windows.Forms.Timer TimerScores;
+        private System.Windows.Forms.Timer ScoresTimer;
         private Krypton.Toolkit.KryptonLabel Pesertalbl;
         private PictureBox pictureBox2;
         private PictureBox pictureBox3;

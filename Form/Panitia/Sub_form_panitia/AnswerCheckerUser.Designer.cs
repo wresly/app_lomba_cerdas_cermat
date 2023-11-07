@@ -33,7 +33,7 @@
             Salahbtn = new Krypton.Toolkit.KryptonButton();
             Timerlbl = new Label();
             Benarbtn = new Krypton.Toolkit.KryptonButton();
-            timer1 = new System.Windows.Forms.Timer(components);
+            CountDownTimer = new System.Windows.Forms.Timer(components);
             SuspendLayout();
             // 
             // Salahbtn
@@ -123,10 +123,10 @@
             Benarbtn.Values.Text = "Benar";
             Benarbtn.Click += Benarbtn_Click;
             // 
-            // timer1
+            // CountDownTimer
             // 
-            timer1.Interval = 1000;
-            timer1.Tick += timer1_Tick;
+            CountDownTimer.Interval = 1000;
+            CountDownTimer.Tick += CountDownTimer_Tick;
             // 
             // AnswerCheckerUser
             // 
@@ -153,6 +153,6 @@
         private Krypton.Toolkit.KryptonButton Salahbtn;
         private Label Timerlbl;
         private Krypton.Toolkit.KryptonButton Benarbtn;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer CountDownTimer;
     }
 }

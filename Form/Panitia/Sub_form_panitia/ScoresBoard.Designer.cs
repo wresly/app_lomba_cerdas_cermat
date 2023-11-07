@@ -62,7 +62,8 @@
             Logopb.Location = new Point(652, 28);
             Logopb.Margin = new Padding(5, 4, 5, 4);
             Logopb.Name = "Logopb";
-            Logopb.Size = new Size(254, 325);
+            Logopb.Size = new Size(226, 284);
+            Logopb.SizeMode = PictureBoxSizeMode.Zoom;
             Logopb.TabIndex = 1;
             Logopb.TabStop = false;
             // 
@@ -79,7 +80,7 @@
             PanelA.Controls.Add(APesertalbl);
             PanelA.Controls.Add(GrupAlbl);
             PanelA.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            PanelA.Location = new Point(22, 502);
+            PanelA.Location = new Point(22, 496);
             PanelA.Margin = new Padding(5, 4, 5, 4);
             PanelA.MaximumSize = new Size(346, 350);
             PanelA.MinimumSize = new Size(346, 350);
@@ -89,13 +90,13 @@
             // 
             // AScoreslbl
             // 
-            AScoreslbl.Location = new Point(136, 228);
+            AScoreslbl.Location = new Point(123, 212);
             AScoreslbl.Margin = new Padding(5, 4, 5, 4);
             AScoreslbl.Name = "AScoreslbl";
-            AScoreslbl.Size = new Size(64, 82);
+            AScoreslbl.Size = new Size(93, 122);
             AScoreslbl.StateCommon.ShortText.Color1 = Color.SteelBlue;
             AScoreslbl.StateCommon.ShortText.Color2 = Color.SteelBlue;
-            AScoreslbl.StateCommon.ShortText.Font = new Font("Arial", 48F, FontStyle.Bold, GraphicsUnit.Point);
+            AScoreslbl.StateCommon.ShortText.Font = new Font("Arial", 72F, FontStyle.Bold, GraphicsUnit.Point);
             AScoreslbl.TabIndex = 3;
             AScoreslbl.Values.Text = "0";
             // 
@@ -132,7 +133,7 @@
             PanelB.Controls.Add(BPesertalbl);
             PanelB.Controls.Add(GrupBlbl);
             PanelB.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            PanelB.Location = new Point(404, 502);
+            PanelB.Location = new Point(404, 496);
             PanelB.Margin = new Padding(5, 4, 5, 4);
             PanelB.MaximumSize = new Size(346, 350);
             PanelB.MinimumSize = new Size(346, 350);
@@ -142,13 +143,13 @@
             // 
             // BScoreslbl
             // 
-            BScoreslbl.Location = new Point(136, 228);
+            BScoreslbl.Location = new Point(123, 212);
             BScoreslbl.Margin = new Padding(5, 4, 5, 4);
             BScoreslbl.Name = "BScoreslbl";
-            BScoreslbl.Size = new Size(64, 82);
+            BScoreslbl.Size = new Size(93, 122);
             BScoreslbl.StateCommon.ShortText.Color1 = Color.SteelBlue;
             BScoreslbl.StateCommon.ShortText.Color2 = Color.SteelBlue;
-            BScoreslbl.StateCommon.ShortText.Font = new Font("Arial", 48F, FontStyle.Bold, GraphicsUnit.Point);
+            BScoreslbl.StateCommon.ShortText.Font = new Font("Arial", 72F, FontStyle.Bold, GraphicsUnit.Point);
             BScoreslbl.TabIndex = 5;
             BScoreslbl.Values.Text = "0";
             // 
@@ -185,24 +186,23 @@
             PanelC.Controls.Add(CPesertalbl);
             PanelC.Controls.Add(GrupClbl);
             PanelC.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            PanelC.Location = new Point(786, 502);
+            PanelC.Location = new Point(786, 496);
             PanelC.Margin = new Padding(5, 4, 5, 4);
             PanelC.MaximumSize = new Size(346, 350);
             PanelC.MinimumSize = new Size(346, 350);
             PanelC.Name = "PanelC";
             PanelC.Size = new Size(346, 350);
             PanelC.TabIndex = 4;
-            PanelC.Paint += PanelC_Paint;
             // 
             // CScoreslbl
             // 
-            CScoreslbl.Location = new Point(136, 228);
+            CScoreslbl.Location = new Point(123, 212);
             CScoreslbl.Margin = new Padding(5, 4, 5, 4);
             CScoreslbl.Name = "CScoreslbl";
-            CScoreslbl.Size = new Size(64, 82);
+            CScoreslbl.Size = new Size(93, 122);
             CScoreslbl.StateCommon.ShortText.Color1 = Color.SteelBlue;
             CScoreslbl.StateCommon.ShortText.Color2 = Color.SteelBlue;
-            CScoreslbl.StateCommon.ShortText.Font = new Font("Arial", 48F, FontStyle.Bold, GraphicsUnit.Point);
+            CScoreslbl.StateCommon.ShortText.Font = new Font("Arial", 72F, FontStyle.Bold, GraphicsUnit.Point);
             CScoreslbl.TabIndex = 6;
             CScoreslbl.Values.Text = "0";
             // 
@@ -239,7 +239,7 @@
             PanelD.Controls.Add(DPesertalbl);
             PanelD.Controls.Add(GrupDlbl);
             PanelD.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            PanelD.Location = new Point(1168, 502);
+            PanelD.Location = new Point(1168, 496);
             PanelD.Margin = new Padding(5, 4, 5, 4);
             PanelD.MaximumSize = new Size(346, 350);
             PanelD.MinimumSize = new Size(346, 350);
@@ -249,13 +249,13 @@
             // 
             // DScoreslbl
             // 
-            DScoreslbl.Location = new Point(136, 228);
+            DScoreslbl.Location = new Point(123, 212);
             DScoreslbl.Margin = new Padding(5, 4, 5, 4);
             DScoreslbl.Name = "DScoreslbl";
-            DScoreslbl.Size = new Size(64, 82);
+            DScoreslbl.Size = new Size(93, 122);
             DScoreslbl.StateCommon.ShortText.Color1 = Color.SteelBlue;
             DScoreslbl.StateCommon.ShortText.Color2 = Color.SteelBlue;
-            DScoreslbl.StateCommon.ShortText.Font = new Font("Arial", 48F, FontStyle.Bold, GraphicsUnit.Point);
+            DScoreslbl.StateCommon.ShortText.Font = new Font("Arial", 72F, FontStyle.Bold, GraphicsUnit.Point);
             DScoreslbl.TabIndex = 6;
             DScoreslbl.Values.Text = "0";
             // 
@@ -285,7 +285,7 @@
             // 
             // Headinglbl
             // 
-            Headinglbl.Location = new Point(473, 380);
+            Headinglbl.Location = new Point(459, 348);
             Headinglbl.Margin = new Padding(5, 4, 5, 4);
             Headinglbl.Name = "Headinglbl";
             Headinglbl.Size = new Size(613, 62);

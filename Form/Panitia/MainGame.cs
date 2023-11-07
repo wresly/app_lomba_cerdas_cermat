@@ -23,38 +23,38 @@ namespace app_lomba_cerdas_cermat.Form
 
         private void MainGame_Load(object sender, EventArgs e)
         {
-            timer1.Enabled = true;
+            GameCheckerTimer.Enabled = true;
         }
 
         private void Game1_Click(object sender, EventArgs e)
         {
             Game1frm game1Frm = new Game1frm();
-            timer1.Enabled = false;
+            GameCheckerTimer.Enabled = false;
             game1Frm.ShowDialog();
-            timer1.Enabled = true;
+            GameCheckerTimer.Enabled = true;
         }
         private void Game2btn_Click(object sender, EventArgs e)
         {
             Game2frm game2Frm = new Game2frm();
-            timer1.Enabled = false;
+            GameCheckerTimer.Enabled = false;
             game2Frm.ShowDialog();
-            timer1.Enabled = true;
+            GameCheckerTimer.Enabled = true;
         }
 
 
         private void Game3btn_Click(object sender, EventArgs e)
         {
             Game3frm game3Frm = new Game3frm();
-            timer1.Enabled = false;
+            GameCheckerTimer.Enabled = false;
             game3Frm.ShowDialog();
-            timer1.Enabled = true;
+            GameCheckerTimer.Enabled = true;
         }
         private void AddScoresbtn_Click(object sender, EventArgs e)
         {
             AddScores addScores = new AddScores();
-            timer1.Enabled = false;
+            GameCheckerTimer.Enabled = false;
             addScores.ShowDialog();
-            timer1.Enabled = true;
+            GameCheckerTimer.Enabled = true;
         }
 
         private void Reset_Click(object sender, EventArgs e)
@@ -75,7 +75,7 @@ namespace app_lomba_cerdas_cermat.Form
                     db.cmd.ExecuteNonQuery();
 
                     //reset game
-                    db.cmd = new MySqlCommand("UPDATE `game` SET `game_status`='none',`peserta`='none',`time`='00:00:00',`timer`=0,`plus_scores`=0,`minus_scores`=0 ", db.conn);
+                    db.cmd = new MySqlCommand("UPDATE `game` SET `game_status`='none',`peserta`='none',`time`='00:00:00',`timer`=0,`plus_scores`=0,`minus_scores`=0,`answer_status`=0", db.conn);
                     db.cmd.ExecuteNonQuery();
 
                     //reset blacklist
@@ -92,9 +92,9 @@ namespace app_lomba_cerdas_cermat.Form
             }
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void GameCheckerTimer_Tick(object sender, EventArgs e)
         {
-            timer1.Enabled = false;
+            GameCheckerTimer.Enabled = false;
             try
             {
                 if (db.conn.State == ConnectionState.Closed)
@@ -147,11 +147,12 @@ namespace app_lomba_cerdas_cermat.Form
             }
             catch (Exception ex)
             {
+                db.reader.Close();
                 MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
-                timer1.Enabled = true;
+                GameCheckerTimer.Enabled = true;
             }
         }
     }

@@ -36,7 +36,7 @@
             Game3btn = new Krypton.Toolkit.KryptonButton();
             Resetbtn = new Krypton.Toolkit.KryptonButton();
             AddScoresbtn = new Krypton.Toolkit.KryptonButton();
-            timer1 = new System.Windows.Forms.Timer(components);
+            GameCheckerTimer = new System.Windows.Forms.Timer(components);
             SuspendLayout();
             // 
             // Game1btn
@@ -109,10 +109,10 @@
             AddScoresbtn.Values.Text = "Add Scores Manual";
             AddScoresbtn.Click += AddScoresbtn_Click;
             // 
-            // timer1
+            // GameCheckerTimer
             // 
-            timer1.Interval = 250;
-            timer1.Tick += timer1_Tick;
+            GameCheckerTimer.Interval = 250;
+            GameCheckerTimer.Tick += GameCheckerTimer_Tick;
             // 
             // MainGame
             // 
@@ -146,6 +146,6 @@
         private Krypton.Toolkit.KryptonButton Game3btn;
         private Krypton.Toolkit.KryptonButton Resetbtn;
         private Krypton.Toolkit.KryptonButton AddScoresbtn;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer GameCheckerTimer;
     }
 }

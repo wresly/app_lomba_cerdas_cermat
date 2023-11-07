@@ -46,13 +46,13 @@ namespace app_lomba_cerdas_cermat.Form
             timerBoard.Hide();
 
             //enabled timer
-            timer1.Enabled = true;
+            GameCheckerTimer.Enabled = true;
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void GameCheckerTimer_Tick(object sender, EventArgs e)
         {
             //Check Running Game
-            timer1.Enabled = false;
+            GameCheckerTimer.Enabled = false;
             try
             {
                 if (db.conn.State == ConnectionState.Closed)
@@ -62,10 +62,8 @@ namespace app_lomba_cerdas_cermat.Form
                 }
                 db.cmd = new MySqlCommand("select * from game", db.conn);
                 db.reader = db.cmd.ExecuteReader();
-                if (db.reader.HasRows)
+                if (db.reader.Read())
                 {
-
-                    db.reader.Read();
                     DateTime time = DateTime.ParseExact(db.reader["time"].ToString(), "HH:mm:ss", null);
                     DateTime currentTime = DateTime.Now;
                     time = time.AddSeconds(Int32.Parse(db.reader["timer"].ToString()));
@@ -74,10 +72,9 @@ namespace app_lomba_cerdas_cermat.Form
                         db.reader.Close();
                         TimeSpan timeDifference = time - currentTime;
                         timerBoard.timer = (int)timeDifference.TotalSeconds;
-                        timerBoard.timer1.Enabled = true;
+                        timerBoard.GameTimer.Enabled = true;
                         scoresBoard.Hide();
                         timerBoard.Show();
-
                     }
                     else
                     {
@@ -90,11 +87,12 @@ namespace app_lomba_cerdas_cermat.Form
             }
             catch (Exception ex)
             {
+                db.reader.Close();
                 MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
-                timer1.Enabled = true;
+                GameCheckerTimer.Enabled = true;
             }
         }
     }

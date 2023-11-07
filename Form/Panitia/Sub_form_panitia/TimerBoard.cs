@@ -18,7 +18,7 @@ namespace app_lomba_cerdas_cermat.Form
 
     public partial class TimerBoard : KryptonForm
     {
-        private SoundPlayer _soundTest = new SoundPlayer("times_up_sound.wav");
+        private SoundPlayer _timesUpSound = new SoundPlayer("times_up_sound.wav");
         public int timer = 1;
         public TimerBoard()
         {
@@ -28,7 +28,7 @@ namespace app_lomba_cerdas_cermat.Form
         private void TimerBoard_Load(object sender, EventArgs e)
         {
 
-            timer1.Enabled = true;
+            GameTimer.Enabled = true;
 
             Logopb.Left = (this.ClientSize.Width - Logopb.Width) / 2;
             Headinglbl.Left = (this.ClientSize.Width - Headinglbl.Width) / 2;
@@ -37,12 +37,12 @@ namespace app_lomba_cerdas_cermat.Form
 
         private void TimerBoard_Shown(object sender, EventArgs e)
         {
-            timer1.Enabled = true;
+            GameTimer.Enabled = true;
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void GameTimer_Tick(object sender, EventArgs e)
         {
-            timer1.Enabled = false;
+            GameTimer.Enabled = false;
             try
             {
                 if (db.conn.State == ConnectionState.Closed)
@@ -64,11 +64,12 @@ namespace app_lomba_cerdas_cermat.Form
             }
             catch (Exception ex)
             {
+                db.reader.Close();
                 MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
-                timer1.Enabled = true;
+                GameTimer.Enabled = true;
             }
 
             timer -= 1;
@@ -80,8 +81,8 @@ namespace app_lomba_cerdas_cermat.Form
             if (timer <= 0)
             {
                 //reset
-                timer1.Enabled = false;
-                _soundTest.Play();
+                GameTimer.Enabled = false;
+                _timesUpSound.Play();
             }
         }
 

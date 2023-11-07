@@ -18,7 +18,6 @@ namespace app_lomba_cerdas_cermat.Form
         public ScoresBoard()
         {
             InitializeComponent();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
         }
 
         private void centering()
@@ -93,7 +92,8 @@ namespace app_lomba_cerdas_cermat.Form
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                db.reader.Close();
+                MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -106,11 +106,6 @@ namespace app_lomba_cerdas_cermat.Form
         {
             PesertaTimer.Enabled = true;
             centering();
-        }
-
-        private void PanelC_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }
