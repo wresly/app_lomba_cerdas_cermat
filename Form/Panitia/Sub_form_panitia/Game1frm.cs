@@ -50,6 +50,22 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
             Secondtxt.Text = Secondcmb.Text;
         }
 
+        private void Seconds15btn_Click(object sender, EventArgs e)
+        {
+            Secondtxt.Text = "15";
+        }
+
+        private void Seconds30btn_Click(object sender, EventArgs e)
+        {
+            Secondtxt.Text = "30";
+        }
+
+        private void Seconds60btn_Click(object sender, EventArgs e)
+        {
+            Secondtxt.Text = "60";
+        }
+        //
+
 
         private void Game1frm_Load(object sender, EventArgs e)
         {
@@ -211,7 +227,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                 {
                     db.conn.Open();
                 }
-                db.cmd = new MySqlCommand("UPDATE game SET game_status='game 1',`peserta`='" + Pesertacmb.Text + "',`time`='" + DateTime.Now.ToLongTimeString() + "',`timer`=" + timer + " WHERE 1", db.conn);
+                db.cmd = new MySqlCommand("UPDATE game SET game_status='game 1',`peserta`='" + Pesertacmb.Text + "',`time`='" + DateTime.Now.ToLongTimeString() + "',`timer`=" + (timer + db.dbDelayTimer) + " WHERE 1", db.conn);
                 db.cmd.ExecuteNonQuery();
             }
             catch (Exception ex)

@@ -110,7 +110,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                                         db.cmd.ExecuteNonQuery();
 
                                         // continue game
-                                        db.cmd = new MySqlCommand("UPDATE `game` SET `game_status`='game 3', `peserta` = 'none',`time`='" + DateTime.Now.ToLongTimeString() + "', `timer`= 30, `answer_status`=2", db.conn);
+                                        db.cmd = new MySqlCommand("UPDATE `game` SET `game_status`='game 3', `peserta` = 'none',`time`='" + DateTime.Now.ToLongTimeString() + "', `timer`= 30 + " + db.dbDelayTimer + ", `answer_status`=2", db.conn);
                                         db.cmd.ExecuteNonQuery();
 
 
@@ -144,7 +144,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                                         MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     }
                                     Startbtn.Enabled = true;
-                                } 
+                                }
                             }
 
                         }
@@ -265,6 +265,21 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
         {
             Secondtxt.Text = Secondcmb.Text;
         }
+        private void Seconds15btn_Click(object sender, EventArgs e)
+        {
+            Secondtxt.Text = "15";
+        }
+
+        private void Seconds30btn_Click(object sender, EventArgs e)
+        {
+            Secondtxt.Text = "30";
+        }
+
+        private void Seconds60btn_Click(object sender, EventArgs e)
+        {
+            Secondtxt.Text = "60";
+        }
+
         //
         private void Game3frm_Load(object sender, EventArgs e)
         {
@@ -368,7 +383,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                     db.conn.Open();
 
                 }
-                db.cmd = new MySqlCommand("UPDATE `game` SET `game_status`='game 3',`time`='" + DateTime.Now.ToLongTimeString() + "', `timer`= " + (Int32.Parse(Minutetxt.Text) * 60 + Int32.Parse(Secondtxt.Text)) + ", `plus_scores`= " + Plustxt.Text + ", `minus_scores`= " + Minustxt.Text, db.conn);
+                db.cmd = new MySqlCommand("UPDATE `game` SET `game_status`='game 3',`time`='" + DateTime.Now.ToLongTimeString() + "', `timer`= " + ((Int32.Parse(Minutetxt.Text) * 60 + Int32.Parse(Secondtxt.Text)) + db.dbDelayTimer) + ", `plus_scores`= " + Plustxt.Text + ", `minus_scores`= " + Minustxt.Text, db.conn);
                 db.cmd.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -427,7 +442,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                         db.cmd.ExecuteNonQuery();
 
                         // continue game
-                        db.cmd = new MySqlCommand("UPDATE `game` SET `game_status`='game 3', `peserta` = 'none',`time`='" + DateTime.Now.ToLongTimeString() + "', `timer`= 30, `answer_status`=2", db.conn);
+                        db.cmd = new MySqlCommand("UPDATE `game` SET `game_status`='game 3', `peserta` = 'none',`time`='" + DateTime.Now.ToLongTimeString() + "', `timer`= 30 + " + db.dbDelayTimer + ", `answer_status`=2", db.conn);
                         db.cmd.ExecuteNonQuery();
 
                         GameCheckerTimer.Enabled = true;

@@ -87,6 +87,11 @@ namespace app_lomba_cerdas_cermat.Form
                             timerBoard.GameTimer.Enabled = false;
 
                             timerBoard.timer = tempTimer;
+
+                            tempTimer -= db.dbDelayTimer;
+                            tempMinute = tempTimer / 60;
+                            tempSecond = tempTimer % 60;
+
                             timerBoard.Timerlbl.Text = (tempMinute < 10 ? "0" : "") + tempMinute + ":" + (tempSecond < 10 ? "0" : "") + tempSecond;
                             scoresBoard.Hide();
                             timerBoard.Show();

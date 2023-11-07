@@ -83,8 +83,6 @@ namespace app_lomba_cerdas_cermat
             }
 
             db.conn.Close();
-
-
         }
     }
 }

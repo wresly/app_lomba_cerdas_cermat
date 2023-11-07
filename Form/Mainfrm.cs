@@ -12,11 +12,15 @@ using Krypton.Toolkit;
 using System.IO;
 using app_lomba_cerdas_cermat.Classes;
 using MySql.Data.MySqlClient;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace app_lomba_cerdas_cermat
 {
     public partial class Mainfrm : KryptonForm
     {
+        private bool isAltKeyPressed = false;
+        private bool isAKeyPressed = false;
+
         public Mainfrm()
         {
             InitializeComponent();
@@ -24,6 +28,8 @@ namespace app_lomba_cerdas_cermat
 
         private void Mainfrm_Load(object sender, EventArgs e)
         {
+            Taskbar.Show();
+            this.FormClosed += (sender, e) => Taskbar.Show();
             //Testfrm123 testfrm123 = new Testfrm123();
             //testfrm123.MdiParent = this;
             //testfrm123.Show();
@@ -48,6 +54,12 @@ namespace app_lomba_cerdas_cermat
                 }
                 else
                 {
+                    this.WindowState = FormWindowState.Maximized;
+                    this.FormBorderStyle = FormBorderStyle.None;
+                    this.TopMost = true;
+
+                    Taskbar.Hide();
+
                     Pesertafrm pesertafrm = new Pesertafrm();
                     pesertafrm.MdiParent = this;
                     pesertafrm.username = loginfrm.username;
@@ -59,5 +71,10 @@ namespace app_lomba_cerdas_cermat
                 this.Close();
             }
         }
+
+        
+        
     }
+
 }
+

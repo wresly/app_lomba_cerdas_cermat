@@ -46,10 +46,10 @@
             // 
             Pointlbl.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             Pointlbl.AutoSize = false;
-            Pointlbl.Location = new Point(2, 724);
+            Pointlbl.Location = new Point(2, 666);
             Pointlbl.Margin = new Padding(5, 4, 5, 4);
             Pointlbl.Name = "Pointlbl";
-            Pointlbl.Size = new Size(1555, 179);
+            Pointlbl.Size = new Size(1571, 179);
             Pointlbl.StateCommon.ShortText.Color1 = Color.SteelBlue;
             Pointlbl.StateCommon.ShortText.Color2 = Color.SteelBlue;
             Pointlbl.StateCommon.ShortText.Font = new Font("Arial", 150F, FontStyle.Bold, GraphicsUnit.Point);
@@ -61,10 +61,10 @@
             // 
             Usernamelbl.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             Usernamelbl.AutoSize = false;
-            Usernamelbl.Location = new Point(2, 396);
+            Usernamelbl.Location = new Point(0, 376);
             Usernamelbl.Margin = new Padding(5, 4, 5, 4);
             Usernamelbl.Name = "Usernamelbl";
-            Usernamelbl.Size = new Size(1555, 179);
+            Usernamelbl.Size = new Size(1571, 167);
             Usernamelbl.StateCommon.ShortText.Font = new Font("Arial", 100F, FontStyle.Bold, GraphicsUnit.Point);
             Usernamelbl.StateCommon.ShortText.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
             Usernamelbl.TabIndex = 1;
@@ -74,7 +74,7 @@
             // 
             pictureBox1.Anchor = AnchorStyles.None;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(90, 198);
+            pictureBox1.Location = new Point(98, 218);
             pictureBox1.Margin = new Padding(5, 4, 5, 4);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(198, 210);
@@ -91,10 +91,10 @@
             // 
             Pesertalbl.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             Pesertalbl.AutoSize = false;
-            Pesertalbl.Location = new Point(0, 538);
+            Pesertalbl.Location = new Point(0, 543);
             Pesertalbl.Margin = new Padding(5, 4, 5, 4);
             Pesertalbl.Name = "Pesertalbl";
-            Pesertalbl.Size = new Size(1555, 179);
+            Pesertalbl.Size = new Size(1571, 115);
             Pesertalbl.StateCommon.ShortText.Color1 = Color.Black;
             Pesertalbl.StateCommon.ShortText.Color2 = Color.Black;
             Pesertalbl.StateCommon.ShortText.Font = new Font("Arial", 72F, FontStyle.Regular, GraphicsUnit.Point);
@@ -106,7 +106,7 @@
             // 
             pictureBox2.Anchor = AnchorStyles.None;
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(1194, 173);
+            pictureBox2.Location = new Point(1202, 193);
             pictureBox2.Margin = new Padding(5, 4, 5, 4);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(234, 219);
@@ -118,10 +118,11 @@
             // 
             pictureBox3.Anchor = AnchorStyles.None;
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(652, 70);
+            pictureBox3.Location = new Point(676, 88);
             pictureBox3.Margin = new Padding(5, 4, 5, 4);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(256, 322);
+            pictureBox3.Size = new Size(208, 244);
+            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox3.TabIndex = 5;
             pictureBox3.TabStop = false;
             // 
@@ -129,6 +130,7 @@
             // 
             AutoScaleDimensions = new SizeF(11F, 22F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
             BackColor = Color.White;
             ClientSize = new Size(1540, 941);
             Controls.Add(pictureBox3);
@@ -144,7 +146,6 @@
             Margin = new Padding(5, 4, 5, 4);
             Name = "PesertaScoresfrm";
             Text = "PesertaScoresfrm";
-            WindowState = FormWindowState.Maximized;
             Load += PesertaScoresfrm_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();

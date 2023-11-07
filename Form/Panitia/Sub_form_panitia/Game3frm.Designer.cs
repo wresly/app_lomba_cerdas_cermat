@@ -62,6 +62,9 @@
             MinutePlusbtn = new Krypton.Toolkit.KryptonButton();
             GameCheckerTimer = new System.Windows.Forms.Timer(components);
             Secondcmb = new Krypton.Toolkit.KryptonComboBox();
+            Seconds60btn = new Krypton.Toolkit.KryptonButton();
+            Seconds30btn = new Krypton.Toolkit.KryptonButton();
+            Seconds15btn = new Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)Gamepnl).BeginInit();
             Gamepnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PlusScorescmb).BeginInit();
@@ -469,11 +472,44 @@
             Secondcmb.TabIndex = 61;
             Secondcmb.SelectedIndexChanged += Secondcmb_SelectedIndexChanged;
             // 
+            // Seconds60btn
+            // 
+            Seconds60btn.CornerRoundingRadius = -1F;
+            Seconds60btn.Location = new Point(542, 376);
+            Seconds60btn.Name = "Seconds60btn";
+            Seconds60btn.Size = new Size(28, 25);
+            Seconds60btn.TabIndex = 69;
+            Seconds60btn.Values.Text = "60";
+            Seconds60btn.Click += Seconds60btn_Click;
+            // 
+            // Seconds30btn
+            // 
+            Seconds30btn.CornerRoundingRadius = -1F;
+            Seconds30btn.Location = new Point(504, 376);
+            Seconds30btn.Name = "Seconds30btn";
+            Seconds30btn.Size = new Size(28, 25);
+            Seconds30btn.TabIndex = 68;
+            Seconds30btn.Values.Text = "30";
+            Seconds30btn.Click += Seconds30btn_Click;
+            // 
+            // Seconds15btn
+            // 
+            Seconds15btn.CornerRoundingRadius = -1F;
+            Seconds15btn.Location = new Point(466, 376);
+            Seconds15btn.Name = "Seconds15btn";
+            Seconds15btn.Size = new Size(28, 25);
+            Seconds15btn.TabIndex = 67;
+            Seconds15btn.Values.Text = "15";
+            Seconds15btn.Click += Seconds15btn_Click;
+            // 
             // Game3frm
             // 
             AutoScaleDimensions = new SizeF(14F, 27F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1107, 562);
+            Controls.Add(Seconds60btn);
+            Controls.Add(Seconds30btn);
+            Controls.Add(Seconds15btn);
             Controls.Add(Secondcmb);
             Controls.Add(MinuteMinusbtn);
             Controls.Add(MinutePlusbtn);
@@ -545,5 +581,8 @@
         private Krypton.Toolkit.KryptonButton MinutePlusbtn;
         private System.Windows.Forms.Timer GameCheckerTimer;
         private Krypton.Toolkit.KryptonComboBox Secondcmb;
+        private Krypton.Toolkit.KryptonButton Seconds60btn;
+        private Krypton.Toolkit.KryptonButton Seconds30btn;
+        private Krypton.Toolkit.KryptonButton Seconds15btn;
     }
 }
