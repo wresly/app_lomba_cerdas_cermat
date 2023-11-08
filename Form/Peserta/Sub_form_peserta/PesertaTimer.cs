@@ -70,7 +70,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
             {
                 //reset
                 GameTimer.Enabled = false;
-                _timesUpSound.Play();
+                //_timesUpSound.Play();
                 this.Close();
             }
         }

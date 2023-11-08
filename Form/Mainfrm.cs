@@ -30,9 +30,7 @@ namespace app_lomba_cerdas_cermat
         {
             Taskbar.Show();
             this.FormClosed += (sender, e) => Taskbar.Show();
-            //Testfrm123 testfrm123 = new Testfrm123();
-            //testfrm123.MdiParent = this;
-            //testfrm123.Show();
+
 
             StreamReader stream = new StreamReader("server.txt");
             string filedata = stream.ReadToEnd();
@@ -56,7 +54,7 @@ namespace app_lomba_cerdas_cermat
                 {
                     this.WindowState = FormWindowState.Maximized;
                     this.FormBorderStyle = FormBorderStyle.None;
-                    this.TopMost = true;
+                    //this.TopMost = true;
 
                     Taskbar.Hide();
 
