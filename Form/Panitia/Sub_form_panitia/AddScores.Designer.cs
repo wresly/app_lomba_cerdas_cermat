@@ -34,12 +34,14 @@
             Addbtn = new Krypton.Toolkit.KryptonButton();
             Pesertacmb = new Krypton.Toolkit.KryptonComboBox();
             kryptonLabel2 = new Krypton.Toolkit.KryptonLabel();
+            LeftPesertabtn = new Krypton.Toolkit.KryptonButton();
+            RightPesertabtn = new Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)Pesertacmb).BeginInit();
             SuspendLayout();
             // 
             // Scorestxt
             // 
-            Scorestxt.Location = new Point(76, 161);
+            Scorestxt.Location = new Point(62, 161);
             Scorestxt.Name = "Scorestxt";
             Scorestxt.Size = new Size(209, 29);
             Scorestxt.StateCommon.Content.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
@@ -47,7 +49,7 @@
             // 
             // kryptonLabel1
             // 
-            kryptonLabel1.Location = new Point(76, 127);
+            kryptonLabel1.Location = new Point(62, 127);
             kryptonLabel1.Name = "kryptonLabel1";
             kryptonLabel1.Size = new Size(128, 26);
             kryptonLabel1.StateCommon.ShortText.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
@@ -57,7 +59,7 @@
             // Addbtn
             // 
             Addbtn.CornerRoundingRadius = 5F;
-            Addbtn.Location = new Point(123, 216);
+            Addbtn.Location = new Point(109, 216);
             Addbtn.Name = "Addbtn";
             Addbtn.OverrideFocus.Back.Color1 = Color.FromArgb(80, 216, 144);
             Addbtn.OverrideFocus.Back.Color2 = Color.FromArgb(80, 216, 144);
@@ -81,7 +83,7 @@
             Pesertacmb.DropDownStyle = ComboBoxStyle.DropDownList;
             Pesertacmb.DropDownWidth = 121;
             Pesertacmb.IntegralHeight = false;
-            Pesertacmb.Location = new Point(76, 75);
+            Pesertacmb.Location = new Point(62, 75);
             Pesertacmb.Name = "Pesertacmb";
             Pesertacmb.Size = new Size(209, 27);
             Pesertacmb.StateCommon.ComboBox.Content.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
@@ -90,18 +92,42 @@
             // 
             // kryptonLabel2
             // 
-            kryptonLabel2.Location = new Point(76, 42);
+            kryptonLabel2.Location = new Point(62, 42);
             kryptonLabel2.Name = "kryptonLabel2";
             kryptonLabel2.Size = new Size(86, 26);
             kryptonLabel2.StateCommon.ShortText.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             kryptonLabel2.TabIndex = 4;
             kryptonLabel2.Values.Text = "Peserta:";
             // 
+            // LeftPesertabtn
+            // 
+            LeftPesertabtn.CornerRoundingRadius = -1F;
+            LeftPesertabtn.Location = new Point(280, 74);
+            LeftPesertabtn.Name = "LeftPesertabtn";
+            LeftPesertabtn.Size = new Size(26, 29);
+            LeftPesertabtn.StateCommon.Content.ShortText.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            LeftPesertabtn.TabIndex = 70;
+            LeftPesertabtn.Values.Text = "<";
+            LeftPesertabtn.Click += LeftPesertabtn_Click;
+            // 
+            // RightPesertabtn
+            // 
+            RightPesertabtn.CornerRoundingRadius = -1F;
+            RightPesertabtn.Location = new Point(310, 74);
+            RightPesertabtn.Name = "RightPesertabtn";
+            RightPesertabtn.Size = new Size(26, 29);
+            RightPesertabtn.StateCommon.Content.ShortText.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            RightPesertabtn.TabIndex = 69;
+            RightPesertabtn.Values.Text = ">";
+            RightPesertabtn.Click += RightPesertabtn_Click;
+            // 
             // AddScores
             // 
             AutoScaleDimensions = new SizeF(12F, 24F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(369, 297);
+            ClientSize = new Size(370, 297);
+            Controls.Add(LeftPesertabtn);
+            Controls.Add(RightPesertabtn);
             Controls.Add(kryptonLabel2);
             Controls.Add(Pesertacmb);
             Controls.Add(Addbtn);
@@ -127,5 +153,7 @@
         private Krypton.Toolkit.KryptonButton Addbtn;
         private Krypton.Toolkit.KryptonComboBox Pesertacmb;
         private Krypton.Toolkit.KryptonLabel kryptonLabel2;
+        private Krypton.Toolkit.KryptonButton LeftPesertabtn;
+        private Krypton.Toolkit.KryptonButton RightPesertabtn;
     }
 }

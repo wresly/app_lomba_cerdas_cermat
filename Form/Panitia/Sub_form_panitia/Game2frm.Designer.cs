@@ -62,6 +62,8 @@
             Seconds60btn = new Krypton.Toolkit.KryptonButton();
             Seconds30btn = new Krypton.Toolkit.KryptonButton();
             Seconds15btn = new Krypton.Toolkit.KryptonButton();
+            LeftPesertabtn = new Krypton.Toolkit.KryptonButton();
+            RightPesertabtn = new Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)Gamepnl).BeginInit();
             Gamepnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Pesertacmb).BeginInit();
@@ -467,11 +469,35 @@
             Seconds15btn.Values.Text = "15";
             Seconds15btn.Click += Seconds15btn_Click;
             // 
+            // LeftPesertabtn
+            // 
+            LeftPesertabtn.CornerRoundingRadius = -1F;
+            LeftPesertabtn.Location = new Point(414, 226);
+            LeftPesertabtn.Name = "LeftPesertabtn";
+            LeftPesertabtn.Size = new Size(26, 29);
+            LeftPesertabtn.StateCommon.Content.ShortText.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            LeftPesertabtn.TabIndex = 68;
+            LeftPesertabtn.Values.Text = "<";
+            LeftPesertabtn.Click += LeftPesertabtn_Click;
+            // 
+            // RightPesertabtn
+            // 
+            RightPesertabtn.CornerRoundingRadius = -1F;
+            RightPesertabtn.Location = new Point(444, 226);
+            RightPesertabtn.Name = "RightPesertabtn";
+            RightPesertabtn.Size = new Size(26, 29);
+            RightPesertabtn.StateCommon.Content.ShortText.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            RightPesertabtn.TabIndex = 67;
+            RightPesertabtn.Values.Text = ">";
+            RightPesertabtn.Click += RightPesertabtn_Click;
+            // 
             // Game2frm
             // 
             AutoScaleDimensions = new SizeF(14F, 27F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1106, 557);
+            Controls.Add(LeftPesertabtn);
+            Controls.Add(RightPesertabtn);
             Controls.Add(Seconds60btn);
             Controls.Add(Seconds30btn);
             Controls.Add(Seconds15btn);
@@ -546,5 +572,7 @@
         private Krypton.Toolkit.KryptonButton Seconds60btn;
         private Krypton.Toolkit.KryptonButton Seconds30btn;
         private Krypton.Toolkit.KryptonButton Seconds15btn;
+        private Krypton.Toolkit.KryptonButton LeftPesertabtn;
+        private Krypton.Toolkit.KryptonButton RightPesertabtn;
     }
 }

@@ -41,6 +41,8 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                 if (peserta != "")
                 {
                     Pesertacmb.Enabled = false;
+                    LeftPesertabtn.Enabled = false;
+                    RightPesertabtn.Enabled = false;
                     Pesertacmb.SelectedIndex = Pesertacmb.Items.IndexOf(peserta);
                 }
                 else
@@ -85,5 +87,20 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
 
         }
 
+        private void LeftPesertabtn_Click(object sender, EventArgs e)
+        {
+            if (Pesertacmb.SelectedIndex > 0)
+            {
+                Pesertacmb.SelectedIndex = Pesertacmb.SelectedIndex - 1;
+            }
+        }
+
+        private void RightPesertabtn_Click(object sender, EventArgs e)
+        {
+            if (Pesertacmb.SelectedIndex < Pesertacmb.Items.Count - 1)
+            {
+                Pesertacmb.SelectedIndex = Pesertacmb.SelectedIndex + 1;
+            }
+        }
     }
 }

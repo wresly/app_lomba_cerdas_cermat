@@ -307,6 +307,22 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
         {
             Secondtxt.Text = "60";
         }
+
+        private void LeftPesertabtn_Click(object sender, EventArgs e)
+        {
+            if (Pesertacmb.SelectedIndex > 0)
+            {
+                Pesertacmb.SelectedIndex = Pesertacmb.SelectedIndex - 1;
+            }
+        }
+
+        private void RightPesertabtn_Click(object sender, EventArgs e)
+        {
+            if (Pesertacmb.SelectedIndex < Pesertacmb.Items.Count - 1)
+            {
+                Pesertacmb.SelectedIndex = Pesertacmb.SelectedIndex + 1;
+            }
+        }
         //
         private void Game2frm_Load(object sender, EventArgs e)
         {
