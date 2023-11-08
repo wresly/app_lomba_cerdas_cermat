@@ -116,7 +116,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                                         db.cmd.ExecuteNonQuery();
 
                                         // continue game
-                                        db.cmd = new MySqlCommand("UPDATE `game` SET `game_status`='game 2', `peserta` = 'none',`time`='" + DateTime.Now.ToLongTimeString() + "', `timer`= 30 + " + db.dbDelayTimer + ", `answer_status`=2", db.conn);
+                                        db.cmd = new MySqlCommand("UPDATE `game` SET `game_status`='game 2', `peserta` = 'none',`time`='" + DateTime.Now.ToLongTimeString() + "', `timer`= 15 + " + db.dbDelayTimer + ", `answer_status`=2", db.conn);
                                         db.cmd.ExecuteNonQuery();
 
                                         //reset if no more peserta
@@ -424,7 +424,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
 
             //checked user answer 
             AnswerCheckerUser answerCheckerUser = new AnswerCheckerUser();
-            answerCheckerUser.timer = Int32.Parse(Minutetxt.Text) * 60 + Int32.Parse(Secondtxt.Text);
+            answerCheckerUser.timer = Int32.Parse(Minutetxt.Text) * 60 + Int32.Parse(Secondtxt.Text) + (db.dbDelayTimer - 2);
             answerCheckerUser.ShowDialog();
             //true
             if (answerCheckerUser.DialogResult == DialogResult.OK)
@@ -467,7 +467,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                     db.cmd.ExecuteNonQuery();
 
                     // continue game
-                    db.cmd = new MySqlCommand("UPDATE `game` SET `game_status`='game 2', `peserta` = 'none',`time`='" + DateTime.Now.ToLongTimeString() + "', `timer`= 30 + " + db.dbDelayTimer + ", `answer_status`=2", db.conn);
+                    db.cmd = new MySqlCommand("UPDATE `game` SET `game_status`='game 2', `peserta` = 'none',`time`='" + DateTime.Now.ToLongTimeString() + "', `timer`= 15 + " + db.dbDelayTimer + ", `answer_status`=2", db.conn);
                     db.cmd.ExecuteNonQuery();
 
                     //reset if no more peserta

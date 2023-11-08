@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using app_lomba_cerdas_cermat.Classes;
+using app_lomba_cerdas_cermat.Form.Panitia.Sub_form_panitia;
 using app_lomba_cerdas_cermat.Form.Sub_form;
 using Krypton.Toolkit;
 using MySql.Data.MySqlClient;
@@ -54,6 +55,14 @@ namespace app_lomba_cerdas_cermat.Form
             AddScores addScores = new AddScores();
             GameCheckerTimer.Enabled = false;
             addScores.ShowDialog();
+            GameCheckerTimer.Enabled = true;
+        }
+
+        private void Timerbtn_Click(object sender, EventArgs e)
+        {
+            Game1TimerOnlyfrm game1TimerFrm = new Game1TimerOnlyfrm();
+            GameCheckerTimer.Enabled = false;
+            game1TimerFrm.ShowDialog();
             GameCheckerTimer.Enabled = true;
         }
 
@@ -109,6 +118,7 @@ namespace app_lomba_cerdas_cermat.Form
                     if (db.reader["game_status"].ToString() == "game 1")
                     {
                         GameStatuslbl.Text = "Game Status : Game 1";
+                        Timerbtn.Enabled = true;
                         Game1btn.Enabled = true;
                         Game2btn.Enabled = false;
                         Game3btn.Enabled = false;
@@ -118,6 +128,7 @@ namespace app_lomba_cerdas_cermat.Form
                     if (db.reader["game_status"].ToString() == "game 2")
                     {
                         GameStatuslbl.Text = "Game Status : Game 2";
+                        Timerbtn.Enabled = false;
                         Game1btn.Enabled = false;
                         Game2btn.Enabled = true;
                         Game3btn.Enabled = false;
@@ -127,6 +138,7 @@ namespace app_lomba_cerdas_cermat.Form
                     if (db.reader["game_status"].ToString() == "game 3")
                     {
                         GameStatuslbl.Text = "Game Status : Game 3";
+                        Timerbtn.Enabled = false;
                         Game1btn.Enabled = false;
                         Game2btn.Enabled = false;
                         Game3btn.Enabled = true;
@@ -136,6 +148,7 @@ namespace app_lomba_cerdas_cermat.Form
                     if (db.reader["game_status"].ToString() == "none")
                     {
                         GameStatuslbl.Text = "Game Status : none";
+                        Timerbtn.Enabled = true;
                         Game1btn.Enabled = true;
                         Game2btn.Enabled = true;
                         Game3btn.Enabled = true;
@@ -155,5 +168,7 @@ namespace app_lomba_cerdas_cermat.Form
                 GameCheckerTimer.Enabled = true;
             }
         }
+
+
     }
 }

@@ -37,13 +37,14 @@
             Resetbtn = new Krypton.Toolkit.KryptonButton();
             AddScoresbtn = new Krypton.Toolkit.KryptonButton();
             GameCheckerTimer = new System.Windows.Forms.Timer(components);
+            Timerbtn = new Krypton.Toolkit.KryptonButton();
             SuspendLayout();
             // 
             // Game1btn
             // 
             Game1btn.Anchor = AnchorStyles.None;
             Game1btn.CornerRoundingRadius = -1F;
-            Game1btn.Location = new Point(312, 140);
+            Game1btn.Location = new Point(312, 142);
             Game1btn.Margin = new Padding(5, 4, 5, 4);
             Game1btn.Name = "Game1btn";
             Game1btn.Size = new Size(162, 37);
@@ -54,7 +55,7 @@
             // GameStatuslbl
             // 
             GameStatuslbl.Anchor = AnchorStyles.None;
-            GameStatuslbl.Location = new Point(262, 80);
+            GameStatuslbl.Location = new Point(266, 32);
             GameStatuslbl.Name = "GameStatuslbl";
             GameStatuslbl.Size = new Size(260, 36);
             GameStatuslbl.StateCommon.ShortText.Font = new Font("Arial", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
@@ -65,7 +66,7 @@
             // 
             Game2btn.Anchor = AnchorStyles.None;
             Game2btn.CornerRoundingRadius = -1F;
-            Game2btn.Location = new Point(312, 189);
+            Game2btn.Location = new Point(312, 190);
             Game2btn.Margin = new Padding(5, 4, 5, 4);
             Game2btn.Name = "Game2btn";
             Game2btn.Size = new Size(162, 37);
@@ -89,7 +90,7 @@
             // 
             Resetbtn.Anchor = AnchorStyles.None;
             Resetbtn.CornerRoundingRadius = -1F;
-            Resetbtn.Location = new Point(312, 336);
+            Resetbtn.Location = new Point(312, 334);
             Resetbtn.Margin = new Padding(5, 4, 5, 4);
             Resetbtn.Name = "Resetbtn";
             Resetbtn.Size = new Size(162, 37);
@@ -101,7 +102,7 @@
             // 
             AddScoresbtn.Anchor = AnchorStyles.None;
             AddScoresbtn.CornerRoundingRadius = -1F;
-            AddScoresbtn.Location = new Point(312, 287);
+            AddScoresbtn.Location = new Point(312, 286);
             AddScoresbtn.Margin = new Padding(5, 4, 5, 4);
             AddScoresbtn.Name = "AddScoresbtn";
             AddScoresbtn.Size = new Size(162, 37);
@@ -114,12 +115,25 @@
             GameCheckerTimer.Interval = 250;
             GameCheckerTimer.Tick += GameCheckerTimer_Tick;
             // 
+            // Timerbtn
+            // 
+            Timerbtn.Anchor = AnchorStyles.None;
+            Timerbtn.CornerRoundingRadius = -1F;
+            Timerbtn.Location = new Point(312, 94);
+            Timerbtn.Margin = new Padding(5, 4, 5, 4);
+            Timerbtn.Name = "Timerbtn";
+            Timerbtn.Size = new Size(162, 37);
+            Timerbtn.TabIndex = 6;
+            Timerbtn.Values.Text = "Timer";
+            Timerbtn.Click += Timerbtn_Click;
+            // 
             // MainGame
             // 
             AutoScaleDimensions = new SizeF(11F, 22F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(787, 422);
+            Controls.Add(Timerbtn);
             Controls.Add(AddScoresbtn);
             Controls.Add(Resetbtn);
             Controls.Add(Game3btn);
@@ -147,5 +161,6 @@
         private Krypton.Toolkit.KryptonButton Resetbtn;
         private Krypton.Toolkit.KryptonButton AddScoresbtn;
         private System.Windows.Forms.Timer GameCheckerTimer;
+        private Krypton.Toolkit.KryptonButton Timerbtn;
     }
 }

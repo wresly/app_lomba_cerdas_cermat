@@ -69,7 +69,7 @@ namespace app_lomba_cerdas_cermat.Form
                     time = time.AddSeconds(Int32.Parse(db.reader["timer"].ToString()));
                     if (time > currentTime || (db.reader["game_status"].ToString() == "game 3" && db.reader["answer_status"].ToString() != "2" && db.reader["peserta"].ToString() == "none"))
                     {
-                        if (db.reader["peserta"].ToString() != "none" || db.reader["answer_status"].ToString() == "2")
+                        if (db.reader["peserta"].ToString() != "none" || db.reader["answer_status"].ToString() == "2" || db.reader["game_status"].ToString() == "game 1")
                         {
                             db.reader.Close();
                             TimeSpan timeDifference = time - currentTime;
