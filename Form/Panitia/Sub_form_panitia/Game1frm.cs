@@ -235,7 +235,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                 db.reader.Close();
                 MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            timer += db.dbDelayTimer - 2;
+            timer += db.dbDelayTimer - 0;
         }
 
         private void Finishbtn_Click(object sender, EventArgs e)

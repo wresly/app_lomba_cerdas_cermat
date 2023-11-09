@@ -400,7 +400,7 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                 Pesertalbl.Text = waitingfrm.peserta;
 
                 AnswerCheckerUser answerCheckerUser = new AnswerCheckerUser();
-                answerCheckerUser.timer = Int32.Parse(Minutetxt.Text) * 60 + Int32.Parse(Secondtxt.Text) + (db.dbDelayTimer - 2);
+                answerCheckerUser.timer = Int32.Parse(Minutetxt.Text) * 60 + Int32.Parse(Secondtxt.Text) + (db.dbDelayTimer - 0);
                 answerCheckerUser.ShowDialog();
 
                 //true answer

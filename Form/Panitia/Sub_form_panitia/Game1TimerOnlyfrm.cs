@@ -197,7 +197,7 @@ namespace app_lomba_cerdas_cermat.Form.Panitia.Sub_form_panitia
                 db.reader.Close();
                 MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            timer += db.dbDelayTimer - 1;
+            timer += db.dbDelayTimer - 0;
         }
 
         private void Finishbtn_Click(object sender, EventArgs e)
