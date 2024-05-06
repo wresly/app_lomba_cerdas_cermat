@@ -128,6 +128,11 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                 }
                 db.reader.Close();
                 Pesertacmb.SelectedIndex = 0;
+                if (runningPerserta != "")
+                {
+                    Pesertacmb.SelectedIndex = Pesertacmb.Items.IndexOf(runningPerserta);
+
+                }
             }
             catch (Exception ex)
             {
