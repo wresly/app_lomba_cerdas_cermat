@@ -29,7 +29,7 @@ namespace app_lomba_cerdas_cermat.Form
         {
 
             //GameTimer.Enabled = true;
-          
+
             Logopb.Left = (this.ClientSize.Width - Logopb.Width) / 2;
             Headinglbl.Left = (this.ClientSize.Width - Headinglbl.Width) / 2;
             Timerlbl.Left = (this.ClientSize.Width - Timerlbl.Width) / 2;
@@ -38,7 +38,6 @@ namespace app_lomba_cerdas_cermat.Form
         private void TimerBoard_Shown(object sender, EventArgs e)
         {
             //GameTimer.Enabled = true;
-            
         }
 
         private void GameTimer_Tick(object sender, EventArgs e)

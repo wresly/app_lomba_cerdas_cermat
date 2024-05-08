@@ -9,11 +9,11 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <PackageIcon>Logo-Ultah.png</PackageIcon>
     <StartupObject></StartupObject>
-    <ApplicationIcon>Logo-Ultah.ico</ApplicationIcon>
+    <ApplicationIcon>identic-removebg-preview (1).ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="Logo-Ultah.ico" />
+    <Content Include="identic-removebg-preview (1).ico" />
   </ItemGroup>
 
   <ItemGroup>

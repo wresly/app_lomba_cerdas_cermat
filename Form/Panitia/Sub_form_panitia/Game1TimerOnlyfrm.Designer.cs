@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Game1TimerOnlyfrm));
             Seconds60btn = new Krypton.Toolkit.KryptonButton();
             Seconds30btn = new Krypton.Toolkit.KryptonButton();
             Seconds15btn = new Krypton.Toolkit.KryptonButton();
@@ -322,9 +323,11 @@
             Controls.Add(Secondtxt);
             Controls.Add(Minutetxt);
             Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(5, 4, 5, 4);
             Name = "Game1TimerOnlyfrm";
-            Text = "Game1TimerOnlyfrm";
+            StartPosition = FormStartPosition.CenterParent;
+            Text = "Game 1";
             Load += Game1TimerOnlyfrm_Load;
             ((System.ComponentModel.ISupportInitialize)Secondcmb).EndInit();
             ResumeLayout(false);

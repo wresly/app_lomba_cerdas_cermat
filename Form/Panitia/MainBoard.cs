@@ -100,6 +100,7 @@ namespace app_lomba_cerdas_cermat.Form
                     else
                     {
                         db.reader.Close();
+                        timerBoard.GameTimer.Enabled = false;
                         timerBoard.Hide();
                         scoresBoard.Show();
                     }

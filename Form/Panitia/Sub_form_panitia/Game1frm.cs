@@ -1,17 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Data;
 using app_lomba_cerdas_cermat.Classes;
 using Krypton.Toolkit;
 using MySql.Data.MySqlClient;
 using System.Media;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace app_lomba_cerdas_cermat.Form.Sub_form
 {
@@ -72,6 +63,11 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
             this.FormClosed += (sender, e) => CountDownTimer.Enabled = false;
             Finishbtn.Enabled = false;
 
+            //Running Game
+            string runningPerserta = "";
+            int runningTimer;
+
+
             //cek for running game
             try
             {
@@ -91,6 +87,18 @@ namespace app_lomba_cerdas_cermat.Form.Sub_form
                     time = time.AddSeconds(Int32.Parse(db.reader["timer"].ToString()));
                     if (time > currentTime)
                     {
+                        //runnning game
+                        runningPerserta = db.reader["peserta"].ToString();
+                        runningTimer = Int32.Parse(db.reader["timer"].ToString()) - 3;
+
+                        Secondtxt.Text = (runningTimer).ToString();
+
+                        if (runningTimer > 60)
+                        {
+                            Minutetxt.Text = (runningTimer / 60).ToString();
+                            Secondtxt.Text = (runningTimer % 60).ToString();
+                        }
+
                         //timer
                         TimeSpan timeDifference = time - currentTime;
                         timer = (int)timeDifference.TotalSeconds;

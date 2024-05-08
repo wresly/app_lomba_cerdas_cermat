@@ -12,12 +12,12 @@ namespace app_lomba_cerdas_cermat.Classes
 {
     internal class db
     {
-        private static string server = "192.168.43.91";
-        private static string user = "root";
-        private static string pass = "godt123";
-        private static string database = "cerdas_cermat";
+        //private static string server = "192.168.119.46";
+        //private static string user = "root";
+        //private static string pass = "";
+        //private static string database = "cerdas_cermat";
 
-        public static int dbDelayTimer = 3;
+        public static int dbDelayTimer = 2;
         public static MySqlCommand cmd;
         public static MySqlDataReader reader;
 

@@ -51,9 +51,10 @@
             // Logopb
             // 
             Logopb.Image = (Image)resources.GetObject("Logopb.Image");
-            Logopb.Location = new Point(600, 76);
+            Logopb.Location = new Point(567, 70);
             Logopb.Name = "Logopb";
-            Logopb.Size = new Size(254, 318);
+            Logopb.Size = new Size(320, 320);
+            Logopb.SizeMode = PictureBoxSizeMode.Zoom;
             Logopb.TabIndex = 7;
             Logopb.TabStop = false;
             // 

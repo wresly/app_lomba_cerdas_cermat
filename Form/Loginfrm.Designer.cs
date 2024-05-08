@@ -142,7 +142,7 @@
             kryptonLabel1.StateCommon.ShortText.Font = new Font("Arial", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             kryptonLabel1.StateCommon.ShortText.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
             kryptonLabel1.TabIndex = 18;
-            kryptonLabel1.Values.Text = "Lomba Cerdas Teknologi";
+            kryptonLabel1.Values.Text = "Lomba Cerdas Cermat Teknologi";
             // 
             // kryptonLabel2
             // 

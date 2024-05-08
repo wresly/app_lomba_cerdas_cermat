@@ -59,10 +59,10 @@
             // Logopb
             // 
             Logopb.Image = (Image)resources.GetObject("Logopb.Image");
-            Logopb.Location = new Point(652, 28);
+            Logopb.Location = new Point(616, 10);
             Logopb.Margin = new Padding(5, 4, 5, 4);
             Logopb.Name = "Logopb";
-            Logopb.Size = new Size(226, 284);
+            Logopb.Size = new Size(320, 320);
             Logopb.SizeMode = PictureBoxSizeMode.Zoom;
             Logopb.TabIndex = 1;
             Logopb.TabStop = false;
@@ -285,15 +285,15 @@
             // 
             // Headinglbl
             // 
-            Headinglbl.Location = new Point(459, 348);
+            Headinglbl.Location = new Point(378, 340);
             Headinglbl.Margin = new Padding(5, 4, 5, 4);
             Headinglbl.Name = "Headinglbl";
-            Headinglbl.Size = new Size(613, 62);
+            Headinglbl.Size = new Size(797, 62);
             Headinglbl.StateCommon.ShortText.Color1 = Color.Black;
             Headinglbl.StateCommon.ShortText.Color2 = Color.Black;
             Headinglbl.StateCommon.ShortText.Font = new Font("Arial", 36F, FontStyle.Bold, GraphicsUnit.Point);
             Headinglbl.TabIndex = 6;
-            Headinglbl.Values.Text = "Lomba Cerdas Teknologi";
+            Headinglbl.Values.Text = "Lomba Cerdas Cermat Teknologi";
             // 
             // ScoresBoard
             // 

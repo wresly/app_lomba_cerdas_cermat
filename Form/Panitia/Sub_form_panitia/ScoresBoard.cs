@@ -49,6 +49,56 @@ namespace app_lomba_cerdas_cermat.Form
             DScoreslbl.Left = (PanelD.Width - DScoreslbl.Width) / 2;
 
         }
+
+        public void SetGame()
+        {
+
+            //cek sesi game
+            db.cmd = new MySqlCommand("select * from game_status", db.conn);
+            db.reader = db.cmd.ExecuteReader();
+            if (db.reader.Read())
+            {
+                if (db.reader["game_status_sesi"].ToString() == "none")
+                {
+                    PanelA.Visible = false;
+                    PanelB.Visible = false;
+                    PanelC.Visible = false;
+                    PanelD.Visible = false;
+                    db.reader.Close();
+                    return;
+                }
+
+                if (db.reader["game_status_sesi"].ToString() == "penyisihan")
+                {
+                    PanelA.Visible = true;
+                    PanelB.Visible = true;
+                    PanelC.Visible = true;
+                    PanelD.Visible = false;
+
+                    PanelB.Left = (this.ClientSize.Width - PanelB.Width) / 2;
+                    PanelA.Left = (PanelB.Left - PanelA.Width - 50);
+                    PanelC.Left = (PanelB.Left + PanelC.Width + 50);
+                    db.reader.Close();
+                    return;
+                }
+
+                if (db.reader["game_status_sesi"].ToString() == "final")
+                {
+                    PanelA.Visible = true;
+                    PanelB.Visible = true;
+                    PanelC.Visible = true;
+                    PanelD.Visible = true;
+
+                    PanelA.Left = (PanelB.Left - PanelA.Width - 30);
+                    PanelB.Left = (this.ClientSize.Width) / 2 - PanelB.Width - 15;
+                    PanelC.Left = (this.ClientSize.Width) / 2 + 15;
+                    PanelD.Left = (PanelC.Left + PanelC.Width + 30);
+                    db.reader.Close();
+                    return;
+                }
+            }
+
+        }
         private void PesertaTimer_Tick(object sender, EventArgs e)
         {
             PesertaTimer.Enabled = false;
@@ -100,12 +150,14 @@ namespace app_lomba_cerdas_cermat.Form
                 PesertaTimer.Enabled = true;
             }
             centering();
+            SetGame();
         }
 
         private void AllPesertaScores_Load(object sender, EventArgs e)
         {
             PesertaTimer.Enabled = true;
             centering();
+            SetGame();
         }
     }
 }

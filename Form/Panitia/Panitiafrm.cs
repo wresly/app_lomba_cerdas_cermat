@@ -51,28 +51,28 @@ namespace app_lomba_cerdas_cermat.Form
             }
         }
 
-        private void DataPesertabtn_Click(object sender, EventArgs e)
-        {
-            dataPesertafrm = new DataPesertafrm();
-            dataPesertafrm.TopLevel = false;
-            Mainpnl.Controls.Add(dataPesertafrm);
+        //private void DataPesertabtn_Click(object sender, EventArgs e)
+        //{
+        //    dataPesertafrm = new DataPesertafrm();
+        //    dataPesertafrm.TopLevel = false;
+        //    Mainpnl.Controls.Add(dataPesertafrm);
 
 
-            dataPesertafrm.Show();
-            if (mainGame != null && !mainGame.IsDisposed)
-            {
-                mainGame.Close();
-            }
-            if (mainBoard != null && !mainBoard.IsDisposed)
-            {
-                mainBoard.Close();
-            }
+        //    dataPesertafrm.Show();
+        //    if (mainGame != null && !mainGame.IsDisposed)
+        //    {
+        //        mainGame.Close();
+        //    }
+        //    if (mainBoard != null && !mainBoard.IsDisposed)
+        //    {
+        //        mainBoard.Close();
+        //    }
 
-            dataPesertafrm.Height = Mainpnl.Height;
-            dataPesertafrm.Width = Mainpnl.Width;
-        }
+        //    dataPesertafrm.Height = Mainpnl.Height;
+        //    dataPesertafrm.Width = Mainpnl.Width;
+        //}
 
-        private void Settingbtn_Click(object sender, EventArgs e)
+        private void ScoreBoardbtn_Click(object sender, EventArgs e)
         {
             mainBoard = new MainBoard();
             mainBoard.TopLevel = false;

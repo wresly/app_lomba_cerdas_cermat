@@ -57,7 +57,7 @@
             Usersdgv.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             Usersdgv.RowTemplate.Height = 25;
             Usersdgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            Usersdgv.Size = new Size(1359, 457);
+            Usersdgv.Size = new Size(1073, 261);
             Usersdgv.TabIndex = 10;
             Usersdgv.SelectionChanged += Usersdgv_SelectionChanged;
             Usersdgv.KeyDown += Usersdgv_KeyDown;
@@ -97,7 +97,7 @@
             // kryptonLabel1
             // 
             kryptonLabel1.Anchor = AnchorStyles.Top;
-            kryptonLabel1.Location = new Point(583, 44);
+            kryptonLabel1.Location = new Point(440, 44);
             kryptonLabel1.Margin = new Padding(4);
             kryptonLabel1.Name = "kryptonLabel1";
             kryptonLabel1.Size = new Size(250, 48);
@@ -168,7 +168,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             BackColor = Color.White;
-            ClientSize = new Size(1470, 907);
+            ClientSize = new Size(1184, 711);
             Controls.Add(kryptonLabel3);
             Controls.Add(Userscmb);
             Controls.Add(kryptonLabel2);
@@ -177,12 +177,12 @@
             Controls.Add(Tambahbtn);
             Controls.Add(Usersdgv);
             Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            FormBorderStyle = FormBorderStyle.None;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(5, 4, 5, 4);
             Name = "DataPesertafrm";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "Panitia Form";
-            WindowState = FormWindowState.Maximized;
             Load += DataPesertafrm_Load;
             ((System.ComponentModel.ISupportInitialize)Usersdgv).EndInit();
             ((System.ComponentModel.ISupportInitialize)Userscmb).EndInit();

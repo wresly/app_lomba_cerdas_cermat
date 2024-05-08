@@ -173,35 +173,36 @@ namespace app_lomba_cerdas_cermat.Form
 
                                     db.reader.Close();
                                     TimeSpan timeDifference = time - currentTime;
-                                    if ((int)timeDifference.TotalSeconds < 10)
-                                    {
-                                        int secondTemp = (10 - (int)timeDifference.TotalSeconds) + 2;
-                                        db.cmd = new MySqlCommand("UPDATE `game` SET `peserta` = '" + username + "', `timer`=timer + " + (secondTemp + db.dbDelayTimer), db.conn);
-                                        db.cmd.ExecuteNonQuery();
-                                    }
-                                    else
-                                    {
-                                        db.cmd = new MySqlCommand("update game set peserta = '" + username + "'", db.conn);
-                                        db.cmd.ExecuteNonQuery();
-                                    }
+                                    //if ((int)timeDifference.TotalSeconds < 10)
+                                    //{
+                                    //int secondTemp = (10 - (int)timeDifference.TotalSeconds) + 2;
+                                    db.cmd = new MySqlCommand("UPDATE `game` SET `peserta` = '" + username + "',`time`= '" + DateTime.Now.ToLongTimeString() + "'", db.conn);
+                                    db.cmd.ExecuteNonQuery();
+                                    //}
+                                    //else
+                                    //{
+                                    //    db.cmd = new MySqlCommand("update game set peserta = '" + username + "'", db.conn);
+                                    //    db.cmd.ExecuteNonQuery();
+                                    //}
                                 }
                                 else if (db.reader["game_status"].ToString() == "game 3")
                                 {
                                     if (db.reader["answer_status"].ToString() == "2")
                                     {
                                         db.reader.Close();
-                                        TimeSpan timeDifference = time - currentTime;
-                                        if ((int)timeDifference.TotalSeconds < 10)
-                                        {
-                                            int secondTemp = (10 - (int)timeDifference.TotalSeconds) + 2;
-                                            db.cmd = new MySqlCommand("UPDATE `game` SET `peserta` = '" + username + "', `timer`=timer + " + (secondTemp + db.dbDelayTimer), db.conn);
-                                            db.cmd.ExecuteNonQuery();
-                                        }
-                                        else
-                                        {
-                                            db.cmd = new MySqlCommand("update game set peserta = '" + username + "'", db.conn);
-                                            db.cmd.ExecuteNonQuery();
-                                        }
+                                        //TimeSpan timeDifference = time - currentTime;
+                                        //if ((int)timeDifference.TotalSeconds < 10)
+                                        //{
+                                        //int secondTemp = (10 - (int)timeDifference.TotalSeconds) + 2;
+                                        //MessageBox.Show(secondTemp.ToString());
+                                        db.cmd = new MySqlCommand("UPDATE `game` SET `peserta` = '" + username + "',`time`= '" + DateTime.Now.ToLongTimeString() + "'", db.conn);
+                                        db.cmd.ExecuteNonQuery();
+                                        //}
+                                        //else
+                                        //{
+                                        //    db.cmd = new MySqlCommand("update game set peserta = '" + username + "'", db.conn);
+                                        //    db.cmd.ExecuteNonQuery();
+                                        //}
                                     }
                                     else
                                     {

@@ -1,18 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
+﻿using System.Data;
 using System.Media;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using app_lomba_cerdas_cermat.Classes;
 using Krypton.Toolkit;
 using MySql.Data.MySqlClient;
-using Org.BouncyCastle.Crmf;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace app_lomba_cerdas_cermat.Form.Sub_form
 {

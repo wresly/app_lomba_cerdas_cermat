@@ -118,10 +118,10 @@
             // 
             pictureBox3.Anchor = AnchorStyles.None;
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(676, 88);
+            pictureBox3.Location = new Point(652, 88);
             pictureBox3.Margin = new Padding(5, 4, 5, 4);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(208, 244);
+            pictureBox3.Size = new Size(266, 276);
             pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox3.TabIndex = 5;
             pictureBox3.TabStop = false;
