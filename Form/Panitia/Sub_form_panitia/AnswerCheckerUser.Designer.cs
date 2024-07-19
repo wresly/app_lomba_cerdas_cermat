@@ -83,7 +83,7 @@
             Timerlbl.Location = new Point(180, 98);
             Timerlbl.Margin = new Padding(8, 0, 8, 0);
             Timerlbl.Name = "Timerlbl";
-            Timerlbl.Size = new Size(284, 108);
+            Timerlbl.Size = new Size(355, 134);
             Timerlbl.TabIndex = 28;
             Timerlbl.Text = "00:00";
             // 
@@ -130,7 +130,7 @@
             // 
             // AnswerCheckerUser
             // 
-            AutoScaleDimensions = new SizeF(11F, 22F);
+            AutoScaleDimensions = new SizeF(14F, 27F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(646, 400);
             ControlBox = false;

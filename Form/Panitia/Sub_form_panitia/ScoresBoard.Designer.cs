@@ -93,7 +93,7 @@
             AScoreslbl.Location = new Point(123, 212);
             AScoreslbl.Margin = new Padding(5, 4, 5, 4);
             AScoreslbl.Name = "AScoreslbl";
-            AScoreslbl.Size = new Size(93, 122);
+            AScoreslbl.Size = new Size(115, 152);
             AScoreslbl.StateCommon.ShortText.Color1 = Color.SteelBlue;
             AScoreslbl.StateCommon.ShortText.Color2 = Color.SteelBlue;
             AScoreslbl.StateCommon.ShortText.Font = new Font("Arial", 72F, FontStyle.Bold, GraphicsUnit.Point);
@@ -105,7 +105,7 @@
             APesertalbl.Location = new Point(49, 134);
             APesertalbl.Margin = new Padding(5, 4, 5, 4);
             APesertalbl.Name = "APesertalbl";
-            APesertalbl.Size = new Size(240, 62);
+            APesertalbl.Size = new Size(298, 77);
             APesertalbl.StateCommon.ShortText.Color1 = Color.Black;
             APesertalbl.StateCommon.ShortText.Color2 = Color.Black;
             APesertalbl.StateCommon.ShortText.Font = new Font("Arial", 36F, FontStyle.Regular, GraphicsUnit.Point);
@@ -117,7 +117,7 @@
             GrupAlbl.Location = new Point(14, 6);
             GrupAlbl.Margin = new Padding(5, 4, 5, 4);
             GrupAlbl.Name = "GrupAlbl";
-            GrupAlbl.Size = new Size(312, 102);
+            GrupAlbl.Size = new Size(389, 127);
             GrupAlbl.StateCommon.ShortText.Color1 = Color.Red;
             GrupAlbl.StateCommon.ShortText.Color2 = Color.Red;
             GrupAlbl.StateCommon.ShortText.Font = new Font("Arial", 60F, FontStyle.Bold, GraphicsUnit.Point);
@@ -146,7 +146,7 @@
             BScoreslbl.Location = new Point(123, 212);
             BScoreslbl.Margin = new Padding(5, 4, 5, 4);
             BScoreslbl.Name = "BScoreslbl";
-            BScoreslbl.Size = new Size(93, 122);
+            BScoreslbl.Size = new Size(115, 152);
             BScoreslbl.StateCommon.ShortText.Color1 = Color.SteelBlue;
             BScoreslbl.StateCommon.ShortText.Color2 = Color.SteelBlue;
             BScoreslbl.StateCommon.ShortText.Font = new Font("Arial", 72F, FontStyle.Bold, GraphicsUnit.Point);
@@ -158,7 +158,7 @@
             BPesertalbl.Location = new Point(49, 134);
             BPesertalbl.Margin = new Padding(5, 4, 5, 4);
             BPesertalbl.Name = "BPesertalbl";
-            BPesertalbl.Size = new Size(240, 62);
+            BPesertalbl.Size = new Size(298, 77);
             BPesertalbl.StateCommon.ShortText.Color1 = Color.Black;
             BPesertalbl.StateCommon.ShortText.Color2 = Color.Black;
             BPesertalbl.StateCommon.ShortText.Font = new Font("Arial", 36F, FontStyle.Regular, GraphicsUnit.Point);
@@ -170,7 +170,7 @@
             GrupBlbl.Location = new Point(14, 6);
             GrupBlbl.Margin = new Padding(5, 4, 5, 4);
             GrupBlbl.Name = "GrupBlbl";
-            GrupBlbl.Size = new Size(312, 102);
+            GrupBlbl.Size = new Size(389, 127);
             GrupBlbl.StateCommon.ShortText.Color1 = Color.Red;
             GrupBlbl.StateCommon.ShortText.Color2 = Color.Red;
             GrupBlbl.StateCommon.ShortText.Font = new Font("Arial", 60F, FontStyle.Bold, GraphicsUnit.Point);
@@ -199,7 +199,7 @@
             CScoreslbl.Location = new Point(123, 212);
             CScoreslbl.Margin = new Padding(5, 4, 5, 4);
             CScoreslbl.Name = "CScoreslbl";
-            CScoreslbl.Size = new Size(93, 122);
+            CScoreslbl.Size = new Size(115, 152);
             CScoreslbl.StateCommon.ShortText.Color1 = Color.SteelBlue;
             CScoreslbl.StateCommon.ShortText.Color2 = Color.SteelBlue;
             CScoreslbl.StateCommon.ShortText.Font = new Font("Arial", 72F, FontStyle.Bold, GraphicsUnit.Point);
@@ -211,7 +211,7 @@
             CPesertalbl.Location = new Point(49, 134);
             CPesertalbl.Margin = new Padding(5, 4, 5, 4);
             CPesertalbl.Name = "CPesertalbl";
-            CPesertalbl.Size = new Size(242, 62);
+            CPesertalbl.Size = new Size(301, 77);
             CPesertalbl.StateCommon.ShortText.Color1 = Color.Black;
             CPesertalbl.StateCommon.ShortText.Color2 = Color.Black;
             CPesertalbl.StateCommon.ShortText.Font = new Font("Arial", 36F, FontStyle.Regular, GraphicsUnit.Point);
@@ -223,7 +223,7 @@
             GrupClbl.Location = new Point(14, 6);
             GrupClbl.Margin = new Padding(5, 4, 5, 4);
             GrupClbl.Name = "GrupClbl";
-            GrupClbl.Size = new Size(312, 102);
+            GrupClbl.Size = new Size(389, 127);
             GrupClbl.StateCommon.ShortText.Color1 = Color.Red;
             GrupClbl.StateCommon.ShortText.Color2 = Color.Red;
             GrupClbl.StateCommon.ShortText.Font = new Font("Arial", 60F, FontStyle.Bold, GraphicsUnit.Point);
@@ -252,7 +252,7 @@
             DScoreslbl.Location = new Point(124, 212);
             DScoreslbl.Margin = new Padding(5, 4, 5, 4);
             DScoreslbl.Name = "DScoreslbl";
-            DScoreslbl.Size = new Size(93, 122);
+            DScoreslbl.Size = new Size(115, 152);
             DScoreslbl.StateCommon.ShortText.Color1 = Color.SteelBlue;
             DScoreslbl.StateCommon.ShortText.Color2 = Color.SteelBlue;
             DScoreslbl.StateCommon.ShortText.Font = new Font("Arial", 72F, FontStyle.Bold, GraphicsUnit.Point);
@@ -264,7 +264,7 @@
             DPesertalbl.Location = new Point(49, 134);
             DPesertalbl.Margin = new Padding(5, 4, 5, 4);
             DPesertalbl.Name = "DPesertalbl";
-            DPesertalbl.Size = new Size(242, 62);
+            DPesertalbl.Size = new Size(301, 77);
             DPesertalbl.StateCommon.ShortText.Color1 = Color.Black;
             DPesertalbl.StateCommon.ShortText.Color2 = Color.Black;
             DPesertalbl.StateCommon.ShortText.Font = new Font("Arial", 36F, FontStyle.Regular, GraphicsUnit.Point);
@@ -276,7 +276,7 @@
             GrupDlbl.Location = new Point(14, 6);
             GrupDlbl.Margin = new Padding(5, 4, 5, 4);
             GrupDlbl.Name = "GrupDlbl";
-            GrupDlbl.Size = new Size(312, 102);
+            GrupDlbl.Size = new Size(389, 127);
             GrupDlbl.StateCommon.ShortText.Color1 = Color.Red;
             GrupDlbl.StateCommon.ShortText.Color2 = Color.Red;
             GrupDlbl.StateCommon.ShortText.Font = new Font("Arial", 60F, FontStyle.Bold, GraphicsUnit.Point);
@@ -288,7 +288,7 @@
             Headinglbl.Location = new Point(378, 340);
             Headinglbl.Margin = new Padding(5, 4, 5, 4);
             Headinglbl.Name = "Headinglbl";
-            Headinglbl.Size = new Size(797, 62);
+            Headinglbl.Size = new Size(995, 77);
             Headinglbl.StateCommon.ShortText.Color1 = Color.Black;
             Headinglbl.StateCommon.ShortText.Color2 = Color.Black;
             Headinglbl.StateCommon.ShortText.Font = new Font("Arial", 36F, FontStyle.Bold, GraphicsUnit.Point);
@@ -297,7 +297,7 @@
             // 
             // ScoresBoard
             // 
-            AutoScaleDimensions = new SizeF(11F, 22F);
+            AutoScaleDimensions = new SizeF(14F, 27F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1540, 941);
             Controls.Add(Headinglbl);

@@ -88,7 +88,7 @@
             Secondcmb.Items.AddRange(new object[] { "5", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55", "60" });
             Secondcmb.Location = new Point(348, 136);
             Secondcmb.Name = "Secondcmb";
-            Secondcmb.Size = new Size(52, 27);
+            Secondcmb.Size = new Size(52, 33);
             Secondcmb.StateCommon.ComboBox.Content.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             Secondcmb.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
             Secondcmb.TabIndex = 54;
@@ -121,7 +121,7 @@
             kryptonLabel4.Location = new Point(275, 138);
             kryptonLabel4.Margin = new Padding(4, 3, 4, 3);
             kryptonLabel4.Name = "kryptonLabel4";
-            kryptonLabel4.Size = new Size(16, 22);
+            kryptonLabel4.Size = new Size(19, 27);
             kryptonLabel4.StateCommon.ShortText.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             kryptonLabel4.TabIndex = 51;
             kryptonLabel4.Values.Text = ": ";
@@ -132,7 +132,7 @@
             Secondtxt.Margin = new Padding(4, 3, 4, 3);
             Secondtxt.MaxLength = 2;
             Secondtxt.Name = "Secondtxt";
-            Secondtxt.Size = new Size(39, 29);
+            Secondtxt.Size = new Size(39, 35);
             Secondtxt.StateCommon.Content.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             Secondtxt.TabIndex = 50;
             Secondtxt.Text = "00";
@@ -144,7 +144,7 @@
             Minutetxt.Margin = new Padding(4, 3, 4, 3);
             Minutetxt.MaxLength = 2;
             Minutetxt.Name = "Minutetxt";
-            Minutetxt.Size = new Size(38, 29);
+            Minutetxt.Size = new Size(38, 35);
             Minutetxt.StateCommon.Content.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             Minutetxt.TabIndex = 49;
             Minutetxt.Text = "00";
@@ -155,7 +155,7 @@
             kryptonLabel9.Location = new Point(133, 138);
             kryptonLabel9.Margin = new Padding(4, 3, 4, 3);
             kryptonLabel9.Name = "kryptonLabel9";
-            kryptonLabel9.Size = new Size(16, 22);
+            kryptonLabel9.Size = new Size(19, 27);
             kryptonLabel9.StateCommon.ShortText.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             kryptonLabel9.TabIndex = 59;
             kryptonLabel9.Values.Text = ": ";
@@ -165,7 +165,7 @@
             kryptonLabel3.Location = new Point(21, 133);
             kryptonLabel3.Margin = new Padding(4, 3, 4, 3);
             kryptonLabel3.Name = "kryptonLabel3";
-            kryptonLabel3.Size = new Size(78, 32);
+            kryptonLabel3.Size = new Size(95, 40);
             kryptonLabel3.StateCommon.ShortText.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point);
             kryptonLabel3.TabIndex = 58;
             kryptonLabel3.Values.Text = "Timer";
@@ -293,7 +293,7 @@
             Timerlbl.Location = new Point(421, 33);
             Timerlbl.Margin = new Padding(6, 0, 6, 0);
             Timerlbl.Name = "Timerlbl";
-            Timerlbl.Size = new Size(99, 37);
+            Timerlbl.Size = new Size(122, 46);
             Timerlbl.TabIndex = 62;
             Timerlbl.Text = "00:00";
             // 
@@ -304,7 +304,7 @@
             // 
             // Game1TimerOnlyfrm
             // 
-            AutoScaleDimensions = new SizeF(11F, 22F);
+            AutoScaleDimensions = new SizeF(14F, 27F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(548, 283);
             Controls.Add(Finishbtn);

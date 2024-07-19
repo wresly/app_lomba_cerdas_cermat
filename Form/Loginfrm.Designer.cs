@@ -35,6 +35,7 @@
             Userscmb = new Krypton.Toolkit.KryptonComboBox();
             kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
             kryptonLabel2 = new Krypton.Toolkit.KryptonLabel();
+            Refreshbtn = new Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Userscmb).BeginInit();
             SuspendLayout();
@@ -125,7 +126,7 @@
             Userscmb.IntegralHeight = false;
             Userscmb.Location = new Point(88, 326);
             Userscmb.Name = "Userscmb";
-            Userscmb.Size = new Size(230, 27);
+            Userscmb.Size = new Size(190, 33);
             Userscmb.StateCommon.ComboBox.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
             Userscmb.StateCommon.ComboBox.Content.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             Userscmb.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
@@ -148,19 +149,32 @@
             // 
             kryptonLabel2.Location = new Point(88, 298);
             kryptonLabel2.Name = "kryptonLabel2";
-            kryptonLabel2.Size = new Size(53, 21);
+            kryptonLabel2.Size = new Size(64, 26);
             kryptonLabel2.StateCommon.ShortText.Color1 = Color.Black;
             kryptonLabel2.StateCommon.ShortText.Color2 = Color.Black;
             kryptonLabel2.StateCommon.ShortText.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             kryptonLabel2.TabIndex = 19;
             kryptonLabel2.Values.Text = "User :";
             // 
+            // Refreshbtn
+            // 
+            Refreshbtn.CornerRoundingRadius = -1F;
+            Refreshbtn.Location = new Point(284, 324);
+            Refreshbtn.Name = "Refreshbtn";
+            Refreshbtn.Size = new Size(38, 31);
+            Refreshbtn.StateCommon.Back.Image = (Image)resources.GetObject("Refreshbtn.StateCommon.Back.Image");
+            Refreshbtn.StateCommon.Back.ImageStyle = Krypton.Toolkit.PaletteImageStyle.CenterMiddle;
+            Refreshbtn.TabIndex = 20;
+            Refreshbtn.Values.Text = "";
+            Refreshbtn.Click += Refreshbtn_Click;
+            // 
             // Loginfrm
             // 
-            AutoScaleDimensions = new SizeF(11F, 22F);
+            AutoScaleDimensions = new SizeF(14F, 27F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(254, 251, 246);
             ClientSize = new Size(420, 539);
+            Controls.Add(Refreshbtn);
             Controls.Add(kryptonLabel2);
             Controls.Add(kryptonLabel1);
             Controls.Add(Userscmb);
@@ -192,5 +206,6 @@
         private Krypton.Toolkit.KryptonComboBox Userscmb;
         private Krypton.Toolkit.KryptonLabel kryptonLabel1;
         private Krypton.Toolkit.KryptonLabel kryptonLabel2;
+        private Krypton.Toolkit.KryptonButton Refreshbtn;
     }
 }

@@ -46,7 +46,7 @@
             GameStatuslbl.Anchor = AnchorStyles.None;
             GameStatuslbl.Location = new Point(266, 114);
             GameStatuslbl.Name = "GameStatuslbl";
-            GameStatuslbl.Size = new Size(260, 36);
+            GameStatuslbl.Size = new Size(323, 44);
             GameStatuslbl.StateCommon.ShortText.Font = new Font("Arial", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
             GameStatuslbl.TabIndex = 1;
             GameStatuslbl.Values.Text = "Game Status: None";
@@ -142,7 +142,7 @@
             // 
             // MainGame
             // 
-            AutoScaleDimensions = new SizeF(11F, 22F);
+            AutoScaleDimensions = new SizeF(14F, 27F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(787, 587);

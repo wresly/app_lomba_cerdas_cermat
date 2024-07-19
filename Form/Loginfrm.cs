@@ -78,5 +78,34 @@ namespace app_lomba_cerdas_cermat
 
             db.conn.Close();
         }
+
+        private void Refreshbtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (db.conn.State == ConnectionState.Closed)
+                {
+                    db.conn.Open();
+
+                }
+
+                Userscmb.Items.Clear();
+
+                //input combo box peserta
+                db.cmd = new MySqlCommand("select * from users", db.conn);
+                db.reader = db.cmd.ExecuteReader();
+                while (db.reader.Read())
+                {
+                    Userscmb.Items.Add(db.reader["username"].ToString());
+                }
+                db.reader.Close();
+                Userscmb.SelectedIndex = 0;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

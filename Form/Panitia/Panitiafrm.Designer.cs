@@ -112,7 +112,7 @@
             // 
             kryptonLabel1.Location = new Point(72, 29);
             kryptonLabel1.Name = "kryptonLabel1";
-            kryptonLabel1.Size = new Size(62, 26);
+            kryptonLabel1.Size = new Size(76, 32);
             kryptonLabel1.StateCommon.ShortText.Color1 = Color.White;
             kryptonLabel1.StateCommon.ShortText.Color2 = Color.White;
             kryptonLabel1.StateCommon.ShortText.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
@@ -226,7 +226,7 @@
             // 
             // Panitiafrm
             // 
-            AutoScaleDimensions = new SizeF(11F, 22F);
+            AutoScaleDimensions = new SizeF(14F, 27F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1258, 660);

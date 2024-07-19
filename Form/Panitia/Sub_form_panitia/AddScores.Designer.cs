@@ -43,7 +43,7 @@
             // 
             Scorestxt.Location = new Point(62, 161);
             Scorestxt.Name = "Scorestxt";
-            Scorestxt.Size = new Size(209, 29);
+            Scorestxt.Size = new Size(209, 35);
             Scorestxt.StateCommon.Content.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             Scorestxt.TabIndex = 0;
             // 
@@ -51,7 +51,7 @@
             // 
             kryptonLabel1.Location = new Point(62, 127);
             kryptonLabel1.Name = "kryptonLabel1";
-            kryptonLabel1.Size = new Size(128, 26);
+            kryptonLabel1.Size = new Size(159, 32);
             kryptonLabel1.StateCommon.ShortText.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             kryptonLabel1.TabIndex = 1;
             kryptonLabel1.Values.Text = "Input Scores:";
@@ -85,7 +85,7 @@
             Pesertacmb.IntegralHeight = false;
             Pesertacmb.Location = new Point(62, 75);
             Pesertacmb.Name = "Pesertacmb";
-            Pesertacmb.Size = new Size(209, 27);
+            Pesertacmb.Size = new Size(209, 33);
             Pesertacmb.StateCommon.ComboBox.Content.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             Pesertacmb.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
             Pesertacmb.TabIndex = 3;
@@ -94,7 +94,7 @@
             // 
             kryptonLabel2.Location = new Point(62, 42);
             kryptonLabel2.Name = "kryptonLabel2";
-            kryptonLabel2.Size = new Size(86, 26);
+            kryptonLabel2.Size = new Size(106, 32);
             kryptonLabel2.StateCommon.ShortText.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             kryptonLabel2.TabIndex = 4;
             kryptonLabel2.Values.Text = "Peserta:";
@@ -123,7 +123,7 @@
             // 
             // AddScores
             // 
-            AutoScaleDimensions = new SizeF(12F, 24F);
+            AutoScaleDimensions = new SizeF(15F, 31F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(370, 297);
             Controls.Add(LeftPesertabtn);

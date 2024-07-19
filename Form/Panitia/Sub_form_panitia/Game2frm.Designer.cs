@@ -30,16 +30,6 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Game2frm));
-            Gamepnl = new Krypton.Toolkit.KryptonPanel();
-            Scoreslbl = new Krypton.Toolkit.KryptonLabel();
-            kryptonLabel9 = new Krypton.Toolkit.KryptonLabel();
-            Timerlbl = new Krypton.Toolkit.KryptonLabel();
-            Pesertalbl = new Krypton.Toolkit.KryptonLabel();
-            Statuslbl = new Krypton.Toolkit.KryptonLabel();
-            kryptonLabel8 = new Krypton.Toolkit.KryptonLabel();
-            kryptonLabel7 = new Krypton.Toolkit.KryptonLabel();
-            kryptonLabel6 = new Krypton.Toolkit.KryptonLabel();
-            kryptonLabel5 = new Krypton.Toolkit.KryptonLabel();
             kryptonLabel4 = new Krypton.Toolkit.KryptonLabel();
             kryptonLabel3 = new Krypton.Toolkit.KryptonLabel();
             kryptonLabel2 = new Krypton.Toolkit.KryptonLabel();
@@ -64,127 +54,29 @@
             Seconds15btn = new Krypton.Toolkit.KryptonButton();
             LeftPesertabtn = new Krypton.Toolkit.KryptonButton();
             RightPesertabtn = new Krypton.Toolkit.KryptonButton();
-            ((System.ComponentModel.ISupportInitialize)Gamepnl).BeginInit();
-            Gamepnl.SuspendLayout();
+            kryptonLabel5 = new Krypton.Toolkit.KryptonLabel();
+            kryptonLabel6 = new Krypton.Toolkit.KryptonLabel();
+            kryptonLabel7 = new Krypton.Toolkit.KryptonLabel();
+            kryptonLabel8 = new Krypton.Toolkit.KryptonLabel();
+            Statuslbl = new Krypton.Toolkit.KryptonLabel();
+            Pesertalbl = new Krypton.Toolkit.KryptonLabel();
+            Timerlbl = new Krypton.Toolkit.KryptonLabel();
+            kryptonLabel9 = new Krypton.Toolkit.KryptonLabel();
+            Scoreslbl = new Krypton.Toolkit.KryptonLabel();
+            Gamepnl = new Krypton.Toolkit.KryptonPanel();
             ((System.ComponentModel.ISupportInitialize)Pesertacmb).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Scorescmb).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Secondcmb).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Gamepnl).BeginInit();
+            Gamepnl.SuspendLayout();
             SuspendLayout();
-            // 
-            // Gamepnl
-            // 
-            Gamepnl.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            Gamepnl.Controls.Add(Scoreslbl);
-            Gamepnl.Controls.Add(kryptonLabel9);
-            Gamepnl.Controls.Add(Timerlbl);
-            Gamepnl.Controls.Add(Pesertalbl);
-            Gamepnl.Controls.Add(Statuslbl);
-            Gamepnl.Controls.Add(kryptonLabel8);
-            Gamepnl.Controls.Add(kryptonLabel7);
-            Gamepnl.Controls.Add(kryptonLabel6);
-            Gamepnl.Controls.Add(kryptonLabel5);
-            Gamepnl.Location = new Point(626, 219);
-            Gamepnl.Margin = new Padding(4, 3, 4, 3);
-            Gamepnl.Name = "Gamepnl";
-            Gamepnl.Size = new Size(433, 312);
-            Gamepnl.TabIndex = 33;
-            // 
-            // Scoreslbl
-            // 
-            Scoreslbl.Location = new Point(153, 200);
-            Scoreslbl.Margin = new Padding(4, 3, 4, 3);
-            Scoreslbl.Name = "Scoreslbl";
-            Scoreslbl.Size = new Size(36, 32);
-            Scoreslbl.StateCommon.ShortText.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            Scoreslbl.TabIndex = 8;
-            Scoreslbl.Values.Text = ": -";
-            // 
-            // kryptonLabel9
-            // 
-            kryptonLabel9.Location = new Point(18, 200);
-            kryptonLabel9.Margin = new Padding(4, 3, 4, 3);
-            kryptonLabel9.Name = "kryptonLabel9";
-            kryptonLabel9.Size = new Size(91, 32);
-            kryptonLabel9.StateCommon.ShortText.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            kryptonLabel9.TabIndex = 7;
-            kryptonLabel9.Values.Text = "Scores";
-            // 
-            // Timerlbl
-            // 
-            Timerlbl.Location = new Point(153, 244);
-            Timerlbl.Margin = new Padding(4, 3, 4, 3);
-            Timerlbl.Name = "Timerlbl";
-            Timerlbl.Size = new Size(90, 32);
-            Timerlbl.StateCommon.ShortText.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            Timerlbl.TabIndex = 6;
-            Timerlbl.Values.Text = ": 00:00";
-            // 
-            // Pesertalbl
-            // 
-            Pesertalbl.Location = new Point(153, 159);
-            Pesertalbl.Margin = new Padding(4, 3, 4, 3);
-            Pesertalbl.Name = "Pesertalbl";
-            Pesertalbl.Size = new Size(36, 32);
-            Pesertalbl.StateCommon.ShortText.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            Pesertalbl.TabIndex = 5;
-            Pesertalbl.Values.Text = ": -";
-            // 
-            // Statuslbl
-            // 
-            Statuslbl.Location = new Point(153, 108);
-            Statuslbl.Margin = new Padding(4, 3, 4, 3);
-            Statuslbl.Name = "Statuslbl";
-            Statuslbl.Size = new Size(145, 32);
-            Statuslbl.StateCommon.ShortText.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            Statuslbl.TabIndex = 4;
-            Statuslbl.Values.Text = ": not started";
-            // 
-            // kryptonLabel8
-            // 
-            kryptonLabel8.Location = new Point(18, 108);
-            kryptonLabel8.Margin = new Padding(4, 3, 4, 3);
-            kryptonLabel8.Name = "kryptonLabel8";
-            kryptonLabel8.Size = new Size(85, 32);
-            kryptonLabel8.StateCommon.ShortText.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            kryptonLabel8.TabIndex = 3;
-            kryptonLabel8.Values.Text = "Status";
-            // 
-            // kryptonLabel7
-            // 
-            kryptonLabel7.Location = new Point(18, 244);
-            kryptonLabel7.Margin = new Padding(4, 3, 4, 3);
-            kryptonLabel7.Name = "kryptonLabel7";
-            kryptonLabel7.Size = new Size(78, 32);
-            kryptonLabel7.StateCommon.ShortText.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            kryptonLabel7.TabIndex = 2;
-            kryptonLabel7.Values.Text = "Timer ";
-            // 
-            // kryptonLabel6
-            // 
-            kryptonLabel6.Location = new Point(18, 159);
-            kryptonLabel6.Margin = new Padding(4, 3, 4, 3);
-            kryptonLabel6.Name = "kryptonLabel6";
-            kryptonLabel6.Size = new Size(100, 32);
-            kryptonLabel6.StateCommon.ShortText.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            kryptonLabel6.TabIndex = 1;
-            kryptonLabel6.Values.Text = "Peserta ";
-            // 
-            // kryptonLabel5
-            // 
-            kryptonLabel5.Location = new Point(5, 10);
-            kryptonLabel5.Margin = new Padding(4, 3, 4, 3);
-            kryptonLabel5.Name = "kryptonLabel5";
-            kryptonLabel5.Size = new Size(186, 36);
-            kryptonLabel5.StateCommon.ShortText.Font = new Font("Arial", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
-            kryptonLabel5.TabIndex = 0;
-            kryptonLabel5.Values.Text = "Game Status";
             // 
             // kryptonLabel4
             // 
             kryptonLabel4.Location = new Point(282, 344);
             kryptonLabel4.Margin = new Padding(4, 3, 4, 3);
             kryptonLabel4.Name = "kryptonLabel4";
-            kryptonLabel4.Size = new Size(16, 22);
+            kryptonLabel4.Size = new Size(19, 27);
             kryptonLabel4.StateCommon.ShortText.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             kryptonLabel4.TabIndex = 32;
             kryptonLabel4.Values.Text = ": ";
@@ -194,7 +86,7 @@
             kryptonLabel3.Location = new Point(26, 339);
             kryptonLabel3.Margin = new Padding(4, 3, 4, 3);
             kryptonLabel3.Name = "kryptonLabel3";
-            kryptonLabel3.Size = new Size(78, 32);
+            kryptonLabel3.Size = new Size(95, 40);
             kryptonLabel3.StateCommon.ShortText.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point);
             kryptonLabel3.TabIndex = 31;
             kryptonLabel3.Values.Text = "Timer ";
@@ -204,7 +96,7 @@
             kryptonLabel2.Location = new Point(26, 224);
             kryptonLabel2.Margin = new Padding(4, 3, 4, 3);
             kryptonLabel2.Name = "kryptonLabel2";
-            kryptonLabel2.Size = new Size(100, 32);
+            kryptonLabel2.Size = new Size(123, 40);
             kryptonLabel2.StateCommon.ShortText.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point);
             kryptonLabel2.TabIndex = 30;
             kryptonLabel2.Values.Text = "Peserta";
@@ -215,7 +107,7 @@
             Secondtxt.Margin = new Padding(4, 3, 4, 3);
             Secondtxt.MaxLength = 2;
             Secondtxt.Name = "Secondtxt";
-            Secondtxt.Size = new Size(39, 29);
+            Secondtxt.Size = new Size(39, 35);
             Secondtxt.StateCommon.Content.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             Secondtxt.TabIndex = 3;
             Secondtxt.Text = "00";
@@ -227,7 +119,7 @@
             Minutetxt.Margin = new Padding(4, 3, 4, 3);
             Minutetxt.MaxLength = 2;
             Minutetxt.Name = "Minutetxt";
-            Minutetxt.Size = new Size(39, 29);
+            Minutetxt.Size = new Size(39, 35);
             Minutetxt.StateCommon.Content.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             Minutetxt.TabIndex = 2;
             Minutetxt.Text = "00";
@@ -238,7 +130,7 @@
             kryptonLabel1.Location = new Point(372, 26);
             kryptonLabel1.Margin = new Padding(4, 3, 4, 3);
             kryptonLabel1.Name = "kryptonLabel1";
-            kryptonLabel1.Size = new Size(201, 62);
+            kryptonLabel1.Size = new Size(250, 77);
             kryptonLabel1.StateCommon.ShortText.Font = new Font("Arial", 36F, FontStyle.Bold, GraphicsUnit.Point);
             kryptonLabel1.TabIndex = 26;
             kryptonLabel1.Values.Text = "Game 2";
@@ -288,7 +180,7 @@
             Pesertacmb.Location = new Point(163, 227);
             Pesertacmb.Margin = new Padding(6, 4, 6, 4);
             Pesertacmb.Name = "Pesertacmb";
-            Pesertacmb.Size = new Size(241, 27);
+            Pesertacmb.Size = new Size(241, 33);
             Pesertacmb.StateCommon.ComboBox.Content.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             Pesertacmb.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
             Pesertacmb.TabIndex = 0;
@@ -298,7 +190,7 @@
             kryptonLabel11.Location = new Point(142, 230);
             kryptonLabel11.Margin = new Padding(4, 3, 4, 3);
             kryptonLabel11.Name = "kryptonLabel11";
-            kryptonLabel11.Size = new Size(16, 22);
+            kryptonLabel11.Size = new Size(19, 27);
             kryptonLabel11.StateCommon.ShortText.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             kryptonLabel11.TabIndex = 34;
             kryptonLabel11.Values.Text = ": ";
@@ -308,7 +200,7 @@
             kryptonLabel12.Location = new Point(142, 344);
             kryptonLabel12.Margin = new Padding(4, 3, 4, 3);
             kryptonLabel12.Name = "kryptonLabel12";
-            kryptonLabel12.Size = new Size(16, 22);
+            kryptonLabel12.Size = new Size(19, 27);
             kryptonLabel12.StateCommon.ShortText.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             kryptonLabel12.TabIndex = 35;
             kryptonLabel12.Values.Text = ": ";
@@ -318,7 +210,7 @@
             kryptonLabel13.Location = new Point(142, 289);
             kryptonLabel13.Margin = new Padding(4, 3, 4, 3);
             kryptonLabel13.Name = "kryptonLabel13";
-            kryptonLabel13.Size = new Size(16, 22);
+            kryptonLabel13.Size = new Size(19, 27);
             kryptonLabel13.StateCommon.ShortText.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             kryptonLabel13.TabIndex = 36;
             kryptonLabel13.Values.Text = ": ";
@@ -328,7 +220,7 @@
             kryptonLabel14.Location = new Point(26, 281);
             kryptonLabel14.Margin = new Padding(4, 3, 4, 3);
             kryptonLabel14.Name = "kryptonLabel14";
-            kryptonLabel14.Size = new Size(91, 32);
+            kryptonLabel14.Size = new Size(113, 40);
             kryptonLabel14.StateCommon.ShortText.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point);
             kryptonLabel14.TabIndex = 37;
             kryptonLabel14.Values.Text = "Scores";
@@ -338,7 +230,7 @@
             Scorestxt.Location = new Point(163, 287);
             Scorestxt.Margin = new Padding(4, 3, 4, 3);
             Scorestxt.Name = "Scorestxt";
-            Scorestxt.Size = new Size(241, 29);
+            Scorestxt.Size = new Size(241, 35);
             Scorestxt.StateCommon.Content.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             Scorestxt.TabIndex = 1;
             // 
@@ -391,7 +283,7 @@
             Scorescmb.Items.AddRange(new object[] { "5", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55", "60", "65", "70", "75", "80", "85", "90", "95", "100" });
             Scorescmb.Location = new Point(410, 288);
             Scorescmb.Name = "Scorescmb";
-            Scorescmb.Size = new Size(60, 27);
+            Scorescmb.Size = new Size(60, 33);
             Scorescmb.StateCommon.ComboBox.Content.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             Scorescmb.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
             Scorescmb.TabIndex = 38;
@@ -433,7 +325,7 @@
             Secondcmb.Items.AddRange(new object[] { "5", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55", "60" });
             Secondcmb.Location = new Point(352, 342);
             Secondcmb.Name = "Secondcmb";
-            Secondcmb.Size = new Size(52, 27);
+            Secondcmb.Size = new Size(52, 33);
             Secondcmb.StateCommon.ComboBox.Content.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             Secondcmb.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
             Secondcmb.TabIndex = 63;
@@ -491,9 +383,117 @@
             RightPesertabtn.Values.Text = ">";
             RightPesertabtn.Click += RightPesertabtn_Click;
             // 
+            // kryptonLabel5
+            // 
+            kryptonLabel5.Location = new Point(5, 10);
+            kryptonLabel5.Margin = new Padding(4, 3, 4, 3);
+            kryptonLabel5.Name = "kryptonLabel5";
+            kryptonLabel5.Size = new Size(230, 44);
+            kryptonLabel5.StateCommon.ShortText.Font = new Font("Arial", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            kryptonLabel5.TabIndex = 0;
+            kryptonLabel5.Values.Text = "Game Status";
+            // 
+            // kryptonLabel6
+            // 
+            kryptonLabel6.Location = new Point(18, 159);
+            kryptonLabel6.Margin = new Padding(4, 3, 4, 3);
+            kryptonLabel6.Name = "kryptonLabel6";
+            kryptonLabel6.Size = new Size(123, 40);
+            kryptonLabel6.StateCommon.ShortText.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            kryptonLabel6.TabIndex = 1;
+            kryptonLabel6.Values.Text = "Peserta ";
+            // 
+            // kryptonLabel7
+            // 
+            kryptonLabel7.Location = new Point(18, 244);
+            kryptonLabel7.Margin = new Padding(4, 3, 4, 3);
+            kryptonLabel7.Name = "kryptonLabel7";
+            kryptonLabel7.Size = new Size(95, 40);
+            kryptonLabel7.StateCommon.ShortText.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            kryptonLabel7.TabIndex = 2;
+            kryptonLabel7.Values.Text = "Timer ";
+            // 
+            // kryptonLabel8
+            // 
+            kryptonLabel8.Location = new Point(18, 108);
+            kryptonLabel8.Margin = new Padding(4, 3, 4, 3);
+            kryptonLabel8.Name = "kryptonLabel8";
+            kryptonLabel8.Size = new Size(104, 40);
+            kryptonLabel8.StateCommon.ShortText.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            kryptonLabel8.TabIndex = 3;
+            kryptonLabel8.Values.Text = "Status";
+            // 
+            // Statuslbl
+            // 
+            Statuslbl.Location = new Point(153, 108);
+            Statuslbl.Margin = new Padding(4, 3, 4, 3);
+            Statuslbl.Name = "Statuslbl";
+            Statuslbl.Size = new Size(180, 40);
+            Statuslbl.StateCommon.ShortText.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            Statuslbl.TabIndex = 4;
+            Statuslbl.Values.Text = ": not started";
+            // 
+            // Pesertalbl
+            // 
+            Pesertalbl.Location = new Point(153, 159);
+            Pesertalbl.Margin = new Padding(4, 3, 4, 3);
+            Pesertalbl.Name = "Pesertalbl";
+            Pesertalbl.Size = new Size(44, 40);
+            Pesertalbl.StateCommon.ShortText.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            Pesertalbl.TabIndex = 5;
+            Pesertalbl.Values.Text = ": -";
+            // 
+            // Timerlbl
+            // 
+            Timerlbl.Location = new Point(153, 244);
+            Timerlbl.Margin = new Padding(4, 3, 4, 3);
+            Timerlbl.Name = "Timerlbl";
+            Timerlbl.Size = new Size(111, 40);
+            Timerlbl.StateCommon.ShortText.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            Timerlbl.TabIndex = 6;
+            Timerlbl.Values.Text = ": 00:00";
+            // 
+            // kryptonLabel9
+            // 
+            kryptonLabel9.Location = new Point(18, 200);
+            kryptonLabel9.Margin = new Padding(4, 3, 4, 3);
+            kryptonLabel9.Name = "kryptonLabel9";
+            kryptonLabel9.Size = new Size(113, 40);
+            kryptonLabel9.StateCommon.ShortText.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            kryptonLabel9.TabIndex = 7;
+            kryptonLabel9.Values.Text = "Scores";
+            // 
+            // Scoreslbl
+            // 
+            Scoreslbl.Location = new Point(153, 200);
+            Scoreslbl.Margin = new Padding(4, 3, 4, 3);
+            Scoreslbl.Name = "Scoreslbl";
+            Scoreslbl.Size = new Size(44, 40);
+            Scoreslbl.StateCommon.ShortText.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            Scoreslbl.TabIndex = 8;
+            Scoreslbl.Values.Text = ": -";
+            // 
+            // Gamepnl
+            // 
+            Gamepnl.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            Gamepnl.Controls.Add(Scoreslbl);
+            Gamepnl.Controls.Add(kryptonLabel9);
+            Gamepnl.Controls.Add(Timerlbl);
+            Gamepnl.Controls.Add(Pesertalbl);
+            Gamepnl.Controls.Add(Statuslbl);
+            Gamepnl.Controls.Add(kryptonLabel8);
+            Gamepnl.Controls.Add(kryptonLabel7);
+            Gamepnl.Controls.Add(kryptonLabel6);
+            Gamepnl.Controls.Add(kryptonLabel5);
+            Gamepnl.Location = new Point(626, 219);
+            Gamepnl.Margin = new Padding(4, 3, 4, 3);
+            Gamepnl.Name = "Gamepnl";
+            Gamepnl.Size = new Size(433, 312);
+            Gamepnl.TabIndex = 33;
+            // 
             // Game2frm
             // 
-            AutoScaleDimensions = new SizeF(14F, 27F);
+            AutoScaleDimensions = new SizeF(17F, 35F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1106, 557);
             Controls.Add(LeftPesertabtn);
@@ -528,28 +528,17 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Game 2";
             Load += Game2frm_Load;
-            ((System.ComponentModel.ISupportInitialize)Gamepnl).EndInit();
-            Gamepnl.ResumeLayout(false);
-            Gamepnl.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)Pesertacmb).EndInit();
             ((System.ComponentModel.ISupportInitialize)Scorescmb).EndInit();
             ((System.ComponentModel.ISupportInitialize)Secondcmb).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Gamepnl).EndInit();
+            Gamepnl.ResumeLayout(false);
+            Gamepnl.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private Krypton.Toolkit.KryptonPanel Gamepnl;
-        private Krypton.Toolkit.KryptonLabel Scoreslbl;
-        private Krypton.Toolkit.KryptonLabel kryptonLabel9;
-        private Krypton.Toolkit.KryptonLabel Timerlbl;
-        private Krypton.Toolkit.KryptonLabel Pesertalbl;
-        private Krypton.Toolkit.KryptonLabel Statuslbl;
-        private Krypton.Toolkit.KryptonLabel kryptonLabel8;
-        private Krypton.Toolkit.KryptonLabel kryptonLabel7;
-        private Krypton.Toolkit.KryptonLabel kryptonLabel6;
-        private Krypton.Toolkit.KryptonLabel kryptonLabel5;
         private Krypton.Toolkit.KryptonLabel kryptonLabel4;
         private Krypton.Toolkit.KryptonLabel kryptonLabel3;
         private Krypton.Toolkit.KryptonLabel kryptonLabel2;
@@ -574,5 +563,15 @@
         private Krypton.Toolkit.KryptonButton Seconds15btn;
         private Krypton.Toolkit.KryptonButton LeftPesertabtn;
         private Krypton.Toolkit.KryptonButton RightPesertabtn;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel5;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel6;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel7;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel8;
+        private Krypton.Toolkit.KryptonLabel Statuslbl;
+        private Krypton.Toolkit.KryptonLabel Pesertalbl;
+        private Krypton.Toolkit.KryptonLabel Timerlbl;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel9;
+        private Krypton.Toolkit.KryptonLabel Scoreslbl;
+        private Krypton.Toolkit.KryptonPanel Gamepnl;
     }
 }

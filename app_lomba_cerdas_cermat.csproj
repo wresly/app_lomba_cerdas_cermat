@@ -9,18 +9,11 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <PackageIcon>Logo-Ultah.png</PackageIcon>
     <StartupObject></StartupObject>
-    <ApplicationIcon>identic-removebg-preview (1).ico</ApplicationIcon>
+    <ApplicationIcon>smkti.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="identic-removebg-preview (1).ico" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="C:\Users\HP\Downloads\Logo-Ultah.png">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
+    <Content Include="smkti.ico" />
   </ItemGroup>
 
   <ItemGroup>

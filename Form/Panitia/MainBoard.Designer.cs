@@ -39,8 +39,9 @@
             // 
             MainBoardpnl.Dock = DockStyle.Fill;
             MainBoardpnl.Location = new Point(0, 0);
+            MainBoardpnl.Margin = new Padding(3, 4, 3, 4);
             MainBoardpnl.Name = "MainBoardpnl";
-            MainBoardpnl.Size = new Size(800, 450);
+            MainBoardpnl.Size = new Size(914, 600);
             MainBoardpnl.TabIndex = 0;
             // 
             // GameCheckerTimer
@@ -50,12 +51,13 @@
             // 
             // MainBoard
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(914, 600);
             Controls.Add(MainBoardpnl);
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(3, 4, 3, 4);
             Name = "MainBoard";
             Text = "MainBoard";
             WindowState = FormWindowState.Maximized;

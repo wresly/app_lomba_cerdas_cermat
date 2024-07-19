@@ -30,23 +30,12 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TimerBoard));
-            Headinglbl = new Krypton.Toolkit.KryptonLabel();
             Logopb = new PictureBox();
             Timerlbl = new Krypton.Toolkit.KryptonLabel();
             GameTimer = new System.Windows.Forms.Timer(components);
+            Headinglbl = new Krypton.Toolkit.KryptonLabel();
             ((System.ComponentModel.ISupportInitialize)Logopb).BeginInit();
             SuspendLayout();
-            // 
-            // Headinglbl
-            // 
-            Headinglbl.Location = new Point(421, 412);
-            Headinglbl.Name = "Headinglbl";
-            Headinglbl.Size = new Size(613, 62);
-            Headinglbl.StateCommon.ShortText.Color1 = Color.Black;
-            Headinglbl.StateCommon.ShortText.Color2 = Color.Black;
-            Headinglbl.StateCommon.ShortText.Font = new Font("Arial", 36F, FontStyle.Bold, GraphicsUnit.Point);
-            Headinglbl.TabIndex = 8;
-            Headinglbl.Values.Text = "Lomba Cerdas Teknologi";
             // 
             // Logopb
             // 
@@ -62,7 +51,7 @@
             // 
             Timerlbl.Location = new Point(427, 578);
             Timerlbl.Name = "Timerlbl";
-            Timerlbl.Size = new Size(600, 251);
+            Timerlbl.Size = new Size(748, 313);
             Timerlbl.StateCommon.ShortText.Font = new Font("Arial", 150F, FontStyle.Bold, GraphicsUnit.Point);
             Timerlbl.TabIndex = 9;
             Timerlbl.Values.Text = "00:00";
@@ -72,9 +61,20 @@
             GameTimer.Interval = 1000;
             GameTimer.Tick += GameTimer_Tick;
             // 
+            // Headinglbl
+            // 
+            Headinglbl.Location = new Point(329, 412);
+            Headinglbl.Name = "Headinglbl";
+            Headinglbl.Size = new Size(995, 77);
+            Headinglbl.StateCommon.ShortText.Color1 = Color.Black;
+            Headinglbl.StateCommon.ShortText.Color2 = Color.Black;
+            Headinglbl.StateCommon.ShortText.Font = new Font("Arial", 36F, FontStyle.Bold, GraphicsUnit.Point);
+            Headinglbl.TabIndex = 8;
+            Headinglbl.Values.Text = "Lomba Cerdas Cermat Teknologi";
+            // 
             // TimerBoard
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1540, 941);
             Controls.Add(Timerlbl);
@@ -94,10 +94,9 @@
         }
 
         #endregion
-
-        private Krypton.Toolkit.KryptonLabel Headinglbl;
         private PictureBox Logopb;
         public Krypton.Toolkit.KryptonLabel Timerlbl;
         public System.Windows.Forms.Timer GameTimer;
+        private Krypton.Toolkit.KryptonLabel Headinglbl;
     }
 }

@@ -54,7 +54,7 @@
             SesiGamecmb.Location = new Point(30, 144);
             SesiGamecmb.Margin = new Padding(5, 4, 5, 4);
             SesiGamecmb.Name = "SesiGamecmb";
-            SesiGamecmb.Size = new Size(200, 27);
+            SesiGamecmb.Size = new Size(200, 33);
             SesiGamecmb.StateCommon.ComboBox.Content.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             SesiGamecmb.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
             SesiGamecmb.TabIndex = 0;
@@ -67,7 +67,7 @@
             label1.Location = new Point(104, 36);
             label1.Margin = new Padding(5, 0, 5, 0);
             label1.Name = "label1";
-            label1.Size = new Size(165, 37);
+            label1.Size = new Size(204, 46);
             label1.TabIndex = 1;
             label1.Text = "Set Game";
             // 
@@ -76,7 +76,7 @@
             label2.AutoSize = true;
             label2.Location = new Point(30, 120);
             label2.Name = "label2";
-            label2.Size = new Size(93, 22);
+            label2.Size = new Size(118, 27);
             label2.TabIndex = 2;
             label2.Text = "Pilih Sesi:";
             // 
@@ -85,7 +85,7 @@
             GroupAtxt.Location = new Point(30, 234);
             GroupAtxt.Margin = new Padding(6, 5, 6, 5);
             GroupAtxt.Name = "GroupAtxt";
-            GroupAtxt.Size = new Size(328, 29);
+            GroupAtxt.Size = new Size(328, 34);
             GroupAtxt.StateCommon.Border.Color1 = Color.FromArgb(170, 170, 170);
             GroupAtxt.StateCommon.Border.Color2 = Color.FromArgb(170, 170, 170);
             GroupAtxt.StateCommon.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
@@ -97,7 +97,7 @@
             label3.AutoSize = true;
             label3.Location = new Point(30, 210);
             label3.Name = "label3";
-            label3.Size = new Size(85, 22);
+            label3.Size = new Size(108, 27);
             label3.TabIndex = 4;
             label3.Text = "Group A:";
             // 
@@ -106,7 +106,7 @@
             label4.AutoSize = true;
             label4.Location = new Point(30, 290);
             label4.Name = "label4";
-            label4.Size = new Size(86, 22);
+            label4.Size = new Size(110, 27);
             label4.TabIndex = 7;
             label4.Text = "Group B:";
             // 
@@ -115,7 +115,7 @@
             GroupBtxt.Location = new Point(30, 314);
             GroupBtxt.Margin = new Padding(6, 5, 6, 5);
             GroupBtxt.Name = "GroupBtxt";
-            GroupBtxt.Size = new Size(328, 29);
+            GroupBtxt.Size = new Size(328, 34);
             GroupBtxt.StateCommon.Border.Color1 = Color.FromArgb(170, 170, 170);
             GroupBtxt.StateCommon.Border.Color2 = Color.FromArgb(170, 170, 170);
             GroupBtxt.StateCommon.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
@@ -127,7 +127,7 @@
             label5.AutoSize = true;
             label5.Location = new Point(30, 370);
             label5.Name = "label5";
-            label5.Size = new Size(87, 22);
+            label5.Size = new Size(111, 27);
             label5.TabIndex = 10;
             label5.Text = "Group C:";
             // 
@@ -136,7 +136,7 @@
             GroupCtxt.Location = new Point(30, 394);
             GroupCtxt.Margin = new Padding(6, 5, 6, 5);
             GroupCtxt.Name = "GroupCtxt";
-            GroupCtxt.Size = new Size(328, 29);
+            GroupCtxt.Size = new Size(328, 34);
             GroupCtxt.StateCommon.Border.Color1 = Color.FromArgb(170, 170, 170);
             GroupCtxt.StateCommon.Border.Color2 = Color.FromArgb(170, 170, 170);
             GroupCtxt.StateCommon.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
@@ -148,7 +148,7 @@
             label6.AutoSize = true;
             label6.Location = new Point(30, 450);
             label6.Name = "label6";
-            label6.Size = new Size(87, 22);
+            label6.Size = new Size(111, 27);
             label6.TabIndex = 13;
             label6.Text = "Group D:";
             // 
@@ -157,7 +157,7 @@
             GroupDtxt.Location = new Point(30, 474);
             GroupDtxt.Margin = new Padding(6, 5, 6, 5);
             GroupDtxt.Name = "GroupDtxt";
-            GroupDtxt.Size = new Size(328, 29);
+            GroupDtxt.Size = new Size(328, 34);
             GroupDtxt.StateCommon.Border.Color1 = Color.FromArgb(170, 170, 170);
             GroupDtxt.StateCommon.Border.Color2 = Color.FromArgb(170, 170, 170);
             GroupDtxt.StateCommon.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
@@ -198,7 +198,7 @@
             // 
             // SetGamefrm
             // 
-            AutoScaleDimensions = new SizeF(11F, 22F);
+            AutoScaleDimensions = new SizeF(14F, 27F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(402, 623);
             Controls.Add(SetGamebtn);

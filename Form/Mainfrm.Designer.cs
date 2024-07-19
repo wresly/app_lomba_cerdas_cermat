@@ -33,7 +33,7 @@
             // 
             // Mainfrm
             // 
-            AutoScaleDimensions = new SizeF(11F, 22F);
+            AutoScaleDimensions = new SizeF(14F, 27F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1257, 660);
             Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);

@@ -16,7 +16,6 @@ namespace app_lomba_cerdas_cermat.Form
     {
         MainGame mainGame;
         DataPesertafrm dataPesertafrm;
-        Settingfrm settingfrm;
         MainBoard mainBoard;
         public Panitiafrm()
         {

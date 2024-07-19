@@ -61,7 +61,7 @@ namespace app_lomba_cerdas_cermat.Form
         }
         private void AddScoresbtn_Click(object sender, EventArgs e)
         {
-            AddScores addScores = new AddScores();
+            AddScoresfrm addScores = new AddScoresfrm();
             GameCheckerTimer.Enabled = false;
             addScores.ShowDialog();
             GameCheckerTimer.Enabled = true;

@@ -74,7 +74,7 @@
             // 
             pictureBox1.Anchor = AnchorStyles.None;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(98, 218);
+            pictureBox1.Location = new Point(666, 46);
             pictureBox1.Margin = new Padding(5, 4, 5, 4);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(198, 210);
@@ -106,7 +106,7 @@
             // 
             pictureBox2.Anchor = AnchorStyles.None;
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(1202, 193);
+            pictureBox2.Location = new Point(1060, 164);
             pictureBox2.Margin = new Padding(5, 4, 5, 4);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(234, 219);
@@ -118,17 +118,17 @@
             // 
             pictureBox3.Anchor = AnchorStyles.None;
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(652, 88);
+            pictureBox3.Location = new Point(223, 164);
             pictureBox3.Margin = new Padding(5, 4, 5, 4);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(266, 276);
+            pictureBox3.Size = new Size(234, 219);
             pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox3.TabIndex = 5;
             pictureBox3.TabStop = false;
             // 
             // PesertaScoresfrm
             // 
-            AutoScaleDimensions = new SizeF(11F, 22F);
+            AutoScaleDimensions = new SizeF(14F, 27F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             BackColor = Color.White;

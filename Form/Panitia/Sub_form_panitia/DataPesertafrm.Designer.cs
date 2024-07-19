@@ -54,6 +54,7 @@
             Usersdgv.Name = "Usersdgv";
             Usersdgv.ReadOnly = true;
             Usersdgv.RowHeadersVisible = false;
+            Usersdgv.RowHeadersWidth = 51;
             Usersdgv.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             Usersdgv.RowTemplate.Height = 25;
             Usersdgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -100,7 +101,7 @@
             kryptonLabel1.Location = new Point(440, 44);
             kryptonLabel1.Margin = new Padding(4);
             kryptonLabel1.Name = "kryptonLabel1";
-            kryptonLabel1.Size = new Size(250, 48);
+            kryptonLabel1.Size = new Size(311, 60);
             kryptonLabel1.StateCommon.ShortText.Color1 = Color.Black;
             kryptonLabel1.StateCommon.ShortText.Color2 = Color.Black;
             kryptonLabel1.StateCommon.ShortText.Font = new Font("Arial", 27.75F, FontStyle.Bold, GraphicsUnit.Point);
@@ -112,7 +113,7 @@
             kryptonLabel2.Location = new Point(56, 230);
             kryptonLabel2.Margin = new Padding(6, 5, 6, 5);
             kryptonLabel2.Name = "kryptonLabel2";
-            kryptonLabel2.Size = new Size(97, 22);
+            kryptonLabel2.Size = new Size(120, 27);
             kryptonLabel2.StateCommon.ShortText.Color1 = Color.Black;
             kryptonLabel2.StateCommon.ShortText.Color2 = Color.Black;
             kryptonLabel2.StateCommon.ShortText.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
@@ -124,7 +125,7 @@
             Usertxt.Location = new Point(56, 259);
             Usertxt.Margin = new Padding(6, 5, 6, 5);
             Usertxt.Name = "Usertxt";
-            Usertxt.Size = new Size(230, 29);
+            Usertxt.Size = new Size(230, 34);
             Usertxt.StateCommon.Border.Color1 = Color.FromArgb(170, 170, 170);
             Usertxt.StateCommon.Border.Color2 = Color.FromArgb(170, 170, 170);
             Usertxt.StateCommon.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
@@ -144,7 +145,7 @@
             Userscmb.IntegralHeight = false;
             Userscmb.Location = new Point(56, 178);
             Userscmb.Name = "Userscmb";
-            Userscmb.Size = new Size(230, 27);
+            Userscmb.Size = new Size(230, 33);
             Userscmb.StateCommon.ComboBox.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
             Userscmb.StateCommon.ComboBox.Content.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             Userscmb.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
@@ -155,7 +156,7 @@
             kryptonLabel3.Location = new Point(60, 148);
             kryptonLabel3.Margin = new Padding(6, 5, 6, 5);
             kryptonLabel3.Name = "kryptonLabel3";
-            kryptonLabel3.Size = new Size(56, 22);
+            kryptonLabel3.Size = new Size(68, 27);
             kryptonLabel3.StateCommon.ShortText.Color1 = Color.Black;
             kryptonLabel3.StateCommon.ShortText.Color2 = Color.Black;
             kryptonLabel3.StateCommon.ShortText.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
@@ -164,7 +165,7 @@
             // 
             // DataPesertafrm
             // 
-            AutoScaleDimensions = new SizeF(11F, 22F);
+            AutoScaleDimensions = new SizeF(14F, 27F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             BackColor = Color.White;

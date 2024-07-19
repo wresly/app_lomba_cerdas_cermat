@@ -39,10 +39,10 @@
             Timerlbl.Anchor = AnchorStyles.None;
             Timerlbl.AutoSize = true;
             Timerlbl.Font = new Font("Arial", 70F, FontStyle.Bold, GraphicsUnit.Point);
-            Timerlbl.Location = new Point(116, 86);
+            Timerlbl.Location = new Point(80, 69);
             Timerlbl.Margin = new Padding(8, 0, 8, 0);
             Timerlbl.Name = "Timerlbl";
-            Timerlbl.Size = new Size(284, 108);
+            Timerlbl.Size = new Size(355, 134);
             Timerlbl.TabIndex = 29;
             Timerlbl.Text = "00:00";
             // 
@@ -53,7 +53,7 @@
             // 
             // PesertaTimer
             // 
-            AutoScaleDimensions = new SizeF(11F, 22F);
+            AutoScaleDimensions = new SizeF(14F, 27F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(519, 296);
             ControlBox = false;
